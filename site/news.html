@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="base-url" content="">
+  <title>Actualités — Les Greniers du Saïss</title>
+  <meta name="description" content="Actualités caroube, légumineuses et marchés agricoles — Les Greniers du Saïss.">
+  <link rel="icon" href="assets/images/logo/logo.png" type="image/png">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+
+<!-- ── Page Hero ─────────────────────────────────────────────── -->
+<header class="page-hero" aria-labelledby="news-hero-title">
+  <div class="page-hero__bg" style="background-image:url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&q=80&auto=format');" role="img" aria-label="Champ de céréales marocain"></div>
+  <div class="page-hero__overlay"></div>
+  <div class="page-hero__content">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <a href="index.html" data-i18n="nav.home">Accueil</a>
+      <span aria-hidden="true">›</span>
+      <span data-i18n="nav.news">Actualités</span>
+    </nav>
+    <h1 id="news-hero-title" data-i18n="news.hero_title">Actualités</h1>
+    <p data-i18n="news.hero_sub">Informations sur la caroube, les céréales et les marchés agricoles</p>
+  </div>
+</header>
+
+<!-- ── News Grid ─────────────────────────────────────────────── -->
+<section class="section" aria-labelledby="news-main-heading">
+  <div class="container">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:1rem">
+      <div>
+        <h2 id="news-main-heading" class="section-title" style="margin-bottom:.25rem" data-i18n="news.hero_title">Actualités</h2>
+        <p style="font-size:.85rem;color:var(--color-text-muted)">
+          <span data-i18n="news.updated">Dernière mise à jour :</span>
+          <strong id="news-updated" style="color:var(--color-primary)">—</strong>
+        </p>
+      </div>
+      <div class="lang-switcher" aria-label="Sélecteur de langue">
+        <button data-lang="fr" class="active">FR</button>
+        <button data-lang="en">EN</button>
+      </div>
+    </div>
+
+    <div class="grid-3" id="news-grid" aria-live="polite" aria-label="Articles d'actualité">
+      <p class="text-muted" style="grid-column:1/-1" data-i18n="news.loading">Chargement des actualités...</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ───────────────────────────────────────────────────── -->
+<section class="cta-section" aria-labelledby="news-cta-heading">
+  <div class="cta-section__inner" data-reveal>
+    <h2 id="news-cta-heading" data-i18n="home.cta_title">Prêt à sourcer ?</h2>
+    <p data-i18n="home.cta_sub">Contactez notre équipe pour un devis personnalisé.</p>
+    <div class="btn-actions">
+      <a href="contact.html" class="btn btn-gold" data-i18n="home.cta_quote">Demander un devis</a>
+    </div>
+  </div>
+</section>
+
+<script src="assets/js/components.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
