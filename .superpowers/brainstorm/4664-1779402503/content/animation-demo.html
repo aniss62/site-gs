@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animation Demo</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, sans-serif; background: #f0ede6; color: #1a1a2e; }
+
+  .demo-header {
+    background: #1e3578;
+    color: #fff;
+    text-align: center;
+    padding: 1.25rem 1rem;
+    font-size: .95rem;
+    letter-spacing: .03em;
+  }
+  .demo-header strong { color: #E8B84B; }
+
+  .tabs {
+    display: flex;
+    background: #fff;
+    border-bottom: 2px solid #e0ddd6;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .tab {
+    flex: 1;
+    padding: .9rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: .9rem;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all .2s;
+    color: #888;
+  }
+  .tab.active { color: #2B4BA0; border-bottom-color: #2B4BA0; background: #f8f7ff; }
+  .tab:hover:not(.active) { background: #f5f5f5; }
+
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  /* ── SECTION COMMUNES ───────── */
+  .site-nav {
+    background: #2B4BA0;
+    padding: .75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .site-nav .logo { color: #E8B84B; font-weight: 700; font-size: .9rem; letter-spacing: .08em; text-transform: uppercase; }
+  .site-nav .links { display: flex; gap: 1.5rem; }
+  .site-nav .links span { color: rgba(255,255,255,.75); font-size: .8rem; cursor: pointer; }
+
+  .hero {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    display: flex; align-items: flex-end;
+    padding: 2rem;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(160deg, #1e3578 0%, #2B4BA0 50%, #3a5fc2 100%);
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(10,15,40,.7) 0%, transparent 60%);
+  }
+  .hero-content { position: relative; z-index: 1; }
+  .hero-tag { color: #E8B84B; font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; margin-bottom: .5rem; }
+  .hero-title { color: #fff; font-size: 2rem; line-height: 1.1; font-family: Georgia, serif; font-weight: 700; }
+  .hero-title em { color: #E8B84B; font-style: italic; }
+  .hero-cta {
+    margin-top: 1rem;
+    display: inline-block;
+    background: #E8B84B;
+    color: #1e3578;
+    font-weight: 700;
+    font-size: .8rem;
+    padding: .55rem 1.25rem;
+    border-radius: 4px;
+  }
+
+  .stats-row {
+    background: #fff;
+    display: flex;
+    border-bottom: 1px solid #ebe8e0;
+  }
+  .stat { flex: 1; text-align: center; padding: 1.25rem .5rem; border-right: 1px solid #ebe8e0; }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 1.6rem; font-weight: 800; color: #2B4BA0; font-family: Georgia, serif; }
+  .stat-lbl { font-size: .65rem; color: #888; text-transform: uppercase; letter-spacing: .1em; margin-top: .2rem; }
+
+  .cards-section {
+    padding: 2rem;
+    background: #f8f5f0;
+  }
+  .section-label-el { font-size: .65rem; text-transform: uppercase; letter-spacing: .15em; color: #c99930; font-weight: 700; display: block; margin-bottom: .3rem; }
+  .section-title-el { font-size: 1.25rem; font-family: Georgia, serif; color: #2B4BA0; margin-bottom: 1.5rem; font-weight: 700; }
+
+  .cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .card-el {
+    background: #fff;
+    border: 1px solid #e8e4dc;
+    border-radius: 8px;
+    padding: 1.1rem;
+  }
+  .card-icon {
+    width: 36px; height: 36px;
+    background: rgba(43,75,160,.08);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: .75rem;
+    color: #2B4BA0;
+    font-size: 1rem;
+  }
+  .card-el h4 { font-size: .82rem; font-weight: 700; margin-bottom: .3rem; color: #1a1a2e; }
+  .card-el p { font-size: .72rem; color: #666; line-height: 1.5; }
+
+  .cta-strip {
+    background: linear-gradient(135deg, #1e3578, #2B4BA0);
+    padding: 2rem;
+    text-align: center;
+  }
+  .cta-strip h3 { color: #fff; font-family: Georgia,serif; font-size: 1.2rem; margin-bottom: .5rem; }
+  .cta-strip p { color: rgba(255,255,255,.7); font-size: .78rem; margin: 0 auto 1rem; max-width: 40ch; }
+  .cta-btn {
+    display: inline-block;
+    background: #E8B84B;
+    color: #1e3578;
+    font-weight: 700;
+    font-size: .8rem;
+    padding: .6rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  /* ─────────────────────────────────────────────
+     OPTION A — Sobre
+  ───────────────────────────────────────────── */
+  #panel-a .site-nav .links span {
+    transition: color .2s;
+  }
+  #panel-a .site-nav .links span:hover { color: #E8B84B; }
+
+  #panel-a .hero-cta {
+    transition: background .22s, transform .22s, box-shadow .22s;
+  }
+  #panel-a .hero-cta:hover {
+    background: #c99930;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(232,184,75,.4);
+    cursor: pointer;
+  }
+  #panel-a .hero-cta:active { transform: translateY(0); }
+
+  #panel-a .card-el {
+    transition: box-shadow .22s, transform .22s;
+    cursor: pointer;
+  }
+  #panel-a .card-el:hover {
+    box-shadow: 0 4px 16px rgba(43,75,160,.12);
+    transform: translateY(-2px);
+  }
+
+  #panel-a .cta-btn {
+    transition: background .22s, transform .22s;
+  }
+  #panel-a .cta-btn:hover {
+    background: #c99930;
+    transform: translateY(-2px);
+  }
+
+  /* Fade-in reveal (A) */
+  #panel-a [data-reveal-a] {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity .5s ease, transform .5s ease;
+  }
+  #panel-a [data-reveal-a].visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─────────────────────────────────────────────
+     OPTION B — Moyen
+  ───────────────────────────────────────────── */
+  #panel-b .site-nav {
+    backdrop-filter: blur(12px);
+    background: rgba(30,53,120,.9);
+  }
+  #panel-b .site-nav .links span {
+    transition: color .2s, letter-spacing .2s;
+  }
+  #panel-b .site-nav .links span:hover { color: #E8B84B; letter-spacing: .04em; }
+
+  #panel-b .hero-bg {
+    transition: transform 8s ease;
+  }
+
+  #panel-b .hero-cta {
+    transition: background .22s, transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .22s;
+  }
+  #panel-b .hero-cta:hover {
+    background: #c99930;
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 10px 28px rgba(232,184,75,.45);
+    cursor: pointer;
+  }
+  #panel-b .hero-cta:active { transform: translateY(-1px) scale(.98); }
+
+  #panel-b .stat-num {
+    transition: color .3s;
+  }
+
+  #panel-b .card-el {
+    transition: box-shadow .3s, transform .3s cubic-bezier(.34,1.56,.64,1), border-color .3s;
+    cursor: pointer;
+  }
+  #panel-b .card-el:hover {
+    box-shadow: 0 8px 28px rgba(43,75,160,.18);
+    transform: translateY(-5px);
+    border-color: rgba(43,75,160,.25);
+  }
+
+  #panel-b .card-icon {
+    transition: background .3s, transform .3s cubic-bezier(.34,1.56,.64,1);
+  }
+  #panel-b .card-el:hover .card-icon {
+    background: rgba(43,75,160,.18);
+    transform: scale(1.15) rotate(-4deg);
+  }
+
+  #panel-b .cta-btn {
+    transition: background .22s, transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .22s;
+  }
+  #panel-b .cta-btn:hover {
+    background: #c99930;
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(232,184,75,.5);
+  }
+  #panel-b .cta-btn:active { transform: translateY(-1px) scale(.97); }
+
+  /* Staggered cascade reveal (B) */
+  #panel-b [data-reveal-b] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .6s ease, transform .6s cubic-bezier(.22,1,.36,1);
+  }
+  #panel-b [data-reveal-b].visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  #panel-b [data-reveal-b]:nth-child(2) { transition-delay: .1s; }
+  #panel-b [data-reveal-b]:nth-child(3) { transition-delay: .2s; }
+  #panel-b [data-reveal-b]:nth-child(4) { transition-delay: .3s; }
+
+  /* Counter animation (B) */
+  .counter-b { display: inline-block; }
+
+  /* Gradient shimmer on section label (B) */
+  #panel-b .section-label-el {
+    background: linear-gradient(90deg, #c99930, #E8B84B, #c99930);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 2.5s linear infinite;
+  }
+  @keyframes shimmer { to { background-position: 200% center; } }
+
+  /* Noise texture overlay (B) */
+  #panel-b .cards-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: .025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  #panel-b .cards-section { position: relative; }
+
+  .pick-bar {
+    position: sticky;
+    bottom: 0;
+    background: #fff;
+    border-top: 1px solid #e0ddd6;
+    padding: .75rem 1.5rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  .pick-btn {
+    flex: 1;
+    max-width: 200px;
+    padding: .65rem 1rem;
+    border: 2px solid #2B4BA0;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: .85rem;
+    cursor: pointer;
+    transition: all .2s;
+    background: transparent;
+    color: #2B4BA0;
+    font-family: inherit;
+  }
+  .pick-btn:hover { background: #2B4BA0; color: #fff; }
+  .pick-btn.selected { background: #2B4BA0; color: #fff; }
+</style>
+</head>
+<body>
+
+<div class="demo-header">
+  Démo interactive — survole les éléments pour voir les animations en action<br>
+  <strong>Tab A = Sobre &nbsp;·&nbsp; Tab B = Moyen</strong>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showPanel('a')">A — Sobre</div>
+  <div class="tab" onclick="showPanel('b')">B — Moyen</div>
+</div>
+
+<!-- ══ PANEL A ══ -->
+<div id="panel-a" class="panel active">
+  <nav class="site-nav">
+    <div class="logo">Les Greniers du Saïss</div>
+    <div class="links">
+      <span>Produits</span><span>Qualité</span><span>Contact</span>
+      <span style="color:#E8B84B;font-weight:600;">FR</span>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content" data-reveal-a>
+      <div class="hero-tag">Export agricole du Maroc</div>
+      <div class="hero-title">Du cœur du Maroc<br><em>vers le monde</em></div>
+      <div class="hero-cta">Découvrir nos produits</div>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat" data-reveal-a><div class="stat-num">15+</div><div class="stat-lbl">Pays</div></div>
+    <div class="stat" data-reveal-a><div class="stat-num">18+</div><div class="stat-lbl">Années</div></div>
+    <div class="stat" data-reveal-a><div class="stat-num">500+</div><div class="stat-lbl">Tonnes/an</div></div>
+    <div class="stat" data-reveal-a><div class="stat-num">5</div><div class="stat-lbl">Gammes</div></div>
+  </div>
+
+  <div class="cards-section">
+    <span class="section-label-el">Pourquoi nous choisir</span>
+    <div class="section-title-el">Notre engagement qualité</div>
+    <div class="cards-grid">
+      <div class="card-el" data-reveal-a>
+        <div class="card-icon">✓</div>
+        <h4>Qualité certifiée</h4>
+        <p>Normes internationales les plus exigeantes.</p>
+      </div>
+      <div class="card-el" data-reveal-a>
+        <div class="card-icon">◎</div>
+        <h4>Traçabilité totale</h4>
+        <p>De la récolte à la livraison, chaque lot suivi.</p>
+      </div>
+      <div class="card-el" data-reveal-a>
+        <div class="card-icon">⬡</div>
+        <h4>Agriculture durable</h4>
+        <p>Sourcing local, partenariat agriculteurs Saïss.</p>
+      </div>
+      <div class="card-el" data-reveal-a>
+        <div class="card-icon">◈</div>
+        <h4>Expertise internationale</h4>
+        <p>Europe, Asie, Moyen-Orient, Amériques.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-strip" data-reveal-a>
+    <h3>Prêt à sourcer ?</h3>
+    <p>Contactez notre équipe pour un devis personnalisé.</p>
+    <div class="cta-btn">Demander un devis</div>
+  </div>
+</div>
+
+<!-- ══ PANEL B ══ -->
+<div id="panel-b" class="panel">
+  <nav class="site-nav">
+    <div class="logo">Les Greniers du Saïss</div>
+    <div class="links">
+      <span>Produits</span><span>Qualité</span><span>Contact</span>
+      <span style="color:#E8B84B;font-weight:600;">FR</span>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-bg" id="hero-bg-b"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content" data-reveal-b>
+      <div class="hero-tag">Export agricole du Maroc</div>
+      <div class="hero-title">Du cœur du Maroc<br><em>vers le monde</em></div>
+      <div class="hero-cta">Découvrir nos produits</div>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat" data-reveal-b><div class="stat-num counter-b" data-target="15" data-suffix="+">0</div><div class="stat-lbl">Pays</div></div>
+    <div class="stat" data-reveal-b><div class="stat-num counter-b" data-target="18" data-suffix="+">0</div><div class="stat-lbl">Années</div></div>
+    <div class="stat" data-reveal-b><div class="stat-num counter-b" data-target="500" data-suffix="+">0</div><div class="stat-lbl">Tonnes/an</div></div>
+    <div class="stat" data-reveal-b><div class="stat-num counter-b" data-target="5" data-suffix="">0</div><div class="stat-lbl">Gammes</div></div>
+  </div>
+
+  <div class="cards-section">
+    <span class="section-label-el">Pourquoi nous choisir</span>
+    <div class="section-title-el">Notre engagement qualité</div>
+    <div class="cards-grid">
+      <div class="card-el" data-reveal-b>
+        <div class="card-icon">✓</div>
+        <h4>Qualité certifiée</h4>
+        <p>Normes internationales les plus exigeantes.</p>
+      </div>
+      <div class="card-el" data-reveal-b>
+        <div class="card-icon">◎</div>
+        <h4>Traçabilité totale</h4>
+        <p>De la récolte à la livraison, chaque lot suivi.</p>
+      </div>
+      <div class="card-el" data-reveal-b>
+        <div class="card-icon">⬡</div>
+        <h4>Agriculture durable</h4>
+        <p>Sourcing local, partenariat agriculteurs Saïss.</p>
+      </div>
+      <div class="card-el" data-reveal-b>
+        <div class="card-icon">◈</div>
+        <h4>Expertise internationale</h4>
+        <p>Europe, Asie, Moyen-Orient, Amériques.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-strip" data-reveal-b>
+    <h3>Prêt à sourcer ?</h3>
+    <p>Contactez notre équipe pour un devis personnalisé.</p>
+    <div class="cta-btn">Demander un devis</div>
+  </div>
+</div>
+
+<div class="pick-bar">
+  <button class="pick-btn" onclick="pick('a')">Choisir A — Sobre</button>
+  <button class="pick-btn" onclick="pick('b')">Choisir B — Moyen</button>
+</div>
+
+<script>
+  function showPanel(id) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('panel-' + id).classList.add('active');
+    document.querySelectorAll('.tab')[id === 'a' ? 0 : 1].classList.add('active');
+    setTimeout(() => triggerReveals(id), 80);
+    if (id === 'b') runCounters();
+  }
+
+  function triggerReveals(panel) {
+    const attr = panel === 'a' ? '[data-reveal-a]' : '[data-reveal-b]';
+    document.querySelectorAll('#panel-' + panel + ' ' + attr).forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), i * 80);
+    });
+  }
+
+  function runCounters() {
+    document.querySelectorAll('#panel-b .counter-b').forEach(el => {
+      const target = parseInt(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      const duration = 1200;
+      const start = performance.now();
+      function step(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(eased * target) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+
+  function pick(choice) {
+    document.querySelectorAll('.pick-btn').forEach(b => b.classList.remove('selected'));
+    event.target.classList.add('selected');
+    // record to events file via beacon if available
+    try {
+      fetch('/event', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({type:'click', choice: choice, text: choice === 'a' ? 'A - Sobre' : 'B - Moyen', timestamp: Date.now()})
+      });
+    } catch(e) {}
+  }
+
+  // Init first panel
+  setTimeout(() => triggerReveals('a'), 200);
+</script>
+</body>
+</html>

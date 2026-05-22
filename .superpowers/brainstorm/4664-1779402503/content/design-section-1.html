@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design Section 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', system-ui, sans-serif; background: #f0ede6; color: #1a1a2e; font-size: 14px; }
+
+.page-header {
+  background: #1e3578;
+  color: #fff;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.page-header h1 { font-size: .9rem; font-weight: 600; letter-spacing: .03em; }
+.page-header .step { color: #E8B84B; font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+
+.content { padding: 1.5rem; max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem; }
+
+.section-card {
+  background: #fff;
+  border: 1px solid #e8e4dc;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.section-card__header {
+  background: #f8f5f0;
+  border-bottom: 1px solid #e8e4dc;
+  padding: .75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+.section-card__header .label {
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #888;
+}
+.section-card__body { padding: 1.25rem; }
+
+/* ─── BEFORE / AFTER split ─── */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #e8e4dc; border-radius: 6px; overflow: hidden; }
+.split-col { background: #fff; padding: 1rem; }
+.split-col.after { background: #fafaf8; }
+.split-label { font-size: .6rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #aaa; margin-bottom: .75rem; }
+.split-label.after-label { color: #2B4BA0; }
+
+/* ── TYPOGRAPHY ── */
+.typo-row { display: flex; flex-direction: column; gap: .5rem; }
+.typo-sample { line-height: 1.15; }
+
+/* Before */
+.before-h1 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: #1C1C2E; }
+.before-h2 { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: #2B4BA0; }
+.before-label-tag { font-size: .65rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #c99930; }
+.before-body { font-size: .85rem; color: #5a5a72; line-height: 1.65; max-width: 38ch; }
+
+/* After */
+.after-h1 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: #0f1628; letter-spacing: -.02em; line-height: 1.05; }
+.after-h2 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 600; color: #2B4BA0; letter-spacing: -.015em; }
+.after-label-tag {
+  font-family: 'Outfit', sans-serif;
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #c99930;
+}
+.after-body { font-family: 'Inter', sans-serif; font-size: .83rem; color: #4a4a62; line-height: 1.7; max-width: 38ch; font-weight: 400; }
+.note { font-size: .68rem; color: #2B4BA0; background: rgba(43,75,160,.06); border-radius: 4px; padding: .25rem .6rem; display: inline-block; margin-top: .3rem; }
+
+/* ── PALETTE ── */
+.palette-grid { display: flex; gap: .5rem; flex-wrap: wrap; }
+.swatch { border-radius: 6px; overflow: hidden; width: 80px; }
+.swatch-color { height: 44px; }
+.swatch-label { font-size: .58rem; font-weight: 600; padding: .25rem .4rem; background: #fff; border: 1px solid #eee; border-top: none; color: #555; text-align: center; }
+
+/* Before palette */
+.before-swatches .swatch-color.p1 { background: #2B4BA0; }
+.before-swatches .swatch-color.p2 { background: #E8B84B; }
+.before-swatches .swatch-color.p3 { background: #F7F7F7; }
+.before-swatches .swatch-color.p4 { background: #1C1C2E; }
+.before-swatches .swatch-color.p5 { background: #fff; border: 1px solid #eee; }
+
+/* After palette — same hues, refined */
+.after-swatches .swatch-color.p1 { background: #2B4BA0; }
+.after-swatches .swatch-color.p2 { background: #E8B84B; }
+.after-swatches .swatch-color.p3 { background: #f4f1eb; } /* crème au lieu de gris pur */
+.after-swatches .swatch-color.p4 { background: #0f1628; } /* quasi-noir teinté bleu */
+.after-swatches .swatch-color.p5 { background: #fffdf9; } /* blanc chaud au lieu de #fff pur */
+.after-swatches .swatch-color.p6 { background: rgba(43,75,160,.08); border: 1px solid rgba(43,75,160,.15); } /* surface bleue subtile */
+
+/* ── SHADOWS ── */
+.shadow-demo { display: flex; flex-direction: column; gap: .75rem; }
+.shadow-card { border-radius: 8px; padding: .75rem 1rem; font-size: .75rem; font-weight: 500; }
+.shadow-before-1 { background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,.10); color: #333; }
+.shadow-before-2 { background: #fff; box-shadow: 0 8px 32px rgba(0,0,0,.14); color: #333; }
+.shadow-after-1 { background: #fff; box-shadow: 0 4px 16px rgba(43,75,160,.10); color: #333; border: 1px solid rgba(43,75,160,.08); }
+.shadow-after-2 { background: #fff; box-shadow: 0 8px 28px rgba(43,75,160,.14); color: #333; border: 1px solid rgba(43,75,160,.1); }
+.shadow-after-3 { background: linear-gradient(135deg,#fafaf8,#fffdf9); box-shadow: 0 2px 8px rgba(43,75,160,.08); color: #333; border: 1px solid #ebe7df; }
+
+/* ── SURFACES ── */
+.surface-demo { display: flex; gap: .5rem; }
+.surface-sample { flex: 1; border-radius: 8px; height: 70px; display: flex; align-items: center; justify-content: center; font-size: .65rem; font-weight: 600; color: #666; text-align: center; padding: .5rem; }
+.surf-a { background: #F7F7F7; border: 1px solid #e0e0ec; }
+.surf-b { background: #f4f1eb; border: 1px solid #e8e4dc; }
+.surf-c {
+  background: #f4f1eb;
+  border: 1px solid #e8e4dc;
+  position: relative;
+  overflow: hidden;
+}
+.surf-c::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: .04;
+  pointer-events: none;
+}
+
+/* ── APPROVE BAR ── */
+.approve-bar {
+  position: sticky; bottom: 0;
+  background: #fff;
+  border-top: 2px solid #e8e4dc;
+  padding: .8rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.approve-bar p { font-size: .8rem; color: #666; }
+.approve-bar p strong { color: #1a1a2e; }
+.btn-approve {
+  background: #2B4BA0;
+  color: #fff;
+  font-weight: 700;
+  font-size: .82rem;
+  padding: .6rem 1.5rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background .2s, transform .2s;
+}
+.btn-approve:hover { background: #1e3578; transform: translateY(-1px); }
+.btn-revise {
+  background: transparent;
+  color: #888;
+  font-size: .8rem;
+  border: 1px solid #ddd;
+  padding: .6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color .2s, color .2s;
+}
+.btn-revise:hover { border-color: #999; color: #444; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Design — Section 1 / 3 : Tokens, Typographie & Surfaces</h1>
+  <span class="step">Étape 1</span>
+</div>
+
+<div class="content">
+
+  <!-- TYPOGRAPHIE -->
+  <div class="section-card">
+    <div class="section-card__header">
+      <span class="label">Typographie</span>
+    </div>
+    <div class="section-card__body">
+      <div class="split">
+        <div class="split-col">
+          <div class="split-label">Avant</div>
+          <div class="typo-row">
+            <div class="before-label-tag">Export agricole du Maroc</div>
+            <div class="before-h1">Du cœur du Maroc<br><em>vers le monde</em></div>
+            <div class="before-h2">Nos produits</div>
+            <div class="before-body">Exportateur de produits de caroube et de légumineuses de qualité supérieure depuis la fertile région du Saïss.</div>
+          </div>
+        </div>
+        <div class="split-col after">
+          <div class="split-label after-label">Après</div>
+          <div class="typo-row">
+            <div class="after-label-tag">Export agricole du Maroc</div>
+            <div class="after-h1">Du cœur du Maroc<br><em>vers le monde</em></div>
+            <div class="after-h2">Nos produits</div>
+            <div class="after-body">Exportateur de produits de caroube et de légumineuses de qualité supérieure depuis la fertile région du Saïss.</div>
+          </div>
+          <div class="note">Labels → Outfit 600 · Titres → tracking négatif · Corps → Inter 400 line-height 1.7</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PALETTE -->
+  <div class="section-card">
+    <div class="section-card__header">
+      <span class="label">Palette — même bleu, même or, surfaces raffinées</span>
+    </div>
+    <div class="section-card__body">
+      <div class="split">
+        <div class="split-col">
+          <div class="split-label">Avant</div>
+          <div class="palette-grid before-swatches">
+            <div class="swatch"><div class="swatch-color p1"></div><div class="swatch-label">#2B4BA0</div></div>
+            <div class="swatch"><div class="swatch-color p2"></div><div class="swatch-label">#E8B84B</div></div>
+            <div class="swatch"><div class="swatch-color p3"></div><div class="swatch-label">#F7F7F7 bg</div></div>
+            <div class="swatch"><div class="swatch-color p4"></div><div class="swatch-label">#1C1C2E txt</div></div>
+            <div class="swatch"><div class="swatch-color p5"></div><div class="swatch-label">#FFF page</div></div>
+          </div>
+        </div>
+        <div class="split-col after">
+          <div class="split-label after-label">Après</div>
+          <div class="palette-grid after-swatches">
+            <div class="swatch"><div class="swatch-color p1"></div><div class="swatch-label">#2B4BA0 ✓</div></div>
+            <div class="swatch"><div class="swatch-color p2"></div><div class="swatch-label">#E8B84B ✓</div></div>
+            <div class="swatch"><div class="swatch-color p3"></div><div class="swatch-label">#f4f1eb bg</div></div>
+            <div class="swatch"><div class="swatch-color p4"></div><div class="swatch-label">#0f1628 txt</div></div>
+            <div class="swatch"><div class="swatch-color p5"></div><div class="swatch-label">#fffdf9 page</div></div>
+            <div class="swatch"><div class="swatch-color p6"></div><div class="swatch-label">surface/8%</div></div>
+          </div>
+          <div class="note" style="margin-top:.75rem">Blanc pur → blanc chaud · Gris neutre → crème teinté · Quasi-noir teinté bleu</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SHADOWS -->
+  <div class="section-card">
+    <div class="section-card__header">
+      <span class="label">Shadows — teintées bleu au lieu de noir opaque</span>
+    </div>
+    <div class="section-card__body">
+      <div class="split">
+        <div class="split-col">
+          <div class="split-label">Avant — noir générique</div>
+          <div class="shadow-demo">
+            <div class="shadow-card shadow-before-1">shadow-md · rgba(0,0,0,.10)</div>
+            <div class="shadow-card shadow-before-2">shadow-lg · rgba(0,0,0,.14)</div>
+          </div>
+        </div>
+        <div class="split-col after">
+          <div class="split-label after-label">Après — teintées bleu</div>
+          <div class="shadow-demo">
+            <div class="shadow-card shadow-after-1">shadow-md · rgba(43,75,160,.10)</div>
+            <div class="shadow-card shadow-after-2">shadow-lg · rgba(43,75,160,.14)</div>
+            <div class="shadow-card shadow-after-3">surface card · gradient chaud</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SURFACES FOND -->
+  <div class="section-card">
+    <div class="section-card__header">
+      <span class="label">Texture de fond — grain subtil sur sections alternées</span>
+    </div>
+    <div class="section-card__body">
+      <div class="split">
+        <div class="split-col">
+          <div class="split-label">Avant — aplat gris uniforme</div>
+          <div class="surface-demo">
+            <div class="surface-sample surf-a">#F7F7F7<br>sans texture</div>
+            <div class="surface-sample surf-a">#F7F7F7<br>sans texture</div>
+          </div>
+        </div>
+        <div class="split-col after">
+          <div class="split-label after-label">Après — crème + grain 4% opacité</div>
+          <div class="surface-demo">
+            <div class="surface-sample surf-b">#f4f1eb<br>crème chaud</div>
+            <div class="surface-sample surf-c">#f4f1eb<br>+ grain SVG</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="approve-bar">
+  <p><strong>Section 1/3 — Tokens & Surfaces.</strong> Ça te convient ?</p>
+  <div style="display:flex;gap:.75rem;">
+    <button class="btn-revise" onclick="send('revise')">Modifier</button>
+    <button class="btn-approve" onclick="send('approve')">Approuver →</button>
+  </div>
+</div>
+
+<script>
+function send(action) {
+  try {
+    fetch('/event', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({type:'click', choice: action, text: action === 'approve' ? 'Section 1 approuvée' : 'Révision demandée', timestamp: Date.now()})
+    });
+  } catch(e) {}
+  document.querySelector('.approve-bar p').textContent = action === 'approve' ? '✓ Section approuvée — réponds dans le terminal pour continuer.' : 'Réponds dans le terminal pour indiquer ce que tu veux changer.';
+}
+</script>
+</body>
+</html>

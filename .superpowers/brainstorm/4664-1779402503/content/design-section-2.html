@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design Section 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; background: #f4f1eb; color: #0f1628; font-size: 14px; }
+
+.page-header {
+  background: #1e3578;
+  color: #fff;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.page-header h1 { font-size: .9rem; font-weight: 600; }
+.page-header .step { color: #E8B84B; font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+
+.content { padding: 1.5rem; max-width: 920px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem; }
+
+.section-card { background: #fff; border: 1px solid #e8e4dc; border-radius: 10px; overflow: hidden; }
+.section-card__header { background: #f8f5f0; border-bottom: 1px solid #e8e4dc; padding: .75rem 1.25rem; }
+.section-card__header .label { font-size: .65rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #888; }
+.section-card__body { padding: 1.25rem; }
+
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #e8e4dc; border-radius: 6px; overflow: hidden; }
+.split-col { background: #fff; padding: 1rem; }
+.split-col.after { background: #fafaf8; }
+.split-label { font-size: .6rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #bbb; margin-bottom: .85rem; }
+.split-label.al { color: #2B4BA0; }
+.note { font-size: .68rem; color: #2B4BA0; background: rgba(43,75,160,.06); border-radius: 4px; padding: .3rem .65rem; display: inline-block; margin-top: .75rem; }
+
+/* ── NAVIGATION ── */
+.nav-before {
+  background: #2B4BA0;
+  padding: .65rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 6px;
+}
+.nav-after {
+  background: rgba(30,53,120,.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: .65rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,.1);
+  box-shadow: 0 4px 20px rgba(10,20,60,.18), inset 0 1px 0 rgba(255,255,255,.08);
+}
+.nav-logo { color: #E8B84B; font-family: 'Outfit', sans-serif; font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.nav-links { display: flex; gap: 1rem; align-items: center; }
+.nav-link-before { color: rgba(255,255,255,.75); font-size: .72rem; }
+.nav-link-after { color: rgba(255,255,255,.8); font-size: .72rem; font-family: 'Outfit', sans-serif; font-weight: 500; letter-spacing: .02em; transition: color .2s; cursor: pointer; }
+.nav-link-after:hover { color: #E8B84B; }
+.nav-lang-before { color: #E8B84B; font-size: .7rem; font-weight: 600; }
+.nav-lang-after {
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 20px;
+  padding: .18rem .6rem;
+  color: #fff;
+  font-size: .65rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  letter-spacing: .04em;
+}
+
+/* ── BUTTONS ── */
+.btn-row { display: flex; gap: .75rem; flex-wrap: wrap; align-items: center; }
+
+/* Before */
+.btn-before-gold { display: inline-flex; align-items: center; padding: .6rem 1.3rem; border-radius: 8px; font-size: .78rem; font-weight: 600; background: #E8B84B; color: #1e3578; cursor: pointer; }
+.btn-before-outline { display: inline-flex; align-items: center; padding: .6rem 1.3rem; border-radius: 8px; font-size: .78rem; font-weight: 600; background: transparent; color: #2B4BA0; border: 2px solid #2B4BA0; cursor: pointer; }
+.btn-before-ghost { display: inline-flex; align-items: center; padding: .6rem 1.3rem; border-radius: 8px; font-size: .78rem; font-weight: 600; background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.65); cursor: pointer; }
+
+/* After */
+.btn-after-gold {
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .62rem 1.35rem; border-radius: 6px;
+  font-size: .78rem; font-weight: 700; letter-spacing: .02em;
+  font-family: 'Outfit', sans-serif;
+  background: #E8B84B; color: #1e3578;
+  box-shadow: 0 4px 14px rgba(232,184,75,.3);
+  cursor: pointer;
+  transition: background .22s, transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .22s;
+}
+.btn-after-gold:hover { background: #c99930; transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 22px rgba(232,184,75,.42); }
+.btn-after-gold:active { transform: translateY(-1px) scale(.98); }
+
+.btn-after-outline {
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .6rem 1.3rem; border-radius: 6px;
+  font-size: .78rem; font-weight: 600; letter-spacing: .02em;
+  font-family: 'Outfit', sans-serif;
+  background: transparent; color: #2B4BA0;
+  border: 1.5px solid rgba(43,75,160,.35);
+  cursor: pointer;
+  transition: background .22s, border-color .22s, transform .3s cubic-bezier(.34,1.56,.64,1);
+}
+.btn-after-outline:hover { background: rgba(43,75,160,.06); border-color: #2B4BA0; transform: translateY(-2px); }
+
+.btn-after-text {
+  display: inline-flex; align-items: center; gap: .3rem;
+  padding: .6rem .5rem;
+  font-size: .78rem; font-weight: 600; color: #2B4BA0;
+  font-family: 'Outfit', sans-serif;
+  cursor: pointer;
+  border-bottom: 1.5px solid transparent;
+  transition: border-color .2s, gap .2s;
+}
+.btn-after-text:hover { border-bottom-color: #2B4BA0; gap: .5rem; }
+
+/* ── CARDS ── */
+.cards-demo { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+
+.card-before {
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #e0e0ec;
+  box-shadow: 0 4px 16px rgba(0,0,0,.10);
+  padding: .9rem;
+  cursor: pointer;
+  transition: box-shadow .2s, transform .2s;
+}
+.card-before:hover { box-shadow: 0 6px 20px rgba(0,0,0,.14); transform: translateY(-2px); }
+
+.card-after {
+  background: linear-gradient(145deg, #fff, #fdfcf8);
+  border-radius: 8px;
+  border: 1px solid rgba(43,75,160,.08);
+  box-shadow: 0 4px 16px rgba(43,75,160,.08);
+  padding: .9rem;
+  cursor: pointer;
+  transition: box-shadow .3s, transform .3s cubic-bezier(.34,1.56,.64,1), border-color .3s;
+}
+.card-after:hover {
+  box-shadow: 0 10px 28px rgba(43,75,160,.15);
+  transform: translateY(-5px);
+  border-color: rgba(43,75,160,.2);
+}
+
+.card-icon-before {
+  width: 34px; height: 34px;
+  background: rgba(43,75,160,.08);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: .6rem;
+  font-size: .9rem;
+}
+.card-icon-after {
+  width: 34px; height: 34px;
+  background: rgba(43,75,160,.07);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: .6rem;
+  font-size: .9rem;
+  border: 1px solid rgba(43,75,160,.1);
+  transition: background .3s, transform .3s cubic-bezier(.34,1.56,.64,1);
+}
+.card-after:hover .card-icon-after { background: rgba(43,75,160,.14); transform: scale(1.12) rotate(-5deg); }
+
+.card-h4-before { font-size: .8rem; font-weight: 700; margin-bottom: .3rem; color: #1C1C2E; }
+.card-h4-after { font-size: .8rem; font-weight: 700; margin-bottom: .3rem; color: #0f1628; font-family: 'Outfit', sans-serif; letter-spacing: -.01em; }
+.card-p { font-size: .7rem; color: #666; line-height: 1.5; }
+
+/* ── BADGES ── */
+.badges-row { display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; }
+
+.badge-before { display: inline-flex; align-items: center; padding: .28rem .75rem; border-radius: 99px; font-size: .72rem; font-weight: 600; letter-spacing: .04em; }
+.bb-gold { background: #f5d07a; color: #c99930; }
+.bb-blue { background: rgba(43,75,160,.12); color: #2B4BA0; }
+.bb-green { background: #e6f4ea; color: #2d7a3a; }
+
+.badge-after { display: inline-flex; align-items: center; padding: .28rem .7rem; border-radius: 5px; font-size: .7rem; font-weight: 700; letter-spacing: .06em; font-family: 'Outfit', sans-serif; text-transform: uppercase; }
+.ba-gold { background: rgba(232,184,75,.12); color: #b8882a; border: 1px solid rgba(232,184,75,.3); }
+.ba-blue { background: rgba(43,75,160,.07); color: #2B4BA0; border: 1px solid rgba(43,75,160,.2); }
+.ba-green { background: rgba(45,122,58,.07); color: #2d7a3a; border: 1px solid rgba(45,122,58,.2); }
+
+/* ── APPROVE BAR ── */
+.approve-bar {
+  position: sticky; bottom: 0;
+  background: #fff;
+  border-top: 2px solid #e8e4dc;
+  padding: .8rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.approve-bar p { font-size: .8rem; color: #666; }
+.approve-bar p strong { color: #1a1a2e; }
+.btn-approve { background: #2B4BA0; color: #fff; font-weight: 700; font-size: .82rem; padding: .6rem 1.5rem; border-radius: 6px; border: none; cursor: pointer; font-family: inherit; transition: background .2s, transform .2s; }
+.btn-approve:hover { background: #1e3578; transform: translateY(-1px); }
+.btn-revise { background: transparent; color: #888; font-size: .8rem; border: 1px solid #ddd; padding: .6rem 1rem; border-radius: 6px; cursor: pointer; font-family: inherit; transition: border-color .2s, color .2s; }
+.btn-revise:hover { border-color: #999; color: #444; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Design — Section 2 / 3 : Navigation & Composants</h1>
+  <span class="step">Étape 2</span>
+</div>
+
+<div class="content">
+
+  <!-- NAV -->
+  <div class="section-card">
+    <div class="section-card__header"><span class="label">Navigation — glassmorphisme subtil</span></div>
+    <div class="section-card__body" style="display:flex;flex-direction:column;gap:1rem;">
+      <div>
+        <div class="split-label" style="margin-bottom:.5rem;">Avant — aplat bleu uni</div>
+        <div class="nav-before">
+          <div class="nav-logo">Les Greniers du Saïss</div>
+          <div class="nav-links">
+            <span class="nav-link-before">Produits</span>
+            <span class="nav-link-before">Qualité</span>
+            <span class="nav-link-before">Contact</span>
+            <span class="nav-lang-before">FR</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="split-label al" style="margin-bottom:.5rem;">Après — backdrop-blur + inner border + shadow</div>
+        <div class="nav-after">
+          <div class="nav-logo">Les Greniers du Saïss</div>
+          <div class="nav-links">
+            <span class="nav-link-after">Produits</span>
+            <span class="nav-link-after">Qualité</span>
+            <span class="nav-link-after">Contact</span>
+            <span class="nav-lang-after">FR · EN</span>
+          </div>
+        </div>
+        <div class="note">backdrop-filter: blur(14px) · inner border 1px rgba(255,255,255,.1) · hover → #E8B84B</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUTTONS -->
+  <div class="section-card">
+    <div class="section-card__header"><span class="label">Boutons — spring physics + hiérarchie complète</span></div>
+    <div class="section-card__body">
+      <div class="split">
+        <div class="split-col">
+          <div class="split-label">Avant — 2 styles seulement</div>
+          <div class="btn-row">
+            <span class="btn-before-gold">Découvrir →</span>
+            <span class="btn-before-outline">Explorer</span>
+            <span class="btn-before-ghost">Contact</span>
+          </div>
+        </div>
+        <div class="split-col after">
+          <div class="split-label al">Après — 3 niveaux + spring hover</div>
+          <div class="btn-row">
+            <span class="btn-after-gold">Découvrir →</span>
+            <span class="btn-after-outline">Explorer</span>
+            <span class="btn-after-text">En savoir plus →</span>
+          </div>
+          <div class="note">Survole pour voir le spring physics</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURE CARDS -->
+  <div class="section-card">
+    <div class="section-card__header"><span class="label">Cartes feature — gradient chaud + icon spring</span></div>
+    <div class="section-card__body">
+      <div class="split">
+        <div class="split-col">
+          <div class="split-label">Avant — shadow noir générique</div>
+          <div class="cards-demo">
+            <div class="card-before">
+              <div class="card-icon-before">✓</div>
+              <div class="card-h4-before">Qualité certifiée</div>
+              <div class="card-p">Normes internationales les plus exigeantes.</div>
+            </div>
+            <div class="card-before">
+              <div class="card-icon-before">◎</div>
+              <div class="card-h4-before">Traçabilité totale</div>
+              <div class="card-p">De la récolte à la livraison.</div>
+            </div>
+          </div>
+        </div>
+        <div class="split-col after">
+          <div class="split-label al">Après — gradient + shadow bleue + icon spring</div>
+          <div class="cards-demo">
+            <div class="card-after">
+              <div class="card-icon-after">✓</div>
+              <div class="card-h4-after">Qualité certifiée</div>
+              <div class="card-p">Normes internationales les plus exigeantes.</div>
+            </div>
+            <div class="card-after">
+              <div class="card-icon-after">◎</div>
+              <div class="card-h4-after">Traçabilité totale</div>
+              <div class="card-p">De la récolte à la livraison.</div>
+            </div>
+          </div>
+          <div class="note">Survole les cartes pour voir l'animation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BADGES -->
+  <div class="section-card">
+    <div class="section-card__header"><span class="label">Badges — carrés avec border au lieu de pills génériques</span></div>
+    <div class="section-card__body">
+      <div class="split">
+        <div class="split-col">
+          <div class="split-label">Avant — pills rondes</div>
+          <div class="badges-row">
+            <span class="badge-before bb-gold">Kharoub</span>
+            <span class="badge-before bb-blue">Import / Export</span>
+            <span class="badge-before bb-green">Durable</span>
+            <span class="badge-before bb-blue">Caroube brute</span>
+          </div>
+        </div>
+        <div class="split-col after">
+          <div class="split-label al">Après — carrés + border teinté</div>
+          <div class="badges-row">
+            <span class="badge-after ba-gold">Kharoub</span>
+            <span class="badge-after ba-blue">Import / Export</span>
+            <span class="badge-after ba-green">Durable</span>
+            <span class="badge-after ba-blue">Caroube brute</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="approve-bar">
+  <p><strong>Section 2/3 — Navigation & Composants.</strong> Ça te convient ?</p>
+  <div style="display:flex;gap:.75rem;">
+    <button class="btn-revise" onclick="send('revise')">Modifier</button>
+    <button class="btn-approve" onclick="send('approve')">Approuver →</button>
+  </div>
+</div>
+
+<script>
+function send(action) {
+  try {
+    fetch('/event', { method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({type:'click', choice:action, text: action==='approve'?'Section 2 approuvée':'Révision demandée', timestamp:Date.now()})
+    });
+  } catch(e) {}
+  document.querySelector('.approve-bar p').textContent = action==='approve'
+    ? '✓ Section approuvée — réponds dans le terminal pour continuer.'
+    : 'Réponds dans le terminal pour indiquer ce que tu veux changer.';
+}
+</script>
+</body>
+</html>

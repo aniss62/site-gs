@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Les Greniers du Saïss — Aperçu v3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue:      #2B4BA0;
+  --blue-dark: #1e3578;
+  --blue-deep: #080e24;
+  --gold:      #E8B84B;
+  --gold-dark: #c99930;
+  --gold-light:#f5d07a;
+  --ink:       #06091a;
+  --text:      #0f1628;
+  --muted:     #4a4a62;
+  --bg:        #f4f1eb;
+  --white:     #fffdf9;
+  --border:    #e8e4dc;
+  --spring:    cubic-bezier(.34,1.56,.64,1);
+  --ease-out:  cubic-bezier(.22,1,.36,1);
+  --fh: 'Playfair Display', Georgia, serif;
+  --fb: 'Inter', system-ui, sans-serif;
+  --fl: 'Outfit', system-ui, sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--white);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* ── BANNER ── */
+.banner{background:var(--ink);color:rgba(255,255,255,.45);text-align:center;padding:.4rem 1rem;font-size:.68rem;font-family:var(--fl);letter-spacing:.08em;border-bottom:1px solid rgba(255,255,255,.05)}
+.banner strong{color:var(--gold)}
+
+/* ── NAV ── */
+.nav{
+  position:sticky;top:0;z-index:300;
+  background:rgba(6,9,26,.85);
+  backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+  box-shadow:0 2px 30px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.05);
+  padding:.7rem 2rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav__logo{display:flex;align-items:center;gap:.75rem;cursor:pointer}
+.nav__logo img{
+  height:48px;width:auto;
+  filter:drop-shadow(0 2px 8px rgba(232,184,75,.3));
+  transition:filter .3s;
+}
+.nav__logo:hover img{filter:drop-shadow(0 4px 14px rgba(232,184,75,.5))}
+.nav__links{display:flex;gap:2rem;align-items:center}
+.nav__link{
+  color:rgba(255,255,255,.6);font-family:var(--fl);font-size:.78rem;font-weight:500;
+  letter-spacing:.03em;cursor:pointer;transition:color .2s;
+}
+.nav__link:hover{color:var(--gold)}
+.nav__lang{
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
+  border-radius:20px;padding:.22rem .85rem;
+  color:rgba(255,255,255,.8);font-family:var(--fl);font-size:.66rem;font-weight:600;letter-spacing:.07em;
+  transition:background .2s;cursor:pointer;
+}
+.nav__lang:hover{background:rgba(255,255,255,.13)}
+
+/* ── HERO ── */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;align-items:flex-end;
+  padding:0 3rem 5rem;overflow:hidden;
+}
+.hero__bg{
+  position:absolute;inset:0;
+  background-image:url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=1920&q=90&auto=format');
+  background-size:cover;background-position:center 35%;
+  transition:transform 10s ease;transform:scale(1.06);
+}
+.hero__bg.loaded{transform:scale(1)}
+.hero__overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(170deg,rgba(6,9,26,.72) 0%,rgba(6,9,26,.42) 45%,rgba(6,9,26,.18) 100%);
+}
+.hero__noise{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:.055;
+}
+.hero__content{position:relative;z-index:1;max-width:700px}
+.hero__eyebrow{
+  display:inline-flex;align-items:center;gap:.65rem;margin-bottom:1.4rem;
+}
+.hero__line{width:32px;height:1px;background:var(--gold);opacity:.75}
+.hero__label{
+  font-family:var(--fl);font-size:.68rem;font-weight:600;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+}
+.hero__title{
+  font-family:var(--fh);
+  font-size:clamp(3rem,6.5vw,5.5rem);
+  font-weight:700;color:#fff;
+  line-height:.98;letter-spacing:-.03em;
+  margin-bottom:1.5rem;
+}
+.hero__title em{color:var(--gold);font-style:italic}
+.hero__sub{
+  color:rgba(255,255,255,.65);font-size:1.05rem;font-weight:300;
+  max-width:52ch;margin-bottom:2.5rem;line-height:1.75;
+}
+.hero__actions{display:flex;gap:1rem;flex-wrap:wrap}
+.hero__scroll{
+  position:absolute;bottom:2.5rem;right:3rem;z-index:1;
+  display:flex;flex-direction:column;align-items:center;gap:.5rem;
+}
+.hero__scroll-track{width:1px;height:44px;background:rgba(255,255,255,.12);position:relative;overflow:hidden}
+.hero__scroll-track::after{
+  content:'';position:absolute;top:-100%;width:100%;height:100%;
+  background:linear-gradient(to bottom,transparent,var(--gold),transparent);
+  animation:trackSlide 1.8s ease-in-out infinite;
+}
+@keyframes trackSlide{0%{top:-100%}100%{top:200%}}
+.hero__scroll-lbl{
+  font-family:var(--fl);font-size:.56rem;letter-spacing:.18em;
+  text-transform:uppercase;color:rgba(255,255,255,.3);
+  writing-mode:vertical-rl;
+}
+
+/* ── BUTTONS ── */
+.btn{
+  display:inline-flex;align-items:center;gap:.45rem;
+  font-family:var(--fl);font-weight:700;font-size:.88rem;
+  letter-spacing:.025em;border-radius:5px;cursor:pointer;
+  padding:.78rem 1.7rem;border:none;
+  transition:background .22s,transform .32s var(--spring),box-shadow .22s;
+}
+.btn:hover{transform:translateY(-3px) scale(1.02)}
+.btn:active{transform:translateY(-1px) scale(.985)}
+.btn-gold{background:var(--gold);color:var(--blue-deep);box-shadow:0 5px 20px rgba(232,184,75,.38)}
+.btn-gold:hover{background:var(--gold-dark);box-shadow:0 10px 32px rgba(232,184,75,.52)}
+.btn-ghost{
+  background:rgba(255,255,255,.07);color:#fff;
+  border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(8px);
+  transition:background .22s,border-color .22s,transform .32s var(--spring);
+}
+.btn-ghost:hover{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.38);transform:translateY(-2px)}
+.btn-blue-outline{
+  background:transparent;color:var(--blue);
+  border:1.5px solid rgba(43,75,160,.28);
+  font-size:.82rem;padding:.62rem 1.3rem;
+  transition:background .22s,border-color .22s,transform .3s var(--spring);
+}
+.btn-blue-outline:hover{background:rgba(43,75,160,.07);border-color:var(--blue);transform:translateY(-2px)}
+
+/* ── STATS ── */
+.stats-bar{background:#fff;border-bottom:1px solid var(--border);display:flex}
+.stat{flex:1;text-align:center;padding:1.6rem .5rem;border-right:1px solid var(--border)}
+.stat:last-child{border-right:none}
+.stat__num{display:block;font-family:var(--fh);font-size:2.3rem;font-weight:700;color:var(--blue);line-height:1}
+.stat__lbl{display:block;font-family:var(--fl);font-size:.58rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:.4rem}
+
+/* ── SCROLL STORY ── */
+.scroll-story{position:relative;height:350vh;background:var(--ink)}
+.scroll-story__sticky{
+  position:sticky;top:0;height:100vh;
+  display:grid;grid-template-columns:55% 45%;
+  overflow:hidden;
+}
+
+/* LEFT: video + image layers */
+.story-visual{position:relative;overflow:hidden;background:var(--blue-deep)}
+.story-media{position:absolute;inset:0}
+
+/* YouTube iframe */
+.story-video-wrap{
+  position:absolute;inset:0;pointer-events:none;overflow:hidden;
+}
+.story-video-wrap iframe{
+  position:absolute;
+  top:50%;left:50%;
+  width:160%;height:160%;
+  transform:translate(-50%,-50%);
+  border:none;
+}
+.story-video-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to right,rgba(6,9,26,.55) 0%,rgba(6,9,26,.15) 60%,transparent 100%);
+}
+
+/* Progress bar left side */
+.story-progress{
+  position:absolute;left:1.75rem;top:50%;transform:translateY(-50%);z-index:10;
+  display:flex;flex-direction:column;gap:.6rem;
+}
+.story-dot{
+  width:2px;height:20px;background:rgba(255,255,255,.15);border-radius:1px;
+  transition:height .4s ease,background .3s;overflow:hidden;position:relative;
+}
+.story-dot.active{height:36px}
+.story-dot::after{
+  content:'';position:absolute;inset:0;
+  background:var(--gold);transform:scaleY(0);transform-origin:top;
+  transition:transform .5s ease;
+}
+.story-dot.active::after{transform:scaleY(1)}
+
+/* Thumbnail strip bottom right of visual */
+.story-thumbs{
+  position:absolute;bottom:2rem;right:1.5rem;z-index:10;
+  display:flex;gap:.5rem;
+}
+.story-thumb{
+  width:56px;height:56px;border-radius:5px;overflow:hidden;
+  opacity:.25;transform:scale(.9);
+  transition:opacity .5s var(--ease-out),transform .5s var(--ease-out),border-color .3s;
+  border:1.5px solid transparent;
+  flex-shrink:0;
+}
+.story-thumb img{width:100%;height:100%;object-fit:cover}
+.story-thumb.revealed{opacity:.7;transform:scale(1)}
+.story-thumb.current{opacity:1;transform:scale(1.08);border-color:var(--gold)}
+
+/* RIGHT: text panels */
+.story-right{
+  background:var(--ink);
+  position:relative;overflow:hidden;
+}
+.story-right::before{
+  content:'';position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:.04;pointer-events:none;
+}
+/* Radial glow behind active panel */
+.story-right::after{
+  content:'';position:absolute;
+  width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(43,75,160,.18) 0%,transparent 70%);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  pointer-events:none;
+}
+.story-panel{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:3.5rem 3rem;
+  opacity:0;transform:translateY(30px);
+  transition:opacity .75s var(--ease-out),transform .75s var(--ease-out);
+  pointer-events:none;z-index:1;
+}
+.story-panel.active{opacity:1;transform:none;pointer-events:auto}
+.story-panel.out{opacity:0;transform:translateY(-22px)}
+.story-step{
+  display:inline-flex;align-items:center;gap:.55rem;
+  font-family:var(--fl);font-size:.63rem;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:1.25rem;
+}
+.story-step::before{content:'';width:22px;height:1px;background:var(--gold);opacity:.7}
+.story-panel h2{
+  font-family:var(--fh);
+  font-size:clamp(1.9rem,3vw,3rem);
+  font-weight:700;color:#fff;
+  letter-spacing:-.025em;line-height:1.05;margin-bottom:1.3rem;
+}
+.story-panel h2 em{color:var(--gold);font-style:italic}
+.story-panel p{
+  color:rgba(255,255,255,.55);font-size:.93rem;
+  line-height:1.85;max-width:40ch;font-weight:300;
+}
+.story-caption{
+  margin-top:2rem;display:flex;align-items:center;gap:.65rem;
+}
+.story-caption-line{width:28px;height:1px;background:rgba(255,255,255,.2)}
+.story-caption-txt{
+  font-family:var(--fl);font-size:.6rem;letter-spacing:.16em;
+  text-transform:uppercase;color:rgba(255,255,255,.28);
+}
+
+/* ── SECTIONS ── */
+.section{padding:6rem 3rem}
+.section--bg{
+  background:var(--bg);position:relative;overflow:hidden;
+}
+.section--bg::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:.038;
+}
+.container{max-width:1200px;margin:0 auto;position:relative}
+.text-center{text-align:center}
+.text-center .section-sub{margin-left:auto;margin-right:auto}
+
+.section-eyebrow{
+  display:inline-flex;align-items:center;gap:.55rem;
+  font-family:var(--fl);font-size:.63rem;font-weight:600;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--gold-dark);
+  margin-bottom:.65rem;
+}
+.section-eyebrow::before,.section-eyebrow::after{
+  content:'';width:20px;height:1px;background:currentColor;opacity:.5;
+}
+.section-title{
+  font-family:var(--fh);
+  font-size:clamp(2rem,3.8vw,3rem);
+  font-weight:700;color:var(--blue);
+  letter-spacing:-.022em;line-height:1.08;margin-bottom:.7rem;
+}
+.section-sub{
+  font-size:.97rem;color:var(--muted);max-width:56ch;
+  line-height:1.78;margin-bottom:3rem;font-weight:400;
+}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:2.25rem}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.35rem}
+
+/* PRODUCT CARDS */
+.product-card{
+  background:linear-gradient(155deg,var(--white) 0%,#fdfcf7 100%);
+  border:1px solid rgba(43,75,160,.06);
+  border-radius:14px;overflow:hidden;
+  box-shadow:0 5px 22px rgba(43,75,160,.09);
+  transition:box-shadow .38s,transform .38s var(--spring),border-color .3s;
+}
+.product-card:hover{
+  box-shadow:0 16px 48px rgba(43,75,160,.17);
+  transform:translateY(-7px);
+  border-color:rgba(43,75,160,.22);
+}
+.product-card__img{height:240px;overflow:hidden;position:relative}
+.product-card__img img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .65s ease;
+}
+.product-card:hover .product-card__img img{transform:scale(1.07)}
+.product-card__img::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(10,15,40,.38) 0%,transparent 55%);
+}
+.product-card__body{padding:1.75rem}
+.product-card__body h3{
+  font-family:var(--fh);font-size:1.35rem;font-weight:700;
+  color:var(--text);letter-spacing:-.018em;
+  margin:.55rem 0 .55rem;line-height:1.15;
+}
+.product-card__body p{font-size:.88rem;color:var(--muted);margin-bottom:1.4rem;line-height:1.7}
+.product-card__footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+.badges{display:flex;gap:.35rem;flex-wrap:wrap}
+
+/* BADGES */
+.badge{
+  display:inline-flex;align-items:center;
+  padding:.26rem .68rem;border-radius:4px;
+  font-family:var(--fl);font-size:.63rem;
+  font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+}
+.badge--gold{background:rgba(232,184,75,.1);color:#a87620;border:1px solid rgba(232,184,75,.28)}
+.badge--blue{background:rgba(43,75,160,.06);color:var(--blue);border:1px solid rgba(43,75,160,.18)}
+.badge--green{background:rgba(45,122,58,.06);color:#2d7a3a;border:1px solid rgba(45,122,58,.18)}
+
+/* FEATURE CARDS */
+.feature-card{
+  background:linear-gradient(148deg,var(--white),#fdfcf7);
+  border:1px solid rgba(43,75,160,.06);
+  border-radius:11px;padding:1.4rem;
+  box-shadow:0 4px 18px rgba(43,75,160,.08);
+  transition:box-shadow .32s,transform .32s var(--spring),border-color .3s;
+}
+.feature-card:hover{
+  box-shadow:0 14px 36px rgba(43,75,160,.16);
+  transform:translateY(-6px);border-color:rgba(43,75,160,.22);
+}
+.feature-icon{
+  width:42px;height:42px;
+  background:rgba(43,75,160,.07);border:1px solid rgba(43,75,160,.12);
+  border-radius:9px;display:flex;align-items:center;justify-content:center;
+  margin-bottom:.95rem;color:var(--blue);
+  transition:background .3s,transform .3s var(--spring);
+}
+.feature-card:hover .feature-icon{background:rgba(43,75,160,.15);transform:scale(1.14) rotate(-6deg)}
+.feature-icon svg{width:18px;height:18px}
+.feature-card h4{
+  font-family:var(--fl);font-size:.86rem;font-weight:700;
+  color:var(--text);letter-spacing:-.01em;margin-bottom:.4rem;
+}
+.feature-card p{font-size:.78rem;color:var(--muted);line-height:1.62}
+
+/* APPLICATIONS */
+.apps{
+  background:linear-gradient(140deg,var(--blue-deep) 0%,var(--blue-dark) 50%,#243d8a 100%);
+  padding:6rem 3rem;position:relative;overflow:hidden;
+}
+.apps::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:.06;
+}
+.apps::after{
+  content:'';position:absolute;top:-30%;right:-10%;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,184,75,.07) 0%,transparent 65%);
+  pointer-events:none;
+}
+.apps-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:3rem;flex-wrap:wrap}
+.apps-title{color:#fff;font-family:var(--fh);font-size:clamp(1.9rem,3.5vw,2.9rem);font-weight:700;letter-spacing:-.022em;line-height:1.08;margin-bottom:.8rem}
+.apps-title em{color:var(--gold);font-style:italic}
+.apps-sub{color:rgba(255,255,255,.58);max-width:42ch;font-weight:300;line-height:1.78;font-size:.95rem}
+.app-list{display:flex;flex-direction:column;gap:.45rem;flex-shrink:0}
+.app-item{
+  display:flex;align-items:center;gap:.75rem;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  border-radius:5px;padding:.5rem 1.1rem;
+  color:rgba(255,255,255,.8);
+  font-family:var(--fl);font-size:.75rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
+  transition:background .2s,border-color .2s;cursor:default;
+}
+.app-item:hover{background:rgba(255,255,255,.11);border-color:rgba(255,255,255,.22)}
+.app-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
+/* CTA */
+.cta{
+  background:var(--ink);padding:7rem 3rem;text-align:center;position:relative;overflow:hidden;
+}
+.cta::before{
+  content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+  width:700px;height:300px;
+  background:radial-gradient(ellipse,rgba(43,75,160,.22) 0%,transparent 70%);
+  pointer-events:none;
+}
+.cta::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:.045;
+}
+.cta h2{
+  position:relative;z-index:1;
+  font-family:var(--fh);font-size:clamp(2.2rem,5vw,4rem);
+  color:#fff;font-weight:700;letter-spacing:-.03em;line-height:1.0;margin-bottom:.9rem;
+}
+.cta h2 em{color:var(--gold);font-style:italic}
+.cta p{
+  position:relative;z-index:1;
+  color:rgba(255,255,255,.5);max-width:48ch;margin:0 auto 2.75rem;
+  font-size:1rem;font-weight:300;line-height:1.8;
+}
+.cta .btn-actions{position:relative;z-index:1;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+.footer{
+  background:var(--ink);border-top:1px solid rgba(255,255,255,.05);
+  padding:2.5rem 3rem;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.25rem;
+}
+.footer__logo{display:flex;align-items:center;gap:.6rem}
+.footer__logo img{height:36px;width:auto;opacity:.85;filter:brightness(1.1)}
+.footer__links{display:flex;gap:2rem}
+.footer__links span{color:rgba(255,255,255,.3);font-size:.75rem;font-family:var(--fl);cursor:pointer;transition:color .2s}
+.footer__links span:hover{color:rgba(255,255,255,.75)}
+.footer__copy{color:rgba(255,255,255,.2);font-size:.7rem;font-family:var(--fl)}
+
+/* REVEAL */
+[data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .62s var(--ease-out),transform .62s var(--ease-out)}
+[data-reveal].is-visible{opacity:1;transform:none}
+[data-d="1"]{transition-delay:.1s}[data-d="2"]{transition-delay:.2s}[data-d="3"]{transition-delay:.3s}
+
+@media(max-width:900px){
+  .grid-2,.grid-4{grid-template-columns:1fr}
+  .scroll-story__sticky{grid-template-columns:1fr}
+  .story-visual{display:none}
+  .apps-inner{flex-direction:column}
+  .nav__links{gap:1rem}
+}
+</style>
+</head>
+<body>
+
+<div class="banner">Aperçu v3 — <strong>Logo réel · Vidéo caroube · Luxe premium</strong> · Défile lentement pour l'animation</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav__logo">
+    <img src="logo.png" alt="Les Greniers du Saïss">
+  </div>
+  <div class="nav__links">
+    <span class="nav__link">Produits</span>
+    <span class="nav__link">Applications</span>
+    <span class="nav__link">Qualité</span>
+    <span class="nav__link">À propos</span>
+    <span class="nav__link">Contact</span>
+    <span class="nav__lang">FR · EN</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero__bg" id="heroBg"></div>
+  <div class="hero__overlay"></div>
+  <div class="hero__noise"></div>
+  <div class="hero__content" data-reveal>
+    <div class="hero__eyebrow">
+      <div class="hero__line"></div>
+      <div class="hero__label">Région du Saïss · Maroc · Depuis 2006</div>
+    </div>
+    <h1 class="hero__title">
+      Du cœur<br>du Maroc<br><em>vers le monde</em>
+    </h1>
+    <p class="hero__sub">Exportateur de caroube — Kharoub — et de légumineuses de qualité supérieure, depuis la fertile région du Saïss, vers plus de 15 pays à travers le monde.</p>
+    <div class="hero__actions">
+      <a class="btn btn-gold">Découvrir le Kharoub</a>
+      <a class="btn btn-ghost">Nous contacter</a>
+    </div>
+  </div>
+  <div class="hero__scroll">
+    <div class="hero__scroll-track"></div>
+    <div class="hero__scroll-lbl">Défiler</div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat"><span class="stat__num" data-counter="15" data-suffix="+">15+</span><span class="stat__lbl">Pays servis</span></div>
+  <div class="stat"><span class="stat__num" data-counter="18" data-suffix="+">18+</span><span class="stat__lbl">Années d'expertise</span></div>
+  <div class="stat"><span class="stat__num" data-counter="500" data-suffix="+">500+</span><span class="stat__lbl">Tonnes / an</span></div>
+  <div class="stat"><span class="stat__num" data-counter="5" data-suffix="">5</span><span class="stat__lbl">Gammes produits</span></div>
+</div>
+
+<!-- SCROLL STORY -->
+<div class="scroll-story" id="scrollStory">
+  <div class="scroll-story__sticky">
+
+    <!-- LEFT: video -->
+    <div class="story-visual">
+      <div class="story-media">
+        <div class="story-video-wrap">
+          <!-- Vidéo réelle : Valorisation du Caroubier — Caroube Distrib SARL -->
+          <iframe
+            src="https://www.youtube.com/embed/kjF9hiLgkXg?autoplay=1&mute=1&loop=1&playlist=kjF9hiLgkXg&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&start=5"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            title="Valorisation du Caroubier au Maroc">
+          </iframe>
+        </div>
+        <div class="story-video-overlay"></div>
+      </div>
+      <div class="story-progress">
+        <div class="story-dot active" id="dot0"></div>
+        <div class="story-dot" id="dot1"></div>
+        <div class="story-dot" id="dot2"></div>
+      </div>
+      <div class="story-thumbs">
+        <div class="story-thumb current" id="th0">
+          <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=200&q=70" alt="Plantation">
+        </div>
+        <div class="story-thumb" id="th1">
+          <img src="https://images.unsplash.com/photo-1509358271058-acd22cc93898?w=200&q=70" alt="Caroube">
+        </div>
+        <div class="story-thumb" id="th2">
+          <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=200&q=70" alt="Transformation">
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: panels -->
+    <div class="story-right">
+      <div class="story-panel active" id="sp0">
+        <div class="story-step">01 — Origine</div>
+        <h2>Une terre<br><em>d'exception</em></h2>
+        <p>La région du Saïss, au cœur du Maroc, abrite des caroubiers centenaires sur un terroir unique. Ses gousses de kharoub sont récoltées à la main selon des méthodes ancestrales transmises de génération en génération.</p>
+        <div class="story-caption">
+          <div class="story-caption-line"></div>
+          <div class="story-caption-txt">Saïss · Fès · Maroc</div>
+        </div>
+      </div>
+      <div class="story-panel" id="sp1">
+        <div class="story-step">02 — Sélection</div>
+        <h2>Le <em>Kharoub</em><br>dans toute<br>sa pureté</h2>
+        <p>Chaque gousse est triée et sélectionnée à la main. Caroube brute, graines, pulpe, farine — notre gamme complète répond aux exigences de l'industrie agroalimentaire, pharmaceutique et cosmétique mondiale.</p>
+        <div class="story-caption">
+          <div class="story-caption-line"></div>
+          <div class="story-caption-txt">4 gammes · Qualité certifiée · Traçabilité totale</div>
+        </div>
+      </div>
+      <div class="story-panel" id="sp2">
+        <div class="story-step">03 — Export mondial</div>
+        <h2>Du Saïss<br>au <em>marché mondial</em></h2>
+        <p>Maîtrisant l'ensemble de la chaîne de valeur — de la récolte à la logistique internationale — nous exportons vers 15+ pays avec une traçabilité totale. Europe, Asie, Moyen-Orient, Amériques.</p>
+        <div class="story-caption">
+          <div class="story-caption-line"></div>
+          <div class="story-caption-txt">15+ pays · 500+ tonnes / an · Depuis 2006</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="section">
+  <div class="container">
+    <div class="text-center" data-reveal>
+      <div class="section-eyebrow">Notre gamme</div>
+      <h2 class="section-title">Nos produits</h2>
+      <p class="section-sub">Des matières premières sélectionnées au cœur du Saïss, pour les marchés les plus exigeants.</p>
+    </div>
+    <div class="grid-2">
+      <article class="product-card" data-reveal>
+        <div class="product-card__img">
+          <img src="https://images.unsplash.com/photo-1509358271058-acd22cc93898?w=900&q=88&auto=format" alt="Caroube Kharoub — Greniers du Saïss" loading="lazy">
+        </div>
+        <div class="product-card__body">
+          <span class="badge badge--gold">Produit phare</span>
+          <h3>Caroube — Kharoub</h3>
+          <p>Caroube brute, graines, pulpe et farine — une gamme complète issue de caroubiers centenaires du Saïss, pour l'industrie mondiale.</p>
+          <div class="product-card__footer">
+            <div class="badges">
+              <span class="badge badge--blue">Brute</span>
+              <span class="badge badge--blue">Graines</span>
+              <span class="badge badge--blue">Pulpe</span>
+              <span class="badge badge--blue">Farine</span>
+            </div>
+            <a class="btn btn-blue-outline">Explorer →</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-reveal data-d="1">
+        <div class="product-card__img">
+          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=900&q=88&auto=format" alt="Légumineuses — Greniers du Saïss" loading="lazy">
+        </div>
+        <div class="product-card__body">
+          <span class="badge badge--green">Import / Export</span>
+          <h3>Légumineuses</h3>
+          <p>Lentilles, pois chiches, fèves, haricots — toutes variétés de légumineuses pour les marchés internationaux les plus exigeants.</p>
+          <div class="product-card__footer">
+            <div class="badges">
+              <span class="badge badge--blue">Lentilles</span>
+              <span class="badge badge--blue">Pois chiches</span>
+              <span class="badge badge--blue">Fèves</span>
+            </div>
+            <a class="btn btn-blue-outline">Explorer →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section section--bg">
+  <div class="container">
+    <div class="text-center" data-reveal>
+      <div class="section-eyebrow">Engagement</div>
+      <h2 class="section-title">Notre savoir-faire</h2>
+      <p class="section-sub">18 ans d'expertise, une traçabilité totale et des partenariats durables avec les agriculteurs du Saïss.</p>
+    </div>
+    <div class="grid-4">
+      <div class="feature-card" data-reveal>
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h4>Qualité certifiée</h4>
+        <p>Normes internationales les plus exigeantes respectées à chaque lot expédié.</p>
+      </div>
+      <div class="feature-card" data-reveal data-d="1">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+        <h4>Traçabilité totale</h4>
+        <p>De la récolte à la livraison, chaque lot est documenté et traçable.</p>
+      </div>
+      <div class="feature-card" data-reveal data-d="2">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h4>Agriculture durable</h4>
+        <p>Sourcing local, partenariat direct avec les agriculteurs de la région.</p>
+      </div>
+      <div class="feature-card" data-reveal data-d="3">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <h4>Expertise internationale</h4>
+        <p>Europe, Asie, Moyen-Orient, Amériques. Logistique maîtrisée.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATIONS -->
+<section class="apps">
+  <div class="apps-inner">
+    <div data-reveal>
+      <div class="section-eyebrow" style="color:rgba(245,208,122,.65)">Polyvalence</div>
+      <h2 class="apps-title">La caroube :<br>un ingrédient<br><em>aux mille usages</em></h2>
+      <p class="apps-sub">Du kharoub brut jusqu'à la farine raffinée, nos produits s'intègrent dans de nombreux procédés industriels à travers le monde.</p>
+    </div>
+    <div class="app-list" data-reveal>
+      <div class="app-item"><div class="app-dot"></div>Industrie agroalimentaire</div>
+      <div class="app-item"><div class="app-dot"></div>Pharmacie & nutraceutique</div>
+      <div class="app-item"><div class="app-dot"></div>Cosmétique & beauté</div>
+      <div class="app-item"><div class="app-dot"></div>Alimentation animale</div>
+      <div class="app-item"><div class="app-dot"></div>Sport & bien-être</div>
+    </div>
+    <div data-reveal>
+      <a class="btn btn-gold">Voir toutes les applications →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div data-reveal>
+    <h2>Prêt à sourcer<br><em>avec nous ?</em></h2>
+    <p>Contactez notre équipe pour un devis personnalisé, des échantillons ou toute information sur nos conditions d'export.</p>
+    <div class="btn-actions">
+      <a class="btn btn-gold">Demander un devis</a>
+      <a class="btn btn-ghost">Nous contacter</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__logo">
+    <img src="logo.png" alt="Les Greniers du Saïss">
+  </div>
+  <div class="footer__links">
+    <span>Confidentialité</span>
+    <span>Mentions légales</span>
+    <span>Contact</span>
+  </div>
+  <div class="footer__copy">© 2026 Les Greniers du Saïss · Fès, Maroc</div>
+</footer>
+
+<script>
+/* HERO zoom */
+setTimeout(() => document.getElementById('heroBg').classList.add('loaded'), 120);
+
+/* REVEAL */
+const revObs = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); revObs.unobserve(e.target); }});
+}, { threshold: 0.12 });
+document.querySelectorAll('[data-reveal]').forEach(el => revObs.observe(el));
+
+/* COUNTERS */
+function animCount(el, target, sfx, dur = 1400) {
+  const t0 = performance.now();
+  (function tick(now) {
+    const p = Math.min((now - t0) / dur, 1);
+    el.textContent = Math.round((1 - Math.pow(1 - p, 3)) * target) + sfx;
+    if (p < 1) requestAnimationFrame(tick);
+  })(t0);
+}
+const cntObs = new IntersectionObserver(es => {
+  es.forEach(e => {
+    if (e.isIntersecting) {
+      animCount(e.target, +e.target.dataset.counter, e.target.dataset.suffix || '');
+      cntObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.6 });
+document.querySelectorAll('[data-counter]').forEach(el => cntObs.observe(el));
+
+/* SCROLL STORY */
+const story = document.getElementById('scrollStory');
+const dots   = [0,1,2].map(i => document.getElementById('dot'+i));
+const panels = [0,1,2].map(i => document.getElementById('sp'+i));
+const thumbs = [0,1,2].map(i => document.getElementById('th'+i));
+let cur = -1;
+
+function setStep(s) {
+  if (s === cur) return;
+  cur = s;
+  panels.forEach((p,i) => {
+    p.classList.remove('active','out');
+    if (i === s) p.classList.add('active');
+    else if (i < s) p.classList.add('out');
+  });
+  dots.forEach((d,i) => d.classList.toggle('active', i === s));
+  thumbs.forEach((t,i) => {
+    t.classList.remove('current','revealed');
+    if (i < s) t.classList.add('revealed');
+    if (i === s) t.classList.add('current');
+  });
+}
+
+window.addEventListener('scroll', () => {
+  const top = story.getBoundingClientRect().top;
+  const total = story.offsetHeight - window.innerHeight;
+  const scrolled = -top;
+  if (scrolled < 0 || scrolled > total) return;
+  const p = scrolled / total;
+  setStep(p < 0.33 ? 0 : p < 0.66 ? 1 : 2);
+}, { passive: true });
+
+setStep(0);
+
+/* reduced motion */
+if (window.matchMedia('(prefers-reduced-motion:reduce)').matches) {
+  document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('is-visible'));
+}
+</script>
+</body>
+</html>

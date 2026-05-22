@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Les Greniers du Saïss — Exportateur de Caroube</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@300;400;500&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#2348A8;--blue-dark:#162E7A;--blue-deep:#0A1438;--blue-light:#3560CC;
+  --gold:#E8B84B;--gold-dark:#B8891A;--gold-mid:#D4A230;--gold-light:#F5D57A;
+  --ink:#0B1A5C;--ink-2:#0F2270;
+  --white:#FFFDF9;--bg:#F3EFE6;--text:#0C1226;--muted:#4A5FAA;--border:#E5E0D4;
+  --spring:cubic-bezier(.34,1.56,.64,1);--ease:cubic-bezier(.22,1,.36,1);
+  --fh:'Playfair Display',Georgia,serif;--fb:'Inter',system-ui,sans-serif;--fl:'Outfit',system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--white);color:var(--text);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* BANNER */
+.banner{background:var(--blue-dark);color:rgba(255,255,255,.42);text-align:center;padding:.42rem 1rem;font-size:.68rem;font-family:var(--fl);letter-spacing:.08em;border-bottom:1px solid rgba(255,255,255,.05)}
+.banner strong{color:var(--gold-light)}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:300;background:rgba(255,255,255,.97);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(35,72,168,.10);box-shadow:0 2px 20px rgba(11,26,92,.10);padding:.6rem 2.5rem;display:flex;align-items:center;justify-content:space-between}
+.nav__logo{display:flex;align-items:center;cursor:pointer}
+.nav__logo-img{height:72px;width:auto;filter:drop-shadow(0 2px 12px rgba(232,184,75,.28));transition:filter .3s,transform .3s var(--spring)}
+.nav__logo:hover .nav__logo-img{filter:drop-shadow(0 4px 20px rgba(232,184,75,.55));transform:scale(1.04)}
+.nav__links{display:flex;gap:2rem;align-items:center}
+.nav__link{color:var(--blue-dark);font-family:var(--fl);font-size:.78rem;font-weight:600;letter-spacing:.03em;transition:color .2s;position:relative;text-decoration:none}
+.nav__link::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:2px;background:var(--gold);transition:width .25s ease;border-radius:1px}
+.nav__link:hover{color:var(--blue)}
+.nav__link:hover::after{width:100%}
+.nav__lang{background:var(--blue);border:1px solid var(--blue-dark);border-radius:20px;padding:.22rem .9rem;color:#fff;font-family:var(--fl);font-size:.66rem;font-weight:700;letter-spacing:.08em;transition:background .2s,transform .2s var(--spring);cursor:pointer}
+.nav__lang:hover{background:var(--blue-dark);transform:scale(1.04)}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding:0 3rem 5.5rem;overflow:hidden}
+.hero__bg{position:absolute;inset:0;overflow:hidden}
+.hero__overlay{position:absolute;inset:0;background:linear-gradient(165deg,rgba(11,26,92,.84) 0%,rgba(11,26,92,.54) 40%,rgba(11,26,92,.22) 100%)}
+.hero__noise{position:absolute;inset:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.055}
+.hero__ribbon{position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,transparent 0%,var(--gold-dark) 20%,var(--gold) 50%,var(--gold-dark) 80%,transparent 100%);opacity:.6}
+.hero__content{position:relative;z-index:1;max-width:720px}
+.hero__eyebrow{display:inline-flex;align-items:center;gap:.65rem;margin-bottom:1.5rem}
+.hero__line{width:32px;height:1px;background:var(--gold);opacity:.7}
+.hero__label{font-family:var(--fl);font-size:.67rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.hero__title{font-family:var(--fh);font-size:clamp(3.2rem,7vw,6rem);font-weight:700;color:var(--white);line-height:.95;letter-spacing:-.03em;margin-bottom:1.6rem}
+.hero__title em{color:var(--gold);font-style:italic}
+.hero__sub{color:rgba(255,255,255,.62);font-size:1.05rem;font-weight:300;max-width:50ch;margin-bottom:2.6rem;line-height:1.8}
+.hero__actions{display:flex;gap:1rem;flex-wrap:wrap}
+.hero__scroll{position:absolute;bottom:3rem;right:3rem;z-index:1;display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.hero__track{width:1px;height:46px;background:rgba(255,255,255,.1);position:relative;overflow:hidden}
+.hero__track::after{content:'';position:absolute;top:-100%;width:100%;height:100%;background:linear-gradient(to bottom,transparent,var(--gold),transparent);animation:slide 1.9s ease-in-out infinite}
+@keyframes slide{0%{top:-100%}100%{top:200%}}
+.hero__scroll span{font-family:var(--fl);font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.28);writing-mode:vertical-rl}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--fl);font-weight:700;font-size:.88rem;letter-spacing:.025em;border-radius:4px;cursor:pointer;padding:.78rem 1.75rem;border:none;transition:background .22s,transform .32s var(--spring),box-shadow .22s;text-decoration:none}
+.btn:hover{transform:translateY(-3px) scale(1.025)}
+.btn-gold{background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--blue-deep);box-shadow:0 4px 22px rgba(232,184,75,.28)}
+.btn-gold:hover{box-shadow:0 8px 32px rgba(232,184,75,.42)}
+.btn-ghost{background:rgba(255,255,255,.08);color:var(--white);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(8px)}
+.btn-ghost:hover{background:rgba(255,255,255,.16)}
+.btn-outline{background:transparent;color:var(--blue);border:1.5px solid rgba(35,72,168,.3)}
+.btn-outline:hover{background:rgba(35,72,168,.06);border-color:var(--blue)}
+
+/* STATS BAR */
+.stats-bar{background:var(--white);border-top:3px solid var(--gold);border-bottom:1px solid var(--border);display:flex;justify-content:center}
+.stat{padding:2rem 3.5rem;text-align:center;border-right:1px solid var(--border);flex:1;max-width:220px}
+.stat:last-child{border-right:none}
+.stat__num{font-family:var(--fh);font-size:2.4rem;font-weight:700;color:var(--blue);display:block;letter-spacing:-.03em;line-height:1}
+.stat__lbl{font-family:var(--fl);font-size:.65rem;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-top:.4rem;display:block}
+
+/* SLIDESHOW */
+.slideshow{position:absolute;inset:0;overflow:hidden}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.06);transition:opacity 1.8s var(--ease),transform 8s ease}
+.slide.active{opacity:1;transform:scale(1)}
+
+/* SCROLL STORY */
+.scroll-story{position:relative;height:360vh;background:var(--ink)}
+.scroll-story__sticky{position:sticky;top:0;height:100vh;display:grid;grid-template-columns:55% 45%;overflow:hidden}
+.story-visual{position:relative;overflow:hidden;background:var(--ink)}
+.story-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(11,26,92,.58) 0%,rgba(11,26,92,.18) 55%,transparent 100%);z-index:1;pointer-events:none}
+.story-ribbon{position:absolute;bottom:0;left:0;right:0;height:3px;z-index:5;background:linear-gradient(90deg,transparent,var(--gold-dark),var(--gold),var(--gold-dark),transparent);opacity:.5}
+.story-progress{position:absolute;left:2rem;top:50%;transform:translateY(-50%);z-index:10;display:flex;flex-direction:column;gap:.65rem}
+.story-dot{width:2px;height:18px;background:rgba(255,255,255,.12);border-radius:1px;transition:height .4s,background .3s;overflow:hidden;position:relative}
+.story-dot.active{height:38px}
+.story-dot::after{content:'';position:absolute;inset:0;background:var(--gold);transform:scaleY(0);transform-origin:top;transition:transform .55s ease}
+.story-dot.active::after{transform:scaleY(1)}
+.story-thumbs{position:absolute;bottom:2rem;right:1.5rem;z-index:10;display:flex;gap:.5rem}
+.story-thumb{width:58px;height:58px;border-radius:4px;overflow:hidden;opacity:.22;transform:scale(.88);border:1.5px solid transparent;transition:opacity .5s var(--ease),transform .5s var(--ease),border-color .3s;flex-shrink:0}
+.story-thumb img{width:100%;height:100%;object-fit:cover}
+.story-thumb.revealed{opacity:.65;transform:scale(1)}
+.story-thumb.current{opacity:1;transform:scale(1.1);border-color:var(--gold)}
+.story-right{background:var(--ink-2);position:relative;overflow:hidden}
+.story-right::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.04}
+.story-right::after{content:'';position:absolute;top:15%;bottom:15%;left:0;width:2px;background:linear-gradient(to bottom,transparent,var(--gold-dark),var(--gold),var(--gold-dark),transparent);opacity:.25}
+.story-glow{position:absolute;width:420px;height:420px;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(35,72,168,.15) 0%,transparent 70%);pointer-events:none}
+.story-panel{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:4rem 3.5rem;opacity:0;transform:translateY(32px);transition:opacity .75s var(--ease),transform .75s var(--ease);pointer-events:none;z-index:1}
+.story-panel.active{opacity:1;transform:none;pointer-events:auto}
+.story-panel.out{opacity:0;transform:translateY(-24px)}
+.story-step{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--fl);font-size:.63rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem}
+.story-step::before{content:'';width:24px;height:1px;background:var(--gold);opacity:.65}
+.story-panel h2{font-family:var(--fh);font-size:clamp(2rem,3.2vw,3.2rem);font-weight:700;color:var(--white);letter-spacing:-.025em;line-height:1.05;margin-bottom:1.4rem}
+.story-panel h2 em{color:var(--gold);font-style:italic}
+.story-panel p{color:rgba(255,255,255,.52);font-size:.92rem;line-height:1.88;max-width:40ch;font-weight:300}
+.story-foot{margin-top:2.25rem;display:flex;align-items:center;gap:.7rem}
+.story-foot-line{width:30px;height:1px;background:rgba(255,255,255,.18)}
+.story-foot-txt{font-family:var(--fl);font-size:.59rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.25)}
+
+/* SECTIONS */
+.section{padding:6.5rem 3rem}
+.section--alt{background:var(--bg);position:relative;overflow:hidden}
+.section--alt::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.04}
+.section--alt::after{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dark),transparent);opacity:.35}
+.container{max-width:1200px;margin:0 auto;position:relative}
+.text-center{text-align:center;margin-bottom:3.5rem}
+.section-eyebrow{display:flex;justify-content:center;margin-bottom:1rem}
+.section-eyebrow-text{font-family:var(--fl);font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-dark);background:rgba(184,137,26,.1);border:1px solid rgba(184,137,26,.22);padding:.3rem .85rem;border-radius:2px}
+.section-title{font-family:var(--fh);font-size:clamp(2.2rem,4vw,3.2rem);font-weight:700;color:var(--text);letter-spacing:-.025em;line-height:1.05;margin-bottom:1.2rem}
+.section-title em{color:var(--blue);font-style:italic}
+.section-sub{color:var(--muted);max-width:54ch;margin:0 auto;font-size:.98rem;line-height:1.82}
+.section-intro{color:var(--text);max-width:72ch;margin:1rem auto 3rem;font-size:.98rem;line-height:1.9;text-align:center}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3.5rem}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.75rem;margin-top:3.5rem}
+
+/* PRODUCT CARDS */
+.product-card{background:var(--white);border:1px solid rgba(35,72,168,.07);border-radius:10px;overflow:hidden;transition:transform .35s var(--spring),box-shadow .35s,border-color .3s;box-shadow:0 4px 24px rgba(35,72,168,.08)}
+.product-card:hover{box-shadow:0 18px 52px rgba(35,72,168,.17);transform:translateY(-8px);border-color:rgba(35,72,168,.22)}
+.product-card__img{height:250px;overflow:hidden;position:relative}
+.product-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.product-card:hover .product-card__img img{transform:scale(1.08)}
+.product-card__img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,18,48,.42) 0%,transparent 55%)}
+.product-card__img::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;z-index:1;background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-dark));opacity:0;transition:opacity .3s}
+.product-card:hover .product-card__img::before{opacity:1}
+.product-card__body{padding:1.8rem}
+.product-card__body h3{font-family:var(--fh);font-size:1.4rem;font-weight:700;color:var(--text);letter-spacing:-.02em;margin:.55rem 0 .55rem;line-height:1.15}
+.product-card__body p{font-size:.88rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.72}
+.product-card__footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+.badges{display:flex;gap:.35rem;flex-wrap:wrap}
+
+/* BADGES */
+.badge{display:inline-flex;align-items:center;padding:.26rem .7rem;border-radius:3px;font-family:var(--fl);font-size:.62rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase}
+.badge--gold{background:rgba(232,184,75,.1);color:var(--gold-dark);border:1px solid rgba(232,184,75,.3)}
+.badge--blue{background:rgba(35,72,168,.06);color:var(--blue);border:1px solid rgba(35,72,168,.18)}
+.badge--green{background:rgba(45,122,58,.06);color:#2d7a3a;border:1px solid rgba(45,122,58,.18)}
+.badge--premium{background:linear-gradient(135deg,rgba(184,137,26,.12),rgba(232,184,75,.18));color:var(--gold-dark);border:1px solid rgba(184,137,26,.35)}
+
+/* FEATURE CARDS */
+.feature-card{background:linear-gradient(148deg,var(--white),#fdfcf6);border:1px solid rgba(35,72,168,.06);border-radius:10px;padding:1.8rem;box-shadow:0 4px 20px rgba(35,72,168,.08);transition:box-shadow .32s,transform .32s var(--spring),border-color .3s}
+.feature-card:hover{box-shadow:0 16px 40px rgba(35,72,168,.16);transform:translateY(-6px);border-color:rgba(35,72,168,.22)}
+.feature-icon{width:44px;height:44px;background:rgba(35,72,168,.07);border:1px solid rgba(35,72,168,.14);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;color:var(--blue);transition:background .3s,transform .3s var(--spring),border-color .3s}
+.feature-card:hover .feature-icon{background:rgba(35,72,168,.15);transform:scale(1.15) rotate(-6deg);border-color:rgba(35,72,168,.28)}
+.feature-icon svg{width:18px;height:18px}
+.feature-card h4{font-family:var(--fh);font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:.65rem;letter-spacing:-.01em}
+.feature-card p{font-size:.84rem;color:var(--muted);line-height:1.78}
+
+/* APPLICATIONS */
+.apps-section{padding:7rem 3rem;background:var(--white)}
+.apps-row-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;margin-top:1rem}
+.apps-row-2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.75rem;margin-top:1.75rem;max-width:800px;margin-left:auto;margin-right:auto}
+.app-card{background:var(--white);border-radius:10px;overflow:hidden;box-shadow:0 4px 24px rgba(35,72,168,.09);transition:transform .35s var(--spring),box-shadow .35s;display:flex;flex-direction:column;border:1px solid rgba(35,72,168,.06)}
+.app-card:hover{transform:translateY(-8px);box-shadow:0 22px 60px rgba(35,72,168,.18);border-color:rgba(35,72,168,.14)}
+.app-card__img{height:210px;overflow:hidden;flex-shrink:0;position:relative}
+.app-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.app-card:hover .app-card__img img{transform:scale(1.08)}
+.app-card__img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,20,56,.35) 0%,transparent 60%)}
+.app-card__body{padding:1.7rem;flex:1;display:flex;flex-direction:column}
+.app-card__sector{font-family:var(--fl);font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.55rem}
+.app-card h3{font-family:var(--fh);font-size:1.15rem;font-weight:700;color:var(--text);margin-bottom:.75rem;line-height:1.2;letter-spacing:-.015em}
+.app-card p{font-size:.84rem;color:var(--muted);line-height:1.8;flex:1;margin-bottom:1.1rem}
+.app-card__stat{background:rgba(232,184,75,.07);border-left:3px solid var(--gold);padding:.65rem 1rem;font-size:.76rem;color:var(--text);font-style:italic;border-radius:0 4px 4px 0;margin-bottom:1.1rem;line-height:1.5}
+.app-card__cta{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--fl);font-size:.74rem;font-weight:700;color:var(--blue);transition:gap .2s,color .2s}
+.app-card__cta:hover{gap:.7rem;color:var(--blue-dark)}
+
+/* LÉGUMINEUSES SECTION */
+.legumes-section{padding:5rem 3rem;background:var(--bg);border-top:3px solid var(--gold-dark);position:relative}
+.legumes-section::after{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dark),transparent);opacity:.35}
+.legumes-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:3rem}
+.legumes-header-text h3{font-family:var(--fh);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;color:var(--text);letter-spacing:-.02em;margin-bottom:.5rem}
+.legumes-header-text p{color:var(--muted);font-size:.9rem;max-width:52ch;line-height:1.75}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem}
+.legume-card{background:var(--white);border-radius:10px;overflow:hidden;box-shadow:0 4px 20px rgba(35,72,168,.08);border:1px solid rgba(35,72,168,.06);transition:transform .35s var(--spring),box-shadow .35s}
+.legume-card:hover{transform:translateY(-6px);box-shadow:0 18px 48px rgba(35,72,168,.16)}
+.legume-card__img{height:200px;overflow:hidden;position:relative}
+.legume-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.legume-card:hover .legume-card__img img{transform:scale(1.08)}
+.legume-card__body{padding:1.5rem}
+.legume-card__body h4{font-family:var(--fh);font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:.6rem;letter-spacing:-.01em}
+.legume-card__body p{font-size:.84rem;color:var(--muted);line-height:1.75;margin-bottom:1.2rem}
+.legume-card__specs{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.2rem}
+
+/* WORLD MAP */
+.map-section{background:var(--ink);padding:6rem 3rem;position:relative;overflow:hidden}
+.map-section::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.04;pointer-events:none}
+.map-header{text-align:center;margin-bottom:3.5rem;position:relative;z-index:1}
+.map-eyebrow{font-family:var(--fl);font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem;display:block}
+.map-title{font-family:var(--fh);font-size:clamp(2rem,3.5vw,3rem);font-weight:700;color:var(--white);letter-spacing:-.025em;line-height:1.08}
+.map-title em{color:var(--gold);font-style:italic}
+.map-sub{color:rgba(255,255,255,.45);font-size:.95rem;max-width:50ch;margin:.9rem auto 0;line-height:1.8}
+.map-wrap{position:relative;max-width:1000px;margin:0 auto;z-index:1}
+.map-svg{width:100%;display:block;overflow:visible}
+.continent{fill:rgba(255,255,255,.08);stroke:rgba(255,255,255,.12);stroke-width:.5}
+.continent--morocco{fill:rgba(232,184,75,.2);stroke:var(--gold);stroke-width:1.2}
+.trade-route{fill:none;stroke:rgba(232,184,75,.55);stroke-width:1.5;stroke-dasharray:6 4;stroke-linecap:round;animation:dash-move 4s linear infinite}
+.trade-route:nth-child(2){animation-duration:5s}
+.trade-route:nth-child(3){animation-duration:6s}
+.trade-route:nth-child(4){animation-duration:4.5s}
+.trade-route:nth-child(5){animation-duration:5.5s}
+@keyframes dash-move{to{stroke-dashoffset:-60}}
+.origin-pulse{fill:var(--gold);opacity:.15;animation:glow-pulse 2.5s ease-in-out infinite}
+@keyframes glow-pulse{0%,100%{r:16;opacity:.15}50%{r:22;opacity:.08}}
+.origin-dot{fill:var(--gold)}
+.dest-dot{fill:rgba(232,184,75,.65)}
+.dest-label{font-size:9px;fill:rgba(255,255,255,.62);font-weight:600;letter-spacing:.04em}
+.origin-label{font-size:10px;fill:var(--gold);font-weight:700;letter-spacing:.06em}
+.map-stats{display:flex;justify-content:center;gap:4rem;margin-top:3rem;position:relative;z-index:1}
+.map-stat{text-align:center}
+.map-stat__num{font-family:var(--fh);font-size:2.8rem;font-weight:700;color:var(--gold);display:block;line-height:1}
+.map-stat__lbl{font-family:var(--fl);font-size:.62rem;text-transform:uppercase;letter-spacing:.16em;color:rgba(255,255,255,.38);margin-top:.4rem;display:block}
+
+/* NEWS */
+.news-section{padding:7rem 3rem;background:var(--bg);position:relative;overflow:hidden}
+.news-section::after{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dark),transparent);opacity:.35}
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3.5rem}
+.news-card{background:var(--white);border-radius:10px;overflow:hidden;box-shadow:0 4px 20px rgba(35,72,168,.08);transition:transform .35s var(--spring),box-shadow .35s;display:flex;flex-direction:column;border:1px solid rgba(35,72,168,.05)}
+.news-card:hover{transform:translateY(-6px);box-shadow:0 18px 48px rgba(35,72,168,.16)}
+.news-card__img{height:195px;overflow:hidden;flex-shrink:0}
+.news-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.news-card:hover .news-card__img img{transform:scale(1.08)}
+.news-card__body{padding:1.5rem;flex:1;display:flex;flex-direction:column}
+.news-card__meta{display:flex;gap:.65rem;align-items:center;margin-bottom:.8rem}
+.news-card__cat{font-family:var(--fl);font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);background:rgba(35,72,168,.08);padding:.15rem .52rem;border-radius:2px}
+.news-card__date{font-family:var(--fl);font-size:.65rem;color:var(--muted)}
+.news-card h3{font-family:var(--fh);font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:.6rem;line-height:1.32;letter-spacing:-.01em}
+.news-card p{font-size:.83rem;color:var(--muted);line-height:1.72;flex:1;margin-bottom:1rem}
+.news-full{max-height:0;overflow:hidden;transition:max-height .45s ease;font-size:.83rem;color:var(--muted);line-height:1.75;margin-bottom:0}
+.news-card.expanded .news-full{max-height:400px;margin-bottom:1rem}
+.news-card__link{font-family:var(--fl);font-size:.72rem;font-weight:700;color:var(--blue);display:inline-flex;align-items:center;gap:.35rem;transition:gap .2s,color .2s;background:none;border:none;cursor:pointer;padding:0}
+.news-card__link:hover{gap:.62rem;color:var(--blue-dark)}
+
+/* CONTACT */
+.contact-section{background:linear-gradient(135deg,var(--blue-dark) 0%,var(--ink) 100%);padding:7rem 3rem;position:relative;overflow:hidden}
+.contact-section::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.04;pointer-events:none}
+.contact-inner{position:relative;z-index:1;max-width:1100px;margin:0 auto}
+.contact-header{text-align:center;margin-bottom:4rem}
+.contact-header h2{font-family:var(--fh);font-size:clamp(2.2rem,4vw,3.2rem);font-weight:700;color:var(--white);letter-spacing:-.03em;line-height:1.05;margin-bottom:1rem}
+.contact-header h2 em{color:var(--gold);font-style:italic}
+.contact-header p{color:rgba(255,255,255,.45);font-size:.98rem;max-width:52ch;margin:0 auto;line-height:1.8}
+.contact-grid{display:grid;grid-template-columns:1fr 420px;gap:3.5rem;align-items:start}
+.contact-form-wrap{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:2.5rem;backdrop-filter:blur(12px)}
+.contact-form{display:flex;flex-direction:column;gap:1.2rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.form-group{display:flex;flex-direction:column;gap:.45rem}
+.form-group label{font-family:var(--fl);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.form-group input,.form-group textarea,.form-group select{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:.75rem 1rem;color:var(--white);font-family:var(--fb);font-size:.88rem;line-height:1.5;outline:none;transition:border-color .2s,background .2s;resize:vertical}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,.25)}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:rgba(232,184,75,.5);background:rgba(255,255,255,.09)}
+.form-group select{cursor:pointer;-webkit-appearance:none;appearance:none}
+.form-group select option{background:var(--blue-dark);color:var(--white)}
+.form-submit{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding-top:.5rem}
+.form-note{font-size:.72rem;color:rgba(255,255,255,.28);font-family:var(--fl)}
+.contact-success{background:rgba(45,122,58,.15);border:1px solid rgba(45,122,58,.3);border-radius:10px;padding:2rem;text-align:center}
+.contact-success h4{font-family:var(--fh);font-size:1.4rem;color:var(--white);margin-bottom:.6rem}
+.contact-success p{color:rgba(255,255,255,.55);font-size:.88rem}
+.contact-info-wrap{display:flex;flex-direction:column;gap:1.5rem}
+.contact-info-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:2rem;backdrop-filter:blur(8px)}
+.contact-info-card h4{font-family:var(--fh);font-size:1.15rem;font-weight:700;color:var(--white);margin-bottom:1.2rem}
+.contact-info-item{display:flex;gap:.85rem;align-items:flex-start;margin-bottom:1rem}
+.contact-info-item:last-child{margin-bottom:0}
+.contact-info-icon{width:34px;height:34px;background:rgba(232,184,75,.1);border:1px solid rgba(232,184,75,.2);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem}
+.contact-info-icon svg{width:15px;height:15px;color:var(--gold)}
+.contact-info-text{font-size:.84rem;line-height:1.65}
+.contact-info-text strong{display:block;color:rgba(255,255,255,.6);font-family:var(--fl);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.22rem}
+.contact-info-text a,.contact-info-text span{color:rgba(255,255,255,.72);transition:color .2s}
+.contact-info-text a:hover{color:var(--gold)}
+.contact-hours{display:grid;grid-template-columns:1fr 1fr;gap:.4rem .8rem;margin-top:.4rem}
+.contact-hours span{font-size:.8rem;color:rgba(255,255,255,.45)}
+.contact-hours strong{font-size:.8rem;color:rgba(255,255,255,.65);font-weight:500}
+
+/* FOOTER */
+.footer{background:var(--ink);border-top:1px solid rgba(232,184,75,.1);padding:3.5rem 3rem 1.5rem}
+.footer__top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:2rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.06)}
+.footer__brand{max-width:260px}
+.footer__logo-img{height:52px;width:auto;opacity:.85;margin-bottom:1rem}
+.footer__brand p{font-size:.8rem;color:rgba(255,255,255,.32);line-height:1.72}
+.footer__col h5{font-family:var(--fl);font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:1rem}
+.footer__col a{display:block;font-size:.8rem;color:rgba(255,255,255,.45);margin-bottom:.55rem;transition:color .2s}
+.footer__col a:hover{color:rgba(255,255,255,.82)}
+.footer__col span{display:block;font-size:.8rem;color:rgba(255,255,255,.32);margin-bottom:.55rem}
+.footer__bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem;padding-top:1.5rem}
+.footer__copy{color:rgba(255,255,255,.18);font-size:.69rem;font-family:var(--fl)}
+.footer__legal{display:flex;gap:2rem}
+.footer__legal a{font-size:.69rem;color:rgba(255,255,255,.22);font-family:var(--fl);transition:color .2s}
+.footer__legal a:hover{color:rgba(255,255,255,.65)}
+
+/* SCROLL MARGIN */
+#produits,#applications,#savoir-faire,#apropos,#contact,#actualites,#carte,#legumineuses{scroll-margin-top:88px}
+
+/* REVEAL */
+[data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
+[data-reveal].is-visible{opacity:1;transform:none}
+[data-d="1"]{transition-delay:.1s}[data-d="2"]{transition-delay:.2s}[data-d="3"]{transition-delay:.3s}
+
+@media(max-width:960px){
+  .grid-2,.grid-3,.grid-4,.apps-row-3,.apps-row-2,.news-grid{grid-template-columns:1fr}
+  .scroll-story__sticky{grid-template-columns:1fr}
+  .story-visual{display:none}
+  .footer__top{flex-direction:column}
+  .map-stats{gap:2rem;flex-wrap:wrap}
+  .nav__links{gap:1.2rem}
+  .contact-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="banner">Aperçu v11 — <strong>FR/EN complet · Interface contact · Légumineuses · News expandables</strong></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav__logo">
+    <img class="nav__logo-img" src="logo.png" alt="Les Greniers du Saïss">
+  </div>
+  <div class="nav__links">
+    <a class="nav__link" href="#produits"><span class="fr-text">Produits</span><span class="en-text" hidden>Products</span></a>
+    <a class="nav__link" href="#applications">Applications</a>
+    <a class="nav__link" href="#savoir-faire"><span class="fr-text">Qualité</span><span class="en-text" hidden>Quality</span></a>
+    <a class="nav__link" href="#actualites"><span class="fr-text">Actualités</span><span class="en-text" hidden>News</span></a>
+    <a class="nav__link" href="#apropos"><span class="fr-text">À propos</span><span class="en-text" hidden>About</span></a>
+    <a class="nav__link" href="#contact">Contact</a>
+    <button class="nav__lang" id="langBtn" onclick="toggleLang()">EN</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero__bg">
+    <div class="slideshow" id="heroSlideshow">
+      <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=90&auto=format');background-position:center 40%"></div>
+      <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=1920&q=90&auto=format');background-position:center center"></div>
+      <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=1920&q=90&auto=format');background-position:center 60%"></div>
+      <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1509358271058-acd22cc93898?w=1920&q=90&auto=format');background-position:center center"></div>
+    </div>
+  </div>
+  <div class="hero__overlay"></div>
+  <div class="hero__noise"></div>
+  <div class="hero__ribbon"></div>
+  <div class="hero__content" data-reveal>
+    <div class="hero__eyebrow">
+      <div class="hero__line"></div>
+      <div class="hero__label">
+        <span class="fr-text">Maroc · Fondée en 2008</span>
+        <span class="en-text" hidden>Morocco · Founded in 2008</span>
+      </div>
+    </div>
+    <h1 class="hero__title">
+      <span class="fr-text">Du cœur<br>du Maroc<br><em>vers le monde</em></span>
+      <span class="en-text" hidden>From the heart<br>of Morocco<br><em>to the world</em></span>
+    </h1>
+    <p class="hero__sub">
+      <span class="fr-text">Exportateur de caroube et de légumineuses de qualité supérieure, depuis la fertile région du Saïss. Le caroube marocain conquiert les marchés industriels de plus de 15 pays à travers le monde.</span>
+      <span class="en-text" hidden>Premium exporter of carob and legumes from the fertile Saïss region. Moroccan carob reaches industrial markets in over 15 countries worldwide.</span>
+    </p>
+    <div class="hero__actions">
+      <a class="btn btn-gold" href="#produits">
+        <span class="fr-text">Découvrir le Caroube</span>
+        <span class="en-text" hidden>Explore Carob</span>
+      </a>
+      <a class="btn btn-ghost" href="#contact">
+        <span class="fr-text">Nous contacter</span>
+        <span class="en-text" hidden>Contact Us</span>
+      </a>
+    </div>
+  </div>
+  <div class="hero__scroll"><div class="hero__track"></div><span><span class="fr-text">Défiler</span><span class="en-text" hidden>Scroll</span></span></div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar" id="apropos">
+  <div class="stat"><span class="stat__num" data-counter="15" data-suffix="+">15+</span><span class="stat__lbl"><span class="fr-text">Pays servis</span><span class="en-text" hidden>Countries served</span></span></div>
+  <div class="stat"><span class="stat__num" data-counter="16" data-suffix=" ans">16 ans</span><span class="stat__lbl"><span class="fr-text">D'expertise</span><span class="en-text" hidden>Of expertise</span></span></div>
+  <div class="stat"><span class="stat__num" data-counter="500" data-suffix="+">500+</span><span class="stat__lbl"><span class="fr-text">Tonnes / an</span><span class="en-text" hidden>Tonnes / year</span></span></div>
+  <div class="stat"><span class="stat__num" data-counter="5" data-suffix="">5</span><span class="stat__lbl"><span class="fr-text">Gammes produits</span><span class="en-text" hidden>Product lines</span></span></div>
+</div>
+
+<!-- SCROLL STORY -->
+<div class="scroll-story" id="scrollStory">
+  <div class="scroll-story__sticky">
+    <div class="story-visual">
+      <div class="slideshow" id="slideshow">
+        <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=85&auto=format')"></div>
+        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=1400&q=85&auto=format')"></div>
+        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=1400&q=85&auto=format')"></div>
+      </div>
+      <div class="story-overlay"></div>
+      <div class="story-ribbon"></div>
+      <div class="story-progress">
+        <div class="story-dot active" id="dot0"></div>
+        <div class="story-dot" id="dot1"></div>
+        <div class="story-dot" id="dot2"></div>
+      </div>
+      <div class="story-thumbs">
+        <div class="story-thumb current" id="th0"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&q=70" alt="Caroubier"></div>
+        <div class="story-thumb" id="th1"><img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=200&q=70" alt="Graines de caroube"></div>
+        <div class="story-thumb" id="th2"><img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=200&q=70" alt="Agriculture marocaine"></div>
+      </div>
+    </div>
+    <div class="story-right">
+      <div class="story-glow"></div>
+      <div class="story-panel active" id="sp0">
+        <div class="story-step">
+          <span class="fr-text">01 — Origine</span>
+          <span class="en-text" hidden>01 — Origin</span>
+        </div>
+        <h2>
+          <span class="fr-text">Une terre<br><em>d'exception</em></span>
+          <span class="en-text" hidden>A land<br><em>of exception</em></span>
+        </h2>
+        <p>
+          <span class="fr-text">La région du Saïss abrite des caroubiers centenaires sur un terroir unique. Les gousses sont récoltées à la main selon des méthodes ancestrales, transmises de génération en génération depuis les collines de Fès.</span>
+          <span class="en-text" hidden>The Saïss region shelters century-old carob trees on a unique terroir. Pods are harvested by hand using ancestral methods, passed down from generation to generation in the hills of Fès.</span>
+        </p>
+        <div class="story-foot"><div class="story-foot-line"></div><div class="story-foot-txt">Saïss · Fès · <span class="fr-text">Maroc</span><span class="en-text" hidden>Morocco</span></div></div>
+      </div>
+      <div class="story-panel" id="sp1">
+        <div class="story-step">
+          <span class="fr-text">02 — Sélection</span>
+          <span class="en-text" hidden>02 — Selection</span>
+        </div>
+        <h2>
+          <span class="fr-text">Le <em>Caroube</em><br>dans toute<br>sa pureté</span>
+          <span class="en-text" hidden>Carob<br><em>in all</em><br>its purity</span>
+        </h2>
+        <p>
+          <span class="fr-text">Chaque gousse est triée à la main. Caroube brute, graines, pulpe, farine — notre gamme répond aux exigences de l'industrie mondiale de l'alimentation, de la pharmacie et de la cosmétique, avec traçabilité totale.</span>
+          <span class="en-text" hidden>Every pod is sorted by hand. Raw carob, seeds, pulp, flour — our range meets the demands of the global food, pharmaceutical and cosmetics industry, with full traceability.</span>
+        </p>
+        <div class="story-foot"><div class="story-foot-line"></div><div class="story-foot-txt">4 <span class="fr-text">gammes · Qualité certifiée</span><span class="en-text" hidden>lines · Certified quality</span></div></div>
+      </div>
+      <div class="story-panel" id="sp2">
+        <div class="story-step">
+          <span class="fr-text">03 — Export mondial</span>
+          <span class="en-text" hidden>03 — Global export</span>
+        </div>
+        <h2>
+          <span class="fr-text">Du Saïss<br>au <em>marché mondial</em></span>
+          <span class="en-text" hidden>From Saïss<br>to <em>global markets</em></span>
+        </h2>
+        <p>
+          <span class="fr-text">Maîtrisant l'ensemble de la chaîne, de la récolte à la logistique internationale, nous exportons vers 15+ pays sur 3 continents. Europe, Asie, Moyen-Orient, Amériques — le caroube du Saïss s'invite partout.</span>
+          <span class="en-text" hidden>Controlling the entire chain from harvest to international logistics, we export to 15+ countries on 3 continents. Europe, Asia, Middle East, Americas — Saïss carob is everywhere.</span>
+        </p>
+        <div class="story-foot"><div class="story-foot-line"></div><div class="story-foot-txt">15+ <span class="fr-text">pays · 500+ tonnes / an</span><span class="en-text" hidden>countries · 500+ tonnes / year</span></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="section" id="produits">
+  <div class="container">
+    <div class="text-center" data-reveal>
+      <div class="section-eyebrow"><span class="section-eyebrow-text fr-text">Notre gamme</span><span class="section-eyebrow-text en-text" hidden>Our Range</span></div>
+      <h2 class="section-title"><span class="fr-text">Nos produits</span><span class="en-text" hidden>Our Products</span></h2>
+      <p class="section-sub"><span class="fr-text">Des matières premières sélectionnées au cœur du Saïss, pour les marchés internationaux les plus exigeants.</span><span class="en-text" hidden>Selected raw materials from the heart of Saïss, for the world's most demanding international markets.</span></p>
+    </div>
+    <div class="grid-2">
+      <article class="product-card" data-reveal>
+        <div class="product-card__img">
+          <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=900&q=88&auto=format" alt="Caroube du Saïss" loading="lazy">
+        </div>
+        <div class="product-card__body">
+          <span class="badge badge--premium">✦ Export</span>
+          <h3><span class="fr-text">Caroube du Saïss</span><span class="en-text" hidden>Saïss Carob</span></h3>
+          <p><span class="fr-text">Gousses brutes, graines, pulpe et farine de caroube — une gamme complète issue de caroubiers centenaires. Qualité constante, traçabilité totale, disponible en vrac ou conditionné selon vos spécifications industrielles.</span><span class="en-text" hidden>Whole pods, seeds, pulp and carob flour — a complete range from century-old carob trees. Consistent quality, full traceability, available in bulk or packaged to your industrial specifications.</span></p>
+          <div class="product-card__footer">
+            <div class="badges">
+              <span class="badge badge--blue fr-text">Brute</span><span class="badge badge--blue en-text" hidden>Raw</span>
+              <span class="badge badge--blue fr-text">Graines</span><span class="badge badge--blue en-text" hidden>Seeds</span>
+              <span class="badge badge--blue fr-text">Pulpe</span><span class="badge badge--blue en-text" hidden>Pulp</span>
+              <span class="badge badge--blue fr-text">Farine</span><span class="badge badge--blue en-text" hidden>Flour</span>
+            </div>
+            <a class="btn btn-outline" href="#applications"><span class="fr-text">Explorer →</span><span class="en-text" hidden>Explore →</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-reveal data-d="1">
+        <div class="product-card__img">
+          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=900&q=88&auto=format" alt="Légumineuses du Saïss" loading="lazy">
+        </div>
+        <div class="product-card__body">
+          <span class="badge badge--green">Import / Export</span>
+          <h3><span class="fr-text">Légumineuses</span><span class="en-text" hidden>Legumes</span></h3>
+          <p><span class="fr-text">Lentilles, pois chiches, fèves, haricots — toutes variétés de légumineuses sélectionnées pour les marchés internationaux, avec traçabilité origine et contrôles qualité systématiques à chaque expédition.</span><span class="en-text" hidden>Lentils, chickpeas, fava beans, kidney beans — all legume varieties selected for international markets, with origin traceability and systematic quality controls on every shipment.</span></p>
+          <div class="product-card__footer">
+            <div class="badges">
+              <span class="badge badge--blue fr-text">Lentilles</span><span class="badge badge--blue en-text" hidden>Lentils</span>
+              <span class="badge badge--blue fr-text">Pois chiches</span><span class="badge badge--blue en-text" hidden>Chickpeas</span>
+              <span class="badge badge--blue fr-text">Fèves</span><span class="badge badge--blue en-text" hidden>Fava beans</span>
+            </div>
+            <a class="btn btn-outline" href="#legumineuses"><span class="fr-text">Explorer →</span><span class="en-text" hidden>Explore →</span></a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- LÉGUMINEUSES DETAIL -->
+<section class="legumes-section" id="legumineuses">
+  <div class="container">
+    <div class="legumes-header" data-reveal>
+      <div class="legumes-header-text">
+        <h3><span class="fr-text">Nos légumineuses d'exportation</span><span class="en-text" hidden>Our Export Legumes</span></h3>
+        <p><span class="fr-text">Sélectionnées directement auprès d'agriculteurs partenaires au Maroc et dans la région, nos légumineuses répondent aux normes d'hygiène et aux cahiers des charges des marchés européens et asiatiques.</span><span class="en-text" hidden>Sourced directly from partner farmers in Morocco and the region, our legumes meet the hygiene standards and specifications of European and Asian markets.</span></p>
+      </div>
+      <a class="btn btn-outline" href="#contact"><span class="fr-text">Demander un devis</span><span class="en-text" hidden>Request a Quote</span></a>
+    </div>
+    <div class="grid-3">
+      <div class="legume-card" data-reveal>
+        <div class="legume-card__img">
+          <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?w=700&q=85&auto=format" alt="Pois chiches" loading="lazy">
+        </div>
+        <div class="legume-card__body">
+          <h4><span class="fr-text">Pois chiches</span><span class="en-text" hidden>Chickpeas</span></h4>
+          <p><span class="fr-text">Ronds et dorés, nos pois chiches sont triés et calibrés pour les marchés européens (conserves, hummus, farine) et asiatiques. Disponibles en convention ou biologique. Moisture ≤ 14 %, calibres 6–9 mm sur demande.</span><span class="en-text" hidden>Round and golden, our chickpeas are sorted and calibrated for European (canned, hummus, flour) and Asian markets. Available conventional or organic. Moisture ≤ 14%, sizes 6–9 mm on request.</span></p>
+          <div class="legume-card__specs">
+            <span class="badge badge--gold fr-text">Calibres 6–9 mm</span><span class="badge badge--gold en-text" hidden>Sizes 6–9 mm</span>
+            <span class="badge badge--green fr-text">Bio disponible</span><span class="badge badge--green en-text" hidden>Organic available</span>
+          </div>
+          <a class="btn btn-outline" style="width:100%;justify-content:center" href="#contact"><span class="fr-text">Demander un devis</span><span class="en-text" hidden>Request a Quote</span></a>
+        </div>
+      </div>
+      <div class="legume-card" data-reveal data-d="1">
+        <div class="legume-card__img">
+          <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=700&q=85&auto=format" alt="Fèves" loading="lazy">
+        </div>
+        <div class="legume-card__body">
+          <h4><span class="fr-text">Fèves</span><span class="en-text" hidden>Fava Beans</span></h4>
+          <p><span class="fr-text">Fèves sèches entières ou décortiquées, à destination des industries alimentaires et de l'alimentation animale. Riches en protéines végétales (26–28 %), elles sont un substitut naturel aux protéines animales pour les formulations véganes.</span><span class="en-text" hidden>Whole or peeled dried fava beans, for the food and animal feed industries. Rich in plant proteins (26–28%), they are a natural substitute for animal proteins in vegan formulations.</span></p>
+          <div class="legume-card__specs">
+            <span class="badge badge--blue fr-text">26–28 % protéines</span><span class="badge badge--blue en-text" hidden>26–28% protein</span>
+            <span class="badge badge--gold fr-text">Entières ou décortiquées</span><span class="badge badge--gold en-text" hidden>Whole or peeled</span>
+          </div>
+          <a class="btn btn-outline" style="width:100%;justify-content:center" href="#contact"><span class="fr-text">Demander un devis</span><span class="en-text" hidden>Request a Quote</span></a>
+        </div>
+      </div>
+      <div class="legume-card" data-reveal data-d="2">
+        <div class="legume-card__img">
+          <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=700&q=85&auto=format" alt="Lentilles" loading="lazy">
+        </div>
+        <div class="legume-card__body">
+          <h4><span class="fr-text">Lentilles</span><span class="en-text" hidden>Lentils</span></h4>
+          <p><span class="fr-text">Lentilles vertes, brunes ou corail — nos lots sont analysés et conditionnés selon vos spécifications (big-bags, sacs 25 kg ou 50 kg). Prisées pour leur teneur en fer, folates et protéines, elles répondent à la demande croissante des marchés européens en légumineuses santé.</span><span class="en-text" hidden>Green, brown or red lentils — our batches are analysed and packaged to your specifications (big-bags, 25 kg or 50 kg bags). Valued for their iron, folate and protein content, they meet the growing European demand for health-oriented legumes.</span></p>
+          <div class="legume-card__specs">
+            <span class="badge badge--blue fr-text">Vertes · Brunes · Corail</span><span class="badge badge--blue en-text" hidden>Green · Brown · Red</span>
+            <span class="badge badge--green fr-text">Big-bags / 25 kg</span><span class="badge badge--green en-text" hidden>Big-bags / 25 kg</span>
+          </div>
+          <a class="btn btn-outline" style="width:100%;justify-content:center" href="#contact"><span class="fr-text">Demander un devis</span><span class="en-text" hidden>Request a Quote</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATIONS -->
+<section class="apps-section" id="applications">
+  <div class="container">
+    <div class="text-center" data-reveal>
+      <div class="section-eyebrow"><span class="section-eyebrow-text fr-text">Polyvalence</span><span class="section-eyebrow-text en-text" hidden>Versatility</span></div>
+      <h2 class="section-title">
+        <span class="fr-text">Le caroube :<br><em>un ingrédient aux mille usages</em></span>
+        <span class="en-text" hidden>Carob:<br><em>an ingredient with a thousand uses</em></span>
+      </h2>
+      <p class="section-intro">
+        <span class="fr-text">De la farine de caroube bio aux extraits pharmaceutiques, en passant par les actifs cosmétiques — nos produits s'intègrent dans les procédés industriels les plus exigeants. Voici pourquoi le caroube du Saïss est devenu un ingrédient incontournable pour les industriels du monde entier.</span>
+        <span class="en-text" hidden>From organic carob flour to pharmaceutical extracts, through cosmetic actives — our products integrate into the most demanding industrial processes. Here is why Saïss carob has become an essential ingredient for manufacturers worldwide.</span>
+      </p>
+    </div>
+    <div class="apps-row-3">
+      <div class="app-card" data-reveal>
+        <div class="app-card__img">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=700&q=85&auto=format" alt="Agroalimentaire" loading="lazy">
+        </div>
+        <div class="app-card__body">
+          <div class="app-card__sector fr-text">Agroalimentaire</div>
+          <div class="app-card__sector en-text" hidden>Food Industry</div>
+          <h3><span class="fr-text">L'ingrédient star de l'industrie alimentaire mondiale</span><span class="en-text" hidden>The star ingredient of the global food industry</span></h3>
+          <p><span class="fr-text">La pulpe de caroube, transformée en poudre, est un substitut naturel au chocolat — riche en fibres, sans caféine ni théobromine. La gomme de caroube (E410), extraite des graines, est un épaississant d'exception pour les glaces, yaourts et sauces. Nos lots répondent aux standards FSSC 22000 et BRC.</span><span class="en-text" hidden>Carob pulp, processed into powder, is a natural chocolate substitute — rich in fibre, caffeine-free. Carob gum (E410), extracted from the seeds, is an exceptional thickener for ice creams, yoghurts and sauces. Our batches meet FSSC 22000 and BRC standards.</span></p>
+          <div class="app-card__stat"><span class="fr-text">73 % des industriels alimentaires recherchent des alternatives naturelles aux additifs de synthèse.</span><span class="en-text" hidden>73% of food manufacturers are looking for natural alternatives to synthetic additives.</span></div>
+          <a class="app-card__cta" href="#contact"><span class="fr-text">Demander un devis →</span><span class="en-text" hidden>Request a Quote →</span></a>
+        </div>
+      </div>
+      <div class="app-card" data-reveal data-d="1">
+        <div class="app-card__img">
+          <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=700&q=85&auto=format" alt="Pharmacie" loading="lazy">
+        </div>
+        <div class="app-card__body">
+          <div class="app-card__sector fr-text">Pharmacie · Nutraceutique</div>
+          <div class="app-card__sector en-text" hidden>Pharmacy · Nutraceuticals</div>
+          <h3><span class="fr-text">Un trésor thérapeutique millénaire</span><span class="en-text" hidden>A millennial therapeutic treasure</span></h3>
+          <p><span class="fr-text">Riche en polyphénols, tanins et galactomannanes, le caroube est intégré dans des formulations contre les troubles digestifs, le cholestérol et la gestion du poids. Nos extraits sont produits selon des protocoles traçables répondant aux pharmacopées européenne et marocaine.</span><span class="en-text" hidden>Rich in polyphenols, tannins and galactomannans, carob is used in formulations for digestive disorders, cholesterol and weight management. Our extracts are produced under traceable protocols meeting European and Moroccan pharmacopoeias.</span></p>
+          <div class="app-card__stat"><span class="fr-text">Le caroube contient 3× plus de calcium que le lait — et ne contient aucun gluten.</span><span class="en-text" hidden>Carob contains 3× more calcium than milk — and contains no gluten.</span></div>
+          <a class="app-card__cta" href="#contact"><span class="fr-text">Demander un devis →</span><span class="en-text" hidden>Request a Quote →</span></a>
+        </div>
+      </div>
+      <div class="app-card" data-reveal data-d="2">
+        <div class="app-card__img">
+          <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=700&q=85&auto=format" alt="Cosmétique" loading="lazy">
+        </div>
+        <div class="app-card__body">
+          <div class="app-card__sector fr-text">Cosmétique · Beauté</div>
+          <div class="app-card__sector en-text" hidden>Cosmetics · Beauty</div>
+          <h3><span class="fr-text">La beauté puisée dans les vergers du Saïss</span><span class="en-text" hidden>Beauty drawn from the Saïss orchards</span></h3>
+          <p><span class="fr-text">Ses extraits polyphénoliques aux propriétés antioxydantes retardent le vieillissement cutané. La farine de caroube s'intègre comme agent texturant naturel dans les soins visage, masques capillaires et cosmétiques solides. Nos extraits non-OGM répondent aux cahiers des charges COSMOS et Ecocert.</span><span class="en-text" hidden>Its polyphenolic extracts with antioxidant properties delay skin aging. Carob flour integrates as a natural texturising agent in face care, hair masks and solid cosmetics. Our non-GMO extracts comply with COSMOS and Ecocert specifications.</span></p>
+          <div class="app-card__stat"><span class="fr-text">Cosmétiques naturels : 36 Mds USD en 2024, croissance de +9 % par an.</span><span class="en-text" hidden>Natural cosmetics: $36bn in 2024, growing +9% per year.</span></div>
+          <a class="app-card__cta" href="#contact"><span class="fr-text">Demander un devis →</span><span class="en-text" hidden>Request a Quote →</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="apps-row-2">
+      <div class="app-card" data-reveal>
+        <div class="app-card__img">
+          <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=700&q=85&auto=format" alt="Alimentation animale" loading="lazy">
+        </div>
+        <div class="app-card__body">
+          <div class="app-card__sector fr-text">Zootechnie · Alimentation animale</div>
+          <div class="app-card__sector en-text" hidden>Animal Nutrition</div>
+          <h3><span class="fr-text">La nature au service de l'élevage performant</span><span class="en-text" hidden>Nature in the service of high-performance livestock</span></h3>
+          <p><span class="fr-text">La pulpe de caroube est un aliment de choix pour les équidés, bovins et porcins. Riche en sucres naturels et en fibres, elle réduit les diarrhées post-sevrage sans antibiotiques. Nos lots sont analysés (mycotoxines, métaux lourds, Salmonelle) pour garantir la sécurité et la performance.</span><span class="en-text" hidden>Carob pulp is a premium feed for equines, cattle and pigs. Rich in natural sugars and fibre, it reduces post-weaning diarrhoea without antibiotics. Our batches are analysed (mycotoxins, heavy metals, Salmonella) to guarantee safety and performance.</span></p>
+          <div class="app-card__stat"><span class="fr-text">48 à 56 % de sucres naturels — valeur énergétique équivalente aux meilleures mélasses.</span><span class="en-text" hidden>48 to 56% natural sugars — energy value equivalent to the best molasses.</span></div>
+          <a class="app-card__cta" href="#contact"><span class="fr-text">Demander un devis →</span><span class="en-text" hidden>Request a Quote →</span></a>
+        </div>
+      </div>
+      <div class="app-card" data-reveal data-d="1">
+        <div class="app-card__img">
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=700&q=85&auto=format" alt="Nutrition sportive" loading="lazy">
+        </div>
+        <div class="app-card__body">
+          <div class="app-card__sector fr-text">Nutrition sportive · Bien-être</div>
+          <div class="app-card__sector en-text" hidden>Sports Nutrition · Wellness</div>
+          <h3><span class="fr-text">Le carburant naturel des athlètes</span><span class="en-text" hidden>The natural fuel for athletes</span></h3>
+          <p><span class="fr-text">Substitut au chocolat dans les barres protéinées et shakes fitness, le caroube offre un profil nutritionnel remarquable : riche en calcium et potassium, sans les stimulants du cacao. Des marques pionnières en Europe et en Amérique du Nord l'adoptent massivement.</span><span class="en-text" hidden>Chocolate substitute in protein bars and fitness shakes, carob offers a remarkable nutritional profile: rich in calcium and potassium, without the stimulants of cocoa. Pioneer brands in Europe and North America are adopting it massively.</span></p>
+          <div class="app-card__stat"><span class="fr-text">Nutrition sportive naturelle : 18 Mds USD, croissance de +11 % annuellement.</span><span class="en-text" hidden>Natural sports nutrition: $18bn, growing +11% annually.</span></div>
+          <a class="app-card__cta" href="#contact"><span class="fr-text">Demander un devis →</span><span class="en-text" hidden>Request a Quote →</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SAVOIR-FAIRE -->
+<section class="section section--alt" id="savoir-faire">
+  <div class="container">
+    <div class="text-center" data-reveal>
+      <div class="section-eyebrow"><span class="section-eyebrow-text fr-text">Engagement</span><span class="section-eyebrow-text en-text" hidden>Commitment</span></div>
+      <h2 class="section-title"><span class="fr-text">Notre savoir-faire</span><span class="en-text" hidden>Our Expertise</span></h2>
+      <p class="section-intro"><span class="fr-text">Depuis 2008, les femmes et les hommes des Greniers du Saïss construisent, récolte après récolte, une réputation d'exigence et de fiabilité. Nos clients européens, asiatiques et américains savent qu'une commande passée chez nous est une promesse tenue.</span><span class="en-text" hidden>Since 2008, the men and women of Les Greniers du Saïss have built, harvest after harvest, a reputation for rigour and reliability. Our European, Asian and American clients know that an order placed with us is a kept promise.</span></p>
+    </div>
+    <div class="grid-4">
+      <div class="feature-card" data-reveal>
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h4><span class="fr-text">Qualité certifiée</span><span class="en-text" hidden>Certified Quality</span></h4>
+        <p><span class="fr-text">Chaque lot expédié est le résultat d'une sélection rigoureuse. Humidité, granulométrie, teneur en sucres, charge microbiologique — nos contrôles sont exhaustifs. Certifications disponibles sur demande.</span><span class="en-text" hidden>Every batch shipped is the result of rigorous selection. Humidity, granulometry, sugar content, microbiological load — our controls are exhaustive. Certifications available on request.</span></p>
+      </div>
+      <div class="feature-card" data-reveal data-d="1">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+        <h4><span class="fr-text">Traçabilité totale</span><span class="en-text" hidden>Full Traceability</span></h4>
+        <p><span class="fr-text">De la parcelle au conteneur, chaque lot porte l'empreinte de son voyage : région de récolte, agriculteurs partenaires, dates de transformation. Cette transparence est notre fierté et votre garantie.</span><span class="en-text" hidden>From the plot to the container, every batch carries the imprint of its journey: harvest region, partner farmers, processing dates. This transparency is our pride and your guarantee.</span></p>
+      </div>
+      <div class="feature-card" data-reveal data-d="2">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h4><span class="fr-text">Agriculture durable</span><span class="en-text" hidden>Sustainable Agriculture</span></h4>
+        <p><span class="fr-text">Nous travaillons en partenariat direct avec plus de 120 familles d'agriculteurs du Saïss, en pratiquant l'achat direct au juste prix. Nous soutenons aussi la replantation de caroubiers, une espèce qui séquestre le carbone.</span><span class="en-text" hidden>We work in direct partnership with over 120 farming families in Saïss, practising direct purchasing at fair prices. We also support carob tree replanting — a species that sequesters carbon.</span></p>
+      </div>
+      <div class="feature-card" data-reveal data-d="3">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <h4><span class="fr-text">Expertise internationale</span><span class="en-text" hidden>International Expertise</span></h4>
+        <p><span class="fr-text">15 pays, 3 continents, des partenaires fidèles depuis plus de 10 ans. Notre équipe maîtrise les Incoterms, les certificats EUR.1, Form A, ainsi que les exigences douanières européennes, américaines et asiatiques.</span><span class="en-text" hidden>15 countries, 3 continents, loyal partners for over 10 years. Our team masters Incoterms, EUR.1 and Form A certificates, as well as European, American and Asian customs requirements.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORLD MAP -->
+<section class="map-section" id="carte">
+  <div class="map-header" data-reveal>
+    <span class="map-eyebrow fr-text">Présence mondiale</span>
+    <span class="map-eyebrow en-text" hidden>Global Presence</span>
+    <h2 class="map-title">
+      <span class="fr-text">Du Saïss<br><em>aux cinq continents</em></span>
+      <span class="en-text" hidden>From Saïss<br><em>to five continents</em></span>
+    </h2>
+    <p class="map-sub">
+      <span class="fr-text">Depuis Fès, nos caroubiers atteignent les tables, les laboratoires et les ateliers du monde entier.</span>
+      <span class="en-text" hidden>From Fès, our carob trees reach tables, laboratories and workshops around the world.</span>
+    </p>
+  </div>
+  <div class="map-wrap" data-reveal>
+    <svg class="map-svg" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+      <path class="continent" d="M 68,65 C 95,48 195,42 268,72 C 341,102 358,145 335,192 C 312,239 272,268 242,262 C 212,256 172,234 142,202 C 112,170 82,138 68,105 Z"/>
+      <path class="continent" d="M 228,268 C 262,256 318,268 352,308 C 386,348 382,408 358,448 C 334,488 290,500 252,490 C 214,480 188,448 180,405 C 172,362 182,305 210,282 Z"/>
+      <path class="continent" d="M 448,50 C 492,38 545,42 572,68 C 599,94 596,132 570,150 C 544,168 502,170 470,158 C 438,146 420,118 428,92 Z"/>
+      <path class="continent" d="M 458,148 C 502,130 555,140 585,168 C 615,196 622,240 616,290 C 610,340 594,400 562,440 C 530,480 490,498 454,492 C 418,486 388,455 375,412 C 362,369 364,312 376,264 C 388,216 398,168 428,152 Z"/>
+      <path class="continent continent--morocco" d="M 458,148 C 476,140 500,142 512,156 C 524,170 522,190 510,202 C 498,214 476,216 461,207 C 446,198 440,178 450,164 Z"/>
+      <path class="continent" d="M 582,145 C 628,120 682,115 722,132 C 762,149 778,182 766,218 C 754,254 718,278 678,282 C 638,286 592,268 570,238 C 548,208 542,172 565,152 Z"/>
+      <path class="continent" d="M 702,78 C 764,58 848,52 910,68 C 972,84 1005,125 998,172 C 991,219 952,260 904,272 C 856,284 798,278 752,254 C 706,230 700,190 702,155 Z"/>
+      <path class="continent" d="M 792,335 C 836,318 898,322 932,352 C 966,382 964,432 932,458 C 900,484 848,488 798,468 C 748,448 720,410 728,372 C 736,334 762,342 792,335 Z"/>
+      <path class="trade-route" d="M 484,175 C 487,148 492,122 508,100"/>
+      <path class="trade-route" d="M 484,175 C 430,140 360,138 260,150"/>
+      <path class="trade-route" d="M 484,175 C 560,148 640,158 700,210"/>
+      <path class="trade-route" d="M 484,175 C 600,110 742,108 855,148"/>
+      <path class="trade-route" d="M 484,175 C 480,245 482,318 490,390"/>
+      <circle class="origin-pulse" cx="484" cy="175" r="16"/>
+      <circle class="origin-dot" cx="484" cy="175" r="6"/>
+      <text class="origin-label" x="493" y="168">Fès, Maroc</text>
+      <circle class="dest-dot" cx="508" cy="100" r="4"/>
+      <text class="dest-label" x="515" y="97">Europe</text>
+      <circle class="dest-dot" cx="260" cy="150" r="4"/>
+      <text class="dest-label" x="218" y="147">Amériques</text>
+      <circle class="dest-dot" cx="700" cy="210" r="4"/>
+      <text class="dest-label" x="707" y="207">Moyen-Orient</text>
+      <circle class="dest-dot" cx="855" cy="148" r="4"/>
+      <text class="dest-label" x="862" y="145">Asie</text>
+      <circle class="dest-dot" cx="490" cy="390" r="4"/>
+      <text class="dest-label" x="497" y="387">Afrique</text>
+    </svg>
+  </div>
+  <div class="map-stats" data-reveal>
+    <div class="map-stat"><span class="map-stat__num">15+</span><span class="map-stat__lbl fr-text">Pays clients</span><span class="map-stat__lbl en-text" hidden>Client Countries</span></div>
+    <div class="map-stat"><span class="map-stat__num">3</span><span class="map-stat__lbl fr-text">Continents</span><span class="map-stat__lbl en-text" hidden>Continents</span></div>
+    <div class="map-stat"><span class="map-stat__num">500+</span><span class="map-stat__lbl fr-text">Tonnes / an</span><span class="map-stat__lbl en-text" hidden>Tonnes / year</span></div>
+    <div class="map-stat"><span class="map-stat__num">16</span><span class="map-stat__lbl fr-text">Ans d'expérience</span><span class="map-stat__lbl en-text" hidden>Years of experience</span></div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="news-section" id="actualites">
+  <div class="container">
+    <div class="text-center" data-reveal>
+      <div class="section-eyebrow"><span class="section-eyebrow-text fr-text">Actualités</span><span class="section-eyebrow-text en-text" hidden>News</span></div>
+      <h2 class="section-title"><span class="fr-text">Les dernières <em>nouvelles</em></span><span class="en-text" hidden>The latest <em>news</em></span></h2>
+      <p class="section-sub"><span class="fr-text">Marchés, récoltes, certifications, salons internationaux — suivez l'actualité des Greniers du Saïss.</span><span class="en-text" hidden>Markets, harvests, certifications, international trade shows — follow the news from Les Greniers du Saïss.</span></p>
+    </div>
+    <div class="news-grid">
+      <article class="news-card" data-reveal>
+        <div class="news-card__img">
+          <img src="https://images.unsplash.com/photo-1493770348161-369560ae357d?w=600&q=80&auto=format" alt="Cosmétique caroube" loading="lazy">
+        </div>
+        <div class="news-card__body">
+          <div class="news-card__meta">
+            <span class="news-card__cat fr-text">Cosmétique</span><span class="news-card__cat en-text" hidden>Cosmetics</span>
+            <span class="news-card__date">Mai 2026</span>
+          </div>
+          <h3><span class="fr-text">Le caroube marocain, vedette des salons cosmétiques européens</span><span class="en-text" hidden>Moroccan carob, star of European cosmetics shows</span></h3>
+          <p><span class="fr-text">Présents à in-cosmetics Global Paris, nos équipes ont mesuré l'engouement des formulateurs pour les extraits naturels marocains. La demande pour nos poudres certifiées Ecocert a triplé en un an.</span><span class="en-text" hidden>Present at in-cosmetics Global Paris, our teams measured the enthusiasm of formulators for Moroccan natural extracts. Demand for our Ecocert-certified powders has tripled in one year.</span></p>
+          <div class="news-full">
+            <span class="fr-text">Le salon in-cosmetics Global, tenu à Paris en avril 2026, a confirmé une tendance de fond : les formulateurs cosmétiques européens recherchent activement des ingrédients naturels traçables, à impact carbone réduit. Notre stand a accueilli plus de 60 professionnels en deux jours. Trois contrats de fourniture ont été signés directement sur le salon, avec des marques françaises, allemandes et espagnoles. Nos poudres de caroube certifiées Ecocert et COSMOS sont désormais référencées dans deux distributeurs d'ingrédients cosmétiques européens de premier plan. Le caroube du Saïss s'impose comme la réponse marocaine à la demande mondiale pour le "clean beauty".</span>
+            <span class="en-text" hidden>The in-cosmetics Global trade show, held in Paris in April 2026, confirmed a fundamental trend: European cosmetic formulators are actively seeking traceable natural ingredients with reduced carbon impact. Our stand welcomed over 60 professionals in two days. Three supply contracts were signed directly at the show with French, German and Spanish brands. Our Ecocert and COSMOS certified carob powders are now listed with two leading European cosmetic ingredient distributors. Saïss carob is establishing itself as Morocco's answer to global demand for "clean beauty".</span>
+          </div>
+          <button class="news-card__link" onclick="toggleNews(this)"><span class="fr-text">Lire la suite →</span><span class="en-text" hidden>Read more →</span></button>
+        </div>
+      </article>
+      <article class="news-card" data-reveal data-d="1">
+        <div class="news-card__img">
+          <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=600&q=80&auto=format" alt="Récolte 2025" loading="lazy">
+        </div>
+        <div class="news-card__body">
+          <div class="news-card__meta">
+            <span class="news-card__cat fr-text">Agriculture</span><span class="news-card__cat en-text" hidden>Agriculture</span>
+            <span class="news-card__date">Octobre 2025</span>
+          </div>
+          <h3><span class="fr-text">Récolte 2025 : une saison exceptionnelle pour le Saïss</span><span class="en-text" hidden>2025 Harvest: an exceptional season for the Saïss</span></h3>
+          <p><span class="fr-text">Les conditions climatiques favorables ont permis une récolte abondante et de qualité supérieure. Nos stocks sont disponibles pour livraison immédiate.</span><span class="en-text" hidden>Favourable weather conditions allowed for an abundant harvest of superior quality. Our stocks are available for immediate delivery.</span></p>
+          <div class="news-full">
+            <span class="fr-text">La saison 2025 a bénéficié d'hivers pluvieux et d'étés tempérés dans la région du Saïss, favorisant une floraison abondante des caroubiers. Les résultats d'analyse confirment des taux de sucres naturels supérieurs de 8 % à la moyenne des cinq dernières années. Nos 120 familles partenaires ont collectivement récolté plus de 620 tonnes de gousses brutes, un record depuis notre création. Les stocks de farine et de pulpe sont disponibles immédiatement en conditionnements de 25 kg, big-bags et conteneurs complets. Contactez notre équipe commerciale pour les disponibilités et les délais de livraison vers votre pays.</span>
+            <span class="en-text" hidden>The 2025 season benefited from rainy winters and mild summers in the Saïss region, promoting abundant carob tree flowering. Analysis results confirm natural sugar levels 8% above the five-year average. Our 120 partner families collectively harvested over 620 tonnes of raw pods — a record since our founding. Flour and pulp stocks are immediately available in 25 kg, big-bag and full container packaging. Contact our sales team for availability and delivery times to your country.</span>
+          </div>
+          <button class="news-card__link" onclick="toggleNews(this)"><span class="fr-text">Lire la suite →</span><span class="en-text" hidden>Read more →</span></button>
+        </div>
+      </article>
+      <article class="news-card" data-reveal data-d="2">
+        <div class="news-card__img">
+          <img src="https://images.unsplash.com/photo-1532620651939-c974a5a11a80?w=600&q=80&auto=format" alt="Partenariat Asie" loading="lazy">
+        </div>
+        <div class="news-card__body">
+          <div class="news-card__meta">
+            <span class="news-card__cat">International</span>
+            <span class="news-card__date">Mars 2026</span>
+          </div>
+          <h3><span class="fr-text">Nouveau partenariat de distribution en Asie-Pacifique</span><span class="en-text" hidden>New distribution partnership in Asia-Pacific</span></h3>
+          <p><span class="fr-text">Les Greniers du Saïss renforcent leur présence en Asie avec un accord de distribution couvrant le Japon et la Corée du Sud.</span><span class="en-text" hidden>Les Greniers du Saïss strengthens its presence in Asia with a distribution agreement covering Japan and South Korea.</span></p>
+          <div class="news-full">
+            <span class="fr-text">Après deux années de prospection et de qualification, nous avons conclu un accord de distribution exclusif avec un importateur japonais spécialisé dans les ingrédients naturels certifiés pour l'industrie alimentaire et nutraceutique. Cet accord, qui couvre le Japon et la Corée du Sud, représente un potentiel de 80 à 120 tonnes par an dès la deuxième année. Les premiers conteneurs sont prévus pour juillet 2026. Cette expansion marque une étape majeure dans notre stratégie Asie-Pacifique, après nos implantations réussies en Europe de l'Ouest (France, Espagne, Allemagne) et au Moyen-Orient (EAU, Arabie Saoudite).</span>
+            <span class="en-text" hidden>After two years of prospecting and qualification, we have signed an exclusive distribution agreement with a Japanese importer specialising in certified natural ingredients for the food and nutraceutical industry. This agreement, covering Japan and South Korea, represents a potential of 80–120 tonnes per year from the second year. The first containers are planned for July 2026. This expansion marks a major milestone in our Asia-Pacific strategy, following our successful implantations in Western Europe (France, Spain, Germany) and the Middle East (UAE, Saudi Arabia).</span>
+          </div>
+          <button class="news-card__link" onclick="toggleNews(this)"><span class="fr-text">Lire la suite →</span><span class="en-text" hidden>Read more →</span></button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-header" data-reveal>
+      <h2>
+        <span class="fr-text">Parlons de votre<br><em>prochain approvisionnement</em></span>
+        <span class="en-text" hidden>Let's talk about your<br><em>next sourcing</em></span>
+      </h2>
+      <p>
+        <span class="fr-text">Notre équipe répond sous 24 h. Devis, échantillons, conditions d'export — nous sommes à votre disposition.</span>
+        <span class="en-text" hidden>Our team responds within 24 hours. Quotes, samples, export terms — we are at your disposal.</span>
+      </p>
+    </div>
+    <div class="contact-grid" data-reveal>
+      <div class="contact-form-wrap">
+        <form class="contact-form" id="contactForm" onsubmit="handleContact(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label><span class="fr-text">Nom complet</span><span class="en-text" hidden>Full name</span></label>
+              <input type="text" placeholder="Jean Dupont" required>
+            </div>
+            <div class="form-group">
+              <label><span class="fr-text">Société</span><span class="en-text" hidden>Company</span></label>
+              <input type="text" placeholder="Acme Industries" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="contact@societe.com" required>
+            </div>
+            <div class="form-group">
+              <label><span class="fr-text">Pays</span><span class="en-text" hidden>Country</span></label>
+              <input type="text" placeholder="France, Spain, Germany…">
+            </div>
+          </div>
+          <div class="form-group">
+            <label><span class="fr-text">Produit(s) d'intérêt</span><span class="en-text" hidden>Product(s) of interest</span></label>
+            <select>
+              <option value=""><span class="fr-text">-- Sélectionner --</span></option>
+              <option value="caroube-brute">Caroube brute / Raw carob</option>
+              <option value="farine">Farine de caroube / Carob flour</option>
+              <option value="gomme">Gomme de caroube / Carob gum (E410)</option>
+              <option value="legumineuses">Légumineuses / Legumes</option>
+              <option value="autre">Autre / Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea rows="5" placeholder="Votre demande, volume estimé, délai souhaité…" required></textarea>
+          </div>
+          <div class="form-submit">
+            <span class="form-note fr-text">Réponse sous 24 h · Devis gratuit</span>
+            <span class="form-note en-text" hidden>Reply within 24 h · Free quote</span>
+            <button type="submit" class="btn btn-gold">
+              <span class="fr-text">Envoyer →</span>
+              <span class="en-text" hidden>Send →</span>
+            </button>
+          </div>
+        </form>
+        <div class="contact-success" id="contactSuccess" hidden>
+          <h4>✓ <span class="fr-text">Message envoyé !</span><span class="en-text" hidden>Message sent!</span></h4>
+          <p><span class="fr-text">Merci pour votre intérêt. Notre équipe vous répondra dans les 24 heures.</span><span class="en-text" hidden>Thank you for your interest. Our team will get back to you within 24 hours.</span></p>
+        </div>
+      </div>
+      <div class="contact-info-wrap">
+        <div class="contact-info-card">
+          <h4>Les Greniers du Saïss</h4>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="contact-info-text">
+              <strong><span class="fr-text">Adresse</span><span class="en-text" hidden>Address</span></strong>
+              <span>Route de Sefrou, Fès 30000, Maroc</span>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6 19.79 19.79 0 0 1 1.61 5a2 2 0 0 1 1.99-2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 10.9a16 16 0 0 0 6.19 6.19l1.46-1.85a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div class="contact-info-text">
+              <strong><span class="fr-text">Téléphone</span><span class="en-text" hidden>Phone</span></strong>
+              <a href="tel:+212600000000">+212 6 00 00 00 00</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="contact-info-text">
+              <strong>Email</strong>
+              <a href="mailto:contact@greniersdusaiss.ma">contact@greniersdusaiss.ma</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div class="contact-info-text">
+              <strong>WhatsApp</strong>
+              <a href="https://wa.me/212600000000">+212 6 00 00 00 00</a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-info-card">
+          <h4><span class="fr-text">Horaires</span><span class="en-text" hidden>Opening Hours</span></h4>
+          <div class="contact-hours">
+            <span><span class="fr-text">Lun — Ven</span><span class="en-text" hidden>Mon — Fri</span></span>
+            <strong>9:00 — 18:00</strong>
+            <span><span class="fr-text">Samedi</span><span class="en-text" hidden>Saturday</span></span>
+            <strong>9:00 — 13:00</strong>
+            <span><span class="fr-text">Dimanche</span><span class="en-text" hidden>Sunday</span></span>
+            <strong><span class="fr-text">Fermé</span><span class="en-text" hidden>Closed</span></strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__top">
+    <div class="footer__brand">
+      <img class="footer__logo-img" src="logo.png" alt="Les Greniers du Saïss">
+      <p><span class="fr-text">Exportateur de caroube et de légumineuses depuis le Saïss, Maroc. Fondée en 2008. Présente dans 15+ pays sur 3 continents.</span><span class="en-text" hidden>Exporter of carob and legumes from Saïss, Morocco. Founded in 2008. Present in 15+ countries on 3 continents.</span></p>
+    </div>
+    <div class="footer__col">
+      <h5><span class="fr-text">Navigation</span><span class="en-text" hidden>Navigation</span></h5>
+      <a href="#produits"><span class="fr-text">Produits</span><span class="en-text" hidden>Products</span></a>
+      <a href="#applications">Applications</a>
+      <a href="#legumineuses"><span class="fr-text">Légumineuses</span><span class="en-text" hidden>Legumes</span></a>
+      <a href="#savoir-faire"><span class="fr-text">Qualité</span><span class="en-text" hidden>Quality</span></a>
+      <a href="#actualites"><span class="fr-text">Actualités</span><span class="en-text" hidden>News</span></a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer__col">
+      <h5>Applications</h5>
+      <a href="#applications"><span class="fr-text">Agroalimentaire</span><span class="en-text" hidden>Food Industry</span></a>
+      <a href="#applications"><span class="fr-text">Pharmacie</span><span class="en-text" hidden>Pharmacy</span></a>
+      <a href="#applications"><span class="fr-text">Cosmétique</span><span class="en-text" hidden>Cosmetics</span></a>
+      <a href="#applications"><span class="fr-text">Alimentation animale</span><span class="en-text" hidden>Animal Nutrition</span></a>
+      <a href="#applications"><span class="fr-text">Nutrition sportive</span><span class="en-text" hidden>Sports Nutrition</span></a>
+    </div>
+    <div class="footer__col">
+      <h5>Contact</h5>
+      <a href="mailto:contact@greniersdusaiss.ma">contact@greniersdusaiss.ma</a>
+      <a href="tel:+212600000000">+212 6 00 00 00 00</a>
+      <span>Route de Sefrou, Fès, Maroc</span>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <div class="footer__copy">© 2026 Les Greniers du Saïss · Fès, Maroc · <span class="fr-text">Fondée en 2008</span><span class="en-text" hidden>Founded in 2008</span></div>
+    <div class="footer__legal">
+      <a href="#contact"><span class="fr-text">Confidentialité</span><span class="en-text" hidden>Privacy</span></a>
+      <a href="#contact"><span class="fr-text">Mentions légales</span><span class="en-text" hidden>Legal notice</span></a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* REVEAL */
+const ro = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); ro.unobserve(e.target); }});
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('[data-reveal]').forEach(el => ro.observe(el));
+setTimeout(() => {
+  document.querySelectorAll('[data-reveal]').forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('is-visible');
+  });
+}, 150);
+
+/* COUNTERS */
+function anim(el, t, s, d) {
+  d = d || 1400;
+  var t0 = performance.now();
+  (function tick(n) {
+    var p = Math.min((n - t0) / d, 1);
+    el.textContent = Math.round((1 - Math.pow(1-p, 3)) * t) + s;
+    if (p < 1) requestAnimationFrame(tick);
+  })(t0);
+}
+var co = new IntersectionObserver(function(es) {
+  es.forEach(function(e) {
+    if (e.isIntersecting) {
+      anim(e.target, +e.target.dataset.counter, e.target.dataset.suffix || '');
+      co.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.6 });
+document.querySelectorAll('[data-counter]').forEach(function(el) { co.observe(el); });
+
+/* SCROLL STORY */
+var story = document.getElementById('scrollStory');
+var dots = [0,1,2].map(function(i){ return document.getElementById('dot'+i); });
+var panels = [0,1,2].map(function(i){ return document.getElementById('sp'+i); });
+var thumbs = [0,1,2].map(function(i){ return document.getElementById('th'+i); });
+var cur = -1;
+function step(s) {
+  if (s === cur) return; cur = s;
+  panels.forEach(function(p,i){ p.classList.remove('active','out'); if (i===s) p.classList.add('active'); else if (i<s) p.classList.add('out'); });
+  dots.forEach(function(d,i){ d.classList.toggle('active', i===s); });
+  thumbs.forEach(function(t,i){ t.classList.remove('current','revealed'); if (i<s) t.classList.add('revealed'); if (i===s) t.classList.add('current'); });
+}
+window.addEventListener('scroll', function() {
+  var top = story.getBoundingClientRect().top;
+  var total = story.offsetHeight - window.innerHeight;
+  var sc = -top;
+  if (sc < 0 || sc > total) return;
+  var p = sc / total;
+  step(p < .33 ? 0 : p < .66 ? 1 : 2);
+}, { passive: true });
+step(0);
+
+/* SLIDESHOWS — hero et scroll-story indépendants */
+function startSlideshow(selector, interval) {
+  var slides = document.querySelectorAll(selector);
+  if (!slides.length) return;
+  var c = 0;
+  setInterval(function() {
+    slides[c].classList.remove('active');
+    c = (c + 1) % slides.length;
+    slides[c].classList.add('active');
+  }, interval);
+}
+startSlideshow('#heroSlideshow .slide', 6000);
+startSlideshow('#slideshow .slide', 5000);
+
+/* NEWS EXPAND */
+function toggleNews(btn) {
+  var card = btn.closest('.news-card');
+  var expanded = card.classList.toggle('expanded');
+  var frSpan = btn.querySelector('.fr-text');
+  var enSpan = btn.querySelector('.en-text');
+  if (frSpan) frSpan.textContent = expanded ? 'Réduire ↑' : 'Lire la suite →';
+  if (enSpan) enSpan.textContent = expanded ? 'Collapse ↑' : 'Read more →';
+}
+
+/* CONTACT FORM */
+function handleContact(e) {
+  e.preventDefault();
+  document.getElementById('contactForm').hidden = true;
+  document.getElementById('contactSuccess').hidden = false;
+  /* re-apply lang visibility to success message */
+  document.querySelectorAll('.fr-text').forEach(function(el) { el.hidden = (lang !== 'fr'); });
+  document.querySelectorAll('.en-text').forEach(function(el) { el.hidden = (lang !== 'en'); });
+}
+
+/* LANGUAGE TOGGLE — uses hidden attribute, no innerHTML */
+var lang = 'fr';
+function toggleLang() {
+  lang = lang === 'fr' ? 'en' : 'fr';
+  document.getElementById('langBtn').textContent = lang === 'fr' ? 'EN' : 'FR';
+  document.querySelectorAll('.fr-text').forEach(function(el) { el.hidden = (lang !== 'fr'); });
+  document.querySelectorAll('.en-text').forEach(function(el) { el.hidden = (lang !== 'en'); });
+}
+
+if (window.matchMedia('(prefers-reduced-motion:reduce)').matches)
+  document.querySelectorAll('[data-reveal]').forEach(function(el){ el.classList.add('is-visible'); });
+</script>
+</body>
+</html>

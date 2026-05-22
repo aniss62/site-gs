@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Les Greniers du Saïss — Exportateur de Caroube</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@300;400;500&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#2348A8;--blue-dark:#162E7A;--blue-deep:#0A1438;--blue-light:#3560CC;
+  --gold:#E8B84B;--gold-dark:#B8891A;--gold-mid:#D4A230;--gold-light:#F5D57A;
+  --ink:#0B1A5C;--ink-2:#0F2270;
+  --white:#FFFDF9;--bg:#F3EFE6;--text:#0C1226;--muted:#4A5FAA;--border:#E5E0D4;
+  --spring:cubic-bezier(.34,1.56,.64,1);--ease:cubic-bezier(.22,1,.36,1);
+  --fh:'Playfair Display',Georgia,serif;--fb:'Inter',system-ui,sans-serif;--fl:'Outfit',system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--white);color:var(--text);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* BANNER */
+.banner{background:var(--blue-dark);color:rgba(255,255,255,.42);text-align:center;padding:.42rem 1rem;font-size:.68rem;font-family:var(--fl);letter-spacing:.08em;border-bottom:1px solid rgba(255,255,255,.05)}
+.banner strong{color:var(--gold-light)}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:300;background:rgba(255,255,255,.97);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(35,72,168,.10);box-shadow:0 2px 20px rgba(11,26,92,.10);padding:.6rem 2.5rem;display:flex;align-items:center;justify-content:space-between}
+.nav__logo{display:flex;align-items:center;cursor:pointer}
+.nav__logo-img{height:72px;width:auto;filter:drop-shadow(0 2px 12px rgba(232,184,75,.28));transition:filter .3s,transform .3s var(--spring)}
+.nav__logo:hover .nav__logo-img{filter:drop-shadow(0 4px 20px rgba(232,184,75,.55));transform:scale(1.04)}
+.nav__links{display:flex;gap:2rem;align-items:center}
+.nav__link{color:var(--blue-dark);font-family:var(--fl);font-size:.78rem;font-weight:600;letter-spacing:.03em;transition:color .2s;position:relative;text-decoration:none}
+.nav__link::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:2px;background:var(--gold);transition:width .25s ease;border-radius:1px}
+.nav__link:hover{color:var(--blue)}
+.nav__link:hover::after{width:100%}
+.nav__lang{background:var(--blue);border:1px solid var(--blue-dark);border-radius:20px;padding:.22rem .9rem;color:#fff;font-family:var(--fl);font-size:.66rem;font-weight:700;letter-spacing:.08em;transition:background .2s,transform .2s var(--spring);cursor:pointer}
+.nav__lang:hover{background:var(--blue-dark);transform:scale(1.04)}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding:0 3rem 5.5rem;overflow:hidden}
+.hero__bg{position:absolute;inset:0;overflow:hidden}
+.hero__overlay{position:absolute;inset:0;background:linear-gradient(165deg,rgba(11,26,92,.84) 0%,rgba(11,26,92,.54) 40%,rgba(11,26,92,.22) 100%)}
+.hero__noise{position:absolute;inset:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.055}
+.hero__ribbon{position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,transparent 0%,var(--gold-dark) 20%,var(--gold) 50%,var(--gold-dark) 80%,transparent 100%);opacity:.6}
+.hero__content{position:relative;z-index:1;max-width:720px}
+.hero__eyebrow{display:inline-flex;align-items:center;gap:.65rem;margin-bottom:1.5rem}
+.hero__line{width:32px;height:1px;background:var(--gold);opacity:.7}
+.hero__label{font-family:var(--fl);font-size:.67rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.hero__title{font-family:var(--fh);font-size:clamp(3.2rem,7vw,6rem);font-weight:700;color:var(--white);line-height:.95;letter-spacing:-.03em;margin-bottom:1.6rem}
+.hero__title em{color:var(--gold);font-style:italic}
+.hero__sub{color:rgba(255,255,255,.62);font-size:1.05rem;font-weight:300;max-width:50ch;margin-bottom:2.6rem;line-height:1.8}
+.hero__actions{display:flex;gap:1rem;flex-wrap:wrap}
+.hero__scroll{position:absolute;bottom:3rem;right:3rem;z-index:1;display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.hero__track{width:1px;height:46px;background:rgba(255,255,255,.1);position:relative;overflow:hidden}
+.hero__track::after{content:'';position:absolute;top:-100%;width:100%;height:100%;background:linear-gradient(to bottom,transparent,var(--gold),transparent);animation:slide 1.9s ease-in-out infinite}
+@keyframes slide{0%{top:-100%}100%{top:200%}}
+.hero__scroll span{font-family:var(--fl);font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.28);writing-mode:vertical-rl}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--fl);font-weight:700;font-size:.88rem;letter-spacing:.025em;border-radius:4px;cursor:pointer;padding:.78rem 1.75rem;border:none;transition:background .22s,transform .32s var(--spring),box-shadow .22s;text-decoration:none}
+.btn:hover{transform:translateY(-3px) scale(1.025)}
+.btn-gold{background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--blue-deep);box-shadow:0 4px 22px rgba(232,184,75,.28)}
+.btn-gold:hover{box-shadow:0 8px 32px rgba(232,184,75,.42)}
+.btn-ghost{background:rgba(255,255,255,.08);color:var(--white);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(8px)}
+.btn-ghost:hover{background:rgba(255,255,255,.16)}
+.btn-outline{background:transparent;color:var(--blue);border:1.5px solid rgba(35,72,168,.3)}
+.btn-outline:hover{background:rgba(35,72,168,.06);border-color:var(--blue)}
+
+/* STATS BAR */
+.stats-bar{background:var(--white);border-top:3px solid var(--gold);border-bottom:1px solid var(--border);display:flex;justify-content:center}
+.stat{padding:2rem 3.5rem;text-align:center;border-right:1px solid var(--border);flex:1;max-width:220px}
+.stat:last-child{border-right:none}
+.stat__num{font-family:var(--fh);font-size:2.4rem;font-weight:700;color:var(--blue);display:block;letter-spacing:-.03em;line-height:1}
+.stat__lbl{font-family:var(--fl);font-size:.65rem;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-top:.4rem;display:block}
+
+/* SCROLL STORY + SLIDESHOW */
+.scroll-story{position:relative;height:360vh;background:var(--ink)}
+.scroll-story__sticky{position:sticky;top:0;height:100vh;display:grid;grid-template-columns:55% 45%;overflow:hidden}
+.story-visual{position:relative;overflow:hidden;background:var(--ink)}
+.slideshow{position:absolute;inset:0;overflow:hidden}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.06);transition:opacity 1.8s var(--ease),transform 8s ease}
+.slide.active{opacity:1;transform:scale(1)}
+.story-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(11,26,92,.58) 0%,rgba(11,26,92,.18) 55%,transparent 100%);z-index:1;pointer-events:none}
+.story-ribbon{position:absolute;bottom:0;left:0;right:0;height:3px;z-index:5;background:linear-gradient(90deg,transparent,var(--gold-dark),var(--gold),var(--gold-dark),transparent);opacity:.5}
+.story-progress{position:absolute;left:2rem;top:50%;transform:translateY(-50%);z-index:10;display:flex;flex-direction:column;gap:.65rem}
+.story-dot{width:2px;height:18px;background:rgba(255,255,255,.12);border-radius:1px;transition:height .4s,background .3s;overflow:hidden;position:relative}
+.story-dot.active{height:38px}
+.story-dot::after{content:'';position:absolute;inset:0;background:var(--gold);transform:scaleY(0);transform-origin:top;transition:transform .55s ease}
+.story-dot.active::after{transform:scaleY(1)}
+.story-thumbs{position:absolute;bottom:2rem;right:1.5rem;z-index:10;display:flex;gap:.5rem}
+.story-thumb{width:58px;height:58px;border-radius:4px;overflow:hidden;opacity:.22;transform:scale(.88);border:1.5px solid transparent;transition:opacity .5s var(--ease),transform .5s var(--ease),border-color .3s;flex-shrink:0}
+.story-thumb img{width:100%;height:100%;object-fit:cover}
+.story-thumb.revealed{opacity:.65;transform:scale(1)}
+.story-thumb.current{opacity:1;transform:scale(1.1);border-color:var(--gold)}
+.story-right{background:var(--ink-2);position:relative;overflow:hidden}
+.story-right::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.04}
+.story-right::after{content:'';position:absolute;top:15%;bottom:15%;left:0;width:2px;background:linear-gradient(to bottom,transparent,var(--gold-dark),var(--gold),var(--gold-dark),transparent);opacity:.25}
+.story-glow{position:absolute;width:420px;height:420px;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(35,72,168,.15) 0%,transparent 70%);pointer-events:none}
+.story-panel{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:4rem 3.5rem;opacity:0;transform:translateY(32px);transition:opacity .75s var(--ease),transform .75s var(--ease);pointer-events:none;z-index:1}
+.story-panel.active{opacity:1;transform:none;pointer-events:auto}
+.story-panel.out{opacity:0;transform:translateY(-24px)}
+.story-step{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--fl);font-size:.63rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem}
+.story-step::before{content:'';width:24px;height:1px;background:var(--gold);opacity:.65}
+.story-panel h2{font-family:var(--fh);font-size:clamp(2rem,3.2vw,3.2rem);font-weight:700;color:var(--white);letter-spacing:-.025em;line-height:1.05;margin-bottom:1.4rem}
+.story-panel h2 em{color:var(--gold);font-style:italic}
+.story-panel p{color:rgba(255,255,255,.52);font-size:.92rem;line-height:1.88;max-width:40ch;font-weight:300}
+.story-foot{margin-top:2.25rem;display:flex;align-items:center;gap:.7rem}
+.story-foot-line{width:30px;height:1px;background:rgba(255,255,255,.18)}
+.story-foot-txt{font-family:var(--fl);font-size:.59rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.25)}
+
+/* SECTIONS */
+.section{padding:6.5rem 3rem}
+.section--alt{background:var(--bg);position:relative;overflow:hidden}
+.section--alt::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.04}
+.section--alt::after{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dark),transparent);opacity:.35}
+.container{max-width:1200px;margin:0 auto;position:relative}
+.text-center{text-align:center;margin-bottom:3.5rem}
+.section-eyebrow{display:flex;justify-content:center;margin-bottom:1rem}
+.section-eyebrow-text{font-family:var(--fl);font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-dark);background:rgba(184,137,26,.1);border:1px solid rgba(184,137,26,.22);padding:.3rem .85rem;border-radius:2px}
+.section-title{font-family:var(--fh);font-size:clamp(2.2rem,4vw,3.2rem);font-weight:700;color:var(--text);letter-spacing:-.025em;line-height:1.05;margin-bottom:1.2rem}
+.section-title em{color:var(--blue);font-style:italic}
+.section-sub{color:var(--muted);max-width:54ch;margin:0 auto;font-size:.98rem;line-height:1.82}
+.section-intro{color:var(--text);max-width:72ch;margin:1rem auto 3rem;font-size:.98rem;line-height:1.9;text-align:center}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3.5rem}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.75rem;margin-top:3.5rem}
+
+/* PRODUCT CARDS */
+.product-card{background:var(--white);border:1px solid rgba(35,72,168,.07);border-radius:10px;overflow:hidden;transition:transform .35s var(--spring),box-shadow .35s,border-color .3s;box-shadow:0 4px 24px rgba(35,72,168,.08)}
+.product-card:hover{box-shadow:0 18px 52px rgba(35,72,168,.17);transform:translateY(-8px);border-color:rgba(35,72,168,.22)}
+.product-card__img{height:250px;overflow:hidden;position:relative}
+.product-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.product-card:hover .product-card__img img{transform:scale(1.08)}
+.product-card__img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,18,48,.42) 0%,transparent 55%)}
+.product-card__img::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;z-index:1;background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-dark));opacity:0;transition:opacity .3s}
+.product-card:hover .product-card__img::before{opacity:1}
+.product-card__body{padding:1.8rem}
+.product-card__body h3{font-family:var(--fh);font-size:1.4rem;font-weight:700;color:var(--text);letter-spacing:-.02em;margin:.55rem 0 .55rem;line-height:1.15}
+.product-card__body p{font-size:.88rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.72}
+.product-card__footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+.badges{display:flex;gap:.35rem;flex-wrap:wrap}
+
+/* BADGES */
+.badge{display:inline-flex;align-items:center;padding:.26rem .7rem;border-radius:3px;font-family:var(--fl);font-size:.62rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase}
+.badge--gold{background:rgba(232,184,75,.1);color:var(--gold-dark);border:1px solid rgba(232,184,75,.3)}
+.badge--blue{background:rgba(35,72,168,.06);color:var(--blue);border:1px solid rgba(35,72,168,.18)}
+.badge--green{background:rgba(45,122,58,.06);color:#2d7a3a;border:1px solid rgba(45,122,58,.18)}
+.badge--premium{background:linear-gradient(135deg,rgba(184,137,26,.12),rgba(232,184,75,.18));color:var(--gold-dark);border:1px solid rgba(184,137,26,.35)}
+
+/* FEATURE CARDS */
+.feature-card{background:linear-gradient(148deg,var(--white),#fdfcf6);border:1px solid rgba(35,72,168,.06);border-radius:10px;padding:1.8rem;box-shadow:0 4px 20px rgba(35,72,168,.08);transition:box-shadow .32s,transform .32s var(--spring),border-color .3s}
+.feature-card:hover{box-shadow:0 16px 40px rgba(35,72,168,.16);transform:translateY(-6px);border-color:rgba(35,72,168,.22)}
+.feature-icon{width:44px;height:44px;background:rgba(35,72,168,.07);border:1px solid rgba(35,72,168,.14);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;color:var(--blue);transition:background .3s,transform .3s var(--spring),border-color .3s}
+.feature-card:hover .feature-icon{background:rgba(35,72,168,.15);transform:scale(1.15) rotate(-6deg);border-color:rgba(35,72,168,.28)}
+.feature-icon svg{width:18px;height:18px}
+.feature-card h4{font-family:var(--fh);font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:.65rem;letter-spacing:-.01em}
+.feature-card p{font-size:.84rem;color:var(--muted);line-height:1.78}
+
+/* APPLICATIONS */
+.apps-section{padding:7rem 3rem;background:var(--white)}
+.apps-row-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;margin-top:1rem}
+.apps-row-2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.75rem;margin-top:1.75rem;max-width:800px;margin-left:auto;margin-right:auto}
+.app-card{background:var(--white);border-radius:10px;overflow:hidden;box-shadow:0 4px 24px rgba(35,72,168,.09);transition:transform .35s var(--spring),box-shadow .35s;display:flex;flex-direction:column;border:1px solid rgba(35,72,168,.06)}
+.app-card:hover{transform:translateY(-8px);box-shadow:0 22px 60px rgba(35,72,168,.18);border-color:rgba(35,72,168,.14)}
+.app-card__img{height:210px;overflow:hidden;flex-shrink:0;position:relative}
+.app-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.app-card:hover .app-card__img img{transform:scale(1.08)}
+.app-card__img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,20,56,.35) 0%,transparent 60%)}
+.app-card__body{padding:1.7rem;flex:1;display:flex;flex-direction:column}
+.app-card__sector{font-family:var(--fl);font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.55rem}
+.app-card h3{font-family:var(--fh);font-size:1.15rem;font-weight:700;color:var(--text);margin-bottom:.75rem;line-height:1.2;letter-spacing:-.015em}
+.app-card p{font-size:.84rem;color:var(--muted);line-height:1.8;flex:1;margin-bottom:1.1rem}
+.app-card__stat{background:rgba(232,184,75,.07);border-left:3px solid var(--gold);padding:.65rem 1rem;font-size:.76rem;color:var(--text);font-style:italic;border-radius:0 4px 4px 0;margin-bottom:1.1rem;line-height:1.5}
+.app-card__cta{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--fl);font-size:.74rem;font-weight:700;color:var(--blue);transition:gap .2s,color .2s}
+.app-card__cta:hover{gap:.7rem;color:var(--blue-dark)}
+
+/* WORLD MAP */
+.map-section{background:var(--ink);padding:6rem 3rem;position:relative;overflow:hidden}
+.map-section::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.04;pointer-events:none}
+.map-header{text-align:center;margin-bottom:3.5rem;position:relative;z-index:1}
+.map-eyebrow{font-family:var(--fl);font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem;display:block}
+.map-title{font-family:var(--fh);font-size:clamp(2rem,3.5vw,3rem);font-weight:700;color:var(--white);letter-spacing:-.025em;line-height:1.08}
+.map-title em{color:var(--gold);font-style:italic}
+.map-sub{color:rgba(255,255,255,.45);font-size:.95rem;max-width:50ch;margin:.9rem auto 0;line-height:1.8}
+.map-wrap{position:relative;max-width:1000px;margin:0 auto;z-index:1}
+.map-svg{width:100%;display:block;overflow:visible}
+.continent{fill:rgba(255,255,255,.08);stroke:rgba(255,255,255,.12);stroke-width:.5}
+.continent--morocco{fill:rgba(232,184,75,.2);stroke:var(--gold);stroke-width:1.2}
+.trade-route{fill:none;stroke:rgba(232,184,75,.55);stroke-width:1.5;stroke-dasharray:6 4;stroke-linecap:round;animation:dash-move 4s linear infinite}
+.trade-route:nth-child(2){animation-duration:5s}
+.trade-route:nth-child(3){animation-duration:6s}
+.trade-route:nth-child(4){animation-duration:4.5s}
+.trade-route:nth-child(5){animation-duration:5.5s}
+@keyframes dash-move{to{stroke-dashoffset:-60}}
+.origin-pulse{fill:var(--gold);opacity:.15;animation:glow-pulse 2.5s ease-in-out infinite}
+@keyframes glow-pulse{0%,100%{r:16;opacity:.15}50%{r:22;opacity:.08}}
+.origin-dot{fill:var(--gold)}
+.dest-dot{fill:rgba(232,184,75,.65)}
+.dest-label{font-size:9px;fill:rgba(255,255,255,.62);font-weight:600;letter-spacing:.04em}
+.origin-label{font-size:10px;fill:var(--gold);font-weight:700;letter-spacing:.06em}
+.map-stats{display:flex;justify-content:center;gap:4rem;margin-top:3rem;position:relative;z-index:1}
+.map-stat{text-align:center}
+.map-stat__num{font-family:var(--fh);font-size:2.8rem;font-weight:700;color:var(--gold);display:block;line-height:1}
+.map-stat__lbl{font-family:var(--fl);font-size:.62rem;text-transform:uppercase;letter-spacing:.16em;color:rgba(255,255,255,.38);margin-top:.4rem;display:block}
+
+/* NEWS */
+.news-section{padding:7rem 3rem;background:var(--bg);position:relative;overflow:hidden}
+.news-section::after{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dark),transparent);opacity:.35}
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3.5rem}
+.news-card{background:var(--white);border-radius:10px;overflow:hidden;box-shadow:0 4px 20px rgba(35,72,168,.08);transition:transform .35s var(--spring),box-shadow .35s;display:flex;flex-direction:column;border:1px solid rgba(35,72,168,.05)}
+.news-card:hover{transform:translateY(-6px);box-shadow:0 18px 48px rgba(35,72,168,.16)}
+.news-card__img{height:195px;overflow:hidden;flex-shrink:0}
+.news-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.news-card:hover .news-card__img img{transform:scale(1.08)}
+.news-card__body{padding:1.5rem;flex:1;display:flex;flex-direction:column}
+.news-card__meta{display:flex;gap:.65rem;align-items:center;margin-bottom:.8rem}
+.news-card__cat{font-family:var(--fl);font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);background:rgba(35,72,168,.08);padding:.15rem .52rem;border-radius:2px}
+.news-card__date{font-family:var(--fl);font-size:.65rem;color:var(--muted)}
+.news-card h3{font-family:var(--fh);font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:.6rem;line-height:1.32;letter-spacing:-.01em}
+.news-card p{font-size:.83rem;color:var(--muted);line-height:1.72;flex:1;margin-bottom:1rem}
+.news-card__link{font-family:var(--fl);font-size:.72rem;font-weight:700;color:var(--blue);display:inline-flex;align-items:center;gap:.35rem;transition:gap .2s,color .2s}
+.news-card__link:hover{gap:.62rem;color:var(--blue-dark)}
+
+/* CTA */
+.cta{background:linear-gradient(135deg,var(--blue-dark) 0%,var(--ink) 100%);padding:7rem 3rem;text-align:center;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.04;pointer-events:none}
+.cta-inner{position:relative;z-index:1;max-width:640px;margin:0 auto}
+.cta-inner h2{font-family:var(--fh);font-size:clamp(2.4rem,5vw,3.8rem);font-weight:700;color:var(--white);letter-spacing:-.03em;line-height:1;margin-bottom:1.4rem}
+.cta-inner h2 em{color:var(--gold);font-style:italic}
+.cta p{color:rgba(255,255,255,.48);max-width:48ch;margin:0 auto 2.9rem;font-size:1rem;font-weight:300;line-height:1.82}
+.cta .btn-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+.footer{background:var(--ink);border-top:1px solid rgba(232,184,75,.1);padding:3.5rem 3rem 1.5rem}
+.footer__top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:2rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.06)}
+.footer__brand{max-width:260px}
+.footer__logo-img{height:52px;width:auto;opacity:.85;margin-bottom:1rem}
+.footer__brand p{font-size:.8rem;color:rgba(255,255,255,.32);line-height:1.72}
+.footer__col h5{font-family:var(--fl);font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:1rem}
+.footer__col a{display:block;font-size:.8rem;color:rgba(255,255,255,.45);margin-bottom:.55rem;transition:color .2s}
+.footer__col a:hover{color:rgba(255,255,255,.82)}
+.footer__col span{display:block;font-size:.8rem;color:rgba(255,255,255,.32);margin-bottom:.55rem}
+.footer__bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem;padding-top:1.5rem}
+.footer__copy{color:rgba(255,255,255,.18);font-size:.69rem;font-family:var(--fl)}
+.footer__legal{display:flex;gap:2rem}
+.footer__legal a{font-size:.69rem;color:rgba(255,255,255,.22);font-family:var(--fl);transition:color .2s}
+.footer__legal a:hover{color:rgba(255,255,255,.65)}
+
+/* SCROLL MARGIN — nav 88px */
+#produits,#applications,#savoir-faire,#apropos,#contact,#actualites,#carte{scroll-margin-top:88px}
+
+/* REVEAL */
+[data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
+[data-reveal].is-visible{opacity:1;transform:none}
+[data-d="1"]{transition-delay:.1s}[data-d="2"]{transition-delay:.2s}[data-d="3"]{transition-delay:.3s}
+
+@media(max-width:960px){
+  .grid-2,.grid-4,.apps-row-3,.apps-row-2,.news-grid{grid-template-columns:1fr}
+  .scroll-story__sticky{grid-template-columns:1fr}
+  .story-visual{display:none}
+  .footer__top{flex-direction:column}
+  .map-stats{gap:2rem;flex-wrap:wrap}
+  .nav__links{gap:1.2rem}
+}
+</style>
+</head>
+<body>
+
+<div class="banner">Aperçu v10 — <strong>Slideshow hero · Le caroube · Badge Export · Fondé 2008</strong></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav__logo">
+    <img class="nav__logo-img" src="logo.png" alt="Les Greniers du Saïss">
+  </div>
+  <div class="nav__links">
+    <a class="nav__link" href="#produits"><span class="fr-text">Produits</span><span class="en-text" hidden>Products</span></a>
+    <a class="nav__link" href="#applications">Applications</a>
+    <a class="nav__link" href="#savoir-faire"><span class="fr-text">Qualité</span><span class="en-text" hidden>Quality</span></a>
+    <a class="nav__link" href="#actualites"><span class="fr-text">Actualités</span><span class="en-text" hidden>News</span></a>
+    <a class="nav__link" href="#apropos"><span class="fr-text">À propos</span><span class="en-text" hidden>About</span></a>
+    <a class="nav__link" href="#contact">Contact</a>
+    <button class="nav__lang" id="langBtn" onclick="toggleLang()">EN</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero__bg">
+    <div class="slideshow" id="heroSlideshow">
+      <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=1920&q=90&auto=format');background-position:center 30%"></div>
+      <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=1920&q=90&auto=format');background-position:center center"></div>
+      <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1509358271058-acd22cc93898?w=1920&q=90&auto=format');background-position:center center"></div>
+      <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1586201375761-83865001e31c?w=1920&q=90&auto=format');background-position:center 40%"></div>
+    </div>
+  </div>
+  <div class="hero__overlay"></div>
+  <div class="hero__noise"></div>
+  <div class="hero__ribbon"></div>
+  <div class="hero__content" data-reveal>
+    <div class="hero__eyebrow">
+      <div class="hero__line"></div>
+      <div class="hero__label">
+        <span class="fr-text">Maroc · Fondé en 2008</span>
+        <span class="en-text" hidden>Morocco · Founded in 2008</span>
+      </div>
+    </div>
+    <h1 class="hero__title">
+      <span class="fr-text">Du cœur<br>du Maroc<br><em>vers le monde</em></span>
+      <span class="en-text" hidden>From the heart<br>of Morocco<br><em>to the world</em></span>
+    </h1>
+    <p class="hero__sub">
+      <span class="fr-text">Exportateur de caroube et de légumineuses de qualité supérieure, depuis la fertile région du Saïss. Le caroube marocain conquiert les marchés industriels de plus de 15 pays à travers le monde.</span>
+      <span class="en-text" hidden>Premium exporter of carob and legumes from the fertile Saïss region. Moroccan carob reaches industrial markets in over 15 countries worldwide.</span>
+    </p>
+    <div class="hero__actions">
+      <a class="btn btn-gold" href="#produits">
+        <span class="fr-text">Découvrir le Caroube</span>
+        <span class="en-text" hidden>Explore Carob</span>
+      </a>
+      <a class="btn btn-ghost" href="#contact">
+        <span class="fr-text">Nous contacter</span>
+        <span class="en-text" hidden>Contact Us</span>
+      </a>
+    </div>
+  </div>
+  <div class="hero__scroll"><div class="hero__track"></div><span>Défiler</span></div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar" id="apropos">
+  <div class="stat"><span class="stat__num" data-counter="15" data-suffix="+">15+</span><span class="stat__lbl"><span class="fr-text">Pays servis</span><span class="en-text" hidden>Countries served</span></span></div>
+  <div class="stat"><span class="stat__num" data-counter="16" data-suffix=" ans">16 ans</span><span class="stat__lbl"><span class="fr-text">D'expertise</span><span class="en-text" hidden>Of expertise</span></span></div>
+  <div class="stat"><span class="stat__num" data-counter="500" data-suffix="+">500+</span><span class="stat__lbl"><span class="fr-text">Tonnes / an</span><span class="en-text" hidden>Tonnes / year</span></span></div>
+  <div class="stat"><span class="stat__num" data-counter="5" data-suffix="">5</span><span class="stat__lbl"><span class="fr-text">Gammes produits</span><span class="en-text" hidden>Product lines</span></span></div>
+</div>
+
+<!-- SCROLL STORY + SLIDESHOW -->
+<div class="scroll-story" id="scrollStory">
+  <div class="scroll-story__sticky">
+    <div class="story-visual">
+      <div class="slideshow" id="slideshow">
+        <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=1400&q=85&auto=format')"></div>
+        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1509358271058-acd22cc93898?w=1400&q=85&auto=format')"></div>
+        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=1400&q=85&auto=format')"></div>
+        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1586201375761-83865001e31c?w=1400&q=85&auto=format')"></div>
+      </div>
+      <div class="story-overlay"></div>
+      <div class="story-ribbon"></div>
+      <div class="story-progress">
+        <div class="story-dot active" id="dot0"></div>
+        <div class="story-dot" id="dot1"></div>
+        <div class="story-dot" id="dot2"></div>
+      </div>
+      <div class="story-thumbs">
+        <div class="story-thumb current" id="th0"><img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=200&q=70" alt="Caroubier"></div>
+        <div class="story-thumb" id="th1"><img src="https://images.unsplash.com/photo-1509358271058-acd22cc93898?w=200&q=70" alt="Graines de caroube"></div>
+        <div class="story-thumb" id="th2"><img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=200&q=70" alt="Transformation"></div>
+      </div>
+    </div>
+    <div class="story-right">
+      <div class="story-glow"></div>
+      <div class="story-panel active" id="sp0">
+        <div class="story-step">01 — Origine</div>
+        <h2>Une terre<br><em>d'exception</em></h2>
+        <p>La région du Saïss abrite des caroubiers centenaires sur un terroir unique. Les gousses sont récoltées à la main selon des méthodes ancestrales, transmises de génération en génération depuis les collines de Fès.</p>
+        <div class="story-foot"><div class="story-foot-line"></div><div class="story-foot-txt">Saïss · Fès · Maroc</div></div>
+      </div>
+      <div class="story-panel" id="sp1">
+        <div class="story-step">02 — Sélection</div>
+        <h2>Le <em>Caroube</em><br>dans toute<br>sa pureté</h2>
+        <p>Chaque gousse est triée à la main. Caroube brute, graines, pulpe, farine — notre gamme répond aux exigences de l'industrie mondiale de l'alimentation, de la pharmacie et de la cosmétique, avec traçabilité totale.</p>
+        <div class="story-foot"><div class="story-foot-line"></div><div class="story-foot-txt">4 gammes · Qualité certifiée</div></div>
+      </div>
+      <div class="story-panel" id="sp2">
+        <div class="story-step">03 — Export mondial</div>
+        <h2>Du Saïss<br>au <em>marché mondial</em></h2>
+        <p>Maîtrisant l'ensemble de la chaîne, de la récolte à la logistique internationale, nous exportons vers 15+ pays sur 3 continents. Europe, Asie, Moyen-Orient, Amériques — le caroube du Saïss s'invite partout.</p>
+        <div class="story-foot"><div class="story-foot-line"></div><div class="story-foot-txt">15+ pays · 500+ tonnes / an</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="section" id="produits">
+  <div class="container">
+    <div class="text-center" data-reveal>
+      <div class="section-eyebrow"><span class="section-eyebrow-text">Notre gamme</span></div>
+      <h2 class="section-title">Nos produits</h2>
+      <p class="section-sub">Des matières premières sélectionnées au cœur du Saïss, pour les marchés internationaux les plus exigeants.</p>
+    </div>
+    <div class="grid-2">
+      <article class="product-card" data-reveal>
+        <div class="product-card__img">
+          <img src="https://images.unsplash.com/photo-1509358271058-acd22cc93898?w=900&q=88&auto=format" alt="Caroube du Saïss — graines et gousses" loading="lazy">
+        </div>
+        <div class="product-card__body">
+          <span class="badge badge--premium">✦ Export</span>
+          <h3>Caroube du Saïss</h3>
+          <p>Gousses brutes, graines, pulpe et farine de caroube — une gamme complète issue de caroubiers centenaires. Qualité constante, traçabilité totale, disponible en vrac ou conditionné selon vos spécifications industrielles.</p>
+          <div class="product-card__footer">
+            <div class="badges">
+              <span class="badge badge--blue">Brute</span>
+              <span class="badge badge--blue">Graines</span>
+              <span class="badge badge--blue">Pulpe</span>
+              <span class="badge badge--blue">Farine</span>
+            </div>
+            <a class="btn btn-outline" href="#applications">Explorer →</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card" data-reveal data-d="1">
+        <div class="product-card__img">
+          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=900&q=88&auto=format" alt="Légumineuses du Saïss" loading="lazy">
+        </div>
+        <div class="product-card__body">
+          <span class="badge badge--green">Import / Export</span>
+          <h3>Légumineuses</h3>
+          <p>Lentilles, pois chiches, fèves, haricots — toutes variétés de légumineuses sélectionnées pour les marchés internationaux, avec traçabilité origine et contrôles qualité systématiques à chaque expédition.</p>
+          <div class="product-card__footer">
+            <div class="badges">
+              <span class="badge badge--blue">Lentilles</span>
+              <span class="badge badge--blue">Pois chiches</span>
+              <span class="badge badge--blue">Fèves</span>
+            </div>
+            <a class="btn btn-outline" href="#contact">Demander un devis</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATIONS -->
+<section class="apps-section" id="applications">
+  <div class="container">
+    <div class="text-center" data-reveal>
+      <div class="section-eyebrow"><span class="section-eyebrow-text">Polyvalence</span></div>
+      <h2 class="section-title">Le caroube :<br><em>un ingrédient aux mille usages</em></h2>
+      <p class="section-intro">De la farine de caroube bio aux extraits pharmaceutiques, en passant par les actifs cosmétiques — nos produits s'intègrent dans les procédés industriels les plus exigeants, sur tous les continents. Voici pourquoi le caroube du Saïss est devenu un ingrédient incontournable pour les industriels du monde entier.</p>
+    </div>
+    <div class="apps-row-3">
+      <div class="app-card" data-reveal>
+        <div class="app-card__img">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=700&q=85&auto=format" alt="Industrie agroalimentaire" loading="lazy">
+        </div>
+        <div class="app-card__body">
+          <div class="app-card__sector">Agroalimentaire</div>
+          <h3>L'ingrédient star de l'industrie alimentaire mondiale</h3>
+          <p>La pulpe de caroube, transformée en poudre, est un substitut naturel au chocolat — riche en fibres, sans caféine ni théobromine. La gomme de caroube (E410), extraite des graines, est un épaississant et stabilisant d'exception pour les glaces, yaourts et sauces. Nos lots répondent aux standards FSSC 22000 et BRC exigés par les plus grandes marques mondiales.</p>
+          <div class="app-card__stat">73 % des industriels alimentaires recherchent des alternatives naturelles aux additifs de synthèse.</div>
+          <a class="app-card__cta" href="#contact">Demander un devis →</a>
+        </div>
+      </div>
+      <div class="app-card" data-reveal data-d="1">
+        <div class="app-card__img">
+          <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=700&q=85&auto=format" alt="Pharmacie nutraceutique" loading="lazy">
+        </div>
+        <div class="app-card__body">
+          <div class="app-card__sector">Pharmacie · Nutraceutique</div>
+          <h3>Un trésor thérapeutique millénaire</h3>
+          <p>Riche en polyphénols, tanins et galactomannanes (fibres solubles), le caroube est intégré dans des formulations contre les troubles digestifs, le cholestérol et la gestion du poids. Nos extraits et poudres sont produits selon des protocoles traçables répondant aux exigences des pharmacopées européenne et marocaine. Une garantie de cohérence pour vos lignes de fabrication.</p>
+          <div class="app-card__stat">Le caroube contient 3× plus de calcium que le lait — et ne contient aucun gluten.</div>
+          <a class="app-card__cta" href="#contact">Demander un devis →</a>
+        </div>
+      </div>
+      <div class="app-card" data-reveal data-d="2">
+        <div class="app-card__img">
+          <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=700&q=85&auto=format" alt="Cosmétique beauté" loading="lazy">
+        </div>
+        <div class="app-card__body">
+          <div class="app-card__sector">Cosmétique · Beauté</div>
+          <h3>La beauté puisée dans les vergers du Saïss</h3>
+          <p>Ses extraits polyphénoliques aux propriétés antioxydantes retardent le vieillissement cutané. La farine de caroube s'intègre comme agent texturant naturel dans les soins visage, masques capillaires et cosmétiques solides, portés par la vague clean beauty. Nos extraits non-OGM répondent aux cahiers des charges COSMOS et Ecocert.</p>
+          <div class="app-card__stat">Le marché des cosmétiques naturels : 36 Mds USD en 2024, croissance de +9 % par an.</div>
+          <a class="app-card__cta" href="#contact">Demander un devis →</a>
+        </div>
+      </div>
+    </div>
+    <div class="apps-row-2">
+      <div class="app-card" data-reveal>
+        <div class="app-card__img">
+          <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=700&q=85&auto=format" alt="Alimentation animale" loading="lazy">
+        </div>
+        <div class="app-card__body">
+          <div class="app-card__sector">Zootechnie · Alimentation animale</div>
+          <h3>La nature au service de l'élevage performant</h3>
+          <p>La pulpe de caroube est un aliment de choix pour les équidés, bovins et porcins. Riche en sucres naturels et en fibres, elle est reconnue pour réduire les diarrhées post-sevrage sans antibiotiques. Nos lots sont systématiquement analysés (mycotoxines, métaux lourds, Salmonelle) pour garantir la sécurité et la performance de vos animaux.</p>
+          <div class="app-card__stat">48 à 56 % de sucres naturels — valeur énergétique équivalente aux meilleures mélasses.</div>
+          <a class="app-card__cta" href="#contact">Demander un devis →</a>
+        </div>
+      </div>
+      <div class="app-card" data-reveal data-d="1">
+        <div class="app-card__img">
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=700&q=85&auto=format" alt="Nutrition sportive bien-être" loading="lazy">
+        </div>
+        <div class="app-card__body">
+          <div class="app-card__sector">Nutrition sportive · Bien-être</div>
+          <h3>Le carburant naturel des athlètes</h3>
+          <p>Substitut au chocolat dans les barres protéinées et shakes fitness, le caroube offre un profil nutritionnel remarquable : riche en calcium et potassium, sans les stimulants du cacao. Des marques pionnières en Europe et en Amérique du Nord l'adoptent massivement. Être leur fournisseur direct depuis le Saïss, c'est notre ambition.</p>
+          <div class="app-card__stat">Nutrition sportive naturelle : 18 Mds USD, croissance de +11 % annuellement.</div>
+          <a class="app-card__cta" href="#contact">Demander un devis →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SAVOIR-FAIRE -->
+<section class="section section--alt" id="savoir-faire">
+  <div class="container">
+    <div class="text-center" data-reveal>
+      <div class="section-eyebrow"><span class="section-eyebrow-text">Engagement</span></div>
+      <h2 class="section-title">Notre savoir-faire</h2>
+      <p class="section-intro">Depuis 2008, les femmes et les hommes des Greniers du Saïss construisent, récolte après récolte, une réputation d'exigence et de fiabilité. Nos clients européens, asiatiques et américains savent qu'une commande passée chez nous est une promesse tenue.</p>
+    </div>
+    <div class="grid-4">
+      <div class="feature-card" data-reveal>
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h4>Qualité certifiée</h4>
+        <p>Chaque lot que nous expédions est le résultat d'une sélection rigoureuse. Humidité, granulométrie, teneur en sucres, charge microbiologique — nos contrôles sont exhaustifs. Nous n'exportons pas ce que nous n'achèterions pas nous-mêmes. Certifications disponibles sur demande.</p>
+      </div>
+      <div class="feature-card" data-reveal data-d="1">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+        <h4>Traçabilité totale</h4>
+        <p>De la parcelle au conteneur, chaque lot porte l'empreinte de son voyage : région de récolte, agriculteurs partenaires, dates de transformation et conditions de stockage. Cette transparence n'est pas une contrainte pour nous — c'est notre fierté et votre garantie.</p>
+      </div>
+      <div class="feature-card" data-reveal data-d="2">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h4>Agriculture durable</h4>
+        <p>Nous travaillons en partenariat direct avec plus de 120 familles d'agriculteurs du Saïss, en pratiquant l'achat direct au juste prix. Notre engagement passe aussi par le soutien à la replantation de caroubiers — une espèce résistante à la sécheresse qui séquestre le carbone et préserve les sols.</p>
+      </div>
+      <div class="feature-card" data-reveal data-d="3">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <h4>Expertise internationale</h4>
+        <p>15 pays, 3 continents, des partenaires fidèles depuis plus de 10 ans. Notre équipe export maîtrise les Incoterms, les certificats EUR.1, Form A, ainsi que les exigences douanières des marchés européens, américains et asiatiques. Nous n'expédions pas — nous accompagnons.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORLD MAP -->
+<section class="map-section" id="carte">
+  <div class="map-header" data-reveal>
+    <span class="map-eyebrow">Présence mondiale</span>
+    <h2 class="map-title">Du Saïss<br><em>aux cinq continents</em></h2>
+    <p class="map-sub">Depuis Fès, nos caroubiers atteignent les tables, les laboratoires et les ateliers du monde entier.</p>
+  </div>
+  <div class="map-wrap" data-reveal>
+    <svg class="map-svg" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+      <!-- Continents (simplified shapes) -->
+      <path class="continent" d="M 68,65 C 95,48 195,42 268,72 C 341,102 358,145 335,192 C 312,239 272,268 242,262 C 212,256 172,234 142,202 C 112,170 82,138 68,105 Z"/>
+      <path class="continent" d="M 228,268 C 262,256 318,268 352,308 C 386,348 382,408 358,448 C 334,488 290,500 252,490 C 214,480 188,448 180,405 C 172,362 182,305 210,282 Z"/>
+      <path class="continent" d="M 448,50 C 492,38 545,42 572,68 C 599,94 596,132 570,150 C 544,168 502,170 470,158 C 438,146 420,118 428,92 Z"/>
+      <path class="continent" d="M 458,148 C 502,130 555,140 585,168 C 615,196 622,240 616,290 C 610,340 594,400 562,440 C 530,480 490,498 454,492 C 418,486 388,455 375,412 C 362,369 364,312 376,264 C 388,216 398,168 428,152 Z"/>
+      <!-- Morocco (highlighted) -->
+      <path class="continent continent--morocco" d="M 458,148 C 476,140 500,142 512,156 C 524,170 522,190 510,202 C 498,214 476,216 461,207 C 446,198 440,178 450,164 Z"/>
+      <path class="continent" d="M 582,145 C 628,120 682,115 722,132 C 762,149 778,182 766,218 C 754,254 718,278 678,282 C 638,286 592,268 570,238 C 548,208 542,172 565,152 Z"/>
+      <path class="continent" d="M 702,78 C 764,58 848,52 910,68 C 972,84 1005,125 998,172 C 991,219 952,260 904,272 C 856,284 798,278 752,254 C 706,230 700,190 702,155 C 702,122 702,78 702,78 Z"/>
+      <path class="continent" d="M 792,335 C 836,318 898,322 932,352 C 966,382 964,432 932,458 C 900,484 848,488 798,468 C 748,448 720,410 728,372 C 736,334 762,342 792,335 Z"/>
+      <!-- Trade routes from Morocco (484,175) -->
+      <path class="trade-route" d="M 484,175 C 487,148 492,122 508,100"/>
+      <path class="trade-route" d="M 484,175 C 430,140 360,138 260,150"/>
+      <path class="trade-route" d="M 484,175 C 560,148 640,158 700,210"/>
+      <path class="trade-route" d="M 484,175 C 600,110 742,108 855,148"/>
+      <path class="trade-route" d="M 484,175 C 480,245 482,318 490,390"/>
+      <!-- Morocco origin -->
+      <circle class="origin-pulse" cx="484" cy="175" r="16"/>
+      <circle class="origin-dot" cx="484" cy="175" r="6"/>
+      <text class="origin-label" x="493" y="168">Fès, Maroc</text>
+      <!-- Destinations -->
+      <circle class="dest-dot" cx="508" cy="100" r="4"/>
+      <text class="dest-label" x="515" y="97">Europe</text>
+      <circle class="dest-dot" cx="260" cy="150" r="4"/>
+      <text class="dest-label" x="218" y="147">Amériques</text>
+      <circle class="dest-dot" cx="700" cy="210" r="4"/>
+      <text class="dest-label" x="707" y="207">Moyen-Orient</text>
+      <circle class="dest-dot" cx="855" cy="148" r="4"/>
+      <text class="dest-label" x="862" y="145">Asie</text>
+      <circle class="dest-dot" cx="490" cy="390" r="4"/>
+      <text class="dest-label" x="497" y="387">Afrique</text>
+    </svg>
+  </div>
+  <div class="map-stats" data-reveal>
+    <div class="map-stat"><span class="map-stat__num">15+</span><span class="map-stat__lbl">Pays clients</span></div>
+    <div class="map-stat"><span class="map-stat__num">3</span><span class="map-stat__lbl">Continents</span></div>
+    <div class="map-stat"><span class="map-stat__num">500+</span><span class="map-stat__lbl">Tonnes / an</span></div>
+    <div class="map-stat"><span class="map-stat__num">16</span><span class="map-stat__lbl">Ans d'expérience</span></div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="news-section" id="actualites">
+  <div class="container">
+    <div class="text-center" data-reveal>
+      <div class="section-eyebrow"><span class="section-eyebrow-text">Actualités</span></div>
+      <h2 class="section-title">Les dernières <em>nouvelles</em></h2>
+      <p class="section-sub">Marchés, récoltes, certifications, salons internationaux — suivez l'actualité des Greniers du Saïss.</p>
+    </div>
+    <div class="news-grid">
+      <article class="news-card" data-reveal>
+        <div class="news-card__img">
+          <img src="https://images.unsplash.com/photo-1493770348161-369560ae357d?w=600&q=80&auto=format" alt="Cosmétique caroube" loading="lazy">
+        </div>
+        <div class="news-card__body">
+          <div class="news-card__meta">
+            <span class="news-card__cat">Cosmétique</span>
+            <span class="news-card__date">Mai 2026</span>
+          </div>
+          <h3>Le caroube marocain, vedette des salons cosmétiques européens</h3>
+          <p>Présents à in-cosmetics Global Paris, nos équipes ont mesuré l'engouement des formulateurs pour les extraits naturels marocains. La demande pour nos poudres certifiées Ecocert a triplé en un an.</p>
+          <a class="news-card__link" href="#contact">Lire la suite →</a>
+        </div>
+      </article>
+      <article class="news-card" data-reveal data-d="1">
+        <div class="news-card__img">
+          <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=600&q=80&auto=format" alt="Récolte 2025" loading="lazy">
+        </div>
+        <div class="news-card__body">
+          <div class="news-card__meta">
+            <span class="news-card__cat">Agriculture</span>
+            <span class="news-card__date">Octobre 2025</span>
+          </div>
+          <h3>Récolte 2025 : une saison exceptionnelle pour le Saïss</h3>
+          <p>Les conditions climatiques favorables ont permis une récolte abondante et de qualité supérieure. Nos stocks sont disponibles pour livraison immédiate. Contactez-nous pour les disponibilités.</p>
+          <a class="news-card__link" href="#contact">Lire la suite →</a>
+        </div>
+      </article>
+      <article class="news-card" data-reveal data-d="2">
+        <div class="news-card__img">
+          <img src="https://images.unsplash.com/photo-1532620651939-c974a5a11a80?w=600&q=80&auto=format" alt="Partenariat Asie" loading="lazy">
+        </div>
+        <div class="news-card__body">
+          <div class="news-card__meta">
+            <span class="news-card__cat">International</span>
+            <span class="news-card__date">Mars 2026</span>
+          </div>
+          <h3>Nouveau partenariat de distribution en Asie-Pacifique</h3>
+          <p>Les Greniers du Saïss renforcent leur présence en Asie avec un accord de distribution couvrant le Japon et la Corée du Sud. Une nouvelle étape dans notre développement international.</p>
+          <a class="news-card__link" href="#contact">Lire la suite →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="cta-inner" data-reveal>
+    <h2>
+      <span class="fr-text">Prêt à sourcer<br><em>avec nous ?</em></span>
+      <span class="en-text" hidden>Ready to source<br><em>with us?</em></span>
+    </h2>
+    <p>
+      <span class="fr-text">Contactez notre équipe pour un devis personnalisé, des échantillons ou toute information sur nos conditions d'export.</span>
+      <span class="en-text" hidden>Contact our team for a personalised quote, samples or any information on our export terms.</span>
+    </p>
+    <div class="btn-actions">
+      <a class="btn btn-gold" href="mailto:contact@greniersdusaiss.ma">
+        <span class="fr-text">Demander un devis</span>
+        <span class="en-text" hidden>Request a Quote</span>
+      </a>
+      <a class="btn btn-ghost" href="tel:+212600000000">
+        <span class="fr-text">Nous appeler</span>
+        <span class="en-text" hidden>Call Us</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__top">
+    <div class="footer__brand">
+      <img class="footer__logo-img" src="logo.png" alt="Les Greniers du Saïss">
+      <p>Exportateur de caroube et de légumineuses depuis le Saïss, Maroc. Fondé en 2008. Présent dans 15+ pays sur 3 continents.</p>
+    </div>
+    <div class="footer__col">
+      <h5>Navigation</h5>
+      <a href="#produits">Produits</a>
+      <a href="#applications">Applications</a>
+      <a href="#savoir-faire">Qualité</a>
+      <a href="#actualites">Actualités</a>
+      <a href="#apropos">À propos</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer__col">
+      <h5>Applications</h5>
+      <a href="#applications">Agroalimentaire</a>
+      <a href="#applications">Pharmacie</a>
+      <a href="#applications">Cosmétique</a>
+      <a href="#applications">Alimentation animale</a>
+      <a href="#applications">Nutrition sportive</a>
+    </div>
+    <div class="footer__col">
+      <h5>Contact</h5>
+      <a href="mailto:contact@greniersdusaiss.ma">contact@greniersdusaiss.ma</a>
+      <a href="tel:+212600000000">+212 6 00 00 00 00</a>
+      <span>Route de Sefrou, Fès, Maroc</span>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <div class="footer__copy">© 2026 Les Greniers du Saïss · Fès, Maroc · Fondé en 2008</div>
+    <div class="footer__legal">
+      <a href="#contact">Confidentialité</a>
+      <a href="#contact">Mentions légales</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* REVEAL */
+const ro = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); ro.unobserve(e.target); }});
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('[data-reveal]').forEach(el => ro.observe(el));
+setTimeout(() => {
+  document.querySelectorAll('[data-reveal]').forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('is-visible');
+  });
+}, 150);
+
+/* COUNTERS */
+function anim(el, t, s, d) {
+  d = d || 1400;
+  var t0 = performance.now();
+  (function tick(n) {
+    var p = Math.min((n - t0) / d, 1);
+    el.textContent = Math.round((1 - Math.pow(1-p, 3)) * t) + s;
+    if (p < 1) requestAnimationFrame(tick);
+  })(t0);
+}
+var co = new IntersectionObserver(function(es) {
+  es.forEach(function(e) {
+    if (e.isIntersecting) {
+      anim(e.target, +e.target.dataset.counter, e.target.dataset.suffix || '');
+      co.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.6 });
+document.querySelectorAll('[data-counter]').forEach(function(el) { co.observe(el); });
+
+/* SCROLL STORY */
+var story = document.getElementById('scrollStory');
+var dots = [0,1,2].map(function(i){ return document.getElementById('dot'+i); });
+var panels = [0,1,2].map(function(i){ return document.getElementById('sp'+i); });
+var thumbs = [0,1,2].map(function(i){ return document.getElementById('th'+i); });
+var cur = -1;
+function step(s) {
+  if (s === cur) return; cur = s;
+  panels.forEach(function(p,i){ p.classList.remove('active','out'); if (i===s) p.classList.add('active'); else if (i<s) p.classList.add('out'); });
+  dots.forEach(function(d,i){ d.classList.toggle('active', i===s); });
+  thumbs.forEach(function(t,i){ t.classList.remove('current','revealed'); if (i<s) t.classList.add('revealed'); if (i===s) t.classList.add('current'); });
+}
+window.addEventListener('scroll', function() {
+  var top = story.getBoundingClientRect().top;
+  var total = story.offsetHeight - window.innerHeight;
+  var sc = -top;
+  if (sc < 0 || sc > total) return;
+  var p = sc / total;
+  step(p < .33 ? 0 : p < .66 ? 1 : 2);
+}, { passive: true });
+step(0);
+
+/* SLIDESHOWS — hero et scroll-story indépendants */
+function startSlideshow(selector, interval) {
+  var slides = document.querySelectorAll(selector);
+  if (!slides.length) return;
+  var cur = 0;
+  setInterval(function() {
+    slides[cur].classList.remove('active');
+    cur = (cur + 1) % slides.length;
+    slides[cur].classList.add('active');
+  }, interval);
+}
+startSlideshow('#heroSlideshow .slide', 6000);
+startSlideshow('#slideshow .slide', 5000);
+
+/* LANGUAGE TOGGLE — uses hidden attribute, no innerHTML */
+var lang = 'fr';
+function toggleLang() {
+  lang = lang === 'fr' ? 'en' : 'fr';
+  document.getElementById('langBtn').textContent = lang === 'fr' ? 'EN' : 'FR';
+  document.querySelectorAll('.fr-text').forEach(function(el) { el.hidden = (lang !== 'fr'); });
+  document.querySelectorAll('.en-text').forEach(function(el) { el.hidden = (lang !== 'en'); });
+}
+
+if (window.matchMedia('(prefers-reduced-motion:reduce)').matches)
+  document.querySelectorAll('[data-reveal]').forEach(function(el){ el.classList.add('is-visible'); });
+</script>
+</body>
+</html>
