@@ -5,11 +5,20 @@
 /* ── Page Hero ──────────────────────────────────────────────── */
 .page-hero {
   position: relative;
-  min-height: 420px;
+  min-height: 380px;
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 55%, var(--color-primary-dark) 100%);
+}
+
+.page-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--color-gold-dark), var(--color-gold), var(--color-gold-dark), transparent);
+  opacity: .7;
 }
 
 .page-hero__bg {
@@ -17,14 +26,14 @@
   inset: 0;
   background-size: cover;
   background-position: center;
-  opacity: .28;
+  opacity: .12;
+  mix-blend-mode: luminosity;
 }
 
 .page-hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, var(--color-primary) 40%, var(--color-primary-light) 100%);
-  opacity: .85;
+  background: linear-gradient(135deg, rgba(10,20,56,.55) 0%, rgba(43,75,160,.15) 100%);
 }
 
 .page-hero__content {
