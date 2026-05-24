@@ -16,6 +16,7 @@
   --fh:'Playfair Display',Georgia,serif;--fb:'Inter',system-ui,sans-serif;--fl:'Outfit',system-ui,sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth}
 body{font-family:var(--fb);background:var(--white);color:var(--text);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img,video{max-width:100%;display:block}
@@ -406,7 +407,7 @@ a{color:inherit;text-decoration:none}
     <div class="story-visual">
       <div class="slideshow" id="slideshow">
         <div class="slide active" style="background-image:url('caroube-arbre.jpg')"></div>
-        <div class="slide" style="background-image:url('caroube-gousses.jpg')"></div>
+        <div class="slide" style="background-image:url('farine-caroube.jpg');background-position:center center"></div>
         <div class="slide" style="background-image:url('caroube-branche.jpg')"></div>
       </div>
       <div class="story-overlay"></div>
@@ -418,7 +419,7 @@ a{color:inherit;text-decoration:none}
       </div>
       <div class="story-thumbs">
         <div class="story-thumb current" id="th0"><img src="caroube-arbre.jpg" onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&q=70'" alt="Caroubier"></div>
-        <div class="story-thumb" id="th1"><img src="caroube-gousses.jpg" onerror="this.src='https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=200&q=70'" alt="Gousses de caroube"></div>
+        <div class="story-thumb" id="th1"><img src="farine-caroube.jpg" alt="Sélection caroube"></div>
         <div class="story-thumb" id="th2"><img src="caroube-branche.jpg" onerror="this.src='https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=200&q=70'" alt="Agriculture marocaine"></div>
       </div>
     </div>
@@ -484,7 +485,7 @@ a{color:inherit;text-decoration:none}
     <div class="grid-2">
       <article class="product-card" data-reveal>
         <div class="product-card__img">
-          <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=900&q=88&auto=format" alt="Caroube du Saïss" loading="lazy">
+          <img src="farine-caroube.jpg" alt="Caroube du Saïss" loading="lazy">
         </div>
         <div class="product-card__body">
           <span class="badge badge--premium">✦ Export</span>
@@ -536,7 +537,7 @@ a{color:inherit;text-decoration:none}
     <div class="grid-3">
       <div class="legume-card" data-reveal>
         <div class="legume-card__img">
-          <img src="https://images.unsplash.com/photo-1537146426053-ab4c3b61ae57?w=700&q=85&auto=format" alt="Pois chiches" loading="lazy">
+          <img src="pois-chiches.jpg" alt="Pois chiches" loading="lazy">
         </div>
         <div class="legume-card__body">
           <h4><span class="fr-text">Pois chiches</span><span class="en-text" hidden>Chickpeas</span></h4>
@@ -550,7 +551,7 @@ a{color:inherit;text-decoration:none}
       </div>
       <div class="legume-card" data-reveal data-d="1">
         <div class="legume-card__img">
-          <img src="https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=700&q=85&auto=format" alt="Fèves" loading="lazy">
+          <img src="feves.jpg" alt="Fèves" loading="lazy">
         </div>
         <div class="legume-card__body">
           <h4><span class="fr-text">Fèves</span><span class="en-text" hidden>Fava Beans</span></h4>
@@ -564,7 +565,7 @@ a{color:inherit;text-decoration:none}
       </div>
       <div class="legume-card" data-reveal data-d="2">
         <div class="legume-card__img">
-          <img src="https://images.unsplash.com/photo-1518977956812-cd3dbadaaf31?w=700&q=85&auto=format" alt="Lentilles" loading="lazy">
+          <img src="lentilles.jpg" alt="Lentilles" loading="lazy">
         </div>
         <div class="legume-card__body">
           <h4><span class="fr-text">Lentilles</span><span class="en-text" hidden>Lentils</span></h4>
@@ -757,12 +758,12 @@ a{color:inherit;text-decoration:none}
     <div class="news-grid">
       <article class="news-card" data-reveal>
         <div class="news-card__img">
-          <img src="https://images.unsplash.com/photo-1493770348161-369560ae357d?w=600&q=80&auto=format" alt="Cosmétique caroube" loading="lazy">
+          <img src="news-cosmetique.jpg" alt="in-cosmetics Global Paris 2026" loading="lazy">
         </div>
         <div class="news-card__body">
           <div class="news-card__meta">
             <span class="news-card__cat fr-text">Cosmétique</span><span class="news-card__cat en-text" hidden>Cosmetics</span>
-            <span class="news-card__date">Mai 2026</span>
+            <span class="news-card__date">20 mai 2026</span>
           </div>
           <h3><span class="fr-text">Le caroube marocain, vedette des salons cosmétiques européens</span><span class="en-text" hidden>Moroccan carob, star of European cosmetics shows</span></h3>
           <p><span class="fr-text">Présents à in-cosmetics Global Paris, nos équipes ont mesuré l'engouement des formulateurs pour les extraits naturels marocains. La demande pour nos poudres certifiées Ecocert a triplé en un an.</span><span class="en-text" hidden>Present at in-cosmetics Global Paris, our teams measured the enthusiasm of formulators for Moroccan natural extracts. Demand for our Ecocert-certified powders has tripled in one year.</span></p>
@@ -775,36 +776,36 @@ a{color:inherit;text-decoration:none}
       </article>
       <article class="news-card" data-reveal data-d="1">
         <div class="news-card__img">
-          <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=600&q=80&auto=format" alt="Récolte 2025" loading="lazy">
+          <img src="news-siam.jpg" alt="SIAM Meknès 2026" loading="lazy">
         </div>
         <div class="news-card__body">
           <div class="news-card__meta">
-            <span class="news-card__cat fr-text">Agriculture</span><span class="news-card__cat en-text" hidden>Agriculture</span>
-            <span class="news-card__date">Octobre 2025</span>
+            <span class="news-card__cat fr-text">Salon</span><span class="news-card__cat en-text" hidden>Trade Show</span>
+            <span class="news-card__date">14 mai 2026</span>
           </div>
-          <h3><span class="fr-text">Récolte 2025 : une saison exceptionnelle pour le Saïss</span><span class="en-text" hidden>2025 Harvest: an exceptional season for the Saïss</span></h3>
-          <p><span class="fr-text">Les conditions climatiques favorables ont permis une récolte abondante et de qualité supérieure. Nos stocks sont disponibles pour livraison immédiate.</span><span class="en-text" hidden>Favourable weather conditions allowed for an abundant harvest of superior quality. Our stocks are available for immediate delivery.</span></p>
+          <h3><span class="fr-text">SIAM Meknès 2026 : 8 acheteurs qualifiés rencontrés en deux jours</span><span class="en-text" hidden>SIAM Meknès 2026: 8 qualified buyers met in two days</span></h3>
+          <p><span class="fr-text">Les Greniers du Saïss ont présenté leur gamme complète au 16ème Salon International de l'Agriculture au Maroc. Retour sur deux journées décisives pour notre développement export.</span><span class="en-text" hidden>Les Greniers du Saïss showcased their full range at the 16th International Agriculture Fair of Morocco. A look back at two decisive days for our export development.</span></p>
           <div class="news-full">
-            <span class="fr-text">La saison 2025 a bénéficié d'hivers pluvieux et d'étés tempérés dans la région du Saïss, favorisant une floraison abondante des caroubiers. Les résultats d'analyse confirment des taux de sucres naturels supérieurs de 8 % à la moyenne des cinq dernières années. Nos 120 familles partenaires ont collectivement récolté plus de 620 tonnes de gousses brutes, un record depuis notre création. Les stocks de farine et de pulpe sont disponibles immédiatement en conditionnements de 25 kg, big-bags et conteneurs complets. Contactez notre équipe commerciale pour les disponibilités et les délais de livraison vers votre pays.</span>
-            <span class="en-text" hidden>The 2025 season benefited from rainy winters and mild summers in the Saïss region, promoting abundant carob tree flowering. Analysis results confirm natural sugar levels 8% above the five-year average. Our 120 partner families collectively harvested over 620 tonnes of raw pods — a record since our founding. Flour and pulp stocks are immediately available in 25 kg, big-bag and full container packaging. Contact our sales team for availability and delivery times to your country.</span>
+            <span class="fr-text">Le SIAM 2026 de Meknès, tenu du 6 au 11 mai, a confirmé le dynamisme de l'agriculture marocaine à l'export. Sur notre stand, nous avons présenté l'ensemble de la gamme caroube — brute, graines, pulpe et farine certifiée Ecocert — ainsi que nos légumineuses d'exportation. Huit acheteurs qualifiés ont été rencontrés : deux importateurs de produits biologiques en France et en Espagne, un groupement d'achats néerlandais, deux distributeurs du Golfe (Dubaï, Riyad) et trois industriels marocains souhaitant développer l'export conjoint. Des échantillons certifiés ont été remis pour analyse. Ces contacts ouvrent des perspectives concrètes pour la campagne automne-hiver 2026.</span>
+            <span class="en-text" hidden>SIAM 2026 in Meknès, held from 6–11 May, confirmed the dynamism of Moroccan agriculture in export markets. Our stand showcased the full carob range — raw, seeds, pulp and Ecocert-certified flour — alongside our export legumes. Eight qualified buyers were met: two organic importers from France and Spain, a Dutch buying group, two Gulf distributors (Dubai, Riyadh) and three Moroccan industrialists seeking joint export development. Certified samples were provided for analysis. These contacts open concrete prospects for the autumn-winter 2026 campaign.</span>
           </div>
           <button class="news-card__link" onclick="toggleNews(this)"><span class="fr-text">Lire la suite →</span><span class="en-text" hidden>Read more →</span></button>
         </div>
       </article>
       <article class="news-card" data-reveal data-d="2">
         <div class="news-card__img">
-          <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600&q=80&auto=format" alt="Partenariat Asie" loading="lazy">
+          <img src="news-japon.jpg" alt="Expédition conteneur Japon 2026" loading="lazy">
         </div>
         <div class="news-card__body">
           <div class="news-card__meta">
             <span class="news-card__cat">International</span>
-            <span class="news-card__date">Mars 2026</span>
+            <span class="news-card__date">9 mai 2026</span>
           </div>
-          <h3><span class="fr-text">Nouveau partenariat de distribution en Asie-Pacifique</span><span class="en-text" hidden>New distribution partnership in Asia-Pacific</span></h3>
-          <p><span class="fr-text">Les Greniers du Saïss renforcent leur présence en Asie avec un accord de distribution couvrant le Japon et la Corée du Sud.</span><span class="en-text" hidden>Les Greniers du Saïss strengthens its presence in Asia with a distribution agreement covering Japan and South Korea.</span></p>
+          <h3><span class="fr-text">Partenariat Asie-Pacifique : premier conteneur confirmé pour juillet 2026</span><span class="en-text" hidden>Asia-Pacific partnership: first container confirmed for July 2026</span></h3>
+          <p><span class="fr-text">Les Greniers du Saïss confirment l'expédition de leur premier conteneur de caroube vers le Japon, dans le cadre de l'accord de distribution signé avec un importateur d'Osaka.</span><span class="en-text" hidden>Les Greniers du Saïss confirm the shipment of their first carob container to Japan, under the distribution agreement signed with an Osaka-based importer.</span></p>
           <div class="news-full">
-            <span class="fr-text">Après deux années de prospection et de qualification, nous avons conclu un accord de distribution exclusif avec un importateur japonais spécialisé dans les ingrédients naturels certifiés pour l'industrie alimentaire et nutraceutique. Cet accord, qui couvre le Japon et la Corée du Sud, représente un potentiel de 80 à 120 tonnes par an dès la deuxième année. Les premiers conteneurs sont prévus pour juillet 2026. Cette expansion marque une étape majeure dans notre stratégie Asie-Pacifique, après nos implantations réussies en Europe de l'Ouest (France, Espagne, Allemagne) et au Moyen-Orient (EAU, Arabie Saoudite).</span>
-            <span class="en-text" hidden>After two years of prospecting and qualification, we have signed an exclusive distribution agreement with a Japanese importer specialising in certified natural ingredients for the food and nutraceutical industry. This agreement, covering Japan and South Korea, represents a potential of 80–120 tonnes per year from the second year. The first containers are planned for July 2026. This expansion marks a major milestone in our Asia-Pacific strategy, following our successful implantations in Western Europe (France, Spain, Germany) and the Middle East (UAE, Saudi Arabia).</span>
+            <span class="fr-text">L'accord de distribution exclusif conclu avec notre partenaire japonais — spécialisé dans les ingrédients naturels certifiés pour l'industrie alimentaire et nutraceutique — entre maintenant dans sa phase opérationnelle. Le premier conteneur, composé de 18 tonnes de farine de caroube et de 6 tonnes de graines certifiées, a été confirmé pour départ fin juillet 2026 depuis Casablanca. Cet accord couvre le Japon et la Corée du Sud, pour un potentiel de 80 à 120 tonnes par an dès la deuxième année. Cette étape concrétise notre stratégie Asie-Pacifique, après nos positions établies en Europe de l'Ouest et au Moyen-Orient.</span>
+            <span class="en-text" hidden>The exclusive distribution agreement with our Japanese partner — specialised in certified natural ingredients for the food and nutraceutical industry — is now entering its operational phase. The first container, comprising 18 tonnes of carob flour and 6 tonnes of certified seeds, has been confirmed for departure in late July 2026 from Casablanca. This agreement covers Japan and South Korea, with a potential of 80–120 tonnes per year from the second year. This milestone advances our Asia-Pacific strategy, following our established positions in Western Europe and the Middle East.</span>
           </div>
           <button class="news-card__link" onclick="toggleNews(this)"><span class="fr-text">Lire la suite →</span><span class="en-text" hidden>Read more →</span></button>
         </div>
@@ -949,7 +950,6 @@ a{color:inherit;text-decoration:none}
       <a href="#legumineuses"><span class="fr-text">Légumineuses</span><span class="en-text" hidden>Legumes</span></a>
       <a href="#savoir-faire"><span class="fr-text">Qualité</span><span class="en-text" hidden>Quality</span></a>
       <a href="#actualites"><span class="fr-text">Actualités</span><span class="en-text" hidden>News</span></a>
-      <a href="#contact">Contact</a>
     </div>
     <div class="footer__col">
       <h5>Contact</h5>
@@ -963,7 +963,6 @@ a{color:inherit;text-decoration:none}
     <div class="footer__legal">
       <a href="#contact"><span class="fr-text">Confidentialité</span><span class="en-text" hidden>Privacy</span></a>
       <a href="#contact"><span class="fr-text">Mentions légales</span><span class="en-text" hidden>Legal notice</span></a>
-      <a href="#contact">Contact</a>
     </div>
   </div>
 </footer>

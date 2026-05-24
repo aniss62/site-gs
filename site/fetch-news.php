@@ -4,17 +4,27 @@
  * Run via cron every 6 hours:
  *   0 */6 * * * php /path/to/public_html/fetch-news.php >> /path/to/.tmp/news-cron.log 2>&1
  * Or trigger manually with security token:
- *   https://yourdomain.ma/fetch-news.php?token=greniers2025
+ *   https://yourdomain.ma/fetch-news.php?token=<FETCH_NEWS_TOKEN>
  */
 
-// ── Security token (CLI bypasses check) ──────────────────────
-define('CRON_TOKEN', 'greniers2025');
+// ── Load .env ─────────────────────────────────────────────────
+foreach ([__DIR__ . '/../../.env', __DIR__ . '/../.env'] as $_envPath) {
+    if (!is_file($_envPath)) continue;
+    foreach (file($_envPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $_line) {
+        $_line = trim($_line);
+        if ($_line === '' || $_line[0] === '#' || !str_contains($_line, '=')) continue;
+        [$_k, $_v] = explode('=', $_line, 2);
+        $_k = trim($_k); $_v = trim(trim($_v), '"\'');
+        if ($_k !== '' && !isset($_ENV[$_k])) { $_ENV[$_k] = $_v; putenv("$_k=$_v"); }
+    }
+}
 
+// ── Security token (CLI bypasses check) ──────────────────────
 $isCli = php_sapi_name() === 'cli';
 
 if (!$isCli) {
-    $token = $_GET['token'] ?? '';
-    if ($token !== CRON_TOKEN) {
+    $cronToken = $_ENV['FETCH_NEWS_TOKEN'] ?? '';
+    if ($cronToken === '' || ($_GET['token'] ?? '') !== $cronToken) {
         http_response_code(403);
         echo 'Forbidden';
         exit;

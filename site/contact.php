@@ -5,6 +5,8 @@
  * Returns JSON: {"success": true} or {"success": false, "error": "..."}
  */
 
+session_start();
+
 header('Content-Type: application/json; charset=utf-8');
 header('X-Content-Type-Options: nosniff');
 
@@ -17,8 +19,30 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 // ── Honeypot check ────────────────────────────────────────────
 if (!empty($_POST['website'])) {
-    // Bot detected — respond success to not reveal the trap
     echo json_encode(['success' => true]);
+    exit;
+}
+
+// ── Session-based rate limiting (no IP, no CSRF) ──────────────
+// Sliding window: max 5 submissions per 60-minute session window.
+// Hard cooldown: 30 s minimum between consecutive submissions.
+$now  = time();
+$logs = array_values(array_filter(
+    $_SESSION['contact_log'] ?? [],
+    fn(int $t): bool => $now - $t < 3600
+));
+
+if (count($logs) >= 5) {
+    http_response_code(429);
+    header('Retry-After: 3600');
+    echo json_encode(['success' => false, 'error' => 'Too many requests. Please try again later.']);
+    exit;
+}
+
+if (!empty($logs) && $now - end($logs) < 30) {
+    http_response_code(429);
+    header('Retry-After: 30');
+    echo json_encode(['success' => false, 'error' => 'Please wait a moment before submitting again.']);
     exit;
 }
 
@@ -90,22 +114,23 @@ $body .= "Envoyé le : " . date('d/m/Y H:i') . "\n";
 $subject = "Demande de contact — {$name}" . ($company ? " ({$company})" : '');
 
 // Try PHPMailer if available, fall back to mail()
-$phpmailerPath = __DIR__ . '/../vendor/phpmailer/phpmailer/src/PHPMailer.php';
+$autoloadPath = __DIR__ . '/vendor/autoload.php';
 
-if (is_file($phpmailerPath) && !empty($smtpHost)) {
-    require_once $phpmailerPath;
-    require_once __DIR__ . '/../vendor/phpmailer/phpmailer/src/SMTP.php';
-    require_once __DIR__ . '/../vendor/phpmailer/phpmailer/src/Exception.php';
+if (is_file($autoloadPath) && !empty($smtpHost)) {
+    require_once $autoloadPath;
 
     $mail = new PHPMailer\PHPMailer\PHPMailer(true);
     try {
+        $smtpPort = (int)($_ENV['SMTP_PORT'] ?? 587);
         $mail->isSMTP();
         $mail->Host       = $_ENV['SMTP_HOST'];
         $mail->SMTPAuth   = true;
         $mail->Username   = $_ENV['SMTP_USER'] ?? '';
         $mail->Password   = $_ENV['SMTP_PASS'] ?? '';
-        $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = (int)($_ENV['SMTP_PORT'] ?? 587);
+        $mail->Port       = $smtpPort;
+        $mail->SMTPSecure = $smtpPort === 465
+            ? PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_SMTPS
+            : PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
         $mail->CharSet    = 'UTF-8';
 
         $mail->setFrom($smtpFrom, 'Les Greniers du Saïss');
@@ -116,6 +141,8 @@ if (is_file($phpmailerPath) && !empty($smtpHost)) {
         $mail->Body    = $body;
 
         $mail->send();
+        $logs[] = $now;
+        $_SESSION['contact_log'] = $logs;
         echo json_encode(['success' => true]);
     } catch (Exception $e) {
         error_log('[contact.php] PHPMailer error: ' . $mail->ErrorInfo);
@@ -131,6 +158,8 @@ if (is_file($phpmailerPath) && !empty($smtpHost)) {
     $to = !empty($smtpTo) ? $smtpTo : ini_get('sendmail_from');
 
     if (!empty($to) && mail($to, $subject, $body, $headers)) {
+        $logs[] = $now;
+        $_SESSION['contact_log'] = $logs;
         echo json_encode(['success' => true]);
     } else {
         error_log('[contact.php] mail() failed or no SMTP_TO configured');

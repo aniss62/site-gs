@@ -4,7 +4,7 @@
     {
       "title": "Le marché mondial de la caroube en pleine croissance",
       "source": "Agri Maroc",
-      "url": "#",
+      "url": "https://www.agrimaroc.ma",
       "published": "2026-05-20",
       "summary": "La demande mondiale pour les produits de caroube naturels continue de progresser, portée par l'industrie agroalimentaire et les tendances santé.",
       "lang": "fr"
@@ -12,7 +12,7 @@
     {
       "title": "Les légumineuses, pilier de la sécurité alimentaire mondiale",
       "source": "FAO",
-      "url": "#",
+      "url": "https://www.fao.org/plant-production-protection/en/",
       "published": "2026-05-18",
       "summary": "La FAO souligne le rôle essentiel des légumineuses dans l'alimentation durable. Le Maroc figure parmi les exportateurs clés de la région.",
       "lang": "fr"
@@ -20,7 +20,7 @@
     {
       "title": "Carob flour: the natural cocoa alternative gaining ground",
       "source": "Food Business News",
-      "url": "#",
+      "url": "https://www.foodbusinessnews.net",
       "published": "2026-05-15",
       "summary": "Carob flour is increasingly replacing cocoa in confectionery and bakery applications, driven by consumer demand for caffeine-free and naturally sweet ingredients.",
       "lang": "en"
@@ -28,24 +28,27 @@
     {
       "title": "Agriculture du Saïss : une région en plein essor",
       "source": "Maroc Agricole",
-      "url": "#",
+      "url": "https://www.mapmdref.gov.ma",
       "published": "2026-05-12",
+      "image": "assets/images/news-siam.jpg",
       "summary": "La plaine du Saïss, entre Fès et Meknès, confirme son statut de grenier agricole du Maroc avec des productions record cette saison.",
       "lang": "fr"
     },
     {
       "title": "Global legume exports hit record levels in 2025",
       "source": "Commodity News",
-      "url": "#",
+      "url": "https://www.agra-net.com",
       "published": "2026-05-10",
+      "image": "assets/images/news-japon.jpg",
       "summary": "International trade in lentils, chickpeas and other legumes reached new heights last year, with North Africa playing an increasingly important role.",
       "lang": "en"
     },
     {
       "title": "La caroube marocaine s'impose sur les marchés européens",
-      "source": "Trade Morocco",
-      "url": "#",
+      "source": "ASMEX",
+      "url": "https://www.asmex.ma",
       "published": "2026-05-08",
+      "image": "assets/images/news-cosmetique.jpg",
       "summary": "Les exportations marocaines de produits de caroube vers l'Europe progressent de 15% en 2025, portées par une forte demande des industries alimentaires et cosmétiques.",
       "lang": "fr"
     }

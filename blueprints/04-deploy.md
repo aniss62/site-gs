@@ -34,9 +34,26 @@ public_html/
 ```
 
 ### 3. Configurer le fichier .env sur le serveur
-Via FTP ou le gestionnaire de fichiers cPanel, créer `/home/user/.env` (hors de public_html) et remplir les credentials SMTP.
+Le dépôt contient `.env.example` à la racine — le copier en `.env` et remplir les valeurs :
 
-Modifier `contact.php` pour pointer vers le bon chemin de `.env`.
+```bash
+cp .env.example .env
+```
+
+Via FTP ou le gestionnaire de fichiers cPanel, déposer `.env` dans `/home/user/` (un niveau **au-dessus** de `public_html/`, hors webroot).
+
+Variables obligatoires :
+| Variable | Description |
+|---|---|
+| `SMTP_HOST` | Serveur SMTP de l'hébergeur |
+| `SMTP_PORT` | `587` (STARTTLS) ou `465` (SSL) |
+| `SMTP_USER` | Adresse email SMTP |
+| `SMTP_PASS` | Mot de passe SMTP |
+| `SMTP_FROM` | Expéditeur des emails |
+| `SMTP_TO` | Destinataire des formulaires |
+| `FETCH_NEWS_TOKEN` | Token secret pour déclencher fetch-news.php |
+
+> `FETCH_NEWS_TOKEN` : générer une chaîne aléatoire, ex. `openssl rand -hex 24`
 
 ### 4. Configurer le cron job (news automatiques)
 Dans cPanel > Tâches Cron, ajouter :

@@ -1,0 +1,11 @@
+{
+    "name": "greniers-du-saiss/site",
+    "description": "Site vitrine Les Greniers du Saïss",
+    "type": "project",
+    "require": {
+        "phpmailer/phpmailer": "^6.9"
+    },
+    "config": {
+        "optimize-autoloader": true
+    }
+}
