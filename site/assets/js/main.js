@@ -10,57 +10,18 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
 });
 
-/* ── Navbar ─────────────────────────────────────────────────── */
+/* ── Nav scroll shadow ──────────────────────────────────────── */
 function initNavbar() {
-  const navbar = document.querySelector('.navbar');
-  const hamburger = document.querySelector('.navbar__hamburger');
-  const mobileNav = document.querySelector('.navbar__mobile');
+  const nav = document.querySelector('.nav');
+  if (!nav) return;
 
-  if (!navbar) return;
-
-  // Scroll shadow
   window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 20);
+    nav.classList.toggle('scrolled', window.scrollY > 20);
   }, { passive: true });
-
-  // Hamburger toggle
-  if (hamburger && mobileNav) {
-    hamburger.addEventListener('click', () => {
-      const open = hamburger.classList.toggle('open');
-      mobileNav.classList.toggle('open', open);
-      document.body.style.overflow = open ? 'hidden' : '';
-    });
-
-    // Close on outside click
-    document.addEventListener('click', (e) => {
-      if (!navbar.contains(e.target) && mobileNav.classList.contains('open')) {
-        hamburger.classList.remove('open');
-        mobileNav.classList.remove('open');
-        document.body.style.overflow = '';
-      }
-    });
-
-    // Close on link click
-    mobileNav.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        mobileNav.classList.remove('open');
-        document.body.style.overflow = '';
-      });
-    });
-  }
 }
 
-/* ── Active nav link ────────────────────────────────────────── */
-function initActiveLink() {
-  const path = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.navbar__nav a, .navbar__mobile a').forEach(a => {
-    const href = a.getAttribute('href')?.split('/').pop() || '';
-    if (href === path || (path === '' && href === 'index.html')) {
-      a.classList.add('active');
-    }
-  });
-}
+/* ── Active nav link (géré par nav.js — stub vide) ──────────── */
+function initActiveLink() {}
 
 /* ── Animated counters ──────────────────────────────────────── */
 function initCounters() {

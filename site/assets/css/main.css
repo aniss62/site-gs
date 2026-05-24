@@ -8,33 +8,50 @@
 
 /* ── Design Tokens ─────────────────────────────────────────── */
 :root {
-  --color-primary:      #2B4BA0;
-  --color-primary-dark: #1e3578;
-  --color-primary-light:#3a5fc2;
-  --color-gold:         #E8B84B;
-  --color-gold-dark:    #c99930;
-  --color-gold-light:   #f5d07a;
-  --color-white:        #FFFFFF;
-  --color-bg:           #F7F7F7;
-  --color-text:         #1C1C2E;
-  --color-text-muted:   #5a5a72;
-  --color-border:       #e0e0ec;
-  --color-overlay:      rgba(27, 40, 90, 0.62);
+  /* Primary (blue) */
+  --color-primary:        #2B4BA0;
+  --color-primary-dark:   #1e3578;
+  --color-primary-deeper: #0A1438;
+  --color-primary-light:  #3a5fc2;
 
+  /* Gold */
+  --color-gold:       #E8B84B;
+  --color-gold-dark:  #c99930;
+  --color-gold-light: #f5d07a;
+
+  /* Dark backgrounds (scroll-story, map, footer) */
+  --color-ink:   #0B1A5C;
+
+  /* Neutral */
+  --color-white:      #FFFFFF;
+  --color-bg:         #F3EFE6;
+  --color-text:       #1C1C2E;
+  --color-text-muted: #5a5a72;
+  --color-border:     #e0e0ec;
+  --color-overlay:    rgba(27, 40, 90, 0.62);
+
+  /* Typography */
   --font-heading: 'Playfair Display', Georgia, serif;
   --font-body:    'Inter', system-ui, sans-serif;
+  --font-label:   'Outfit', system-ui, sans-serif;
 
+  /* Radii */
   --radius-sm:  4px;
   --radius-md:  8px;
   --radius-lg:  16px;
   --radius-xl:  24px;
 
+  /* Shadows */
   --shadow-sm:  0 1px 3px rgba(0,0,0,.08);
   --shadow-md:  0 4px 16px rgba(0,0,0,.10);
   --shadow-lg:  0 8px 32px rgba(0,0,0,.14);
 
-  --transition: 0.22s ease;
+  /* Transitions */
+  --transition:   0.22s ease;
+  --ease-spring:  cubic-bezier(.34,1.56,.64,1);
+  --ease-out:     cubic-bezier(.22,1,.36,1);
 
+  /* Layout */
   --max-width:  1200px;
   --section-py: 5rem;
   --section-px: 1.5rem;
