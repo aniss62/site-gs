@@ -1,0 +1,170 @@
+<h2>Design final — Plan de restructuration</h2>
+<p class="subtitle">Voici ce qu'on va construire. Vérifie que tout correspond à ce que tu veux.</p>
+
+<div class="section">
+  <h3>1. Navigation (présente sur toutes les pages)</h3>
+
+  <div style="font-family:sans-serif;margin:1rem 0">
+    <!-- Desktop nav -->
+    <div style="background:#2B4BA0;border-radius:8px 8px 0 0;padding:.7rem 1.5rem;display:flex;align-items:center;justify-content:space-between">
+      <img src="https://via.placeholder.com/60x36/E8B84B/2B4BA0?text=LOGO" style="height:36px;border-radius:3px" alt="logo">
+      <div style="display:flex;gap:1.5rem;align-items:center">
+        <span style="color:#fff;font-size:.72rem;font-weight:500">Accueil</span>
+        <span style="color:#E8B84B;font-size:.72rem;font-weight:600;border-bottom:2px solid #E8B84B;padding-bottom:2px">Nos Produits ▾</span>
+        <span style="color:#fff;font-size:.72rem;font-weight:500">À propos</span>
+        <span style="color:#fff;font-size:.72rem;font-weight:500">Actualités</span>
+        <span style="color:#fff;font-size:.72rem;font-weight:500">Contact</span>
+        <span style="background:#E8B84B;color:#2B4BA0;font-size:.62rem;padding:.22rem .7rem;border-radius:12px;font-weight:700">FR / EN</span>
+      </div>
+    </div>
+    <!-- Mega menu ouvert -->
+    <div style="background:#fff;border:1px solid #dde;border-top:3px solid #E8B84B;border-radius:0 0 8px 8px;padding:1.2rem 1.5rem;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;font-family:sans-serif">
+      <div>
+        <div style="font-size:.62rem;color:#E8B84B;text-transform:uppercase;letter-spacing:.12em;font-weight:700;margin-bottom:.7rem">🌿 Caroube</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.4rem">
+          <a style="display:block;font-size:.68rem;color:#2B4BA0;padding:.4rem .6rem;background:#f0f3ff;border-radius:5px;text-decoration:none;transition:.2s">Caroube brute</a>
+          <a style="display:block;font-size:.68rem;color:#2B4BA0;padding:.4rem .6rem;background:#f0f3ff;border-radius:5px;text-decoration:none">Graines de caroube</a>
+          <a style="display:block;font-size:.68rem;color:#2B4BA0;padding:.4rem .6rem;background:#f0f3ff;border-radius:5px;text-decoration:none">Pulpe de caroube</a>
+          <a style="display:block;font-size:.68rem;color:#2B4BA0;padding:.4rem .6rem;background:#f0f3ff;border-radius:5px;text-decoration:none">Farine de caroube</a>
+        </div>
+      </div>
+      <div style="border-left:1px solid #eee;padding-left:1.5rem">
+        <div style="font-size:.62rem;color:#E8B84B;text-transform:uppercase;letter-spacing:.12em;font-weight:700;margin-bottom:.7rem">🌾 Légumineuses</div>
+        <a style="display:block;font-size:.68rem;color:#2B4BA0;padding:.4rem .6rem;background:#f0f3ff;border-radius:5px;text-decoration:none;margin-bottom:.4rem">Voir toute la gamme →</a>
+        <p style="font-size:.62rem;color:#999;line-height:1.6">Lentilles · Pois chiches · Fèves<br>Haricots · Pois secs</p>
+      </div>
+    </div>
+    <div style="text-align:center;font-size:.6rem;color:#aaa;margin-top:.4rem">↑ Méga-menu desktop (survol "Nos Produits")</div>
+  </div>
+
+  <!-- Mobile hamburger -->
+  <div style="display:flex;gap:1rem;margin-top:.8rem;font-family:sans-serif">
+    <div style="flex:1">
+      <div style="background:#2B4BA0;border-radius:8px;padding:.6rem .8rem;display:flex;justify-content:space-between;align-items:center">
+        <span style="color:#E8B84B;font-size:.72rem;font-weight:700">Les Greniers du Saïss</span>
+        <span style="color:#fff;font-size:1rem">☰</span>
+      </div>
+      <div style="text-align:center;font-size:.6rem;color:#aaa;margin-top:.3rem">Mobile fermé</div>
+    </div>
+    <div style="flex:2">
+      <div style="background:#2B4BA0;border-radius:8px;overflow:hidden">
+        <div style="padding:.5rem .8rem;border-bottom:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center">
+          <span style="color:#E8B84B;font-size:.7rem;font-weight:700">Les Greniers du Saïss</span>
+          <span style="color:#fff;font-size:1rem">✕</span>
+        </div>
+        <div style="padding:.4rem .8rem;border-bottom:1px solid rgba(255,255,255,.08)"><span style="color:#fff;font-size:.68rem">Accueil</span></div>
+        <div style="padding:.4rem .8rem;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(232,184,75,.1)">
+          <span style="color:#E8B84B;font-size:.68rem">Nos Produits ▾</span>
+          <div style="padding:.3rem 0 0 .8rem;display:flex;flex-direction:column;gap:.2rem">
+            <span style="color:rgba(255,255,255,.7);font-size:.62rem">→ Caroube brute</span>
+            <span style="color:rgba(255,255,255,.7);font-size:.62rem">→ Graines · Pulpe · Farine</span>
+            <span style="color:rgba(255,255,255,.7);font-size:.62rem">→ Légumineuses</span>
+          </div>
+        </div>
+        <div style="padding:.4rem .8rem;border-bottom:1px solid rgba(255,255,255,.08)"><span style="color:#fff;font-size:.68rem">À propos</span></div>
+        <div style="padding:.4rem .8rem;border-bottom:1px solid rgba(255,255,255,.08)"><span style="color:#fff;font-size:.68rem">Actualités</span></div>
+        <div style="padding:.4rem .8rem"><span style="color:#fff;font-size:.68rem">Contact</span></div>
+      </div>
+      <div style="text-align:center;font-size:.6rem;color:#aaa;margin-top:.3rem">Mobile ouvert (accordion)</div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top:2rem">
+  <h3>2. Structure des pages</h3>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:.8rem;font-family:sans-serif;font-size:.65rem">
+
+    <div style="border:2px solid #2B4BA0;border-radius:8px;overflow:hidden">
+      <div style="background:#2B4BA0;color:#E8B84B;padding:.4rem .6rem;font-weight:700">🏠 Accueil (index.html)</div>
+      <div style="padding:.5rem .6rem;color:#555;line-height:1.8">
+        Hero slideshow<br>
+        ↓ Teaser produits (4 cartes + légumineuses)<br>
+        ↓ Carte marchés monde<br>
+        ↓ 3 dernières actualités<br>
+        ↓ Bandeau CTA devis<br>
+        ↓ Footer
+      </div>
+      <div style="background:#f0f3ff;padding:.3rem .6rem;font-size:.58rem;color:#888">Version raccourcie du v12 actuel</div>
+    </div>
+
+    <div style="border:2px solid #E8B84B;border-radius:8px;overflow:hidden">
+      <div style="background:#E8B84B;color:#2B4BA0;padding:.4rem .6rem;font-weight:700">📦 Nos Produits — 5 pages</div>
+      <div style="padding:.5rem .6rem;color:#555;line-height:1.8">
+        <strong>products/caroube-brute.html</strong><br>
+        products/graines-caroube.html<br>
+        products/pulpe-caroube.html<br>
+        products/farine-caroube.html<br>
+        products/legumineuses.html<br>
+      </div>
+      <div style="background:#fff8e8;padding:.3rem .6rem;font-size:.58rem;color:#888">Déjà existantes → style à harmoniser</div>
+    </div>
+
+    <div style="border:1px solid #dde;border-radius:8px;overflow:hidden">
+      <div style="background:#f8f9ff;color:#2B4BA0;padding:.4rem .6rem;font-weight:700">🏭 À propos (about.html)</div>
+      <div style="padding:.5rem .6rem;color:#555;line-height:1.8">
+        Histoire & valeurs<br>
+        ↓ Certifications & Qualité<br>
+        ↓ Durabilité & RSE<br>
+        ↓ Marchés d'export<br>
+      </div>
+      <div style="background:#f8f9ff;padding:.3rem .6rem;font-size:.58rem;color:#888">Sections qualite.html + durabilite.html intégrées ici</div>
+    </div>
+
+    <div style="border:1px solid #dde;border-radius:8px;overflow:hidden">
+      <div style="background:#f8f9ff;color:#2B4BA0;padding:.4rem .6rem;font-weight:700">📰 Actualités (news.html)</div>
+      <div style="padding:.5rem .6rem;color:#555;line-height:1.8">
+        Grille d'articles<br>
+        ↓ Fetch auto RSS/JSON<br>
+        ↓ Photos contextuelles<br>
+      </div>
+    </div>
+
+    <div style="border:1px solid #dde;border-radius:8px;overflow:hidden">
+      <div style="background:#f8f9ff;color:#2B4BA0;padding:.4rem .6rem;font-weight:700">✉️ Contact (contact.html)</div>
+      <div style="padding:.5rem .6rem;color:#555;line-height:1.8">
+        Formulaire PHPMailer<br>
+        ↓ Coordonnées Fès<br>
+        ↓ Carte Google Maps<br>
+      </div>
+    </div>
+
+    <div style="border:1px dashed #dde;border-radius:8px;overflow:hidden;opacity:.7">
+      <div style="background:#f8f9ff;color:#888;padding:.4rem .6rem;font-weight:600">🗂️ Footer (toutes les pages)</div>
+      <div style="padding:.5rem .6rem;color:#888;line-height:1.8;font-size:.6rem">
+        Logo · Adresse · Tél · Email<br>
+        Liens rapides produits<br>
+        LinkedIn · Instagram<br>
+        Mentions légales
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section" style="margin-top:2rem">
+  <h3>3. Technique — comment ça s'implémente</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:.8rem;font-family:sans-serif;font-size:.65rem">
+    <div style="background:#f0f3ff;border-radius:8px;padding:.8rem">
+      <div style="font-weight:700;color:#2B4BA0;margin-bottom:.5rem">📁 Fichiers partagés créés</div>
+      <div style="color:#555;line-height:2">
+        <code style="background:#fff;padding:.1rem .3rem;border-radius:3px;font-size:.6rem">assets/css/style.css</code> — CSS extrait de index.html<br>
+        <code style="background:#fff;padding:.1rem .3rem;border-radius:3px;font-size:.6rem">assets/js/nav.js</code> — méga-menu + mobile + FR/EN<br>
+        <code style="background:#fff;padding:.1rem .3rem;border-radius:3px;font-size:.6rem">assets/js/footer.js</code> — footer injecté partout
+      </div>
+    </div>
+    <div style="background:#fff8e8;border-radius:8px;padding:.8rem">
+      <div style="font-weight:700;color:#E8B84B;margin-bottom:.5rem">⚡ Résultat sur chaque page</div>
+      <div style="color:#555;line-height:2">
+        1 <code style="background:#fff;padding:.1rem .3rem;border-radius:3px;font-size:.6rem">&lt;link&gt;</code> CSS unique<br>
+        1 <code style="background:#fff;padding:.1rem .3rem;border-radius:3px;font-size:.6rem">&lt;div id="nav"&gt;</code> injecté<br>
+        1 <code style="background:#fff;padding:.1rem .3rem;border-radius:3px;font-size:.6rem">&lt;div id="footer"&gt;</code> injecté<br>
+        Contenu spécifique à la page
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:2rem;padding:1rem;background:linear-gradient(135deg,#2B4BA0,#1a2e6b);border-radius:8px;font-family:sans-serif;text-align:center">
+  <div style="color:#E8B84B;font-weight:700;font-size:.85rem;margin-bottom:.4rem">Ce design te convient ?</div>
+  <div style="color:rgba(255,255,255,.75);font-size:.68rem">Si oui, on écrit le plan détaillé et on attaque l'implémentation.</div>
+</div>

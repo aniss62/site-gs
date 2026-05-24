@@ -1,0 +1,73 @@
+<h2>Que devient la page d'accueil ?</h2>
+<p class="subtitle">Le menu renvoie vers des pages indépendantes — l'accueil doit-il rester riche ou devenir une vitrine légère ?</p>
+
+<div class="cards" style="gap:1.5rem;margin-top:1.5rem">
+
+  <!-- Option A : Accueil riche avec teasers -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)" style="padding:0;overflow:hidden">
+    <div class="card-image" style="padding:1.2rem;background:#f8f9ff;border-bottom:1px solid #e8eaf0;font-family:sans-serif">
+      <div style="border:1px solid #dde;border-radius:8px;overflow:hidden;font-size:.62rem">
+        <!-- Hero -->
+        <div style="background:linear-gradient(135deg,#2B4BA0,#1a2e6b);color:#fff;padding:.8rem;text-align:center">
+          <div style="font-size:.85rem;font-weight:700;color:#E8B84B">Hero — Slideshow caroube</div>
+          <div style="font-size:.6rem;color:rgba(255,255,255,.6);margin-top:.2rem">Accroche + bouton "Découvrir nos produits"</div>
+        </div>
+        <!-- Section teasers -->
+        <div style="background:#fff;padding:.6rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:.4rem">
+          <div style="background:#f0f3ff;border-radius:4px;padding:.4rem;text-align:center;color:#2B4BA0;font-size:.6rem">📦 <strong>Nos produits</strong><br><span style="color:#888">4 cartes caroube<br>+ bloc légumineuses</span><br><span style="color:#2B4BA0;font-size:.55rem">→ Voir tout</span></div>
+          <div style="background:#f0f3ff;border-radius:4px;padding:.4rem;text-align:center;color:#2B4BA0;font-size:.6rem">🗺️ <strong>Marchés export</strong><br><span style="color:#888">Carte monde<br>animée</span><br><span style="color:#2B4BA0;font-size:.55rem">→ À propos</span></div>
+          <div style="background:#f0f3ff;border-radius:4px;padding:.4rem;text-align:center;color:#2B4BA0;font-size:.6rem">📰 <strong>Dernières actus</strong><br><span style="color:#888">3 articles<br>récents</span><br><span style="color:#2B4BA0;font-size:.55rem">→ Voir toutes</span></div>
+        </div>
+        <!-- CTA -->
+        <div style="background:#E8B84B;padding:.5rem;text-align:center;color:#2B4BA0;font-size:.62rem;font-weight:700">
+          Bandeau "Demander un devis" → Contact
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Accueil riche (teasers)</h3>
+      <p>L'accueil garde ses sections mais plus courtes — chaque bloc renvoie vers la page dédiée. Un acheteur comprend toute l'offre en 30 secondes.</p>
+      <div class="pros-cons" style="margin-top:.8rem">
+        <div class="pros"><h4>Pour</h4><ul><li>Impression forte au premier coup d'œil</li><li>Design v12 conservé</li></ul></div>
+        <div class="cons"><h4>Contre</h4><ul><li>Page plus lourde à charger</li><li>Plus de travail d'harmonisation</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option B : Accueil épurée -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)" style="padding:0;overflow:hidden">
+    <div class="card-image" style="padding:1.2rem;background:#f8f9ff;border-bottom:1px solid #e8eaf0;font-family:sans-serif">
+      <div style="border:1px solid #dde;border-radius:8px;overflow:hidden;font-size:.62rem">
+        <!-- Hero grand -->
+        <div style="background:linear-gradient(135deg,#2B4BA0,#1a2e6b);color:#fff;padding:1.2rem;text-align:center">
+          <div style="font-size:.85rem;font-weight:700;color:#E8B84B">Hero plein écran</div>
+          <div style="font-size:.6rem;color:rgba(255,255,255,.7);margin-top:.3rem">Logo · Accroche · 2 boutons CTA</div>
+          <div style="display:flex;justify-content:center;gap:.5rem;margin-top:.5rem">
+            <div style="background:#E8B84B;color:#2B4BA0;padding:.25rem .6rem;border-radius:10px;font-size:.6rem;font-weight:700">Nos produits</div>
+            <div style="background:transparent;color:#E8B84B;border:1px solid #E8B84B;padding:.25rem .6rem;border-radius:10px;font-size:.6rem">Nous contacter</div>
+          </div>
+        </div>
+        <!-- 4 piliers icônes -->
+        <div style="background:#fff;padding:.6rem;display:grid;grid-template-columns:repeat(4,1fr);gap:.3rem;text-align:center">
+          <div style="padding:.4rem .2rem;color:#2B4BA0;font-size:.58rem">🌿<br><strong>Caroube</strong><br><span style="color:#888">4 produits</span></div>
+          <div style="padding:.4rem .2rem;color:#2B4BA0;font-size:.58rem">🌾<br><strong>Légumineuses</strong><br><span style="color:#888">5 variétés</span></div>
+          <div style="padding:.4rem .2rem;color:#2B4BA0;font-size:.58rem">✅<br><strong>Qualité</strong><br><span style="color:#888">Certifié</span></div>
+          <div style="padding:.4rem .2rem;color:#2B4BA0;font-size:.58rem">🚢<br><strong>Export</strong><br><span style="color:#888">Mondial</span></div>
+        </div>
+        <!-- mini CTA footer -->
+        <div style="background:#f8f9ff;padding:.4rem;text-align:center;color:#888;font-size:.58rem;border-top:1px solid #eee">
+          Footer avec liens rapides
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Accueil épurée (portail)</h3>
+      <p>Hero fort + 4 piliers cliquables qui orientent vers les pages. Très rapide à charger, moderne et efficace. Le contenu riche est dans les pages dédiées.</p>
+      <div class="pros-cons" style="margin-top:.8rem">
+        <div class="pros"><h4>Pour</h4><ul><li>Ultra rapide sur mobile</li><li>Navigation immédiate</li><li>Plus facile à maintenir</li></ul></div>
+        <div class="cons"><h4>Contre</h4><ul><li>Moins de contenu visible d'emblée</li><li>Refonte partielle du v12</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+</div>

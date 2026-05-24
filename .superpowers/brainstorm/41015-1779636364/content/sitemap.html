@@ -1,0 +1,109 @@
+<h2>Plan du site — quelles rubriques dans le menu ?</h2>
+<p class="subtitle">Le site a déjà des pages existantes. Choisis le plan qui correspond à ce que tu veux montrer à tes acheteurs.</p>
+
+<div class="cards" style="gap:1.5rem;margin-top:1.5rem">
+
+  <!-- Option A : Menu 5 entrées épuré -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)" style="padding:0;overflow:hidden">
+    <div class="card-image" style="padding:1.5rem 1.5rem 1rem;background:#f8f9ff;border-bottom:1px solid #e8eaf0;font-family:sans-serif">
+      <!-- Nav bar -->
+      <div style="background:#2B4BA0;border-radius:6px;padding:.5rem 1rem;display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
+        <span style="color:#E8B84B;font-weight:700;font-size:.8rem">Les Greniers du Saïss</span>
+        <div style="display:flex;gap:1.1rem">
+          <span style="color:#fff;font-size:.68rem">Accueil</span>
+          <span style="color:#E8B84B;font-size:.68rem">Nos Produits ▾</span>
+          <span style="color:#fff;font-size:.68rem">À propos</span>
+          <span style="color:#fff;font-size:.68rem">Actualités</span>
+          <span style="color:#fff;font-size:.68rem">Contact</span>
+        </div>
+      </div>
+      <!-- Sitemap tree -->
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:.5rem;text-align:center">
+        <div style="background:#2B4BA0;color:#fff;padding:.5rem .3rem;border-radius:5px;font-size:.62rem;font-weight:600">🏠 Accueil</div>
+        <div style="background:#E8B84B;color:#2B4BA0;padding:.5rem .3rem;border-radius:5px;font-size:.62rem;font-weight:600">📦 Nos Produits<br><span style="font-size:.55rem;font-weight:400">↳ 5 sous-pages</span></div>
+        <div style="background:#2B4BA0;color:#fff;padding:.5rem .3rem;border-radius:5px;font-size:.62rem;font-weight:600">🏭 À propos</div>
+        <div style="background:#2B4BA0;color:#fff;padding:.5rem .3rem;border-radius:5px;font-size:.62rem;font-weight:600">📰 Actualités</div>
+        <div style="background:#2B4BA0;color:#fff;padding:.5rem .3rem;border-radius:5px;font-size:.62rem;font-weight:600">✉️ Contact</div>
+      </div>
+      <div style="margin-top:.6rem;display:grid;grid-template-columns:repeat(5,1fr);gap:.3rem;text-align:center">
+        <div></div>
+        <div style="display:flex;flex-direction:column;gap:.25rem">
+          <div style="background:#f0f3ff;color:#2B4BA0;padding:.3rem;border-radius:4px;font-size:.58rem">Caroube brute</div>
+          <div style="background:#f0f3ff;color:#2B4BA0;padding:.3rem;border-radius:4px;font-size:.58rem">Graines</div>
+          <div style="background:#f0f3ff;color:#2B4BA0;padding:.3rem;border-radius:4px;font-size:.58rem">Pulpe</div>
+          <div style="background:#f0f3ff;color:#2B4BA0;padding:.3rem;border-radius:4px;font-size:.58rem">Farine</div>
+          <div style="background:#f0f3ff;color:#2B4BA0;padding:.3rem;border-radius:4px;font-size:.58rem">Légumineuses</div>
+        </div>
+        <div></div><div></div><div></div>
+      </div>
+      <div style="margin-top:.8rem;font-size:.6rem;color:#888;text-align:center">Qualité · Applications · Durabilité → intégrés dans À propos ou footer</div>
+    </div>
+    <div class="card-body">
+      <h3>A — 5 entrées, épuré</h3>
+      <p>Menu court et impactant. Qualité, Applications et Durabilité deviennent des sections dans "À propos" ou dans le footer. Idéal pour des acheteurs pressés.</p>
+    </div>
+  </div>
+
+  <!-- Option B : Menu 6 entrées avec Qualité visible -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)" style="padding:0;overflow:hidden">
+    <div class="card-image" style="padding:1.5rem 1.5rem 1rem;background:#f8f9ff;border-bottom:1px solid #e8eaf0;font-family:sans-serif">
+      <div style="background:#2B4BA0;border-radius:6px;padding:.5rem 1rem;display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
+        <span style="color:#E8B84B;font-weight:700;font-size:.8rem">Les Greniers du Saïss</span>
+        <div style="display:flex;gap:.9rem">
+          <span style="color:#fff;font-size:.65rem">Accueil</span>
+          <span style="color:#E8B84B;font-size:.65rem">Produits ▾</span>
+          <span style="color:#fff;font-size:.65rem">Qualité</span>
+          <span style="color:#fff;font-size:.65rem">À propos</span>
+          <span style="color:#fff;font-size:.65rem">Actualités</span>
+          <span style="color:#fff;font-size:.65rem">Contact</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:.4rem;text-align:center">
+        <div style="background:#2B4BA0;color:#fff;padding:.5rem .2rem;border-radius:5px;font-size:.58rem;font-weight:600">🏠 Accueil</div>
+        <div style="background:#E8B84B;color:#2B4BA0;padding:.5rem .2rem;border-radius:5px;font-size:.58rem;font-weight:600">📦 Produits<br><span style="font-size:.52rem;font-weight:400">↳ 5 sous-pages</span></div>
+        <div style="background:#2B4BA0;color:#fff;padding:.5rem .2rem;border-radius:5px;font-size:.58rem;font-weight:600">✅ Qualité<br><span style="font-size:.52rem;font-weight:400;color:rgba(255,255,255,.7)">Certif. &amp; standards</span></div>
+        <div style="background:#2B4BA0;color:#fff;padding:.5rem .2rem;border-radius:5px;font-size:.58rem;font-weight:600">🏭 À propos</div>
+        <div style="background:#2B4BA0;color:#fff;padding:.5rem .2rem;border-radius:5px;font-size:.58rem;font-weight:600">📰 Actualités</div>
+        <div style="background:#2B4BA0;color:#fff;padding:.5rem .2rem;border-radius:5px;font-size:.58rem;font-weight:600">✉️ Contact</div>
+      </div>
+      <div style="margin-top:.8rem;font-size:.6rem;color:#888;text-align:center">Applications · Durabilité → sections dans À propos</div>
+    </div>
+    <div class="card-body">
+      <h3>B — 6 entrées avec Qualité en avant</h3>
+      <p>Qualité visible directement dans le menu — argument fort pour des acheteurs B2B qui cherchent les certifications. Applications et Durabilité restent dans À propos.</p>
+    </div>
+  </div>
+
+  <!-- Option C : Menu complet 7 entrées -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)" style="padding:0;overflow:hidden">
+    <div class="card-image" style="padding:1.5rem 1.5rem 1rem;background:#f8f9ff;border-bottom:1px solid #e8eaf0;font-family:sans-serif">
+      <div style="background:#2B4BA0;border-radius:6px;padding:.5rem .8rem;display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
+        <span style="color:#E8B84B;font-weight:700;font-size:.75rem">Les Greniers du Saïss</span>
+        <div style="display:flex;gap:.7rem">
+          <span style="color:#fff;font-size:.6rem">Accueil</span>
+          <span style="color:#E8B84B;font-size:.6rem">Produits ▾</span>
+          <span style="color:#fff;font-size:.6rem">Qualité</span>
+          <span style="color:#fff;font-size:.6rem">Applications</span>
+          <span style="color:#fff;font-size:.6rem">À propos</span>
+          <span style="color:#fff;font-size:.6rem">Actualités</span>
+          <span style="color:#fff;font-size:.6rem">Contact</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:.3rem;text-align:center">
+        <div style="background:#2B4BA0;color:#fff;padding:.4rem .15rem;border-radius:4px;font-size:.55rem;font-weight:600">🏠<br>Accueil</div>
+        <div style="background:#E8B84B;color:#2B4BA0;padding:.4rem .15rem;border-radius:4px;font-size:.55rem;font-weight:600">📦<br>Produits<br>▾5</div>
+        <div style="background:#2B4BA0;color:#fff;padding:.4rem .15rem;border-radius:4px;font-size:.55rem;font-weight:600">✅<br>Qualité</div>
+        <div style="background:#2B4BA0;color:#fff;padding:.4rem .15rem;border-radius:4px;font-size:.55rem;font-weight:600">⚗️<br>Appli.</div>
+        <div style="background:#2B4BA0;color:#fff;padding:.4rem .15rem;border-radius:4px;font-size:.55rem;font-weight:600">🏭<br>À propos</div>
+        <div style="background:#2B4BA0;color:#fff;padding:.4rem .15rem;border-radius:4px;font-size:.55rem;font-weight:600">📰<br>Actus</div>
+        <div style="background:#2B4BA0;color:#fff;padding:.4rem .15rem;border-radius:4px;font-size:.55rem;font-weight:600">✉️<br>Contact</div>
+      </div>
+      <div style="margin-top:.8rem;font-size:.6rem;color:#888;text-align:center">Durabilité → section dans À propos</div>
+    </div>
+    <div class="card-body">
+      <h3>C — Menu complet, tout visible</h3>
+      <p>Toutes les rubriques accessibles directement. Pratique pour la navigation mais le menu devient chargé sur desktop et surtout sur mobile. Risque d'écrasement sur petits écrans.</p>
+    </div>
+  </div>
+
+</div>

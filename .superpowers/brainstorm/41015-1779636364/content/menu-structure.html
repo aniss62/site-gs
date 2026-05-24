@@ -1,0 +1,115 @@
+<h2>Comment organiser le menu ?</h2>
+<p class="subtitle">3 structures possibles — clique sur celle qui te parle le plus</p>
+
+<div class="cards" style="gap:1.5rem;margin-top:1.5rem">
+
+  <!-- Option A -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)" style="padding:0;overflow:hidden">
+    <div class="card-image" style="padding:1.5rem;background:#f8f9ff;border-bottom:1px solid #e8eaf0">
+      <!-- Nav mockup A -->
+      <div style="background:#2B4BA0;border-radius:8px;padding:.6rem 1.2rem;display:flex;align-items:center;justify-content:space-between;font-family:sans-serif">
+        <span style="color:#E8B84B;font-weight:700;font-size:.85rem">Les Greniers du Saïss</span>
+        <div style="display:flex;gap:1.2rem;align-items:center">
+          <span style="color:#fff;font-size:.7rem">Accueil</span>
+          <span style="color:#E8B84B;font-size:.7rem;border-bottom:1px solid #E8B84B">Produits ▾</span>
+          <span style="color:#fff;font-size:.7rem">À propos</span>
+          <span style="color:#fff;font-size:.7rem">Actualités</span>
+          <span style="color:#fff;font-size:.7rem">Contact</span>
+          <span style="background:#E8B84B;color:#2B4BA0;font-size:.62rem;padding:.2rem .6rem;border-radius:10px;font-weight:700">FR/EN</span>
+        </div>
+      </div>
+      <!-- Dropdown preview -->
+      <div style="margin-top:.3rem;margin-left:calc(50% - 30px);background:#fff;border:1px solid #dde;border-radius:6px;padding:.5rem;width:180px;box-shadow:0 4px 12px rgba(0,0,0,.1);font-family:sans-serif">
+        <div style="font-size:.68rem;color:#2B4BA0;padding:.25rem .5rem;border-radius:4px;background:#f0f3ff;margin-bottom:.25rem">Caroube brute</div>
+        <div style="font-size:.68rem;color:#2B4BA0;padding:.25rem .5rem;margin-bottom:.25rem">Graines de caroube</div>
+        <div style="font-size:.68rem;color:#2B4BA0;padding:.25rem .5rem;margin-bottom:.25rem">Pulpe de caroube</div>
+        <div style="font-size:.68rem;color:#2B4BA0;padding:.25rem .5rem;margin-bottom:.25rem">Farine de caroube</div>
+        <div style="font-size:.68rem;color:#2B4BA0;padding:.25rem .5rem;border-top:1px solid #eee;margin-top:.25rem">Légumineuses</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Menu compact + dropdown</h3>
+      <p>5 entrées en haut. "Produits" ouvre un sous-menu au survol avec toutes les fiches produit. Simple et efficace.</p>
+    </div>
+  </div>
+
+  <!-- Option B -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)" style="padding:0;overflow:hidden">
+    <div class="card-image" style="padding:1.5rem;background:#f8f9ff;border-bottom:1px solid #e8eaf0">
+      <!-- Nav mockup B -->
+      <div style="background:#2B4BA0;border-radius:8px;padding:.6rem 1.2rem;display:flex;align-items:center;justify-content:space-between;font-family:sans-serif">
+        <span style="color:#E8B84B;font-weight:700;font-size:.85rem">Les Greniers du Saïss</span>
+        <div style="display:flex;gap:1rem;align-items:center">
+          <span style="color:#fff;font-size:.68rem">Accueil</span>
+          <span style="color:#E8B84B;font-size:.68rem;border-bottom:1px solid #E8B84B">Caroube ▾</span>
+          <span style="color:#E8B84B;font-size:.68rem;border-bottom:1px solid #E8B84B">Légumineuses ▾</span>
+          <span style="color:#fff;font-size:.68rem">Qualité</span>
+          <span style="color:#fff;font-size:.68rem">À propos</span>
+          <span style="color:#fff;font-size:.68rem">Actualités</span>
+          <span style="color:#fff;font-size:.68rem">Contact</span>
+          <span style="background:#E8B84B;color:#2B4BA0;font-size:.6rem;padding:.2rem .5rem;border-radius:10px;font-weight:700">FR/EN</span>
+        </div>
+      </div>
+      <!-- Two dropdowns preview -->
+      <div style="display:flex;gap:.5rem;margin-top:.3rem;margin-left:calc(30% - 10px);font-family:sans-serif">
+        <div style="background:#fff;border:1px solid #dde;border-radius:6px;padding:.5rem;width:150px;box-shadow:0 4px 12px rgba(0,0,0,.1)">
+          <div style="font-size:.62rem;color:#888;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.05em">Produits Caroube</div>
+          <div style="font-size:.66rem;color:#2B4BA0;padding:.2rem .4rem;background:#f0f3ff;border-radius:3px;margin-bottom:.2rem">Caroube brute</div>
+          <div style="font-size:.66rem;color:#2B4BA0;padding:.2rem .4rem;margin-bottom:.2rem">Graines</div>
+          <div style="font-size:.66rem;color:#2B4BA0;padding:.2rem .4rem;margin-bottom:.2rem">Pulpe</div>
+          <div style="font-size:.66rem;color:#2B4BA0;padding:.2rem .4rem">Farine</div>
+        </div>
+        <div style="background:#fff;border:1px solid #dde;border-radius:6px;padding:.5rem;width:130px;box-shadow:0 4px 12px rgba(0,0,0,.1)">
+          <div style="font-size:.62rem;color:#888;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.05em">Légumineuses</div>
+          <div style="font-size:.66rem;color:#2B4BA0;padding:.2rem .4rem;margin-bottom:.2rem">Lentilles</div>
+          <div style="font-size:.66rem;color:#2B4BA0;padding:.2rem .4rem;margin-bottom:.2rem">Pois chiches</div>
+          <div style="font-size:.66rem;color:#2B4BA0;padding:.2rem .4rem;margin-bottom:.2rem">Fèves</div>
+          <div style="font-size:.66rem;color:#2B4BA0;padding:.2rem .4rem">Haricots…</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Deux familles séparées</h3>
+      <p>"Caroube" et "Légumineuses" ont chacune leur sous-menu. Met mieux en valeur les deux gammes mais charge plus le menu.</p>
+    </div>
+  </div>
+
+  <!-- Option C -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)" style="padding:0;overflow:hidden">
+    <div class="card-image" style="padding:1.5rem;background:#f8f9ff;border-bottom:1px solid #e8eaf0">
+      <!-- Nav mockup C - mega menu -->
+      <div style="background:#2B4BA0;border-radius:8px 8px 0 0;padding:.6rem 1.2rem;display:flex;align-items:center;justify-content:space-between;font-family:sans-serif">
+        <span style="color:#E8B84B;font-weight:700;font-size:.85rem">Les Greniers du Saïss</span>
+        <div style="display:flex;gap:1.2rem;align-items:center">
+          <span style="color:#fff;font-size:.7rem">Accueil</span>
+          <span style="color:#E8B84B;font-size:.7rem;border-bottom:2px solid #E8B84B">Nos Produits ▾</span>
+          <span style="color:#fff;font-size:.7rem">À propos</span>
+          <span style="color:#fff;font-size:.7rem">Actualités</span>
+          <span style="color:#fff;font-size:.7rem">Contact</span>
+          <span style="background:#E8B84B;color:#2B4BA0;font-size:.62rem;padding:.2rem .6rem;border-radius:10px;font-weight:700">FR/EN</span>
+        </div>
+      </div>
+      <!-- Mega menu panel -->
+      <div style="background:#fff;border:1px solid #dde;border-top:2px solid #E8B84B;border-radius:0 0 8px 8px;padding:1rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem;font-family:sans-serif">
+        <div>
+          <div style="font-size:.62rem;color:#E8B84B;text-transform:uppercase;letter-spacing:.1em;font-weight:700;margin-bottom:.5rem">Caroube</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.3rem">
+            <div style="font-size:.66rem;color:#2B4BA0;padding:.3rem .5rem;background:#f8f9ff;border-radius:4px">🌿 Caroube brute</div>
+            <div style="font-size:.66rem;color:#2B4BA0;padding:.3rem .5rem;background:#f8f9ff;border-radius:4px">🌱 Graines</div>
+            <div style="font-size:.66rem;color:#2B4BA0;padding:.3rem .5rem;background:#f8f9ff;border-radius:4px">🍯 Pulpe</div>
+            <div style="font-size:.66rem;color:#2B4BA0;padding:.3rem .5rem;background:#f8f9ff;border-radius:4px">🌾 Farine</div>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:.62rem;color:#E8B84B;text-transform:uppercase;letter-spacing:.1em;font-weight:700;margin-bottom:.5rem">Légumineuses</div>
+          <div style="font-size:.66rem;color:#555;line-height:1.8">Lentilles · Pois chiches<br>Fèves · Haricots · Pois secs<br><em style="color:#2B4BA0">→ Voir toute la gamme</em></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Méga-menu visuel</h3>
+      <p>Un grand panneau s'ouvre sous "Nos Produits" avec les deux familles côte à côte. Plus visuel, idéal pour montrer l'étendue de la gamme.</p>
+    </div>
+  </div>
+
+</div>
