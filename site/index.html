@@ -17,21 +17,9 @@
 <body>
 
 
-<!-- NAV -->
-<nav class="nav">
-  <div class="nav__logo">
-    <img class="nav__logo-img" src="assets/images/logo/logo.png" alt="Les Greniers du Saïss">
-  </div>
-  <div class="nav__links">
-    <a class="nav__link" href="#produits"><span class="fr-text">Produits</span><span class="en-text" hidden>Products</span></a>
-    <a class="nav__link" href="#applications">Applications</a>
-    <a class="nav__link" href="#savoir-faire"><span class="fr-text">Qualité</span><span class="en-text" hidden>Quality</span></a>
-    <a class="nav__link" href="#actualites"><span class="fr-text">Actualités</span><span class="en-text" hidden>News</span></a>
-    <a class="nav__link" href="#apropos"><span class="fr-text">À propos</span><span class="en-text" hidden>About</span></a>
-    <a class="nav__link" href="#contact">Contact</a>
-    <button class="nav__lang" id="langBtn" onclick="toggleLang()">EN</button>
-  </div>
-</nav>
+<!-- NAV PARTAGÉ -->
+<div id="main-nav"></div>
+<script src="assets/js/nav.js"></script>
 
 <!-- HERO -->
 <section class="hero" id="hero">
@@ -738,21 +726,14 @@ function handleContact(e) {
   document.getElementById('contactForm').hidden = true;
   document.getElementById('contactSuccess').hidden = false;
   /* re-apply lang visibility to success message */
-  document.querySelectorAll('.fr-text').forEach(function(el) { el.hidden = (lang !== 'fr'); });
-  document.querySelectorAll('.en-text').forEach(function(el) { el.hidden = (lang !== 'en'); });
+  document.querySelectorAll('.fr-text').forEach(function(el) { el.hidden = ((window.sitelang || 'fr') !== 'fr'); });
+  document.querySelectorAll('.en-text').forEach(function(el) { el.hidden = ((window.sitelang || 'fr') !== 'en'); });
 }
 
-/* LANGUAGE TOGGLE — uses hidden attribute, no innerHTML */
-var lang = 'fr';
-function toggleLang() {
-  lang = lang === 'fr' ? 'en' : 'fr';
-  document.getElementById('langBtn').textContent = lang === 'fr' ? 'EN' : 'FR';
-  document.querySelectorAll('.fr-text').forEach(function(el) { el.hidden = (lang !== 'fr'); });
-  document.querySelectorAll('.en-text').forEach(function(el) { el.hidden = (lang !== 'en'); });
-}
 
 if (window.matchMedia('(prefers-reduced-motion:reduce)').matches)
   document.querySelectorAll('[data-reveal]').forEach(function(el){ el.classList.add('is-visible'); });
 </script>
+<script src="assets/js/footer.js"></script>
 </body>
 </html>
