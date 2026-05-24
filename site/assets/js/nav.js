@@ -83,7 +83,7 @@
   }
 
   /* ── 4. Langue initiale ────────────────────────────────────── */
-  var lang = localStorage.getItem('sitelang') || 'fr';
+  var lang = localStorage.getItem('sitelang') || localStorage.getItem('gs_lang') || 'fr';
   window.sitelang = lang;
 
   /* ── 5. applyLang : bascule .fr-text / .en-text ───────────── */
@@ -125,19 +125,24 @@
     langBtn.addEventListener('click', function () {
       lang = (lang === 'fr') ? 'en' : 'fr';
       localStorage.setItem('sitelang', lang);
+      localStorage.setItem('gs_lang', lang);
       applyLang();
     });
   }
 
   /* ── 8. Méga-menu desktop : mouseenter / mouseleave ────────── */
   if (megaItem && megaPanel && megaBtn) {
+    var hoverQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+
     megaItem.addEventListener('mouseenter', function () {
+      if (!hoverQuery.matches) return;
       megaPanel.hidden = false;
       megaBtn.setAttribute('aria-expanded', 'true');
       megaItem.classList.add('is-open');
     });
 
     megaItem.addEventListener('mouseleave', function () {
+      if (!hoverQuery.matches) return;
       megaPanel.hidden = true;
       megaBtn.setAttribute('aria-expanded', 'false');
       megaItem.classList.remove('is-open');
@@ -163,7 +168,21 @@
     });
   }
 
-  /* ── 11. Fermer sur clic extérieur ─────────────────────────── */
+  /* ── 11. Fermer sur Escape ─────────────────────────────────── */
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      if (megaPanel) megaPanel.hidden = true;
+      if (megaBtn) megaBtn.setAttribute('aria-expanded', 'false');
+      if (megaItem) megaItem.classList.remove('is-open');
+      if (gnavLinks) gnavLinks.classList.remove('nav__links--open');
+      if (hamburger) {
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.classList.remove('is-open');
+      }
+    }
+  });
+
+  /* ── 12. Fermer sur clic extérieur ─────────────────────────── */
   document.addEventListener('click', function (e) {
     if (!gnav || gnav.contains(e.target)) return;
 
@@ -184,7 +203,7 @@
     }
   });
 
-  /* ── 12. Marquer le lien actif ─────────────────────────────── */
+  /* ── 13. Marquer le lien actif ─────────────────────────────── */
   function markActiveLink() {
     var pathname = window.location.pathname;
     var filename = pathname.split('/').pop() || '';
