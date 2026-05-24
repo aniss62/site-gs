@@ -230,4 +230,25 @@
 
   markActiveLink();
 
+  /* ── 14. Sur la page d'accueil : remplacer les liens par des ancres ─ */
+  (function adaptHomepageLinks() {
+    var path = window.location.pathname;
+    var isHome = (path === '/' || path.endsWith('/index.html') || path === '' ||
+                  path.replace(/.*\//, '') === '' || path.replace(/.*\//, '') === 'index.html');
+    if (!isHome) return;
+
+    var map = {
+      'about.html': '#savoir-faire'
+    };
+
+    var links = document.querySelectorAll('#gnav a');
+    for (var i = 0; i < links.length; i++) {
+      var href = links[i].getAttribute('href') || '';
+      var file = href.split('/').pop();
+      if (map[file]) {
+        links[i].setAttribute('href', map[file]);
+      }
+    }
+  })();
+
 })();
