@@ -520,21 +520,32 @@
 
 .form-group label .required { color: #d9534f; margin-left: 2px; }
 
-.form-control {
+.form-control,
+.form-group .form-control,
+.form-group input.form-control,
+.form-group textarea.form-control,
+.form-group select.form-control {
   width: 100%;
   padding: .7rem 1rem;
-  border: 2px solid #c8cfe8;
+  border: 2px solid #c8cfe8 !important;
   border-radius: var(--radius-md);
   font-family: var(--font-body);
   font-size: .95rem;
-  color: #1C1C2E;
-  background: #ffffff;
+  color: #1C1C2E !important;
+  background: #ffffff !important;
   transition: border-color var(--transition), box-shadow var(--transition);
   outline: none;
 }
 
-.form-control:focus {
-  border-color: var(--color-primary);
+.form-group .form-control::placeholder,
+.form-group input.form-control::placeholder,
+.form-group textarea.form-control::placeholder {
+  color: rgba(0,0,0,.35) !important;
+}
+
+.form-control:focus,
+.form-group .form-control:focus {
+  border-color: var(--color-primary) !important;
   box-shadow: 0 0 0 3px rgba(43,75,160,.12);
 }
 
