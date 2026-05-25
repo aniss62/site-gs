@@ -149,20 +149,22 @@ if (is_file($autoloadPath) && !empty($smtpHost)) {
         echo json_encode(['success' => false, 'error' => 'Mail error']);
     }
 } else {
-    // Fallback: PHP mail()
-    $headers  = "From: {$smtpFrom}\r\n";
-    $headers .= "Reply-To: {$email}\r\n";
+    // PHP mail() natif — fonctionne sur tout hébergement cPanel sans mot de passe
+    $headers  = "From: Les Greniers du Saïss <{$smtpFrom}>\r\n";
+    $headers .= "Reply-To: {$name} <{$email}>\r\n";
     $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 
-    $to = !empty($smtpTo) ? $smtpTo : ini_get('sendmail_from');
+    $to      = !empty($smtpTo) ? $smtpTo : ini_get('sendmail_from');
+    $params  = !empty($smtpFrom) ? "-f {$smtpFrom}" : '';
 
-    if (!empty($to) && mail($to, $subject, $body, $headers)) {
+    if (!empty($to) && mail($to, $subject, $body, $headers, $params)) {
         $logs[] = $now;
         $_SESSION['contact_log'] = $logs;
         echo json_encode(['success' => true]);
     } else {
-        error_log('[contact.php] mail() failed or no SMTP_TO configured');
+        error_log('[contact.php] mail() failed — to=' . $to . ' from=' . $smtpFrom);
         echo json_encode(['success' => false, 'error' => 'Mail send failed']);
     }
 }
