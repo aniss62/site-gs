@@ -5,3 +5,5 @@ node_modules/
 .DS_Store
 Thumbs.db
 .superpowers/
+# Vidéo — trop lourde pour git, à copier manuellement sur le serveur
+site/assets/video/
