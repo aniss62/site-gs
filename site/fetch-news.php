@@ -33,7 +33,7 @@ if (!$isCli) {
 }
 
 // ── Config ────────────────────────────────────────────────────
-$outputFile = __DIR__ . '/assets/data/news.json';
+$outputFile = __DIR__ . '/assets/data/news-rss.json';
 $logFile    = __DIR__ . '/../.tmp/news-fetch.log';
 $maxPerFeed = 20;
 
