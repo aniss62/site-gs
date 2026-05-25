@@ -4,52 +4,49 @@
     {
       "title": "Le marché mondial de la caroube en pleine croissance",
       "source": "Agri Maroc",
-      "url": "https://www.agrimaroc.ma",
       "published": "2026-05-20",
-      "summary": "La demande mondiale pour les produits de caroube naturels continue de progresser, portée par l'industrie agroalimentaire et les tendances santé.",
+      "image": "assets/images/caroubegousses.jpg",
+      "summary": "La demande mondiale pour les produits de caroube naturels continue de progresser, portée par l'industrie agroalimentaire et les tendances santé. Les prévisions tablent sur une croissance annuelle de 6 % jusqu'en 2030, avec l'Europe et l'Asie du Sud-Est comme principaux marchés d'absorption.",
       "lang": "fr"
     },
     {
       "title": "Les légumineuses, pilier de la sécurité alimentaire mondiale",
       "source": "FAO",
-      "url": "https://www.fao.org/plant-production-protection/en/",
       "published": "2026-05-18",
-      "summary": "La FAO souligne le rôle essentiel des légumineuses dans l'alimentation durable. Le Maroc figure parmi les exportateurs clés de la région.",
+      "image": "assets/images/lentilles.jpg",
+      "summary": "La FAO souligne le rôle essentiel des légumineuses dans l'alimentation durable. Le Maroc figure parmi les exportateurs clés de la région, avec des volumes en hausse de 12 % sur la campagne 2025–2026. Lentilles, pois chiches et fèves restent les produits les plus demandés sur les marchés européens et asiatiques.",
       "lang": "fr"
     },
     {
       "title": "Carob flour: the natural cocoa alternative gaining ground",
       "source": "Food Business News",
-      "url": "https://www.foodbusinessnews.net",
       "published": "2026-05-15",
-      "summary": "Carob flour is increasingly replacing cocoa in confectionery and bakery applications, driven by consumer demand for caffeine-free and naturally sweet ingredients.",
+      "image": "assets/images/farine-caroube.jpg",
+      "summary": "Carob flour is increasingly replacing cocoa in confectionery and bakery applications, driven by consumer demand for caffeine-free and naturally sweet ingredients. Morocco remains the world's leading carob producer, supplying over 70% of global processed carob exports to European food manufacturers.",
       "lang": "en"
     },
     {
       "title": "Agriculture du Saïss : une région en plein essor",
       "source": "Maroc Agricole",
-      "url": "https://www.mapmdref.gov.ma",
       "published": "2026-05-12",
       "image": "assets/images/news-siam.jpg",
-      "summary": "La plaine du Saïss, entre Fès et Meknès, confirme son statut de grenier agricole du Maroc avec des productions record cette saison.",
+      "summary": "La plaine du Saïss, entre Fès et Meknès, confirme son statut de grenier agricole du Maroc avec des productions record cette saison. Les superficies cultivées ont augmenté de 8 % grâce aux investissements du Plan Maroc Vert, consolidant la place de la région comme principal bassin d'approvisionnement en légumineuses du royaume.",
       "lang": "fr"
     },
     {
       "title": "Global legume exports hit record levels in 2025",
       "source": "Commodity News",
-      "url": "https://www.agra-net.com",
       "published": "2026-05-10",
       "image": "assets/images/news-japon.jpg",
-      "summary": "International trade in lentils, chickpeas and other legumes reached new heights last year, with North Africa playing an increasingly important role.",
+      "summary": "International trade in lentils, chickpeas and other legumes reached new heights last year, with North Africa playing an increasingly important role. Morocco's exports to Japan and South Korea grew by 22%, reflecting strong demand for plant-based proteins in Asian markets and the country's competitive pricing against Canadian and Australian suppliers.",
       "lang": "en"
     },
     {
       "title": "La caroube marocaine s'impose sur les marchés européens",
       "source": "ASMEX",
-      "url": "https://www.asmex.ma",
       "published": "2026-05-08",
       "image": "assets/images/news-cosmetique.jpg",
-      "summary": "Les exportations marocaines de produits de caroube vers l'Europe progressent de 15% en 2025, portées par une forte demande des industries alimentaires et cosmétiques.",
+      "summary": "Les exportations marocaines de produits de caroube vers l'Europe progressent de 15 % en 2025, portées par une forte demande des industries alimentaires et cosmétiques. L'Espagne, l'Allemagne et les Pays-Bas absorbent 60 % des volumes exportés, principalement sous forme de farine et d'extrait de caroube pour des applications en confiserie et cosmétique naturelle.",
       "lang": "fr"
     }
   ]

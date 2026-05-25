@@ -90,11 +90,108 @@ function initNewsLoader() {
     });
 }
 
+function initNewsModal() {
+  if (document.getElementById('news-modal')) return;
+
+  const modal = document.createElement('div');
+  modal.id = 'news-modal';
+  modal.className = 'news-modal';
+  modal.setAttribute('role', 'dialog');
+  modal.setAttribute('aria-modal', 'true');
+  modal.setAttribute('aria-labelledby', 'nm-title');
+
+  const backdrop = document.createElement('div');
+  backdrop.className = 'news-modal__backdrop';
+
+  const box = document.createElement('div');
+  box.className = 'news-modal__box';
+
+  const closeBtn = document.createElement('button');
+  closeBtn.className = 'news-modal__close';
+  closeBtn.setAttribute('aria-label', 'Fermer');
+  closeBtn.textContent = '✕';
+
+  const img = document.createElement('img');
+  img.id = 'nm-img';
+  img.className = 'news-modal__img';
+  img.alt = '';
+
+  const content = document.createElement('div');
+  content.className = 'news-modal__content';
+
+  const sourceEl = document.createElement('span');
+  sourceEl.id = 'nm-source';
+  sourceEl.className = 'news-card__source';
+
+  const titleEl = document.createElement('h3');
+  titleEl.id = 'nm-title';
+
+  const dateEl = document.createElement('span');
+  dateEl.id = 'nm-date';
+  dateEl.className = 'news-modal__date';
+
+  const summaryEl = document.createElement('p');
+  summaryEl.id = 'nm-summary';
+
+  content.appendChild(sourceEl);
+  content.appendChild(titleEl);
+  content.appendChild(dateEl);
+  content.appendChild(summaryEl);
+
+  box.appendChild(closeBtn);
+  box.appendChild(img);
+  box.appendChild(content);
+
+  modal.appendChild(backdrop);
+  modal.appendChild(box);
+  document.body.appendChild(modal);
+
+  const close = () => {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+  closeBtn.addEventListener('click', close);
+  backdrop.addEventListener('click', close);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+}
+
+function openNewsModal(article) {
+  const modal = document.getElementById('news-modal');
+  const img = document.getElementById('nm-img');
+  document.getElementById('nm-source').textContent = article.source || '';
+  document.getElementById('nm-title').textContent = article.title || '';
+  document.getElementById('nm-date').textContent = article.published || '';
+  document.getElementById('nm-summary').textContent = article.summary || '';
+  if (article.imgSrc) {
+    img.src = article.imgSrc;
+    img.alt = article.title || '';
+    img.style.display = '';
+  } else {
+    img.style.display = 'none';
+  }
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
 function renderNewsCards(container, articles) {
+  initNewsModal();
   container.textContent = '';
+  const base = (document.querySelector('meta[name="base-url"]')?.content || '').replace(/\/$/, '');
+
   articles.forEach(article => {
     const card = document.createElement('article');
     card.className = 'news-card';
+
+    if (article.image) {
+      const imgWrap = document.createElement('div');
+      imgWrap.className = 'news-card__img';
+      const img = document.createElement('img');
+      img.src = base ? base + '/' + article.image : article.image;
+      img.alt = article.title || '';
+      img.loading = 'lazy';
+      imgWrap.appendChild(img);
+      card.appendChild(imgWrap);
+    }
 
     const body = document.createElement('div');
     body.className = 'news-card__body';
@@ -115,14 +212,14 @@ function renderNewsCards(container, articles) {
     const date = document.createElement('span');
     date.textContent = article.published || '';
 
-    const link = document.createElement('a');
-    link.href = article.url || '#';
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
-    link.textContent = I18N.get('news.read_more') + ' →';
+    const btn = document.createElement('button');
+    btn.className = 'news-card__link';
+    btn.textContent = (I18N.get('news.read_more') || 'Lire la suite') + ' →';
+    const imgSrc = article.image ? (base ? base + '/' + article.image : article.image) : '';
+    btn.addEventListener('click', () => openNewsModal({ ...article, imgSrc }));
 
     footer.appendChild(date);
-    footer.appendChild(link);
+    footer.appendChild(btn);
 
     body.appendChild(source);
     body.appendChild(title);
