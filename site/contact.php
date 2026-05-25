@@ -94,9 +94,10 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 // ── Send email ────────────────────────────────────────────────
+// Fallbacks hardcodés : fonctionnent même sans .env sur le serveur
 $smtpHost = $_ENV['SMTP_HOST'] ?? '';
-$smtpFrom = $_ENV['SMTP_FROM'] ?? '';
-$smtpTo   = $_ENV['SMTP_TO']   ?? $smtpFrom;
+$smtpFrom = !empty($_ENV['SMTP_FROM']) ? $_ENV['SMTP_FROM'] : 'Office@lesgreniersdusaiss.ma';
+$smtpTo   = !empty($_ENV['SMTP_TO'])   ? $_ENV['SMTP_TO']   : 'Office@lesgreniersdusaiss.ma';
 
 // Build email body
 $body  = "Nouveau message depuis le site Les Greniers du Saïss\n";
@@ -156,7 +157,7 @@ if (is_file($autoloadPath) && !empty($smtpHost)) {
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 
-    $to      = !empty($smtpTo) ? $smtpTo : ini_get('sendmail_from');
+    $to      = $smtpTo;
     $params  = !empty($smtpFrom) ? "-f {$smtpFrom}" : '';
 
     if (!empty($to) && mail($to, $subject, $body, $headers, $params)) {
