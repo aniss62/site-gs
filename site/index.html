@@ -73,75 +73,76 @@
   <div class="stat"><span class="stat__num" data-counter="5" data-suffix="">5</span><span class="stat__lbl"><span class="fr-text">Gammes produits</span><span class="en-text" hidden>Product lines</span></span></div>
 </div>
 
-<!-- SCROLL STORY -->
-<div class="scroll-story" id="scrollStory">
-  <div class="scroll-story__sticky">
-    <div class="story-visual">
-      <div class="slideshow" id="slideshow">
-        <div class="slide active" style="background-image:url('assets/images/caroube-arbre.jpg')"></div>
-        <div class="slide" style="background-image:url('assets/images/farine-caroube.jpg');background-position:center center"></div>
-        <div class="slide" style="background-image:url('assets/images/caroube-branche.jpg')"></div>
+<!-- SCRUB ZONE -->
+<div class="scrub-zone" id="scrubZone">
+  <div class="scrub-sticky">
+    <video id="scrubVid" muted playsinline preload="auto"
+      src="assets/video/0524.mp4"
+      poster="assets/images/caroube-arbre.jpg">
+    </video>
+    <div class="scrub-overlay"></div>
+
+    <div class="scrub-panel active" id="scPanel0">
+      <div class="scrub-panel__num">
+        <span class="fr-text">01 — Terroir d'exception</span>
+        <span class="en-text" hidden>01 — Exceptional terroir</span>
       </div>
-      <div class="story-overlay"></div>
-      <div class="story-ribbon"></div>
-      <div class="story-progress">
-        <div class="story-dot active" id="dot0"></div>
-        <div class="story-dot" id="dot1"></div>
-        <div class="story-dot" id="dot2"></div>
-      </div>
-      <div class="story-thumbs">
-        <div class="story-thumb current" id="th0"><img src="assets/images/caroube-arbre.jpg" onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&q=70'" alt="Caroubier"></div>
-        <div class="story-thumb" id="th1"><img src="assets/images/farine-caroube.jpg" alt="Sélection caroube"></div>
-        <div class="story-thumb" id="th2"><img src="assets/images/caroube-branche.jpg" onerror="this.src='https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=200&q=70'" alt="Agriculture marocaine"></div>
+      <h2>
+        <span class="fr-text">Une terre<br><em>d'exception</em></span>
+        <span class="en-text" hidden>A land<br><em>of exception</em></span>
+      </h2>
+      <p>
+        <span class="fr-text">La région du Saïss abrite des caroubiers centenaires sur un terroir unique. Les gousses sont récoltées à la main selon des méthodes ancestrales, transmises de génération en génération depuis les collines de Fès.</span>
+        <span class="en-text" hidden>The Saïss region shelters century-old carob trees on a unique terroir. Pods are harvested by hand using ancestral methods, passed down from generation to generation in the hills of Fès.</span>
+      </p>
+      <div class="scrub-panel__foot">
+        <div class="scrub-panel__line"></div>
+        <span>Saïss · Fès · <span class="fr-text">Maroc</span><span class="en-text" hidden>Morocco</span></span>
       </div>
     </div>
-    <div class="story-right">
-      <div class="story-glow"></div>
-      <div class="story-panel active" id="sp0">
-        <div class="story-step">
-          <span class="fr-text">01 — Origine</span>
-          <span class="en-text" hidden>01 — Origin</span>
-        </div>
-        <h2>
-          <span class="fr-text">Une terre<br><em>d'exception</em></span>
-          <span class="en-text" hidden>A land<br><em>of exception</em></span>
-        </h2>
-        <p>
-          <span class="fr-text">La région du Saïss abrite des caroubiers centenaires sur un terroir unique. Les gousses sont récoltées à la main selon des méthodes ancestrales, transmises de génération en génération depuis les collines de Fès.</span>
-          <span class="en-text" hidden>The Saïss region shelters century-old carob trees on a unique terroir. Pods are harvested by hand using ancestral methods, passed down from generation to generation in the hills of Fès.</span>
-        </p>
-        <div class="story-foot"><div class="story-foot-line"></div><div class="story-foot-txt">Saïss · Fès · <span class="fr-text">Maroc</span><span class="en-text" hidden>Morocco</span></div></div>
+
+    <div class="scrub-panel" id="scPanel1">
+      <div class="scrub-panel__num">
+        <span class="fr-text">02 — Savoir-faire</span>
+        <span class="en-text" hidden>02 — Expertise</span>
       </div>
-      <div class="story-panel" id="sp1">
-        <div class="story-step">
-          <span class="fr-text">02 — Sélection</span>
-          <span class="en-text" hidden>02 — Selection</span>
-        </div>
-        <h2>
-          <span class="fr-text">Le <em>Caroube</em><br>dans toute<br>sa pureté</span>
-          <span class="en-text" hidden>Carob<br><em>in all</em><br>its purity</span>
-        </h2>
-        <p>
-          <span class="fr-text">Chaque gousse est triée à la main. Caroube brute, graines, pulpe, farine — notre gamme répond aux exigences de l'industrie mondiale de l'alimentation, de la pharmacie et de la cosmétique, avec traçabilité totale.</span>
-          <span class="en-text" hidden>Every pod is sorted by hand. Raw carob, seeds, pulp, flour — our range meets the demands of the global food, pharmaceutical and cosmetics industry, with full traceability.</span>
-        </p>
-        <div class="story-foot"><div class="story-foot-line"></div><div class="story-foot-txt">4 <span class="fr-text">gammes · Qualité certifiée</span><span class="en-text" hidden>lines · Certified quality</span></div></div>
+      <h2>
+        <span class="fr-text">La qualité<br><em>à chaque</em><br>geste</span>
+        <span class="en-text" hidden>Quality<br><em>at every</em><br>step</span>
+      </h2>
+      <p>
+        <span class="fr-text">Chaque gousse est triée à la main. Caroube brute, graines, pulpe, farine — notre gamme répond aux exigences de l'industrie mondiale de l'alimentation, de la pharmacie et de la cosmétique, avec traçabilité totale.</span>
+        <span class="en-text" hidden>Every pod is sorted by hand. Raw carob, seeds, pulp, flour — our range meets the demands of the global food, pharmaceutical and cosmetics industry, with full traceability.</span>
+      </p>
+      <div class="scrub-panel__foot">
+        <div class="scrub-panel__line"></div>
+        <span>4 <span class="fr-text">gammes · Qualité certifiée</span><span class="en-text" hidden>lines · Certified quality</span></span>
       </div>
-      <div class="story-panel" id="sp2">
-        <div class="story-step">
-          <span class="fr-text">03 — Export mondial</span>
-          <span class="en-text" hidden>03 — Global export</span>
-        </div>
-        <h2>
-          <span class="fr-text">Du Saïss<br>au <em>marché mondial</em></span>
-          <span class="en-text" hidden>From Saïss<br>to <em>global markets</em></span>
-        </h2>
-        <p>
-          <span class="fr-text">Maîtrisant l'ensemble de la chaîne, de la récolte à la logistique internationale, nous exportons vers 15+ pays sur 3 continents. Europe, Asie, Moyen-Orient, Amériques — le caroube du Saïss s'invite partout.</span>
-          <span class="en-text" hidden>Controlling the entire chain from harvest to international logistics, we export to 15+ countries on 3 continents. Europe, Asia, Middle East, Americas — Saïss carob is everywhere.</span>
-        </p>
-        <div class="story-foot"><div class="story-foot-line"></div><div class="story-foot-txt">15+ <span class="fr-text">pays · 500+ tonnes / an</span><span class="en-text" hidden>countries · 500+ tonnes / year</span></div></div>
+    </div>
+
+    <div class="scrub-panel" id="scPanel2">
+      <div class="scrub-panel__num">
+        <span class="fr-text">03 — Export mondial</span>
+        <span class="en-text" hidden>03 — Global export</span>
       </div>
+      <h2>
+        <span class="fr-text">15 pays.<br><em>Un seul</em><br>standard.</span>
+        <span class="en-text" hidden>15 countries.<br><em>One</em><br>standard.</span>
+      </h2>
+      <p>
+        <span class="fr-text">Maîtrisant l'ensemble de la chaîne, de la récolte à la logistique internationale, nous exportons vers 15+ pays sur 3 continents. Europe, Asie, Moyen-Orient, Amériques — le caroube du Saïss s'invite partout.</span>
+        <span class="en-text" hidden>Controlling the entire chain from harvest to international logistics, we export to 15+ countries on 3 continents. Europe, Asia, Middle East, Americas — Saïss carob is everywhere.</span>
+      </p>
+      <div class="scrub-panel__foot">
+        <div class="scrub-panel__line"></div>
+        <span>15+ <span class="fr-text">pays · 500+ tonnes / an</span><span class="en-text" hidden>countries · 500+ tonnes / year</span></span>
+      </div>
+    </div>
+
+    <div class="scrub-progress">
+      <div class="scrub-dot active" id="scDot0"></div>
+      <div class="scrub-dot" id="scDot1"></div>
+      <div class="scrub-dot" id="scDot2"></div>
     </div>
   </div>
 </div>
