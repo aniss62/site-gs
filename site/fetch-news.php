@@ -1,10 +1,13 @@
 <?php
 /**
- * fetch-news.php — Aggregates RSS feeds and writes news.json
- * Run via cron every 6 hours:
- *   0 */6 * * * php /path/to/public_html/fetch-news.php >> /path/to/.tmp/news-cron.log 2>&1
- * Or trigger manually with security token:
- *   https://yourdomain.ma/fetch-news.php?token=<FETCH_NEWS_TOKEN>
+ * fetch-news.php — Agrège les flux RSS et met à jour news.json
+ * Les articles marqués "pinned":true sont toujours conservés en tête.
+ * Les nouveaux articles RSS s'ajoutent en dessous, dédoublonnés par titre.
+ *
+ * Cron hebdomadaire (chaque lundi à 6h) :
+ *   0 6 * * 1 php /path/to/public_html/fetch-news.php >> /path/to/.tmp/news-cron.log 2>&1
+ * Déclenchement manuel :
+ *   https://votre-domaine.ma/fetch-news.php?token=greniers2025
  */
 
 // ── Load .env ─────────────────────────────────────────────────
@@ -33,9 +36,10 @@ if (!$isCli) {
 }
 
 // ── Config ────────────────────────────────────────────────────
-$outputFile = __DIR__ . '/assets/data/news-rss.json';
-$logFile    = __DIR__ . '/../.tmp/news-fetch.log';
-$maxPerFeed = 20;
+$outputFile  = __DIR__ . '/assets/data/news.json';
+$logFile     = __DIR__ . '/../.tmp/news-fetch.log';
+$maxPerFeed  = 5;   // articles RSS max par flux
+$maxRssTotal = 6;   // articles RSS conservés au total (les plus récents)
 
 $feeds = [
     [
@@ -52,8 +56,7 @@ $feeds = [
 function logMsg(string $msg): void {
     global $logFile, $isCli;
     $line = '[' . date('Y-m-d H:i:s') . '] ' . $msg . PHP_EOL;
-    if ($isCli) echo $line;
-    else        echo $line;
+    echo $line;
     @file_put_contents($logFile, $line, FILE_APPEND | LOCK_EX);
 }
 
@@ -65,12 +68,8 @@ function fetchFeed(string $url): ?string {
             'user_agent' => 'Mozilla/5.0 (compatible; GreniersNewsFetcher/1.0)',
             'header'     => "Accept: application/rss+xml, application/xml, text/xml\r\n",
         ],
-        'ssl' => [
-            'verify_peer'      => true,
-            'verify_peer_name' => true,
-        ],
+        'ssl' => ['verify_peer' => true, 'verify_peer_name' => true],
     ]);
-
     $xml = @file_get_contents($url, false, $ctx);
     return $xml !== false ? $xml : null;
 }
@@ -82,85 +81,86 @@ function parseRSS(string $xml, string $lang, int $max): array {
     if ($doc === false) return [];
 
     $articles = [];
-    $items = $doc->channel->item ?? [];
-
-    foreach ($items as $item) {
+    foreach ($doc->channel->item ?? [] as $item) {
         $title   = trim((string)$item->title);
-        $link    = trim((string)$item->link);
         $pubDate = trim((string)$item->pubDate);
         $source  = trim((string)($item->source ?? 'Google News'));
         $desc    = strip_tags(trim((string)$item->description));
 
-        if (empty($title) || empty($link)) continue;
+        if (empty($title)) continue;
 
-        // Truncate summary
-        $summary = mb_substr($desc, 0, 150, 'UTF-8');
-        if (mb_strlen($desc, 'UTF-8') > 150) $summary .= '…';
+        $summary = mb_substr($desc, 0, 200, 'UTF-8');
+        if (mb_strlen($desc, 'UTF-8') > 200) $summary .= '…';
 
-        // Parse date
-        $ts        = strtotime($pubDate);
-        $published = $ts ? date('Y-m-d', $ts) : date('Y-m-d');
-
+        $ts = strtotime($pubDate);
         $articles[] = [
             'title'     => $title,
             'source'    => $source ?: 'Google News',
-            'url'       => $link,
-            'published' => $published,
+            'published' => $ts ? date('Y-m-d', $ts) : date('Y-m-d'),
             'summary'   => $summary,
             'lang'      => $lang,
         ];
 
         if (count($articles) >= $max) break;
     }
-
     return $articles;
 }
 
 // ── Main ──────────────────────────────────────────────────────
-logMsg('Starting news fetch...');
+logMsg('Démarrage de la mise à jour hebdomadaire...');
 
-$allArticles = [];
-
-foreach ($feeds as $feed) {
-    logMsg("Fetching [{$feed['lang']}]: {$feed['url']}");
-    $xml = fetchFeed($feed['url']);
-
-    if ($xml === null) {
-        logMsg("  ERROR: Could not fetch feed.");
-        continue;
+// 1. Lire le fichier existant et extraire les articles pinned
+$pinnedArticles = [];
+if (is_file($outputFile)) {
+    $existing = json_decode(file_get_contents($outputFile), true);
+    foreach ($existing['articles'] ?? [] as $art) {
+        if (!empty($art['pinned'])) {
+            $pinnedArticles[] = $art;
+        }
     }
+}
+logMsg(count($pinnedArticles) . ' article(s) pinned conservés.');
 
-    $articles = parseRSS($xml, $feed['lang'], $maxPerFeed);
-    logMsg("  Parsed " . count($articles) . " article(s).");
-    $allArticles = array_merge($allArticles, $articles);
+// 2. Récupérer les nouveaux articles RSS
+$rssArticles = [];
+foreach ($feeds as $feed) {
+    logMsg("Flux [{$feed['lang']}]: {$feed['url']}");
+    $xml = fetchFeed($feed['url']);
+    if ($xml === null) { logMsg('  ERREUR: flux inaccessible.'); continue; }
+    $parsed = parseRSS($xml, $feed['lang'], $maxPerFeed);
+    logMsg('  ' . count($parsed) . ' article(s) récupérés.');
+    $rssArticles = array_merge($rssArticles, $parsed);
 }
 
-// Sort by date descending
-usort($allArticles, fn($a, $b) => strcmp($b['published'], $a['published']));
+// 3. Dédoublonner les articles RSS par rapport aux pinned (par titre normalisé)
+$pinnedTitles = array_map(
+    fn($a) => mb_strtolower(trim($a['title'] ?? ''), 'UTF-8'),
+    $pinnedArticles
+);
 
-// Build output
-$output = [
-    'updated_at' => date('c'),
-    'articles'   => $allArticles,
-];
+$rssArticles = array_filter($rssArticles, function ($art) use ($pinnedTitles) {
+    return !in_array(mb_strtolower(trim($art['title'] ?? ''), 'UTF-8'), $pinnedTitles, true);
+});
 
-// Ensure directory exists
+// 4. Trier les RSS par date décroissante et limiter
+usort($rssArticles, fn($a, $b) => strcmp($b['published'], $a['published']));
+$rssArticles = array_slice(array_values($rssArticles), 0, $maxRssTotal);
+logMsg(count($rssArticles) . ' article(s) RSS retenus après dédoublonnage.');
+
+// 5. Fusionner : pinned en tête, RSS en dessous
+$allArticles = array_merge($pinnedArticles, $rssArticles);
+
+// 6. Écrire news.json
 $dir = dirname($outputFile);
-if (!is_dir($dir)) {
-    mkdir($dir, 0755, true);
-}
+if (!is_dir($dir)) mkdir($dir, 0755, true);
 
-// Write JSON
-$json = json_encode($output, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
-if ($json === false) {
-    logMsg('ERROR: json_encode failed: ' . json_last_error_msg());
-    exit(1);
-}
+$output = ['updated_at' => date('c'), 'articles' => $allArticles];
+$json   = json_encode($output, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
+if ($json === false) { logMsg('ERREUR json_encode: ' . json_last_error_msg()); exit(1); }
 if (file_put_contents($outputFile, $json, LOCK_EX) === false) {
-    logMsg("ERROR: Could not write to $outputFile");
+    logMsg("ERREUR: impossible d'écrire dans $outputFile");
     exit(1);
 }
 
-logMsg('Written ' . count($allArticles) . ' article(s) to ' . basename($outputFile));
-logMsg('Done.');
+logMsg('Terminé — ' . count($allArticles) . ' articles au total (' . count($pinnedArticles) . ' pinned + ' . count($rssArticles) . ' RSS).');
