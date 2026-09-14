@@ -1,0 +1,31 @@
+name: Mise à jour actualités
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+jobs:
+  update-news:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Installer PHP
+        run: sudo apt-get install -y --no-install-recommends php-cli php-xml
+
+      - name: Créer le dossier de logs
+        run: mkdir -p .tmp
+
+      - name: Mettre à jour news.json
+        run: php site/fetch-news.php
+
+      - name: Commit si changements
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add site/assets/data/news.json
+          git diff --cached --quiet && echo "Aucun changement." || git commit -m "chore: actualités — mise à jour hebdomadaire" && git push

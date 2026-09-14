@@ -72,6 +72,12 @@ function sanitize(string $val): string {
     return htmlspecialchars(strip_tags(trim($val)), ENT_QUOTES, 'UTF-8');
 }
 
+// Retire les retours chariot : empêche l'injection d'en-têtes SMTP
+// (ex. "Reply-To") via un champ ensuite utilisé dans un header mail().
+function headerSafe(string $val): string {
+    return trim(str_replace(["\r", "\n"], '', $val));
+}
+
 $name    = sanitize($_POST['name']    ?? '');
 $company = sanitize($_POST['company'] ?? '');
 $country = sanitize($_POST['country'] ?? '');
@@ -152,7 +158,7 @@ if (is_file($autoloadPath) && !empty($smtpHost)) {
 } else {
     // PHP mail() natif — fonctionne sur tout hébergement cPanel sans mot de passe
     $headers  = "From: Les Greniers du Saïss <{$smtpFrom}>\r\n";
-    $headers .= "Reply-To: {$name} <{$email}>\r\n";
+    $headers .= "Reply-To: " . headerSafe($name) . " <{$email}>\r\n";
     $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";

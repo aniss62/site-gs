@@ -4,10 +4,10 @@
  * Les articles marqués "pinned":true sont toujours conservés en tête.
  * Les nouveaux articles RSS s'ajoutent en dessous, dédoublonnés par titre.
  *
- * Cron hebdomadaire (chaque lundi à 6h) :
- *   0 6 * * 1 php /path/to/public_html/fetch-news.php >> /path/to/.tmp/news-cron.log 2>&1
+ * Automatisation : GitHub Actions (.github/workflows/update-news.yml, cron hebdo)
+ *   lance ce script puis committe news.json, ce qui déclenche le déploiement FTP.
  * Déclenchement manuel :
- *   https://votre-domaine.ma/fetch-news.php?token=greniers2025
+ *   https://votre-domaine.ma/fetch-news.php?token=<FETCH_NEWS_TOKEN du .env>
  */
 
 // ── Load .env ─────────────────────────────────────────────────
@@ -27,7 +27,7 @@ $isCli = php_sapi_name() === 'cli';
 
 if (!$isCli) {
     $cronToken = $_ENV['FETCH_NEWS_TOKEN'] ?? '';
-    if ($cronToken === '' || ($_GET['token'] ?? '') !== $cronToken) {
+    if ($cronToken === '' || !hash_equals($cronToken, $_GET['token'] ?? '')) {
         http_response_code(403);
         echo 'Forbidden';
         exit;
