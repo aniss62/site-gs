@@ -113,6 +113,10 @@
       "spec_moisture": "Max. Moisture",
       "spec_purity": "Min. Purity",
       "spec_germination": "Germination",
+      "spec_origin": "Origin",
+      "spec_origin_val": "Morocco — Saïss region",
+      "spec_process": "Processing",
+      "spec_process_val": "Optical sorting, dry cleaning",
       "spec_packaging": "25 kg, Big Bag 500 kg"
     },
     "carob_pulp": {
@@ -122,6 +126,8 @@
       "spec_moisture": "Max. Moisture",
       "spec_sugar": "Sugar Content",
       "spec_fiber": "Total Fiber",
+      "spec_form": "Form",
+      "spec_form_val": "Granules or powder",
       "spec_packaging": "25 kg, Big Bag 1000 kg"
     },
     "carob_flour": {
@@ -168,6 +174,22 @@
     "sports_desc": "Caffeine-free cocoa substitute in sports bars and drinks. Fiber and mineral content. Suitable for vegan and gluten-free diets.",
     "petfood_title": "Petfood",
     "petfood_desc": "Natural ingredient in pet food products. Beneficial properties for animal digestion.",
+    "cosm_title": "Cosmetics",
+    "cosm_desc": "Gelling and texturizing agent for creams, lotions and hair care products.",
+    "cosm_flour_desc": "Gentle exfoliating powder and natural coloring agent for face and body care.",
+    "sport_title": "Sports Nutrition",
+    "sport_desc": "Slow-release energy source, gluten-free and caffeine-free.",
+    "sport_flour_desc": "Gluten-free, caffeine-free ingredient in protein products, shakes and sports snacks.",
+    "food_flour_desc": "Natural cocoa substitute in biscuits, pastries, chocolate drinks and bars.",
+    "food_seeds_desc": "Used to produce locust bean gum (E410) — a natural thickener and stabilizer.",
+    "food_pulp_desc": "Natural sweetening ingredient in confectionery, cereal bars and beverages.",
+    "food_legumes_desc": "Direct consumption, traditional dishes, canned goods and world cuisines.",
+    "pharma_flour_desc": "Natural excipient and active ingredient in dietary supplements and gastric preparations.",
+    "feed_pulp_desc": "Natural substitute for molasses, an energy source for cattle, sheep and goats.",
+    "agri_title": "Agriculture",
+    "agri_desc": "Seeds selected for cultivation — nitrogen fixation and crop rotation.",
+    "export_title": "Export",
+    "export_desc": "International delivery, full documentation, packaging compliant with import standards.",
     "cta_title": "Interested in Our Products for Your Industry?",
     "cta_sub": "Our team is available to answer your technical questions and provide a personalized quote.",
     "cta_btn": "Contact Our Team"

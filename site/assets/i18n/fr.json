@@ -113,6 +113,10 @@
       "spec_moisture": "Humidité max.",
       "spec_purity": "Pureté min.",
       "spec_germination": "Germination",
+      "spec_origin": "Origine",
+      "spec_origin_val": "Maroc — région du Saïss",
+      "spec_process": "Traitement",
+      "spec_process_val": "Tri optique, nettoyage à sec",
       "spec_packaging": "25 kg, Big Bag 500 kg"
     },
     "carob_pulp": {
@@ -122,6 +126,8 @@
       "spec_moisture": "Humidité max.",
       "spec_sugar": "Teneur en sucres",
       "spec_fiber": "Fibres totales",
+      "spec_form": "Forme",
+      "spec_form_val": "Granulés ou en poudre",
       "spec_packaging": "25 kg, Big Bag 1000 kg"
     },
     "carob_flour": {
@@ -168,6 +174,22 @@
     "sports_desc": "Substitut du cacao sans caféine dans les barres et boissons sportives. Apport en fibres et minéraux. Adapté aux régimes végétaliens et sans gluten.",
     "petfood_title": "Petfood",
     "petfood_desc": "Ingrédient naturel dans les aliments pour animaux de compagnie. Propriétés bénéfiques sur la digestion animale.",
+    "cosm_title": "Cosmétique",
+    "cosm_desc": "Agent gélifiant et texturant pour crèmes, lotions et produits capillaires.",
+    "cosm_flour_desc": "Poudre exfoliante douce et agent colorant naturel pour soins visage et corps.",
+    "sport_title": "Nutrition sportive",
+    "sport_desc": "Source d'énergie à absorption progressive, sans gluten et sans caféine.",
+    "sport_flour_desc": "Ingrédient sans gluten et sans caféine dans les protéines, shakers et en-cas sportifs.",
+    "food_flour_desc": "Substitut naturel au cacao dans biscuits, pâtisseries, boissons chocolatées et barres.",
+    "food_seeds_desc": "Production de gomme de caroube E410 — épaississant et stabilisant naturel.",
+    "food_pulp_desc": "Ingrédient naturel sucrant dans les confiseries, barres céréalières et boissons.",
+    "food_legumes_desc": "Consommation directe, plats traditionnels, conserves et cuisines du monde.",
+    "pharma_flour_desc": "Excipient et actif naturel dans les compléments alimentaires et préparations gastro.",
+    "feed_pulp_desc": "Substitut naturel à la mélasse, apport énergétique pour bovins, ovins et caprins.",
+    "agri_title": "Agriculture",
+    "agri_desc": "Semences sélectionnées pour la culture — fixation d'azote et rotation des cultures.",
+    "export_title": "Export",
+    "export_desc": "Livraison internationale, documentation complète, conditionnement aux normes de l'import.",
     "cta_title": "Intéressé par nos produits pour votre industrie ?",
     "cta_sub": "Notre équipe est disponible pour répondre à vos questions techniques et établir un devis personnalisé.",
     "cta_btn": "Contacter notre équipe"
