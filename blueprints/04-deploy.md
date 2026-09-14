@@ -4,7 +4,7 @@
 - PHP >= 7.4
 - Extension SimpleXML activée (pour fetch-news.php)
 - Accès FTP ou panneau cPanel/Plesk
-- Cron jobs disponibles
+- Pas besoin de cron côté hébergeur : la mise à jour hebdomadaire des actualités tourne sur GitHub Actions (voir étape 4)
 
 ## Étapes de déploiement
 
@@ -55,17 +55,15 @@ Variables obligatoires :
 
 > `FETCH_NEWS_TOKEN` : générer une chaîne aléatoire, ex. `openssl rand -hex 24`
 
-### 4. Configurer le cron job (news automatiques)
-Dans cPanel > Tâches Cron, ajouter :
-```
-0 */6 * * * php /home/user/public_html/fetch-news.php >> /home/user/.tmp/news-cron.log 2>&1
-```
-Cela met à jour les actualités toutes les 6 heures.
+### 4. Actualités : automatisation GitHub Actions (aucun cron hébergeur)
+`.github/workflows/update-news.yml` tourne chaque lundi à 6h UTC : il exécute `php site/fetch-news.php`, puis committe `site/assets/data/news.json` si le contenu a changé. Ce commit déclenche ensuite `.github/workflows/deploy.yml`, qui republie automatiquement le site via FTP. Rien à configurer côté hébergeur — le repo GitHub doit juste avoir les secrets `FTP_SERVER` / `FTP_USERNAME` / `FTP_PASSWORD` déjà en place pour le déploiement standard.
+
+Déclenchement manuel possible depuis l'onglet Actions du repo (`workflow_dispatch`) sans attendre le lundi.
 
 ### 5. Tester
 - Visiter le site via le domaine
 - Tester le formulaire de contact (vérifier la réception email)
-- Vérifier la page News (attendre le premier cron ou lancer manuellement)
+- Vérifier la page News (lancer manuellement le workflow `update-news.yml`, ou attendre le prochain lundi)
 - Tester le sélecteur de langue
 
 ### 6. Lancer fetch-news.php manuellement la première fois
