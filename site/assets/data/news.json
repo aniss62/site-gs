@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-05-25T00:00:00Z",
+  "updated_at": "2026-09-17T00:00:00Z",
   "articles": [
+    {
+      "title": "Morocco Foodex sensibilise les exportateurs marocains aux nouvelles exigences réglementaires de l'UE",
+      "source": "FOOD Magazine",
+      "published": "2026-09-15",
+      "summary": "Morocco Foodex a réuni à Agadir des exportateurs marocains pour anticiper les nouvelles règles UE/UK sur les produits agroalimentaires frais, dans le cadre du Green Deal européen.",
+      "lang": "fr",
+      "pinned": true
+    },
+    {
+      "title": "Morocco Foodex briefs Moroccan exporters on new EU regulatory requirements",
+      "source": "FOOD Magazine",
+      "published": "2026-09-15",
+      "summary": "Morocco Foodex gathered Moroccan exporters in Agadir to help them anticipate new EU/UK regulations on fresh agri-food products, as part of the European Green Deal framework.",
+      "lang": "en",
+      "pinned": true
+    },
     {
       "title": "Le marché mondial de la caroube en pleine croissance",
       "source": "Agri Maroc",
