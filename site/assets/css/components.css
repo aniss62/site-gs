@@ -485,6 +485,7 @@
   font-size: .92rem;
   line-height: 1.75;
   color: var(--color-text-muted);
+  white-space: pre-line;
 }
 
 @media (max-width: 600px) {

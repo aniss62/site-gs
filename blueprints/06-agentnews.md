@@ -27,10 +27,10 @@ Routine programmée "agentnews" (cloud, hebdomadaire, ex. lundi 8h UTC)
         l'actualité trouvée, tous thèmes confondus, avec la liste des
         sources (nom + lien) en bas, à titre de vérification
      b. UN article précis choisi pour la proposition de publication
-        sur le site, avec un texte complet FR + un texte complet EN
-        (≈300-500 mots chacun, pas un résumé court) : c'est ce texte,
-        et non le résumé hebdomadaire, qui devient le contenu affiché
-        sur la page Actualités si l'article est validé
+        sur le site, avec DEUX textes FR + DEUX textes EN : un résumé
+        court (≈200 caractères, affiché sur la carte de la page
+        Actualités) et un texte complet (≈300-500 mots, affiché
+        uniquement quand on clique sur « Lire la suite »)
   5. Envoie un seul email (Gmail MCP) au propriétaire du site contenant
      les deux sections : le résumé hebdomadaire, puis la proposition
      de publication avec sa consigne de validation
@@ -58,7 +58,11 @@ Le corps contient deux sections distinctes :
 
 **1. Résumé hebdomadaire** — un résumé rédigé (pas une simple liste de liens) d'environ 500 mots en français, puis d'environ 500 mots en anglais, couvrant l'actualité trouvée pour tous les thèmes ci-dessus (produits existants, futures lignes de produits, marché/secteur). En bas de chaque résumé, la liste des sources citées (nom du média + lien), présentée explicitement comme *« sources, à titre de vérification »* — ce ne sont pas des liens à valider ou sur lesquels agir, juste une référence.
 
-**2. Proposition de la semaine** — titre de l'article choisi, source, lien, date de publication, un texte FR complet (≈300-500 mots, plusieurs paragraphes, rédigé à partir des faits trouvés en recherche — pas un résumé de quelques lignes), le texte EN équivalent, et en clair : *« Répondez OUI à cet email pour publier cette actualité sur le site, ou ignorez ce message pour passer cette semaine. »* Ce texte long est celui qui sera stocké dans le champ `summary` de `news.json` et affiché sur le site en cas de validation — il doit donc être factuel, sourcé (citer la source en fin de texte) et se suffire à lui-même pour un lecteur du site qui n'a pas accès à l'article original.
+**2. Proposition de la semaine** — titre de l'article choisi, source, lien, date de publication, puis pour le français et l'anglais chacun DEUX textes distincts clairement étiquetés :
+- un **résumé court** (≈200 caractères) — deviendra le champ `summary` de `news.json`, affiché sur la carte de la page Actualités ;
+- un **texte complet** (≈300-500 mots, plusieurs paragraphes, factuel, basé sur les faits trouvés en recherche) — deviendra le champ `content` de `news.json`, affiché uniquement dans la fenêtre modale quand le visiteur clique sur « Lire la suite », et devant se suffire à lui-même pour quelqu'un qui n'a pas accès à l'article original (terminer par une mention de la source).
+
+Puis, en clair : *« Répondez OUI à cet email pour publier cette actualité sur le site, ou ignorez ce message pour passer cette semaine. »*
 
 ## Règle de validation et de dédoublonnage
 
@@ -69,12 +73,14 @@ Le corps contient deux sections distinctes :
 
 ## Ajout à `news.json`
 
-Un article validé devient **deux entrées pinned**, une par langue (c'est le schéma déjà utilisé par les articles pinned existants — chaque entrée a un seul champ `lang`, pas de contenu bilingue dans un seul objet) :
+Un article validé devient **deux entrées pinned**, une par langue (c'est le schéma déjà utilisé par les articles pinned existants — chaque entrée a un seul champ `lang`, pas de contenu bilingue dans un seul objet). Chaque entrée a désormais deux champs de texte : `summary` (résumé court, ≈200 caractères, affiché sur la carte) et `content` (texte complet, ≈300-500 mots, affiché uniquement dans le modal « Lire la suite ») :
 
 ```json
-{ "title": "Titre en français", "source": "...", "published": "YYYY-MM-DD", "summary": "Résumé FR", "lang": "fr", "pinned": true }
-{ "title": "English title",     "source": "...", "published": "YYYY-MM-DD", "summary": "EN summary",  "lang": "en", "pinned": true }
+{ "title": "Titre en français", "source": "...", "published": "YYYY-MM-DD", "summary": "Résumé court FR (~200 car.)", "content": "Texte complet FR (~300-500 mots, plusieurs paragraphes)", "lang": "fr", "pinned": true }
+{ "title": "English title",     "source": "...", "published": "YYYY-MM-DD", "summary": "Short EN summary (~200 chars)", "content": "Full EN text (~300-500 words, several paragraphs)", "lang": "en", "pinned": true }
 ```
+
+Le champ `content` est optionnel — les articles RSS existants (`fetch-news.php`) n'en ont pas et le modal se rabat alors sur `summary` (voir `main.js`, `openNewsModal`).
 
 Le champ `image` est **optionnel** — `main.js` (l.185, 218) et le rendu des cards gèrent déjà son absence. Agentnews ne télécharge ni ne génère d'image. À la place, avant d'ajouter l'article, l'agent vérifie si l'une des images déjà présentes dans `site/assets/images/` (`news-caroube-marche.jpg`, `news-legumineuses-fao.jpg`, `news-farine-caroube.jpg`, `news-siam.jpg`, `news-japon.jpg`, `news-cosmetique.jpg`) correspond clairement au thème de l'article (ex. un article sur la caroube → une image caroube). Si une correspondance nette existe, il réutilise son chemin dans le champ `image` (même image pour les deux entrées FR/EN). Sinon, il omet le champ `image` — pas d'image approximative, pas de nouvelle image générée ou téléchargée.
 

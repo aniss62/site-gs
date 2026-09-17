@@ -177,7 +177,7 @@ function openNewsModal(article) {
   document.getElementById('nm-source').textContent = article.source || '';
   document.getElementById('nm-title').textContent = article.title || '';
   document.getElementById('nm-date').textContent = article.published || '';
-  document.getElementById('nm-summary').textContent = article.summary || '';
+  document.getElementById('nm-summary').textContent = article.content || article.summary || '';
   if (article.imgSrc) {
     img.src = article.imgSrc;
     img.alt = article.title || '';
