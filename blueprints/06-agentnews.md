@@ -49,7 +49,7 @@ Les « futures lignes de produits » sont traitées à égalité avec les produi
 
 Un seul email par semaine, sujet fixe (inchangé pour que la recherche Gmail de l'étape 2 continue de fonctionner) : `Agentnews — proposition de la semaine du YYYY-MM-DD`.
 
-**Destinataires** : à `anisssebbane@gmail.com`, en copie (CC) `Office@lesgreniersdusaiss.ma` (l'adresse officielle du site, déjà utilisée comme `SMTP_TO`/`SMTP_FROM` dans `contact.php` et affichée en contact sur le site). La copie sert d'archive/visibilité côté entreprise ; la règle de validation (étape 2) ne regarde que les réponses envoyées par `anisssebbane@gmail.com`, sans changement.
+**Destinataires** : à `anisssebbane@gmail.com`, en copie (CC) `Office@lesgreniersdusaiss.ma` (l'adresse officielle du site, déjà utilisée comme `SMTP_TO`/`SMTP_FROM` dans `contact.php` et affichée en contact sur le site). Les deux adresses peuvent valider : une réponse positive envoyée depuis l'une ou l'autre déclenche la publication (voir règle de validation ci-dessous).
 
 Le corps contient deux sections distinctes :
 
@@ -59,8 +59,8 @@ Le corps contient deux sections distinctes :
 
 ## Règle de validation et de dédoublonnage
 
-- L'agent recherche dans Gmail un fil dont le sujet commence par `Agentnews — proposition` et regarde s'il contient une réponse envoyée après l'email de proposition.
-- Réponse contenant un mot positif (oui, yes, publie, go, ok) → validée.
+- L'agent recherche dans Gmail un fil dont le sujet commence par `Agentnews — proposition` et regarde s'il contient une réponse envoyée après l'email de proposition, depuis `anisssebbane@gmail.com` **ou** `Office@lesgreniersdusaiss.ma` (les deux destinataires du mail peuvent valider).
+- Réponse contenant un mot positif (oui, yes, publie, go, ok) → validée, quel que soit lequel des deux a répondu.
 - Absence de réponse après 7 jours, ou réponse négative/autre → le candidat est abandonné, il n'est pas republié automatiquement la semaine suivante (l'agent garde en mémoire, via l'historique Gmail, les titres/URL déjà proposés pour ne pas les reproposer).
 - Avant de proposer un nouvel article, l'agent vérifie qu'il ne figure pas déjà dans `news.json` (pinned ou RSS) par titre normalisé, comme le fait `fetch-news.php`.
 
