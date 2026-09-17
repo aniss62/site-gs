@@ -49,6 +49,8 @@ Les « futures lignes de produits » sont traitées à égalité avec les produi
 
 Un seul email par semaine, sujet fixe (inchangé pour que la recherche Gmail de l'étape 2 continue de fonctionner) : `Agentnews — proposition de la semaine du YYYY-MM-DD`.
 
+**Destinataires** : à `anisssebbane@gmail.com`, en copie (CC) `Office@lesgreniersdusaiss.ma` (l'adresse officielle du site, déjà utilisée comme `SMTP_TO`/`SMTP_FROM` dans `contact.php` et affichée en contact sur le site). La copie sert d'archive/visibilité côté entreprise ; la règle de validation (étape 2) ne regarde que les réponses envoyées par `anisssebbane@gmail.com`, sans changement.
+
 Le corps contient deux sections distinctes :
 
 **1. Résumé hebdomadaire** — un résumé rédigé (pas une simple liste de liens) d'environ 500 mots en français, puis d'environ 500 mots en anglais, couvrant l'actualité trouvée pour tous les thèmes ci-dessus (produits existants, futures lignes de produits, marché/secteur). En bas de chaque résumé, la liste des sources citées (nom du média + lien), présentée explicitement comme *« sources, à titre de vérification »* — ce ne sont pas des liens à valider ou sur lesquels agir, juste une référence.
