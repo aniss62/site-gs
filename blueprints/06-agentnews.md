@@ -71,7 +71,7 @@ Un article validé devient **deux entrées pinned**, une par langue (c'est le sc
 { "title": "English title",     "source": "...", "published": "YYYY-MM-DD", "summary": "EN summary",  "lang": "en", "pinned": true }
 ```
 
-Le champ `image` est **optionnel** — `main.js` (l.185, 218) et le rendu des cards gèrent déjà son absence. Agentnews ne télécharge ni ne génère d'image : les articles publiés via ce mécanisme n'en ont pas, comme les articles RSS existants.
+Le champ `image` est **optionnel** — `main.js` (l.185, 218) et le rendu des cards gèrent déjà son absence. Agentnews ne télécharge ni ne génère d'image. À la place, avant d'ajouter l'article, l'agent vérifie si l'une des images déjà présentes dans `site/assets/images/` (`news-caroube-marche.jpg`, `news-legumineuses-fao.jpg`, `news-farine-caroube.jpg`, `news-siam.jpg`, `news-japon.jpg`, `news-cosmetique.jpg`) correspond clairement au thème de l'article (ex. un article sur la caroube → une image caroube). Si une correspondance nette existe, il réutilise son chemin dans le champ `image` (même image pour les deux entrées FR/EN). Sinon, il omet le champ `image` — pas d'image approximative, pas de nouvelle image générée ou téléchargée.
 
 ## Limites et prérequis
 
