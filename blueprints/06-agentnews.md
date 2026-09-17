@@ -1,7 +1,7 @@
 # Blueprint 06 — Agentnews (veille hebdomadaire assistée par IA)
 
 ## Objectif
-Proposer chaque semaine un article d'actualité pertinent pour les produits du site (caroube, légumineuses) ou pour le marché/secteur au sens large, sans dépendre d'une clé API IA côté serveur : la recherche et la rédaction sont faites par l'agent Claude Code lui-même (routine programmée), et la publication nécessite une validation humaine par email.
+Chaque semaine, informer le propriétaire du site de l'actualité pertinente pour l'activité (caroube, légumineuses, aliment de bétail, céréales, et tous les produits du site) via un résumé rédigé, ET proposer un article précis à publier sur le site — sans dépendre d'une clé API IA côté serveur : la recherche et la rédaction sont faites par l'agent Claude Code lui-même (routine programmée), et la publication sur le site nécessite une validation humaine par email.
 
 ## Pourquoi pas côté serveur
 Une tentative précédente ajoutait une IA côté PHP (sélection + rédaction via l'API Anthropic, espace de gestion à lien signé) — abandonnée faute de `ANTHROPIC_API_KEY`. Agentnews évite ce blocage : il n'y a aucun appel API à héberger, aucune clé à gérer, aucun nouveau code PHP/JS. L'« IA » est l'agent qui exécute la routine ; le site ne change pas de mécanisme de publication (toujours `site/assets/data/news.json`, toujours le déploiement FTP existant).
@@ -18,12 +18,19 @@ Routine programmée "agentnews" (cloud, hebdomadaire, ex. lundi 8h UTC)
            commit + push sur main → déclenche deploy.yml (FTP)
        → pas de réponse sous 7 jours, ou réponse négative
          → rien n'est publié, le candidat est abandonné
-  3. Recherche web (WebSearch) sur les thèmes ci-dessous, écarte les
-     doublons (titre/URL déjà dans news.json ou déjà proposés/refusés
-     dans un fil Gmail récent)
-  4. Choisit UN article, rédige un résumé court FR et un résumé EN
-  5. Envoie un email (Gmail MCP) au propriétaire du site avec titre,
-     source, lien, résumé FR, résumé EN, et la consigne de validation
+  3. Recherche web (WebSearch) sur tous les thèmes ci-dessous (produits
+     existants + futures lignes de produits), écarte les doublons
+     (titre/URL déjà dans news.json ou déjà proposés/refusés dans un
+     fil Gmail récent)
+  4. À partir de cette recherche, produit DEUX choses distinctes :
+     a. Un résumé hebdomadaire (≈500 mots FR + ≈500 mots EN) de
+        l'actualité trouvée, tous thèmes confondus, avec la liste des
+        sources (nom + lien) en bas, à titre de vérification
+     b. UN article précis choisi pour la proposition de publication
+        sur le site (résumé court FR + résumé court EN, comme avant)
+  5. Envoie un seul email (Gmail MCP) au propriétaire du site contenant
+     les deux sections : le résumé hebdomadaire, puis la proposition
+     de publication avec sa consigne de validation
 ```
 
 Aucun fichier du dépôt n'est modifié par les étapes 3-5 : seule une validation positive (étape 2) touche `news.json`.
@@ -32,13 +39,21 @@ Aucun fichier du dépôt n'est modifié par les étapes 3-5 : seule une validati
 
 | Catégorie | Mots-clés |
 |---|---|
-| Produits directs | caroube / carob, gomme de caroube (E410, locust bean gum), farine de caroube (carob flour/powder), pulpe de caroube (carob pulp), légumineuses (lentilles, pois chiches, fèves, haricots, pois secs) |
+| Produits existants | caroube / carob, gomme de caroube (E410, locust bean gum), farine de caroube (carob flour/powder), pulpe de caroube (carob pulp), légumineuses (lentilles, pois chiches, fèves, haricots, pois secs) |
+| Futures lignes de produits | aliment de bétail / animal feed (tourteaux, mélasse, compléments énergétiques bovins/ovins/caprins/volaille), céréales / cereals (blé, orge, maïs — import-export, cours mondiaux, récoltes Maroc) |
 | Marché / secteur | export agroalimentaire Maroc, filière caroubier marocaine, réglementation export agricole Maroc/UE, salons professionnels (SIAL, Anuga, Gulfood), tendances substituts du cacao et ingrédients sans gluten |
 
-## Format de l'email de proposition
+Les « futures lignes de produits » sont traitées à égalité avec les produits déjà présents sur le site : elles n'ont pas encore de page dédiée, mais l'activité de l'entreprise les couvre déjà.
 
-- **Sujet fixe** : `Agentnews — proposition de la semaine du YYYY-MM-DD` (permet de retrouver le fil la semaine suivante par recherche Gmail).
-- **Corps** : titre de l'article, source, lien, date de publication, résumé FR (≈200 caractères), résumé EN (≈200 caractères), et en clair : *« Répondez OUI à cet email pour publier cette actualité sur le site, ou ignorez ce message pour passer cette semaine. »*
+## Format de l'email
+
+Un seul email par semaine, sujet fixe (inchangé pour que la recherche Gmail de l'étape 2 continue de fonctionner) : `Agentnews — proposition de la semaine du YYYY-MM-DD`.
+
+Le corps contient deux sections distinctes :
+
+**1. Résumé hebdomadaire** — un résumé rédigé (pas une simple liste de liens) d'environ 500 mots en français, puis d'environ 500 mots en anglais, couvrant l'actualité trouvée pour tous les thèmes ci-dessus (produits existants, futures lignes de produits, marché/secteur). En bas de chaque résumé, la liste des sources citées (nom du média + lien), présentée explicitement comme *« sources, à titre de vérification »* — ce ne sont pas des liens à valider ou sur lesquels agir, juste une référence.
+
+**2. Proposition de la semaine** — inchangé : titre de l'article choisi, source, lien, date de publication, résumé FR (≈200 caractères), résumé EN (≈200 caractères), et en clair : *« Répondez OUI à cet email pour publier cette actualité sur le site, ou ignorez ce message pour passer cette semaine. »*
 
 ## Règle de validation et de dédoublonnage
 
@@ -74,6 +89,6 @@ Le champ `image` est **optionnel** — `main.js` (l.185, 218) et le rendu des ca
 
 ## Tester
 
-- Déclenchement manuel de la routine → vérifier réception de l'email de proposition (sujet, contenu FR/EN, lien).
+- Déclenchement manuel de la routine → vérifier réception de l'email (sujet, résumé hebdomadaire FR/EN ≈500 mots avec sources en bas, puis section proposition avec titre/source/lien).
 - Répondre « OUI » → relancer la routine (ou attendre le prochain cycle) → vérifier que `news.json` contient les deux nouvelles entrées pinned et qu'un commit a été poussé sur `main`.
 - Ne pas répondre → vérifier qu'aucun commit n'est fait et qu'un nouveau candidat différent est proposé la semaine suivante.
