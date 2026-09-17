@@ -53,10 +53,11 @@ function initCounters() {
 }
 
 /* ── News loader ────────────────────────────────────────────── */
+let _newsArticlesCache = null;
+
 function initNewsLoader() {
   const grid = document.getElementById('news-grid');
   const teaser = document.getElementById('news-teaser');
-  const updatedEl = document.getElementById('news-updated');
 
   if (!grid && !teaser) return;
 
@@ -64,30 +65,45 @@ function initNewsLoader() {
   fetch(`${base}/assets/data/news.json`)
     .then(r => r.ok ? r.json() : Promise.reject(r.status))
     .then(data => {
-      const articles = data.articles || [];
-
-      if (updatedEl && data.updated_at) {
-        const d = new Date(data.updated_at);
-        updatedEl.textContent = d.toLocaleDateString(I18N.currentLang() === 'en' ? 'en-GB' : 'fr-FR', {
-          day: 'numeric', month: 'long', year: 'numeric'
-        });
-      }
-
-      if (teaser) {
-        renderNewsCards(teaser, articles.slice(0, 3));
-      }
-
-      if (grid) {
-        if (articles.length === 0) {
-          grid.textContent = I18N.get('news.empty');
-        } else {
-          renderNewsCards(grid, articles);
-        }
-      }
+      _newsArticlesCache = data;
+      renderNewsForCurrentLang();
     })
     .catch(() => {
       if (grid) grid.textContent = I18N.get('news.error');
     });
+
+  document.addEventListener('i18n:changed', renderNewsForCurrentLang);
+}
+
+function renderNewsForCurrentLang() {
+  const data = _newsArticlesCache;
+  if (!data) return;
+
+  const grid = document.getElementById('news-grid');
+  const teaser = document.getElementById('news-teaser');
+  const updatedEl = document.getElementById('news-updated');
+
+  const lang = I18N.currentLang();
+  const articles = (data.articles || []).filter(a => !a.lang || a.lang === lang);
+
+  if (updatedEl && data.updated_at) {
+    const d = new Date(data.updated_at);
+    updatedEl.textContent = d.toLocaleDateString(lang === 'en' ? 'en-GB' : 'fr-FR', {
+      day: 'numeric', month: 'long', year: 'numeric'
+    });
+  }
+
+  if (teaser) {
+    renderNewsCards(teaser, articles.slice(0, 3));
+  }
+
+  if (grid) {
+    if (articles.length === 0) {
+      grid.textContent = I18N.get('news.empty');
+    } else {
+      renderNewsCards(grid, articles);
+    }
+  }
 }
 
 function initNewsModal() {

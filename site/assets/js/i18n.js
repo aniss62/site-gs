@@ -70,6 +70,7 @@ const I18N = (() => {
     localStorage.setItem('gs_lang', lang);
     translations = await loadTranslations(lang);
     applyTranslations();
+    document.dispatchEvent(new CustomEvent('i18n:changed', { detail: { lang } }));
   }
 
   async function init() {
