@@ -27,7 +27,10 @@ Routine programmée "agentnews" (cloud, hebdomadaire, ex. lundi 8h UTC)
         l'actualité trouvée, tous thèmes confondus, avec la liste des
         sources (nom + lien) en bas, à titre de vérification
      b. UN article précis choisi pour la proposition de publication
-        sur le site (résumé court FR + résumé court EN, comme avant)
+        sur le site, avec un texte complet FR + un texte complet EN
+        (≈300-500 mots chacun, pas un résumé court) : c'est ce texte,
+        et non le résumé hebdomadaire, qui devient le contenu affiché
+        sur la page Actualités si l'article est validé
   5. Envoie un seul email (Gmail MCP) au propriétaire du site contenant
      les deux sections : le résumé hebdomadaire, puis la proposition
      de publication avec sa consigne de validation
@@ -55,7 +58,7 @@ Le corps contient deux sections distinctes :
 
 **1. Résumé hebdomadaire** — un résumé rédigé (pas une simple liste de liens) d'environ 500 mots en français, puis d'environ 500 mots en anglais, couvrant l'actualité trouvée pour tous les thèmes ci-dessus (produits existants, futures lignes de produits, marché/secteur). En bas de chaque résumé, la liste des sources citées (nom du média + lien), présentée explicitement comme *« sources, à titre de vérification »* — ce ne sont pas des liens à valider ou sur lesquels agir, juste une référence.
 
-**2. Proposition de la semaine** — inchangé : titre de l'article choisi, source, lien, date de publication, résumé FR (≈200 caractères), résumé EN (≈200 caractères), et en clair : *« Répondez OUI à cet email pour publier cette actualité sur le site, ou ignorez ce message pour passer cette semaine. »*
+**2. Proposition de la semaine** — titre de l'article choisi, source, lien, date de publication, un texte FR complet (≈300-500 mots, plusieurs paragraphes, rédigé à partir des faits trouvés en recherche — pas un résumé de quelques lignes), le texte EN équivalent, et en clair : *« Répondez OUI à cet email pour publier cette actualité sur le site, ou ignorez ce message pour passer cette semaine. »* Ce texte long est celui qui sera stocké dans le champ `summary` de `news.json` et affiché sur le site en cas de validation — il doit donc être factuel, sourcé (citer la source en fin de texte) et se suffire à lui-même pour un lecteur du site qui n'a pas accès à l'article original.
 
 ## Règle de validation et de dédoublonnage
 
