@@ -47,7 +47,7 @@ $feeds = [
         'lang' => 'fr',
     ],
     [
-        'url'  => 'https://news.google.com/rss/search?q=carob+legumes+morocco+agriculture+export&hl=en&gl=US&ceid=US:en',
+        'url'  => 'https://news.google.com/rss/search?q=carob+morocco+agriculture&hl=en&gl=US&ceid=US:en',
         'lang' => 'en',
     ],
 ];
@@ -142,10 +142,22 @@ $rssArticles = array_filter($rssArticles, function ($art) use ($pinnedTitles) {
     return !in_array(mb_strtolower(trim($art['title'] ?? ''), 'UTF-8'), $pinnedTitles, true);
 });
 
-// 4. Trier les RSS par date décroissante et limiter
+// 4. Trier par date décroissante et limiter, à quota égal par langue
+//    (sans quota par langue, un tri global favorise systématiquement la
+//    langue dont le flux RSS publie le plus souvent, et l'autre langue
+//    peut disparaître entièrement de la page Actualités)
+$maxPerLang = intdiv($maxRssTotal, count($feeds));
+$rssByLang = [];
+foreach ($rssArticles as $art) {
+    $rssByLang[$art['lang']][] = $art;
+}
+$rssArticles = [];
+foreach ($rssByLang as $lang => $langArticles) {
+    usort($langArticles, fn($a, $b) => strcmp($b['published'], $a['published']));
+    $rssArticles = array_merge($rssArticles, array_slice($langArticles, 0, $maxPerLang));
+}
 usort($rssArticles, fn($a, $b) => strcmp($b['published'], $a['published']));
-$rssArticles = array_slice(array_values($rssArticles), 0, $maxRssTotal);
-logMsg(count($rssArticles) . ' article(s) RSS retenus après dédoublonnage.');
+logMsg(count($rssArticles) . ' article(s) RSS retenus après dédoublonnage (quota par langue).');
 
 // 5. Fusionner : pinned en tête, RSS en dessous
 $allArticles = array_merge($pinnedArticles, $rssArticles);
