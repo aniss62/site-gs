@@ -14,9 +14,16 @@ Routine programmée "agentnews" (cloud, hebdomadaire, ex. lundi 8h UTC)
   2. Cherche dans Gmail le fil « Agentnews — proposition » de la semaine
      précédente et regarde s'il y a une réponse
        → réponse positive (contient "oui" / "yes" / "publie" / "go")
-         → ajoute l'article proposé en pinned dans news.json (FR + EN),
-           commit + push sur main → déclenche deploy.yml (FTP)
-       → pas de réponse sous 7 jours, ou réponse négative
+         → publication SYSTÉMATIQUE et immédiate, sans délibération :
+           ajoute l'article proposé en pinned dans news.json (FR + EN),
+           commit + push sur main → déclenche deploy.yml (FTP). Dès
+           qu'une réponse positive est détectée sur un fil pas encore
+           traité — même un fil plus ancien que celui de la semaine
+           immédiatement précédente, par exemple parce que la réponse
+           est arrivée après la fin d'un cycle précédent — elle doit
+           être publiée à ce passage, sans se demander si c'est le bon
+           moment ni pourquoi ça n'a pas été fait plus tôt
+       → pas de réponse sous 4 jours, ou réponse négative
          → rien n'est publié, le candidat est abandonné
   3. Recherche web (WebSearch) sur tous les thèmes ci-dessous (produits
      existants + futures lignes de produits), écarte les doublons
@@ -66,9 +73,9 @@ Puis, en clair : *« Répondez OUI à cet email pour publier cette actualité su
 
 ## Règle de validation et de dédoublonnage
 
-- L'agent recherche dans Gmail un fil dont le sujet commence par `Agentnews — proposition` et regarde s'il contient une réponse envoyée après l'email de proposition, depuis `anisssebbane@gmail.com` **ou** `Office@lesgreniersdusaiss.ma` (les deux destinataires du mail peuvent valider).
-- Réponse contenant un mot positif (oui, yes, publie, go, ok) → validée, quel que soit lequel des deux a répondu.
-- Absence de réponse après 7 jours, ou réponse négative/autre → le candidat est abandonné, il n'est pas republié automatiquement la semaine suivante (l'agent garde en mémoire, via l'historique Gmail, les titres/URL déjà proposés pour ne pas les reproposer).
+- L'agent recherche dans Gmail **tous** les fils dont le sujet commence par `Agentnews — proposition` qui n'ont pas encore été traités (pas seulement celui de la semaine immédiatement précédente — une réponse a pu arriver après la fin d'un cycle antérieur, une fois le fil de cette semaine-là déjà considéré) et regarde s'ils contiennent une réponse envoyée après l'email de proposition, depuis `anisssebbane@gmail.com` **ou** `Office@lesgreniersdusaiss.ma` (les deux destinataires du mail peuvent valider).
+- Réponse contenant un mot positif (oui, yes, publie, go, ok) → validée, quel que soit lequel des deux a répondu, quel que soit le fil sur lequel elle est arrivée, et quel que soit le délai écoulé depuis l'envoi de la proposition. **La publication est alors obligatoire et immédiate** : pas de nouvelle vérification de pertinence, pas de question sur le pourquoi du délai — on applique la règle, point.
+- Absence de réponse après 4 jours, ou réponse négative/autre → le candidat est abandonné, il n'est pas republié automatiquement la semaine suivante (l'agent garde en mémoire, via l'historique Gmail, les titres/URL déjà proposés pour ne pas les reproposer). Une réponse positive qui arrive après ce délai de 4 jours n'est plus prise en compte pour ce candidat.
 - Avant de proposer un nouvel article, l'agent vérifie qu'il ne figure pas déjà dans `news.json` (pinned ou RSS) par titre normalisé, comme le fait `fetch-news.php`.
 
 ## Ajout à `news.json`
