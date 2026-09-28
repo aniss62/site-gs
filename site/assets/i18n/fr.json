@@ -13,7 +13,6 @@
       "carob_raw": "Caroube brute",
       "carob_seeds": "Graines de caroube",
       "carob_pulp": "Pulpe de caroube",
-      "carob_flour": "Farine de caroube",
       "legumes": "Légumineuses"
     }
   },
@@ -36,7 +35,7 @@
     "products_title": "Nos produits",
     "products_sub": "Des matières premières sélectionnées au cœur de la région du Saïss, exportées vers les marchés internationaux.",
     "carob_title": "Produits de caroube",
-    "carob_desc": "Caroube brute, graines, pulpe et farine — une gamme complète pour l'industrie agroalimentaire, pharmaceutique et cosmétique.",
+    "carob_desc": "Caroube brute, graines et pulpe — une gamme complète pour l'industrie agroalimentaire, pharmaceutique et cosmétique.",
     "legumes_title": "Légumineuses",
     "legumes_desc": "Toutes variétés de légumineuses pour l'import-export : lentilles, pois chiches, fèves, haricots et plus.",
     "explore": "Explorer",
@@ -130,19 +129,6 @@
       "spec_form_val": "Granulés ou en poudre",
       "spec_packaging": "25 kg, Big Bag 1000 kg"
     },
-    "carob_flour": {
-      "hero_title": "Farine de caroube",
-      "hero_sub": "Farine fine issue du broyage de la pulpe, substitut naturel du cacao",
-      "desc": "La farine de caroube est produite par broyage fin de la pulpe séchée. Naturellement sucrée, sans caféine ni théobromine, elle est utilisée comme substitut du cacao dans l'industrie agroalimentaire, la pâtisserie et la confiserie. Elle est aussi appréciée pour ses propriétés liantes et sa richesse en fibres.",
-      "spec_moisture": "Humidité max.",
-      "spec_protein": "Protéines",
-      "spec_fiber": "Fibres totales",
-      "spec_fat": "Matières grasses",
-      "spec_granulometry": "Granulométrie",
-      "spec_color": "Couleur",
-      "spec_color_val": "Brun clair à moyen",
-      "spec_packaging": "25 kg, Big Bag 500 kg"
-    },
     "legumes": {
       "hero_title": "Légumineuses",
       "hero_sub": "Import-Export de toutes variétés de légumineuses",
@@ -176,20 +162,16 @@
     "petfood_desc": "Ingrédient naturel dans les aliments pour animaux de compagnie. Propriétés bénéfiques sur la digestion animale.",
     "cosm_title": "Cosmétique",
     "cosm_desc": "Agent gélifiant et texturant pour crèmes, lotions et produits capillaires.",
-    "cosm_flour_desc": "Poudre exfoliante douce et agent colorant naturel pour soins visage et corps.",
     "sport_title": "Nutrition sportive",
     "sport_desc": "Source d'énergie à absorption progressive, sans gluten et sans caféine.",
-    "sport_flour_desc": "Ingrédient sans gluten et sans caféine dans les protéines, shakers et en-cas sportifs.",
-    "food_flour_desc": "Substitut naturel au cacao dans biscuits, pâtisseries, boissons chocolatées et barres.",
     "food_seeds_desc": "Production de gomme de caroube E410 — épaississant et stabilisant naturel.",
     "food_pulp_desc": "Ingrédient naturel sucrant dans les confiseries, barres céréalières et boissons.",
     "food_legumes_desc": "Consommation directe, plats traditionnels, conserves et cuisines du monde.",
-    "pharma_flour_desc": "Excipient et actif naturel dans les compléments alimentaires et préparations gastro.",
     "feed_pulp_desc": "Substitut naturel à la mélasse, apport énergétique pour bovins, ovins et caprins.",
     "agri_title": "Agriculture",
     "agri_desc": "Semences sélectionnées pour la culture — fixation d'azote et rotation des cultures.",
-    "export_title": "Export",
-    "export_desc": "Livraison internationale, documentation complète, conditionnement aux normes de l'import.",
+    "export_title": "Import / Export",
+    "export_desc": "Livraison internationale, documentation complète, conditionnement aux normes de l'import et de l'export.",
     "cta_title": "Intéressé par nos produits pour votre industrie ?",
     "cta_sub": "Notre équipe est disponible pour répondre à vos questions techniques et établir un devis personnalisé.",
     "cta_btn": "Contacter notre équipe"
@@ -274,7 +256,6 @@
     "product_carob_raw": "Caroube brute",
     "product_carob_seeds": "Graines de caroube",
     "product_carob_pulp": "Pulpe de caroube",
-    "product_carob_flour": "Farine de caroube",
     "product_legumes": "Légumineuses"
   },
   "footer": {

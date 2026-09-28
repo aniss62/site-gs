@@ -42,7 +42,7 @@ Aucun fichier du dépôt n'est modifié par les étapes 3-5 : seule une validati
 
 | Catégorie | Mots-clés |
 |---|---|
-| Produits existants | caroube / carob, gomme de caroube (E410, locust bean gum), farine de caroube (carob flour/powder), pulpe de caroube (carob pulp), légumineuses (lentilles, pois chiches, fèves, haricots, pois secs) |
+| Produits existants | caroube / carob, gomme de caroube (E410, locust bean gum), pulpe de caroube (carob pulp), légumineuses (lentilles, pois chiches, fèves, haricots, pois secs) |
 | Futures lignes de produits | aliment de bétail / animal feed (tourteaux, mélasse, compléments énergétiques bovins/ovins/caprins/volaille), céréales / cereals (blé, orge, maïs — import-export, cours mondiaux, récoltes Maroc) |
 | Marché / secteur | export agroalimentaire Maroc, filière caroubier marocaine, réglementation export agricole Maroc/UE, salons professionnels (SIAL, Anuga, Gulfood), tendances substituts du cacao et ingrédients sans gluten |
 

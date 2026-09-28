@@ -26,7 +26,6 @@
           <li><a href="${BASE}/products/caroube-brute.html"><span class="dot"></span><span data-i18n="nav.products_sub.carob_raw">Caroube brute</span></a></li>
           <li><a href="${BASE}/products/graines-caroube.html"><span class="dot"></span><span data-i18n="nav.products_sub.carob_seeds">Graines de caroube</span></a></li>
           <li><a href="${BASE}/products/pulpe-caroube.html"><span class="dot"></span><span data-i18n="nav.products_sub.carob_pulp">Pulpe de caroube</span></a></li>
-          <li><a href="${BASE}/products/farine-caroube.html"><span class="dot"></span><span data-i18n="nav.products_sub.carob_flour">Farine de caroube</span></a></li>
           <li><a href="${BASE}/products/legumineuses.html"><span class="dot"></span><span data-i18n="nav.products_sub.legumes">Légumineuses</span></a></li>
         </ul>
       </li>
@@ -54,7 +53,6 @@
     <a href="${BASE}/products/caroube-brute.html" data-i18n="nav.products_sub.carob_raw">Caroube brute</a>
     <a href="${BASE}/products/graines-caroube.html" data-i18n="nav.products_sub.carob_seeds">Graines de caroube</a>
     <a href="${BASE}/products/pulpe-caroube.html" data-i18n="nav.products_sub.carob_pulp">Pulpe de caroube</a>
-    <a href="${BASE}/products/farine-caroube.html" data-i18n="nav.products_sub.carob_flour">Farine de caroube</a>
     <a href="${BASE}/products/legumineuses.html" data-i18n="nav.products_sub.legumes">Légumineuses</a>
     <div class="navbar__mobile-section-title">Pages</div>
     <a href="${BASE}/index.html" data-i18n="nav.home">Accueil</a>

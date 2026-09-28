@@ -13,7 +13,6 @@
       "carob_raw": "Raw Carob",
       "carob_seeds": "Carob Seeds",
       "carob_pulp": "Carob Pulp",
-      "carob_flour": "Carob Flour",
       "legumes": "Legumes"
     }
   },
@@ -36,7 +35,7 @@
     "products_title": "Our Products",
     "products_sub": "Premium raw materials selected from the heart of the Saïss region, exported to international markets.",
     "carob_title": "Carob Products",
-    "carob_desc": "Raw carob, seeds, pulp and flour — a complete range for the food, pharmaceutical and cosmetic industries.",
+    "carob_desc": "Raw carob, seeds and pulp — a complete range for the food, pharmaceutical and cosmetic industries.",
     "legumes_title": "Legumes",
     "legumes_desc": "All varieties of legumes for import-export: lentils, chickpeas, fava beans, kidney beans and more.",
     "explore": "Explore",
@@ -130,19 +129,6 @@
       "spec_form_val": "Granules or powder",
       "spec_packaging": "25 kg, Big Bag 1000 kg"
     },
-    "carob_flour": {
-      "hero_title": "Carob Flour",
-      "hero_sub": "Fine flour from ground pulp, natural cocoa substitute",
-      "desc": "Carob flour is produced by finely grinding dried pulp. Naturally sweet, caffeine-free and theobromine-free, it is used as a cocoa substitute in the food, bakery and confectionery industry. It is also valued for its binding properties and fiber content.",
-      "spec_moisture": "Max. Moisture",
-      "spec_protein": "Protein",
-      "spec_fiber": "Total Fiber",
-      "spec_fat": "Fat Content",
-      "spec_granulometry": "Granulometry",
-      "spec_color": "Color",
-      "spec_color_val": "Light to medium brown",
-      "spec_packaging": "25 kg, Big Bag 500 kg"
-    },
     "legumes": {
       "hero_title": "Legumes",
       "hero_sub": "Import-Export of all varieties of legumes",
@@ -176,20 +162,16 @@
     "petfood_desc": "Natural ingredient in pet food products. Beneficial properties for animal digestion.",
     "cosm_title": "Cosmetics",
     "cosm_desc": "Gelling and texturizing agent for creams, lotions and hair care products.",
-    "cosm_flour_desc": "Gentle exfoliating powder and natural coloring agent for face and body care.",
     "sport_title": "Sports Nutrition",
     "sport_desc": "Slow-release energy source, gluten-free and caffeine-free.",
-    "sport_flour_desc": "Gluten-free, caffeine-free ingredient in protein products, shakes and sports snacks.",
-    "food_flour_desc": "Natural cocoa substitute in biscuits, pastries, chocolate drinks and bars.",
     "food_seeds_desc": "Used to produce locust bean gum (E410) — a natural thickener and stabilizer.",
     "food_pulp_desc": "Natural sweetening ingredient in confectionery, cereal bars and beverages.",
     "food_legumes_desc": "Direct consumption, traditional dishes, canned goods and world cuisines.",
-    "pharma_flour_desc": "Natural excipient and active ingredient in dietary supplements and gastric preparations.",
     "feed_pulp_desc": "Natural substitute for molasses, an energy source for cattle, sheep and goats.",
     "agri_title": "Agriculture",
     "agri_desc": "Seeds selected for cultivation — nitrogen fixation and crop rotation.",
-    "export_title": "Export",
-    "export_desc": "International delivery, full documentation, packaging compliant with import standards.",
+    "export_title": "Import / Export",
+    "export_desc": "International delivery, full documentation, packaging compliant with import and export standards.",
     "cta_title": "Interested in Our Products for Your Industry?",
     "cta_sub": "Our team is available to answer your technical questions and provide a personalized quote.",
     "cta_btn": "Contact Our Team"
@@ -274,7 +256,6 @@
     "product_carob_raw": "Raw Carob",
     "product_carob_seeds": "Carob Seeds",
     "product_carob_pulp": "Carob Pulp",
-    "product_carob_flour": "Carob Flour",
     "product_legumes": "Legumes"
   },
   "footer": {
