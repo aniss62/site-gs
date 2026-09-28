@@ -47,7 +47,7 @@ $feeds = [
         'lang' => 'fr',
     ],
     [
-        'url'  => 'https://news.google.com/rss/search?q=carob+legumes+morocco+agriculture+export&hl=en&gl=US&ceid=US:en',
+        'url'  => 'https://news.google.com/rss/search?q=carob+morocco+agriculture&hl=en&gl=US&ceid=US:en',
         'lang' => 'en',
     ],
 ];
