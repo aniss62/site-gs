@@ -24,12 +24,12 @@
     +   '<a class="nav__link" href="' + root + 'index.html">'
     +     '<span class="fr-text">Accueil</span><span class="en-text" hidden>Home</span>'
     +   '</a>'
-    +   '<div class="nav__item nav__item--mega" id="megaItem">'
-    +     '<button class="nav__link nav__link--btn" id="megaBtn" aria-expanded="false" aria-haspopup="true">'
+    +   '<div class="nav__item nav__item--mega">'
+    +     '<button class="nav__link nav__link--btn" aria-expanded="false" aria-haspopup="true">'
     +       '<span class="fr-text">Nos Produits</span><span class="en-text" hidden>Our Products</span>'
     +       '<span class="nav__chevron">&#9662;</span>'
     +     '</button>'
-    +     '<div class="nav__mega" id="megaPanel" hidden>'
+    +     '<div class="nav__mega" hidden>'
     +       '<div class="mega__col">'
     +         '<p class="mega__heading">'
     +           '<span class="fr-text">&#127807; Caroube</span><span class="en-text" hidden>&#127807; Carob</span>'
@@ -70,6 +70,25 @@
     +   '<a class="nav__link" href="' + root + 'about.html">'
     +     '<span class="fr-text">&Agrave; propos</span><span class="en-text" hidden>About</span>'
     +   '</a>'
+    +   '<div class="nav__item nav__item--mega">'
+    +     '<button class="nav__link nav__link--btn" aria-expanded="false" aria-haspopup="true">'
+    +       '<span class="fr-text">Notre d&eacute;marche</span><span class="en-text" hidden>Our Approach</span>'
+    +       '<span class="nav__chevron">&#9662;</span>'
+    +     '</button>'
+    +     '<div class="nav__mega nav__mega--single" hidden>'
+    +       '<div class="mega__col">'
+    +         '<a href="' + root + 'applications.html">'
+    +           '<span class="fr-text">Applications</span><span class="en-text" hidden>Applications</span>'
+    +         '</a>'
+    +         '<a href="' + root + 'qualite.html">'
+    +           '<span class="fr-text">Qualit&eacute;</span><span class="en-text" hidden>Quality</span>'
+    +         '</a>'
+    +         '<a href="' + root + 'durabilite.html">'
+    +           '<span class="fr-text">Durabilit&eacute;</span><span class="en-text" hidden>Sustainability</span>'
+    +         '</a>'
+    +       '</div>'
+    +     '</div>'
+    +   '</div>'
     +   '<a class="nav__link" href="' + root + 'news.html">'
     +     '<span class="fr-text">Actualit&eacute;s</span><span class="en-text" hidden>News</span>'
     +   '</a>'
@@ -120,9 +139,7 @@
   /* ── 6. Obtenir les éléments DOM après injection ───────────── */
   var gnav        = document.getElementById('gnav');
   var gnavLinks   = document.getElementById('gnavLinks');
-  var megaItem    = document.getElementById('megaItem');
-  var megaBtn     = document.getElementById('megaBtn');
-  var megaPanel   = document.getElementById('megaPanel');
+  var megaItems   = gnav ? gnav.querySelectorAll('.nav__item--mega') : [];
   var langBtn     = document.getElementById('gnavLangBtn');
   var hamburger   = document.getElementById('gnavHamburger');
 
@@ -136,32 +153,48 @@
     });
   }
 
-  /* ── 8. Méga-menu desktop : mouseenter / mouseleave ────────── */
-  if (megaItem && megaPanel && megaBtn) {
-    var hoverQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+  /* ── 8. Méga-menus desktop : mouseenter / mouseleave ───────── */
+  var hoverQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
 
-    megaItem.addEventListener('mouseenter', function () {
-      if (!hoverQuery.matches) return;
-      megaPanel.hidden = false;
-      megaBtn.setAttribute('aria-expanded', 'true');
-      megaItem.classList.add('is-open');
-    });
+  function closeMega(item) {
+    var panel = item.querySelector('.nav__mega');
+    var btn   = item.querySelector('.nav__link--btn');
+    if (panel) panel.hidden = true;
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+    item.classList.remove('is-open');
+  }
 
-    megaItem.addEventListener('mouseleave', function () {
-      if (!hoverQuery.matches) return;
-      megaPanel.hidden = true;
-      megaBtn.setAttribute('aria-expanded', 'false');
-      megaItem.classList.remove('is-open');
-    });
+  for (var m = 0; m < megaItems.length; m++) {
+    (function (item) {
+      var panel = item.querySelector('.nav__mega');
+      var btn   = item.querySelector('.nav__link--btn');
+      if (!panel || !btn) return;
 
-    /* ── 9. Méga-menu mobile : clic sur #megaBtn ─────────────── */
-    megaBtn.addEventListener('click', function (e) {
-      e.stopPropagation();
-      var isOpen = !megaPanel.hidden;
-      megaPanel.hidden = isOpen;
-      megaBtn.setAttribute('aria-expanded', String(!isOpen));
-      megaItem.classList.toggle('is-open', !isOpen);
-    });
+      item.addEventListener('mouseenter', function () {
+        if (!hoverQuery.matches) return;
+        panel.hidden = false;
+        btn.setAttribute('aria-expanded', 'true');
+        item.classList.add('is-open');
+      });
+
+      item.addEventListener('mouseleave', function () {
+        if (!hoverQuery.matches) return;
+        closeMega(item);
+      });
+
+      /* ── 9. Méga-menu mobile : clic sur le bouton ────────────── */
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var isOpen = !panel.hidden;
+        /* Fermer les autres méga-menus ouverts */
+        for (var n = 0; n < megaItems.length; n++) {
+          if (megaItems[n] !== item) closeMega(megaItems[n]);
+        }
+        panel.hidden = isOpen;
+        btn.setAttribute('aria-expanded', String(!isOpen));
+        item.classList.toggle('is-open', !isOpen);
+      });
+    })(megaItems[m]);
   }
 
   /* ── 10. Hamburger ─────────────────────────────────────────── */
@@ -177,9 +210,7 @@
   /* ── 11. Fermer sur Escape ─────────────────────────────────── */
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
-      if (megaPanel) megaPanel.hidden = true;
-      if (megaBtn) megaBtn.setAttribute('aria-expanded', 'false');
-      if (megaItem) megaItem.classList.remove('is-open');
+      for (var e1 = 0; e1 < megaItems.length; e1++) closeMega(megaItems[e1]);
       if (gnavLinks) gnavLinks.classList.remove('nav__links--open');
       if (hamburger) {
         hamburger.setAttribute('aria-expanded', 'false');
@@ -192,12 +223,8 @@
   document.addEventListener('click', function (e) {
     if (!gnav || gnav.contains(e.target)) return;
 
-    /* Fermer le méga-menu */
-    if (megaPanel && !megaPanel.hidden) {
-      megaPanel.hidden = true;
-      if (megaBtn) megaBtn.setAttribute('aria-expanded', 'false');
-      if (megaItem) megaItem.classList.remove('is-open');
-    }
+    /* Fermer les méga-menus */
+    for (var c1 = 0; c1 < megaItems.length; c1++) closeMega(megaItems[c1]);
 
     /* Fermer le menu mobile */
     if (gnavLinks && gnavLinks.classList.contains('nav__links--open')) {
