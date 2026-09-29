@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="base-url" content="..">
+  <title>Céréales | Les Greniers du Saïss</title>
+  <meta name="description" content="Céréales sélectionnées : blé, orge et maïs. Export de qualité depuis le Maroc.">
+  <link rel="icon" href="../assets/images/logo/logo.png" type="image/png">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body>
+<div id="main-nav"></div>
+<script src="../assets/js/nav.js"></script>
+
+<!-- Page Hero -->
+<header class="page-hero">
+  <div class="page-hero__bg" style="background-image:url('../assets/images/cereales.jpg');" role="img" aria-label="Céréales, grains de blé du Maroc"></div>
+  <div class="page-hero__overlay"></div>
+  <div class="page-hero__content">
+    <nav class="breadcrumb">
+      <a href="../index.html" data-i18n="nav.home">Accueil</a>
+      <span>›</span>
+      <a href="../index.html#products" data-i18n="nav.products">Produits</a>
+      <span>›</span>
+      <span data-i18n="products.cereals.hero_title">Céréales</span>
+    </nav>
+    <span class="badge badge--blue" style="margin-bottom:.75rem">Export</span>
+    <h1 data-i18n="products.cereals.hero_title">Céréales</h1>
+    <p data-i18n="products.cereals.hero_sub">Export de blé, orge et maïs de qualité</p>
+  </div>
+</header>
+
+<!-- Product Detail -->
+<section class="product-detail">
+  <div class="product-detail__inner container">
+    <!-- Left: image -->
+    <div class="product-detail__image" data-reveal>
+      <img src="../assets/images/cereales.jpg" alt="Grains de blé sélectionnés par Les Greniers du Saïss" loading="lazy">
+    </div>
+    <!-- Right: description + varieties -->
+    <div data-reveal>
+      <h2 class="section-title" data-i18n="products.cereals.hero_title">Céréales</h2>
+      <div class="divider"></div>
+      <p style="color:var(--color-text-muted);margin-bottom:2rem" data-i18n="products.cereals.desc">Les Greniers du Saïss exporte des céréales telles que le blé, l'orge et le maïs, sélectionnées selon des critères stricts de qualité et de traçabilité. Nous accompagnons meuniers, industriels de l'alimentation animale et négociants avec des volumes adaptés aux marchés internationaux.</p>
+
+      <div style="margin-bottom:2rem">
+        <h4 data-i18n="products.cereals.varieties_title">Nos variétés disponibles</h4>
+        <div class="grid-3" style="margin-top:1rem;gap:.75rem">
+          <div class="app-card" data-reveal>
+            <span style="font-size:2rem">🌾</span>
+            <p style="margin:.75rem 0;font-weight:600" data-i18n="products.cereals.var_wheat">Blé</p>
+          </div>
+          <div class="app-card" data-reveal>
+            <span style="font-size:2rem">🌾</span>
+            <p style="margin:.75rem 0;font-weight:600" data-i18n="products.cereals.var_barley">Orge</p>
+          </div>
+          <div class="app-card" data-reveal>
+            <span style="font-size:2rem">🌽</span>
+            <p style="margin:.75rem 0;font-weight:600" data-i18n="products.cereals.var_corn">Maïs</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:2rem">
+        <h4 data-i18n="products.packaging_title">Conditionnements</h4>
+        <p style="font-size:.9rem;color:var(--color-text-muted)" data-i18n="products.cereals.spec_packaging">Sacs de 25 kg, 50 kg ou big bags de 1 000 kg, également disponible en vrac pour les volumes industriels.</p>
+      </div>
+
+      <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap">
+        <a href="../index.html#products" class="btn btn-outline-primary" data-i18n="products.back">Retour aux produits</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Applications -->
+<section class="section section--bg">
+  <div class="container">
+    <h2 class="section-title text-center" data-i18n="products.apps_title">Applications</h2>
+    <div class="divider divider--center"></div>
+    <div class="grid-3" style="margin-top:2rem">
+      <div class="app-card" data-reveal>
+        <span style="font-size:2rem">🍽️</span>
+        <h3 data-i18n="applications.food_title">Alimentaire</h3>
+        <p data-i18n="applications.food_cereals_desc">Meunerie, semoulerie, boulangerie et alimentation humaine.</p>
+      </div>
+      <div class="app-card" data-reveal>
+        <span style="font-size:2rem">🌍</span>
+        <h3 data-i18n="applications.export_cereals_title">Export</h3>
+        <p data-i18n="applications.export_cereals_desc">Livraison internationale, documentation complète et conditionnement conforme aux normes d'exportation.</p>
+      </div>
+      <div class="app-card" data-reveal>
+        <span style="font-size:2rem">🌱</span>
+        <h3 data-i18n="applications.agri_title">Agriculture</h3>
+        <p data-i18n="applications.agri_cereals_desc">Semences sélectionnées, rotation des cultures céréalières et gestion durable des sols.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Related products -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title" style="margin-bottom:1.5rem" data-i18n="products.related_title">Autres produits</h2>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap">
+      <a href="aliments-betail.html" class="btn btn-outline-primary" data-i18n="products.animal_feed.hero_title">Aliments de bétail</a>
+      <a href="legumineuses.html" class="btn btn-outline-primary" data-i18n="products.legumes.hero_title">Légumineuses</a>
+    </div>
+  </div>
+</section>
+
+<div id="main-footer"></div>
+<script src="../assets/js/footer.js"></script>
+<script src="../assets/js/i18n.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

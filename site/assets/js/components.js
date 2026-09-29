@@ -27,6 +27,8 @@
           <li><a href="${BASE}/products/graines-caroube.html"><span class="dot"></span><span data-i18n="nav.products_sub.carob_seeds">Graines de caroube</span></a></li>
           <li><a href="${BASE}/products/pulpe-caroube.html"><span class="dot"></span><span data-i18n="nav.products_sub.carob_pulp">Pulpe de caroube</span></a></li>
           <li><a href="${BASE}/products/legumineuses.html"><span class="dot"></span><span data-i18n="nav.products_sub.legumes">Légumineuses</span></a></li>
+          <li><a href="${BASE}/products/aliments-betail.html"><span class="dot"></span><span data-i18n="nav.products_sub.animal_feed">Aliments de bétail</span></a></li>
+          <li><a href="${BASE}/products/cereales.html"><span class="dot"></span><span data-i18n="nav.products_sub.cereals">Céréales</span></a></li>
         </ul>
       </li>
       <li><a href="${BASE}/applications.html" data-i18n="nav.applications">Applications</a></li>
@@ -54,6 +56,8 @@
     <a href="${BASE}/products/graines-caroube.html" data-i18n="nav.products_sub.carob_seeds">Graines de caroube</a>
     <a href="${BASE}/products/pulpe-caroube.html" data-i18n="nav.products_sub.carob_pulp">Pulpe de caroube</a>
     <a href="${BASE}/products/legumineuses.html" data-i18n="nav.products_sub.legumes">Légumineuses</a>
+    <a href="${BASE}/products/aliments-betail.html" data-i18n="nav.products_sub.animal_feed">Aliments de bétail</a>
+    <a href="${BASE}/products/cereales.html" data-i18n="nav.products_sub.cereals">Céréales</a>
     <div class="navbar__mobile-section-title">Pages</div>
     <a href="${BASE}/index.html" data-i18n="nav.home">Accueil</a>
     <a href="${BASE}/about.html" data-i18n="nav.about">À propos</a>

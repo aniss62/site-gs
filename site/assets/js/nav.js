@@ -55,6 +55,15 @@
     +           '<span class="fr-text">Lentilles &middot; Pois chiches &middot; F&egrave;ves &middot; Haricots &middot; Pois secs</span>'
     +           '<span class="en-text" hidden>Lentils &middot; Chickpeas &middot; Fava beans &middot; Beans &middot; Dry peas</span>'
     +         '</p>'
+    +         '<p class="mega__heading" style="margin-top:.85rem">'
+    +           '<span class="fr-text">&#127805; Autres fili&egrave;res</span><span class="en-text" hidden>&#127805; Other Lines</span>'
+    +         '</p>'
+    +         '<a href="' + root + 'products/aliments-betail.html">'
+    +           '<span class="fr-text">Aliments de b&eacute;tail</span><span class="en-text" hidden>Animal Feed</span>'
+    +         '</a>'
+    +         '<a href="' + root + 'products/cereales.html">'
+    +           '<span class="fr-text">C&eacute;r&eacute;ales</span><span class="en-text" hidden>Cereals</span>'
+    +         '</a>'
     +       '</div>'
     +     '</div>'
     +   '</div>'
@@ -226,26 +235,5 @@
   }
 
   markActiveLink();
-
-  /* ── 14. Sur la page d'accueil : remplacer les liens par des ancres ─ */
-  (function adaptHomepageLinks() {
-    var path = window.location.pathname;
-    var isHome = (path === '/' || path.endsWith('/index.html') || path === '' ||
-                  path.replace(/.*\//, '') === '' || path.replace(/.*\//, '') === 'index.html');
-    if (!isHome) return;
-
-    var map = {
-      'about.html': '#savoir-faire'
-    };
-
-    var links = document.querySelectorAll('#gnav a');
-    for (var i = 0; i < links.length; i++) {
-      var href = links[i].getAttribute('href') || '';
-      var file = href.split('/').pop();
-      if (map[file]) {
-        links[i].setAttribute('href', map[file]);
-      }
-    }
-  })();
 
 })();

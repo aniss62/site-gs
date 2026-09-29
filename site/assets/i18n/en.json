@@ -13,7 +13,9 @@
       "carob_raw": "Raw Carob",
       "carob_seeds": "Carob Seeds",
       "carob_pulp": "Carob Pulp",
-      "legumes": "Legumes"
+      "legumes": "Legumes",
+      "animal_feed": "Animal Feed",
+      "cereals": "Cereals"
     }
   },
   "hero": {
@@ -44,17 +46,17 @@
     "why_quality_title": "Certified Quality",
     "why_quality_desc": "Our products meet the most demanding international standards. Quality control at every step.",
     "why_trace_title": "Full Traceability",
-    "why_trace_desc": "From harvest to delivery, every batch is traceable. Full transparency for our partners.",
+    "why_trace_desc": "From harvest to delivery, every batch is traceable, including road and sea transport. Full transparency for our partners.",
     "why_sustain_title": "Sustainable Agriculture",
     "why_sustain_desc": "Local sourcing, partnerships with Saïss farmers, environmental respect.",
     "why_expertise_title": "International Expertise",
-    "why_expertise_desc": "We export to Europe, Asia, the Middle East and the Americas. Mastered logistics.",
+    "why_expertise_desc": "We export to Europe, the Middle East and the Americas. Mastered logistics.",
     "apps_tag": "Versatility",
     "apps_title": "Carob: Nature's Versatile Ingredient",
     "apps_sub": "From food manufacturing to cosmetics, carob integrates into numerous industrial processes.",
     "apps_cta": "View Applications",
     "markets_title": "Our Markets",
-    "markets_sub": "Partners on every continent — Europe, North America, Middle East, Asia, Africa.",
+    "markets_sub": "Partners on every continent — Europe, North America, Middle East, Africa.",
     "news_title": "Latest News",
     "news_sub": "Follow the latest on carob and agricultural markets.",
     "news_all": "All News",
@@ -83,7 +85,13 @@
     "saiss_tag": "The Saïss Region",
     "saiss_title": "An Exceptional Terroir",
     "saiss_p1": "The Saïss plain stretches between Fez and Meknes, in the heart of Morocco. Its rich soils and temperate climate make it one of the most productive agricultural areas in the country.",
-    "saiss_p2": "This region is renowned for the quality of its cereals and legumes. The carob trees that grow there produce fruit of exceptional nutritional richness, prized by food and pharmaceutical industries worldwide."
+    "saiss_p2": "This region is renowned for the quality of its cereals and legumes. The carob trees that grow there produce fruit of exceptional nutritional richness, prized by food and pharmaceutical industries worldwide.",
+    "rd_tag": "Innovation",
+    "rd_title": "Research & Development",
+    "rd_p": "Les Greniers du Saïss partners with Moroccan universities to deepen the scientific understanding of the carob tree and its derivatives. These research collaborations focus on the nutritional valorization of carob, the improvement of extraction and processing methods, and the development of new high-value products for the food, pharmaceutical and cosmetic industries. This scientific approach allows us to anticipate the needs of our industrial clients and strengthen the position of Moroccan carob on international markets.",
+    "terrains_tag": "Our Operations",
+    "terrains_title": "Our Own Farmland",
+    "terrains_p": "Beyond its role as an exporter, Les Greniers du Saïss has developed its own agricultural operations. We now cultivate more than 100 hectares of our own land, spread across several regions of Morocco and dedicated to growing carob trees, legumes and cereals. This vertical integration allows us to control the entire production chain, from planting to harvest, and to guarantee optimal quality and traceability on a growing share of our volumes."
   },
   "products": {
     "hero_sub": "Exceptional agricultural raw materials from Morocco",
@@ -140,6 +148,27 @@
       "var_beans": "Kidney Beans",
       "var_peas": "Dried Peas",
       "spec_packaging": "25 kg, 50 kg, Big Bag 1000 kg"
+    },
+    "animal_feed": {
+      "hero_title": "Animal Feed",
+      "hero_sub": "Energy and protein supplements for livestock, from our agricultural lines",
+      "desc": "Les Greniers du Saïss valorizes by-products from its agricultural chain — oilcakes, molasses and processing residues — into a range of energy-rich, protein-rich animal feed. Suited to the nutritional needs of cattle, sheep, goats and poultry, our products meet the requirements of farmers and compound feed manufacturers.",
+      "varieties_title": "Our Available Ranges",
+      "var_oilcake": "Oilcake",
+      "var_molasses": "Molasses",
+      "var_supplements": "Energy Supplements",
+      "var_minerals": "Minerals & Trace Elements",
+      "spec_packaging": "25 kg or 50 kg bags, 500 to 1,000 kg big bags, bulk on request — packaging suited to cattle, sheep, goat and poultry sectors."
+    },
+    "cereals": {
+      "hero_title": "Cereals",
+      "hero_sub": "Export of quality wheat, barley and corn",
+      "desc": "Les Greniers du Saïss exports cereals such as wheat, barley and corn, selected according to strict quality and traceability criteria. We support millers, animal feed manufacturers and traders with volumes suited to international markets.",
+      "varieties_title": "Our Available Varieties",
+      "var_wheat": "Wheat",
+      "var_barley": "Barley",
+      "var_corn": "Corn",
+      "spec_packaging": "25 kg or 50 kg bags, 1,000 kg big bags, also available in bulk for industrial volumes."
     }
   },
   "applications": {
@@ -170,8 +199,15 @@
     "feed_pulp_desc": "Natural substitute for molasses, an energy source for cattle, sheep and goats.",
     "agri_title": "Agriculture",
     "agri_desc": "Seeds selected for cultivation — nitrogen fixation and crop rotation.",
+    "agri_cereals_desc": "Selected seeds, cereal crop rotation and sustainable soil management.",
     "export_title": "Import / Export",
     "export_desc": "International delivery, full documentation, packaging compliant with import and export standards.",
+    "feed_animal_desc": "Energy and protein supplement for cattle, sheep, goats and poultry.",
+    "byproducts_title": "Valorized By-products",
+    "byproducts_desc": "Oilcakes, molasses and food-processing residues valorized into nutritional supplements.",
+    "food_cereals_desc": "Milling, semolina production, bakery and human consumption.",
+    "export_cereals_title": "Export",
+    "export_cereals_desc": "International delivery, full documentation and packaging compliant with export standards.",
     "cta_title": "Interested in Our Products for Your Industry?",
     "cta_sub": "Our team is available to answer your technical questions and provide a personalized quote.",
     "cta_btn": "Contact Our Team"
@@ -216,7 +252,7 @@
     "certif_note": "We are working towards obtaining international certifications. Contact us for our current status.",
     "traceability_tag": "Traceability",
     "traceability_title": "From Harvest to Delivery",
-    "traceability_p": "Each product batch is identified by a unique number allowing to trace its origin, harvest date, analyses performed and storage and transport conditions.",
+    "traceability_p": "Each product batch is identified by a unique number allowing to trace its origin, harvest date, analyses performed and storage and road and sea transport conditions.",
     "cta_title": "Need Technical Specifications?",
     "cta_sub": "Contact us to obtain our detailed product sheets and analysis certificates.",
     "cta_btn": "Request Documentation"
@@ -256,7 +292,9 @@
     "product_carob_raw": "Raw Carob",
     "product_carob_seeds": "Carob Seeds",
     "product_carob_pulp": "Carob Pulp",
-    "product_legumes": "Legumes"
+    "product_legumes": "Legumes",
+    "product_animal_feed": "Animal Feed",
+    "product_cereals": "Cereals"
   },
   "footer": {
     "tagline": "Exporters of premium carob products and legumes from the Saïss region, Morocco.",

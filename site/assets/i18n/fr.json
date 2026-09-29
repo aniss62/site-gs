@@ -13,7 +13,9 @@
       "carob_raw": "Caroube brute",
       "carob_seeds": "Graines de caroube",
       "carob_pulp": "Pulpe de caroube",
-      "legumes": "Légumineuses"
+      "legumes": "Légumineuses",
+      "animal_feed": "Aliments de bétail",
+      "cereals": "Céréales"
     }
   },
   "hero": {
@@ -44,17 +46,17 @@
     "why_quality_title": "Qualité certifiée",
     "why_quality_desc": "Nos produits répondent aux normes internationales les plus exigeantes. Contrôle qualité à chaque étape.",
     "why_trace_title": "Traçabilité totale",
-    "why_trace_desc": "De la récolte à la livraison, chaque lot est traçable. Transparence totale pour nos partenaires.",
+    "why_trace_desc": "De la récolte à la livraison, chaque lot est traçable, y compris le transport routier et maritime. Transparence totale pour nos partenaires.",
     "why_sustain_title": "Agriculture durable",
     "why_sustain_desc": "Sourcing local, partenariat avec les agriculteurs du Saïss, respect de l'environnement.",
     "why_expertise_title": "Expertise internationale",
-    "why_expertise_desc": "Nous exportons vers l'Europe, l'Asie, le Moyen-Orient et les Amériques. Logistique maîtrisée.",
+    "why_expertise_desc": "Nous exportons vers l'Europe, le Moyen-Orient et les Amériques. Logistique maîtrisée.",
     "apps_tag": "Polyvalence",
     "apps_title": "La caroube : un ingrédient naturel aux mille usages",
     "apps_sub": "De l'industrie agroalimentaire à la cosmétique, la caroube s'intègre dans de nombreux procédés industriels.",
     "apps_cta": "Voir les applications",
     "markets_title": "Nos marchés",
-    "markets_sub": "Des partenaires sur tous les continents — Europe, Amérique du Nord, Moyen-Orient, Asie, Afrique.",
+    "markets_sub": "Des partenaires sur tous les continents — Europe, Amérique du Nord, Moyen-Orient, Afrique.",
     "news_title": "Dernières actualités",
     "news_sub": "Suivez l'actualité de la caroube et des marchés agricoles.",
     "news_all": "Toutes les actualités",
@@ -83,7 +85,13 @@
     "saiss_tag": "La région du Saïss",
     "saiss_title": "Un terroir d'exception",
     "saiss_p1": "La plaine du Saïss s'étend entre Fès et Meknès, au cœur du Maroc. Ses sols riches et son climat tempéré en font l'une des zones agricoles les plus productives du pays.",
-    "saiss_p2": "Cette région est réputée pour la qualité de ses céréales et légumineuses. Les caroubiers qui y poussent produisent des fruits d'une richesse nutritionnelle exceptionnelle, prisés par les industries agroalimentaire et pharmaceutique mondiales."
+    "saiss_p2": "Cette région est réputée pour la qualité de ses céréales et légumineuses. Les caroubiers qui y poussent produisent des fruits d'une richesse nutritionnelle exceptionnelle, prisés par les industries agroalimentaire et pharmaceutique mondiales.",
+    "rd_tag": "Innovation",
+    "rd_title": "Recherche & Développement",
+    "rd_p": "Les Greniers du Saïss collabore avec des universités marocaines pour approfondir la connaissance scientifique du caroubier et de ses dérivés. Ces partenariats de recherche portent sur la valorisation nutritionnelle de la caroube, l'amélioration des procédés d'extraction et de transformation, ainsi que le développement de nouveaux produits à forte valeur ajoutée pour l'agroalimentaire, la pharmacie et la cosmétique. Cette démarche scientifique nous permet d'anticiper les besoins de nos clients industriels et de renforcer la position du caroubier marocain sur les marchés internationaux.",
+    "terrains_tag": "Notre exploitation",
+    "terrains_title": "Nos propres terrains",
+    "terrains_p": "Au-delà de son rôle d'exportateur, Les Greniers du Saïss a développé sa propre activité agricole. Nous cultivons aujourd'hui plus de 100 hectares en propre, répartis dans plusieurs régions du Maroc et dédiés à la production de caroubiers, de légumineuses et de céréales. Cette intégration verticale nous permet de maîtriser l'ensemble de la chaîne de production, de la plantation à la récolte, et de garantir une qualité et une traçabilité optimales sur une part croissante de nos volumes."
   },
   "products": {
     "hero_sub": "Matières premières agricoles d'exception du Maroc",
@@ -140,6 +148,27 @@
       "var_beans": "Haricots",
       "var_peas": "Pois secs",
       "spec_packaging": "25 kg, 50 kg, Big Bag 1000 kg"
+    },
+    "animal_feed": {
+      "hero_title": "Aliments de bétail",
+      "hero_sub": "Compléments énergétiques et protéiques pour l'élevage, issus de nos filières agricoles",
+      "desc": "Les Greniers du Saïss valorise les sous-produits de sa chaîne agricole — tourteaux, mélasses et résidus de transformation — pour proposer une gamme d'aliments de bétail énergétiques et protéiques. Adaptés aux besoins nutritionnels des bovins, ovins, caprins et volailles, nos produits répondent aux exigences des éleveurs et des fabricants d'aliments composés.",
+      "varieties_title": "Nos gammes disponibles",
+      "var_oilcake": "Tourteaux",
+      "var_molasses": "Mélasse",
+      "var_supplements": "Compléments énergétiques",
+      "var_minerals": "Minéraux & oligo-éléments",
+      "spec_packaging": "Sacs de 25 kg ou 50 kg, big bags de 500 à 1 000 kg, vrac sur demande — conditionnement adapté aux filières bovine, ovine, caprine et avicole."
+    },
+    "cereals": {
+      "hero_title": "Céréales",
+      "hero_sub": "Export de blé, orge et maïs de qualité",
+      "desc": "Les Greniers du Saïss exporte des céréales telles que le blé, l'orge et le maïs, sélectionnées selon des critères stricts de qualité et de traçabilité. Nous accompagnons meuniers, industriels de l'alimentation animale et négociants avec des volumes adaptés aux marchés internationaux.",
+      "varieties_title": "Nos variétés disponibles",
+      "var_wheat": "Blé",
+      "var_barley": "Orge",
+      "var_corn": "Maïs",
+      "spec_packaging": "Sacs de 25 kg, 50 kg ou big bags de 1 000 kg, également disponible en vrac pour les volumes industriels."
     }
   },
   "applications": {
@@ -170,8 +199,15 @@
     "feed_pulp_desc": "Substitut naturel à la mélasse, apport énergétique pour bovins, ovins et caprins.",
     "agri_title": "Agriculture",
     "agri_desc": "Semences sélectionnées pour la culture — fixation d'azote et rotation des cultures.",
+    "agri_cereals_desc": "Semences sélectionnées, rotation des cultures céréalières et gestion durable des sols.",
     "export_title": "Import / Export",
     "export_desc": "Livraison internationale, documentation complète, conditionnement aux normes de l'import et de l'export.",
+    "feed_animal_desc": "Complément énergétique et protéique pour bovins, ovins, caprins et volaille.",
+    "byproducts_title": "Sous-produits valorisés",
+    "byproducts_desc": "Tourteaux, mélasses et résidus de transformation agroalimentaire valorisés en compléments nutritifs.",
+    "food_cereals_desc": "Meunerie, semoulerie, boulangerie et alimentation humaine.",
+    "export_cereals_title": "Export",
+    "export_cereals_desc": "Livraison internationale, documentation complète et conditionnement conforme aux normes d'exportation.",
     "cta_title": "Intéressé par nos produits pour votre industrie ?",
     "cta_sub": "Notre équipe est disponible pour répondre à vos questions techniques et établir un devis personnalisé.",
     "cta_btn": "Contacter notre équipe"
@@ -216,7 +252,7 @@
     "certif_note": "Nous travaillons à l'obtention de certifications internationales. Contactez-nous pour connaître notre statut actuel.",
     "traceability_tag": "Traçabilité",
     "traceability_title": "De la récolte à la livraison",
-    "traceability_p": "Chaque lot de produit est identifié par un numéro unique permettant de retracer son origine, sa date de récolte, les analyses effectuées et les conditions de stockage et transport.",
+    "traceability_p": "Chaque lot de produit est identifié par un numéro unique permettant de retracer son origine, sa date de récolte, les analyses effectuées et les conditions de stockage et de transport routier et maritime.",
     "cta_title": "Besoin de spécifications techniques ?",
     "cta_sub": "Contactez-nous pour obtenir nos fiches produits détaillées et nos certificats d'analyse.",
     "cta_btn": "Demander la documentation"
@@ -256,7 +292,9 @@
     "product_carob_raw": "Caroube brute",
     "product_carob_seeds": "Graines de caroube",
     "product_carob_pulp": "Pulpe de caroube",
-    "product_legumes": "Légumineuses"
+    "product_legumes": "Légumineuses",
+    "product_animal_feed": "Aliments de bétail",
+    "product_cereals": "Céréales"
   },
   "footer": {
     "tagline": "Exportateurs de produits de caroube et légumineuses de qualité supérieure depuis la région du Saïss, Maroc.",
