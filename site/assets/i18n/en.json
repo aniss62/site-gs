@@ -121,10 +121,10 @@
       "spec_purity": "Min. Purity",
       "spec_germination": "Germination",
       "spec_origin": "Origin",
-      "spec_origin_val": "Morocco — Saïss region",
+      "spec_origin_val": "Morocco",
       "spec_process": "Processing",
       "spec_process_val": "Optical sorting, dry cleaning",
-      "spec_packaging": "25 kg, Big Bag 500 kg"
+      "spec_packaging": "25 kg, 50 kg, Big Bag 1200 kg"
     },
     "carob_pulp": {
       "hero_title": "Carob Pulp",
@@ -135,18 +135,22 @@
       "spec_fiber": "Total Fiber",
       "spec_form": "Form",
       "spec_form_val": "Granules or powder",
+      "spec_granulometry": "Granulometry",
+      "spec_granulometry_val": "Fine < 4 mm, Medium 5-10 mm, Cube > 10 mm",
       "spec_packaging": "25 kg, Big Bag 1000 kg"
     },
     "legumes": {
       "hero_title": "Legumes",
       "hero_sub": "Import-Export of all varieties of legumes",
-      "desc": "Les Greniers du Saïss handles the import and export of all varieties of legumes: lentils, chickpeas, fava beans, kidney beans, dried peas. We select our suppliers according to strict quality criteria and offer products tailored to each market's specifications.",
+      "desc": "Les Greniers du Saïss handles the import and export of all varieties of legumes: lentils, chickpeas, fava beans, field beans, kidney beans, dried peas, green peas. We select our suppliers according to strict quality criteria and offer products tailored to each market's specifications.",
       "varieties_title": "Available Varieties",
       "var_lentils": "Lentils",
       "var_chickpeas": "Chickpeas",
       "var_fava": "Fava Beans",
       "var_beans": "Kidney Beans",
       "var_peas": "Dried Peas",
+      "var_feverole": "Field Beans",
+      "var_petit_pois": "Green Peas",
       "spec_packaging": "25 kg, 50 kg, Big Bag 1000 kg"
     },
     "animal_feed": {

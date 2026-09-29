@@ -121,10 +121,10 @@
       "spec_purity": "Pureté min.",
       "spec_germination": "Germination",
       "spec_origin": "Origine",
-      "spec_origin_val": "Maroc — région du Saïss",
+      "spec_origin_val": "Maroc",
       "spec_process": "Traitement",
       "spec_process_val": "Tri optique, nettoyage à sec",
-      "spec_packaging": "25 kg, Big Bag 500 kg"
+      "spec_packaging": "25 kg, 50 kg, Big Bag 1200 kg"
     },
     "carob_pulp": {
       "hero_title": "Pulpe de caroube",
@@ -135,18 +135,22 @@
       "spec_fiber": "Fibres totales",
       "spec_form": "Forme",
       "spec_form_val": "Granulés ou en poudre",
+      "spec_granulometry": "Granulométrie",
+      "spec_granulometry_val": "Fine < 4 mm, Médium 5-10 mm, Cube > 10 mm",
       "spec_packaging": "25 kg, Big Bag 1000 kg"
     },
     "legumes": {
       "hero_title": "Légumineuses",
       "hero_sub": "Import-Export de toutes variétés de légumineuses",
-      "desc": "Les Greniers du Saïss assure l'import et l'export de toutes variétés de légumineuses : lentilles, pois chiches, fèves, haricots, pois secs. Nous sélectionnons nos fournisseurs selon des critères stricts de qualité et proposons des produits adaptés aux spécifications de chaque marché.",
+      "desc": "Les Greniers du Saïss assure l'import et l'export de toutes variétés de légumineuses : lentilles, pois chiches, fèves, féverole, haricots, pois secs, petit pois. Nous sélectionnons nos fournisseurs selon des critères stricts de qualité et proposons des produits adaptés aux spécifications de chaque marché.",
       "varieties_title": "Variétés disponibles",
       "var_lentils": "Lentilles",
       "var_chickpeas": "Pois chiches",
       "var_fava": "Fèves",
       "var_beans": "Haricots",
       "var_peas": "Pois secs",
+      "var_feverole": "Féverole",
+      "var_petit_pois": "Petit pois",
       "spec_packaging": "25 kg, 50 kg, Big Bag 1000 kg"
     },
     "animal_feed": {

@@ -50,7 +50,7 @@
     +   '<div class="footer__col">'
     +     '<h5><span class="fr-text">Navigation</span><span class="en-text" hidden>Navigation</span></h5>'
     +     '<a href="' + root + 'index.html"><span class="fr-text">Accueil</span><span class="en-text" hidden>Home</span></a>'
-    +     '<a href="' + root + 'products/caroube-brute.html"><span class="fr-text">Caroube brute</span><span class="en-text" hidden>Raw carob</span></a>'
+    +     '<a href="' + root + 'products/caroube-brute.html"><span class="fr-text">Caroube</span><span class="en-text" hidden>Carob</span></a>'
     +     '<a href="' + root + 'products/legumineuses.html"><span class="fr-text">L&eacute;gumineuses</span><span class="en-text" hidden>Legumes</span></a>'
     +     '<a href="' + root + 'about.html"><span class="fr-text">&Agrave; propos</span><span class="en-text" hidden>About</span></a>'
     +     '<a href="' + root + 'news.html"><span class="fr-text">Actualit&eacute;s</span><span class="en-text" hidden>News</span></a>'
