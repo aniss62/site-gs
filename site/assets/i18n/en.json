@@ -14,8 +14,9 @@
       "carob_seeds": "Carob Seeds",
       "carob_pulp": "Carob Pulp",
       "legumes": "Legumes",
-      "animal_feed": "Animal Feed",
-      "cereals": "Cereals"
+      "animal_feed": "Animal Feed and Derivatives",
+      "cereals": "Cereals",
+      "epices": "Spices"
     }
   },
   "hero": {
@@ -142,19 +143,25 @@
     "legumes": {
       "hero_title": "Legumes",
       "hero_sub": "Import-Export of all varieties of legumes",
-      "desc": "Les Greniers du Saïss handles the import and export of all varieties of legumes: lentils, chickpeas, fava beans, field beans, kidney beans, dried peas, green peas. We select our suppliers according to strict quality criteria and offer products tailored to each market's specifications.",
+      "desc": "Les Greniers du Saïss handles the import and export of all varieties of legumes: lentils, chickpeas, fava beans, field beans, kidney beans, dried peas, green peas. Our lentils come both from our local production and from imports, including the Richlea and Eston varieties. We select our suppliers according to strict quality criteria and offer products tailored to each market's specifications.",
       "varieties_title": "Available Varieties",
       "var_lentils": "Lentils",
+      "origin_lentils": "Local · Canada (Richlea, Eston)",
       "var_chickpeas": "Chickpeas",
+      "origin_chickpeas": "Local · Mexico, India",
       "var_fava": "Fava Beans",
+      "origin_fava": "Local · Europe",
       "var_beans": "Kidney Beans",
+      "origin_beans": "Local · Maghreb",
       "var_peas": "Dried Peas",
       "var_feverole": "Field Beans",
+      "origin_feverole": "Local · Europe",
       "var_petit_pois": "Green Peas",
+      "origin_petit_pois": "Import · Canada",
       "spec_packaging": "25 kg, 50 kg, Big Bag 1000 kg"
     },
     "animal_feed": {
-      "hero_title": "Animal Feed",
+      "hero_title": "Animal Feed and Derivatives",
       "hero_sub": "Energy and protein supplements for livestock, from our agricultural lines",
       "desc": "Les Greniers du Saïss valorizes by-products from its agricultural chain — oilcakes, molasses and processing residues — into a range of energy-rich, protein-rich animal feed. Suited to the nutritional needs of cattle, sheep, goats and poultry, our products meet the requirements of farmers and compound feed manufacturers.",
       "varieties_title": "Our Available Ranges",
@@ -173,6 +180,17 @@
       "var_barley": "Barley",
       "var_corn": "Corn",
       "spec_packaging": "25 kg or 50 kg bags, 1,000 kg big bags, also available in bulk for industrial volumes."
+    },
+    "epices": {
+      "hero_title": "Spices",
+      "hero_sub": "Selected coriander and black pepper, between local production and international sourcing",
+      "desc": "Les Greniers du Saïss expands its range with spices, offering a rigorous selection of coriander and black pepper. Coriander is grown locally in Morocco, while black pepper is imported from major international producing regions. Our spices meet the quality and traceability requirements of food industry players and traders.",
+      "varieties_title": "Our Available Varieties",
+      "var_coriander": "Coriander",
+      "origin_coriander": "Local · Morocco",
+      "var_pepper": "Black Pepper",
+      "origin_pepper": "Import · India, Vietnam",
+      "spec_packaging": "25 kg or 50 kg bags, 500 kg big bags — packaging compliant with food export standards."
     }
   },
   "applications": {
@@ -204,12 +222,14 @@
     "agri_title": "Agriculture",
     "agri_desc": "Seeds selected for cultivation — nitrogen fixation and crop rotation.",
     "agri_cereals_desc": "Selected seeds, cereal crop rotation and sustainable soil management.",
+    "agri_epices_desc": "Selected coriander seeds for cultivation and crop rotation.",
     "export_title": "Import / Export",
     "export_desc": "International delivery, full documentation, packaging compliant with import and export standards.",
     "feed_animal_desc": "Energy and protein supplement for cattle, sheep, goats and poultry.",
     "byproducts_title": "Valorized By-products",
     "byproducts_desc": "Oilcakes, molasses and food-processing residues valorized into nutritional supplements.",
     "food_cereals_desc": "Milling, semolina production, bakery and human consumption.",
+    "food_epices_desc": "Seasoning, food processing, delicatessen and canning.",
     "export_cereals_title": "Export",
     "export_cereals_desc": "International delivery, full documentation and packaging compliant with export standards.",
     "cta_title": "Interested in Our Products for Your Industry?",
@@ -297,8 +317,9 @@
     "product_carob_seeds": "Carob Seeds",
     "product_carob_pulp": "Carob Pulp",
     "product_legumes": "Legumes",
-    "product_animal_feed": "Animal Feed",
-    "product_cereals": "Cereals"
+    "product_animal_feed": "Animal Feed and Derivatives",
+    "product_cereals": "Cereals",
+    "product_epices": "Spices"
   },
   "footer": {
     "tagline": "Exporters of premium carob products and legumes from the Saïss region, Morocco.",

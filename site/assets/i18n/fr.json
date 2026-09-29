@@ -14,8 +14,9 @@
       "carob_seeds": "Graines de caroube",
       "carob_pulp": "Pulpe de caroube",
       "legumes": "Légumineuses",
-      "animal_feed": "Aliments de bétail",
-      "cereals": "Céréales"
+      "animal_feed": "Aliments de bétail et dérivés",
+      "cereals": "Céréales",
+      "epices": "Épices"
     }
   },
   "hero": {
@@ -142,19 +143,25 @@
     "legumes": {
       "hero_title": "Légumineuses",
       "hero_sub": "Import-Export de toutes variétés de légumineuses",
-      "desc": "Les Greniers du Saïss assure l'import et l'export de toutes variétés de légumineuses : lentilles, pois chiches, fèves, féverole, haricots, pois secs, petit pois. Nous sélectionnons nos fournisseurs selon des critères stricts de qualité et proposons des produits adaptés aux spécifications de chaque marché.",
+      "desc": "Les Greniers du Saïss assure l'import et l'export de toutes variétés de légumineuses : lentilles, pois chiches, fèves, féverole, haricots, pois secs, petit pois. Nos lentilles proviennent à la fois de notre production locale et de l'importation, notamment les variétés Richlea et Eston. Nous sélectionnons nos fournisseurs selon des critères stricts de qualité et proposons des produits adaptés aux spécifications de chaque marché.",
       "varieties_title": "Variétés disponibles",
       "var_lentils": "Lentilles",
+      "origin_lentils": "Local · Canada (Richlea, Eston)",
       "var_chickpeas": "Pois chiches",
+      "origin_chickpeas": "Local · Mexique, Inde",
       "var_fava": "Fèves",
+      "origin_fava": "Local · Europe",
       "var_beans": "Haricots",
+      "origin_beans": "Local · Maghreb",
       "var_peas": "Pois secs",
       "var_feverole": "Féverole",
+      "origin_feverole": "Local · Europe",
       "var_petit_pois": "Petit pois",
+      "origin_petit_pois": "Import · Canada",
       "spec_packaging": "25 kg, 50 kg, Big Bag 1000 kg"
     },
     "animal_feed": {
-      "hero_title": "Aliments de bétail",
+      "hero_title": "Aliments de bétail et dérivés",
       "hero_sub": "Compléments énergétiques et protéiques pour l'élevage, issus de nos filières agricoles",
       "desc": "Les Greniers du Saïss valorise les sous-produits de sa chaîne agricole — tourteaux, mélasses et résidus de transformation — pour proposer une gamme d'aliments de bétail énergétiques et protéiques. Adaptés aux besoins nutritionnels des bovins, ovins, caprins et volailles, nos produits répondent aux exigences des éleveurs et des fabricants d'aliments composés.",
       "varieties_title": "Nos gammes disponibles",
@@ -173,6 +180,17 @@
       "var_barley": "Orge",
       "var_corn": "Maïs",
       "spec_packaging": "Sacs de 25 kg, 50 kg ou big bags de 1 000 kg, également disponible en vrac pour les volumes industriels."
+    },
+    "epices": {
+      "hero_title": "Épices",
+      "hero_sub": "Coriandre et poivre noir sélectionnés, entre production locale et approvisionnement international",
+      "desc": "Les Greniers du Saïss élargit sa gamme aux épices, avec une sélection rigoureuse de coriandre et de poivre noir. La coriandre est cultivée localement au Maroc, tandis que le poivre noir est importé des grandes régions productrices internationales. Nos épices répondent aux exigences de qualité et de traçabilité des industriels de l'agroalimentaire et des négociants.",
+      "varieties_title": "Nos variétés disponibles",
+      "var_coriander": "Coriandre",
+      "origin_coriander": "Local · Maroc",
+      "var_pepper": "Poivre noir",
+      "origin_pepper": "Import · Inde, Vietnam",
+      "spec_packaging": "Sacs de 25 kg ou 50 kg, big bags de 500 kg — conditionnement adapté aux normes d'exportation alimentaire."
     }
   },
   "applications": {
@@ -204,12 +222,14 @@
     "agri_title": "Agriculture",
     "agri_desc": "Semences sélectionnées pour la culture — fixation d'azote et rotation des cultures.",
     "agri_cereals_desc": "Semences sélectionnées, rotation des cultures céréalières et gestion durable des sols.",
+    "agri_epices_desc": "Semences de coriandre sélectionnées pour la culture et la rotation des cultures.",
     "export_title": "Import / Export",
     "export_desc": "Livraison internationale, documentation complète, conditionnement aux normes de l'import et de l'export.",
     "feed_animal_desc": "Complément énergétique et protéique pour bovins, ovins, caprins et volaille.",
     "byproducts_title": "Sous-produits valorisés",
     "byproducts_desc": "Tourteaux, mélasses et résidus de transformation agroalimentaire valorisés en compléments nutritifs.",
     "food_cereals_desc": "Meunerie, semoulerie, boulangerie et alimentation humaine.",
+    "food_epices_desc": "Assaisonnement, transformation agroalimentaire, charcuterie et conserves.",
     "export_cereals_title": "Export",
     "export_cereals_desc": "Livraison internationale, documentation complète et conditionnement conforme aux normes d'exportation.",
     "cta_title": "Intéressé par nos produits pour votre industrie ?",
@@ -297,8 +317,9 @@
     "product_carob_seeds": "Graines de caroube",
     "product_carob_pulp": "Pulpe de caroube",
     "product_legumes": "Légumineuses",
-    "product_animal_feed": "Aliments de bétail",
-    "product_cereals": "Céréales"
+    "product_animal_feed": "Aliments de bétail et dérivés",
+    "product_cereals": "Céréales",
+    "product_epices": "Épices"
   },
   "footer": {
     "tagline": "Exportateurs de produits de caroube et légumineuses de qualité supérieure depuis la région du Saïss, Maroc.",
