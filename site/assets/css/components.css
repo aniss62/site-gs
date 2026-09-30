@@ -732,6 +732,78 @@ select.form-control { appearance: none; cursor: pointer; }
 .img-text-section__body { }
 .img-text-section__body p { margin-bottom: 1rem; color: var(--color-text-muted); }
 
+/* ── Story Hero (full-width text, faint background photo) ─────── */
+.story-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-bg);
+  padding: var(--section-py) var(--section-px);
+}
+
+.story-hero__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: .18;
+}
+
+.story-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(243,239,230,.45);
+}
+
+.story-hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.story-hero__text {
+  margin-top: 2rem;
+  column-count: 2;
+  column-gap: 3rem;
+  text-align: left;
+  max-width: 1000px;
+  margin-inline: auto;
+}
+
+.story-hero__item {
+  display: flex;
+  gap: .9rem;
+  align-items: flex-start;
+  margin-bottom: 1.75rem;
+  break-inside: avoid;
+}
+
+.story-hero__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(43,75,160,.1);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.story-hero__icon svg { width: 18px; height: 18px; }
+
+.story-hero__text p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .story-hero__text { column-count: 1; }
+}
+
 /* ── Value Pillars ──────────────────────────────────────────── */
 .value-pill {
   display: flex;

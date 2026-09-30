@@ -9,7 +9,7 @@
   const navbarHTML = `
 <nav class="navbar" role="navigation" aria-label="Navigation principale">
   <div class="navbar__inner">
-    <a href="${BASE}/index.html" class="navbar__logo" aria-label="Les Greniers du Saïss — Accueil">
+    <a href="${BASE}/index.html" class="navbar__logo" aria-label="Les Greniers du Saïss, Accueil">
       <img src="${BASE}/assets/images/logo/logo.png" alt="Les Greniers du Saïss" onerror="this.style.display='none'">
       <div class="navbar__logo-text">Les Greniers<span>du Saïss</span></div>
     </a>
