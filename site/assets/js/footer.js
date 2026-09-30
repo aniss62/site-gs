@@ -70,8 +70,9 @@
     + '<div class="footer__bottom">'
     +   '<div class="footer__copy">&copy; 2026 Les Greniers du Sa&iuml;ss &middot; F&egrave;s, Maroc &middot; <span class="fr-text">Fond&eacute;e en 2008</span><span class="en-text" hidden>Founded in 2008</span></div>'
     +   '<div class="footer__legal">'
-    +     '<a href="' + root + 'contact.html"><span class="fr-text">Confidentialit&eacute;</span><span class="en-text" hidden>Privacy</span></a>'
-    +     '<a href="' + root + 'contact.html"><span class="fr-text">Mentions l&eacute;gales</span><span class="en-text" hidden>Legal notice</span></a>'
+    +     '<a href="' + root + 'mentions-legales.html"><span class="fr-text">Mentions l&eacute;gales</span><span class="en-text" hidden>Legal notice</span></a>'
+    +     '<a href="' + root + 'confidentialite.html"><span class="fr-text">Confidentialit&eacute;</span><span class="en-text" hidden>Privacy</span></a>'
+    +     '<a href="' + root + 'conditions.html"><span class="fr-text">Conditions d&rsquo;utilisation</span><span class="en-text" hidden>Terms of use</span></a>'
     +   '</div>'
     + '</div>'
 
