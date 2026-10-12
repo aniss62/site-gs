@@ -22,5 +22,5 @@ Tous les textes dans `site/assets/i18n/fr.json` et `en.json`.
 Attribut `data-i18n="nav.home"` sur chaque élément textuel.
 
 ## News automatiques
-Hebdomadaire, sans cron hébergeur : `.github/workflows/update-news.yml` (cron GitHub Actions, lundi 6h UTC) lance `php site/fetch-news.php`, qui agrège les flux RSS et écrit `site/assets/data/news.json`. Les articles `pinned` restent en tête, les 6 RSS les plus récents s'ajoutent en dessous. Le commit du workflow déclenche ensuite le déploiement FTP habituel (`.github/workflows/deploy.yml`), donc la mise à jour du repo publie automatiquement le nouveau `news.json` en ligne.
+Hebdomadaire, sans cron hébergeur : `.github/workflows/update-news.yml` (cron GitHub Actions, lundi 6h UTC) lance `php site/fetch-news.php`, qui agrège les flux RSS et écrit `site/assets/data/news.json`. Les articles `pinned` restent en tête, les 6 RSS les plus récents s'ajoutent en dessous. Un push fait avec `GITHUB_TOKEN` ne déclenche pas d'autres workflows : `update-news.yml` lance donc `.github/workflows/deploy.yml` explicitement (`gh workflow run`, `workflow_dispatch`), ce qui publie le nouveau `news.json` en ligne. Prérequis : secrets `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD` définis dans GitHub.
 Token manuel (déclenchement ponctuel) : `https://domaine.ma/fetch-news.php?token=<FETCH_NEWS_TOKEN du .env>`
