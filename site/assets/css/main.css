@@ -39,9 +39,9 @@
   --color-border:     #CCCCCC;
   --color-overlay:    rgba(0, 42, 58, 0.62);
 
-  /* Typographie : Lato 300 remplace Gill Sans (payante), Titillium Web pour H1 et menu */
-  --font-heading:  'Lato', 'Gill Sans', -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-  --font-body:     'Lato', 'Gill Sans', -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  /* Typographie : Gill Sans si installée (Mac/iOS), sinon Lato 300 ; Titillium Web pour H1 et menu */
+  --font-heading:  'Gill Sans', 'Gill Sans MT', 'Gill Sans Nova', 'Lato', -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  --font-body:     'Gill Sans', 'Gill Sans MT', 'Gill Sans Nova', 'Lato', -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
   --font-label:    var(--font-body);
   --font-display:  'Titillium Web', -apple-system, system-ui, 'Segoe UI', Roboto, sans-serif;
 
