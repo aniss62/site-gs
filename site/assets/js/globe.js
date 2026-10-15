@@ -98,6 +98,21 @@
   }
 
   var GOLD = '#DDAA00';
+  /* Palette : fond clair (data-theme="light") ou fond bleu nuit */
+  var light = canvas.getAttribute('data-theme') === 'light';
+  var PAL = light ? {
+    sphereFill: 'rgba(0,42,58,0.035)', sphereStroke: 'rgba(0,42,58,0.28)',
+    dot: function (z) { return 'rgba(0,42,58,' + (0.12 + 0.5 * z).toFixed(3) + ')'; },
+    head: '#002A3A', ring: '#002A3A',
+    label: function (z) { return 'rgba(0,42,58,' + (0.45 + 0.55 * z).toFixed(3) + ')'; },
+    origin: '#002A3A', arc: '190,142,0'
+  } : {
+    sphereFill: 'rgba(255,255,255,0.04)', sphereStroke: 'rgba(255,255,255,0.22)',
+    dot: function (z) { return 'rgba(255,255,255,' + (0.18 + 0.5 * z).toFixed(3) + ')'; },
+    head: '#fff', ring: '#fff',
+    label: function (z) { return 'rgba(255,255,255,' + (0.35 + 0.65 * z).toFixed(3) + ')'; },
+    origin: '#fff', arc: '221,170,0'
+  };
   var lang = function () { return document.documentElement.lang === 'en' ? 'en' : 'fr'; };
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -113,8 +128,8 @@
 
     /* Sphère */
     ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(255,255,255,0.04)'; ctx.fill();
-    ctx.lineWidth = 1; ctx.strokeStyle = 'rgba(255,255,255,0.22)'; ctx.stroke();
+    ctx.fillStyle = PAL.sphereFill; ctx.fill();
+    ctx.lineWidth = 1; ctx.strokeStyle = PAL.sphereStroke; ctx.stroke();
 
     /* Terres */
     var r = Math.max(1.1, R * 0.0048);
@@ -124,7 +139,7 @@
       if (z <= 0) continue;
       var x = cx + R * (p[0]*cam.e[0] + p[1]*cam.e[1] + p[2]*cam.e[2]);
       var y = cy - R * (p[0]*cam.n[0] + p[1]*cam.n[1] + p[2]*cam.n[2]);
-      ctx.fillStyle = 'rgba(255,255,255,' + (0.18 + 0.5 * z).toFixed(3) + ')';
+      ctx.fillStyle = PAL.dot(z);
       ctx.fillRect(x - r, y - r, r * 2, r * 2);
     }
 
@@ -140,7 +155,7 @@
 
       ctx.lineWidth = Math.max(1.4, R * 0.0045);
       ctx.lineCap = 'round';
-      ctx.strokeStyle = 'rgba(221,170,0,' + (0.95 * fade).toFixed(3) + ')';
+      ctx.strokeStyle = 'rgba(' + PAL.arc + ',' + (0.95 * fade).toFixed(3) + ')';
       var pen = false;
       ctx.beginPath();
       for (var s = 0; s <= upto; s++) {
@@ -153,7 +168,7 @@
       /* Tête de l'arc */
       if (grow < 1 && upto > 0) {
         var hd = proj(D.arc[upto]);
-        if (hd.vis) { ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(hd.x, hd.y, r * 2, 0, Math.PI * 2); ctx.fill(); }
+        if (hd.vis) { ctx.fillStyle = PAL.head; ctx.beginPath(); ctx.arc(hd.x, hd.y, r * 2, 0, Math.PI * 2); ctx.fill(); }
       }
 
       /* Point d'arrivée, anneau qui s'élargit */
@@ -163,7 +178,7 @@
           var rp = Math.min(1, (ph - 0.42) / 0.4);
           if (rp >= 0 && rp <= 1) {
             ctx.lineWidth = 1.5;
-            ctx.strokeStyle = 'rgba(221,170,0,' + (0.9 * (1 - rp)).toFixed(3) + ')';
+            ctx.strokeStyle = 'rgba(' + PAL.arc + ',' + (0.9 * (1 - rp)).toFixed(3) + ')';
             ctx.beginPath(); ctx.arc(dp.x, dp.y, R * 0.02 + rp * R * 0.07, 0, Math.PI * 2); ctx.stroke();
           }
         }
@@ -172,7 +187,7 @@
 
         ctx.font = '400 ' + Math.max(13, Math.round(R * 0.04)) + 'px "Gill Sans","Gill Sans MT",Lato,sans-serif';
         ctx.textAlign = D.align; ctx.textBaseline = 'middle';
-        ctx.fillStyle = 'rgba(255,255,255,' + (0.35 + 0.65 * dp.z).toFixed(3) + ')';
+        ctx.fillStyle = PAL.label(dp.z);
         ctx.fillText(D[L].toUpperCase(), dp.x + D.dx, dp.y + D.dy);
       }
     }
@@ -184,17 +199,17 @@
         for (var w = 0; w < 2; w++) {
           var pr = (((t + w * 1.2) % 2.4) + 2.4) % 2.4 / 2.4;
           ctx.lineWidth = 1.5;
-          ctx.strokeStyle = 'rgba(221,170,0,' + (0.8 * (1 - pr)).toFixed(3) + ')';
+          ctx.strokeStyle = 'rgba(' + PAL.arc + ',' + (0.8 * (1 - pr)).toFixed(3) + ')';
           ctx.beginPath(); ctx.arc(op.x, op.y, R * 0.015 + pr * R * 0.06, 0, Math.PI * 2); ctx.stroke();
         }
       }
       ctx.fillStyle = GOLD;
       ctx.beginPath(); ctx.arc(op.x, op.y, Math.max(4.5, R * 0.017), 0, Math.PI * 2); ctx.fill();
-      ctx.lineWidth = 2; ctx.strokeStyle = '#fff';
+      ctx.lineWidth = 2; ctx.strokeStyle = PAL.origin;
       ctx.beginPath(); ctx.arc(op.x, op.y, Math.max(4.5, R * 0.017), 0, Math.PI * 2); ctx.stroke();
       ctx.font = '700 ' + Math.max(14, Math.round(R * 0.045)) + 'px "Gill Sans","Gill Sans MT",Lato,sans-serif';
       ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
-      ctx.fillStyle = '#fff';
+      ctx.fillStyle = PAL.origin;
       ctx.fillText(ORIGIN[L].toUpperCase(), op.x - 12, op.y - 2);
     }
   }
