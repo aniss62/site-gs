@@ -8,7 +8,37 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   initNewsLoader();
   initScrollReveal();
+  initTabs();
 });
+
+/* ── Onglets génériques : [data-tabs] > .tabs[role=tablist] + [role=tabpanel] ── */
+function initTabs() {
+  document.querySelectorAll('[data-tabs]').forEach(group => {
+    const tabs = Array.from(group.querySelectorAll('[role="tab"]'));
+    if (!tabs.length) return;
+
+    function select(tab) {
+      tabs.forEach(t => {
+        const on = t === tab;
+        t.setAttribute('aria-selected', String(on));
+        t.tabIndex = on ? 0 : -1;
+        const panel = document.getElementById(t.getAttribute('aria-controls'));
+        if (panel) panel.hidden = !on;
+      });
+    }
+
+    tabs.forEach((t, i) => {
+      t.addEventListener('click', () => select(t));
+      t.addEventListener('keydown', e => {
+        const n = e.key === 'ArrowRight' ? i + 1 : e.key === 'ArrowLeft' ? i - 1 : null;
+        if (n === null) return;
+        const next = tabs[(n + tabs.length) % tabs.length];
+        select(next);
+        next.focus();
+      });
+    });
+  });
+}
 
 /* ── Nav scroll shadow ──────────────────────────────────────── */
 function initNavbar() {

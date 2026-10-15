@@ -458,3 +458,55 @@ body.menu-open { overflow: hidden; }
 .form-group .form-control:focus, .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
   border-color: var(--color-navy);
 }
+
+/* ============================================================
+   FICHES PRODUIT : introduction 2 colonnes, accordéons, onglets d'applications
+   ============================================================ */
+.prod-intro { padding: var(--section-py) 0 4rem; }
+.prod-intro .two-col { align-items: start; }
+.prod-intro__lead {
+  max-width: none;
+  font-size: clamp(2.25rem, 4vw, 3.375rem);
+  font-weight: 300; line-height: 1.25; letter-spacing: var(--letter-title);
+  color: var(--color-accent-dark);
+}
+.prod-intro__text { max-width: none; color: var(--color-text); }
+
+.product-detail { padding-top: 0; }
+.product-detail__inner { align-items: start; }
+.product-detail .accordion { margin-bottom: 1.25rem; }
+.product-detail .accordion summary { font-size: 1.5rem; }
+.product-detail h4 { margin-bottom: .75rem; }
+
+.tabpanel-text { padding: 3rem 0 .5rem; }
+.tabpanel-text[hidden] { display: none; }
+.tabpanel-text .two-col__lead { font-size: clamp(1.5rem, 2.2vw, 1.97rem); }
+.tabpanel-text p { max-width: none; }
+
+/* ============================================================
+   CHAPÔ DE PAGE (ancien sous-titre du héros) et titres 2 colonnes
+   ============================================================ */
+.page-intro { padding: 4rem 0 1rem; }
+.page-intro__lead {
+  max-width: 900px;
+  font-size: clamp(1.625rem, 2.5vw, 1.97rem);
+  font-weight: 300; line-height: 1.5; letter-spacing: var(--letter-title);
+  color: var(--color-navy);
+}
+.two-col__title { font-size: clamp(2rem, 3.4vw, 3.375rem); line-height: 1.25; }
+
+/* ============================================================
+   À PROPOS : « Notre histoire » en héros photo (≈70vh), texte blanc
+   ============================================================ */
+.story-hero { background: var(--color-navy); display: flex; align-items: center; padding: var(--section-py) var(--section-px); }
+.story-hero__bg { opacity: 1; }
+.story-hero__overlay { background: rgba(0, 42, 58, .72); }
+.story-hero__content { width: 100%; text-align: left; }
+.story-hero .section-label { color: var(--color-accent); }
+.story-hero .section-title { color: var(--color-white); font-size: clamp(2.25rem, 4.5vw, 3.375rem); line-height: 1.25; }
+.story-hero .divider { display: none; }
+.story-hero__text { max-width: none; margin-inline: 0; }
+.story-hero__text p { color: var(--color-white); }
+.story-hero__icon { background: rgba(255,255,255,.14); color: var(--color-white); }
+.story-hero { padding-left: 0; padding-right: 0; }
+.story-hero__content { padding: 0 var(--section-px); }
