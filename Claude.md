@@ -1,9 +1,10 @@
 # Les Greniers du Saïss — Site vitrine
 
-Site B2B bilingue FR/EN. Stack: HTML/CSS/JS pur + PHP. Hébergement Maroc.
+Site B2B bilingue FR/EN. Stack: HTML/CSS/JS pur. Hébergement: Vercel (domaine lesgreniersdusaiss.ma), déploiement automatique à chaque push sur `main`. Vercel n'exécute pas PHP : le formulaire de contact passe par `api/contact.js`.
 
 ## Structure
-- `site/` → fichiers à déployer chez l'hébergeur
+- `site/` → fichiers statiques publiés par Vercel (`outputDirectory`)
+- `api/` → fonction serveur Vercel du formulaire de contact. Variables d'environnement Vercel : SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SMTP_FROM, SMTP_TO
 - `blueprints/` → instructions workflow
 - `equipment/` → scripts utilitaires
 - `.env` → credentials SMTP (ne jamais commiter)
@@ -22,5 +23,5 @@ Tous les textes dans `site/assets/i18n/fr.json` et `en.json`.
 Attribut `data-i18n="nav.home"` sur chaque élément textuel.
 
 ## News automatiques
-Hebdomadaire, sans cron hébergeur : `.github/workflows/update-news.yml` (cron GitHub Actions, lundi 6h UTC) lance `php site/fetch-news.php`, qui agrège les flux RSS et écrit `site/assets/data/news.json`. Les articles `pinned` restent en tête, les 6 RSS les plus récents s'ajoutent en dessous. Un push fait avec `GITHUB_TOKEN` ne déclenche pas d'autres workflows : `update-news.yml` lance donc `.github/workflows/deploy.yml` explicitement (`gh workflow run`, `workflow_dispatch`), ce qui publie le nouveau `news.json` en ligne. Prérequis : secrets `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD` définis dans GitHub.
+Hebdomadaire, sans cron hébergeur : `.github/workflows/update-news.yml` (cron GitHub Actions, lundi 6h UTC) lance `php site/fetch-news.php`, qui agrège les flux RSS et écrit `site/assets/data/news.json`. Les articles `pinned` restent en tête, les 6 RSS les plus récents s'ajoutent en dessous. Le commit du workflow sur `main` déclenche automatiquement un déploiement Vercel (intégration Git), donc le nouveau `news.json` est publié sans autre étape.
 Token manuel (déclenchement ponctuel) : `https://domaine.ma/fetch-news.php?token=<FETCH_NEWS_TOKEN du .env>`

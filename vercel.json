@@ -1,3 +1,9 @@
 {
-  "outputDirectory": "site"
+  "outputDirectory": "site",
+  "routes": [
+    { "src": "/(.*)\\.php$", "status": 404 },
+    { "src": "/vendor(/.*)?$", "status": 404 },
+    { "src": "/composer\\.(json|lock)$", "status": 404 },
+    { "handle": "filesystem" }
+  ]
 }

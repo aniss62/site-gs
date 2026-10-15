@@ -1,0 +1,9 @@
+{
+  "name": "les-greniers-du-saiss",
+  "private": true,
+  "description": "Site vitrine Les Greniers du Saïss (fonctions serveur Vercel)",
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "nodemailer": "^6.9.16"
+  }
+}

@@ -17,13 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
     setLoading(true);
     hideAlerts();
 
-    const data = new FormData(form);
+    const data = Object.fromEntries(new FormData(form).entries());
 
     try {
-      const base = document.querySelector('meta[name="base-url"]')?.content || '';
-      const res = await fetch(`${base}/contact.php`, {
+      const res = await fetch('/api/contact', {
         method: 'POST',
-        body: data
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
       });
 
       const json = await res.json();

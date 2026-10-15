@@ -33,9 +33,3 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add site/assets/data/news.json
           git diff --cached --quiet && echo "Aucun changement." || git commit -m "chore: actualités — mise à jour hebdomadaire" && git push
-
-      # Un push fait avec GITHUB_TOKEN ne déclenche pas deploy.yml : on le lance explicitement.
-      - name: Lancer le déploiement FTP
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh workflow run deploy.yml --ref main
