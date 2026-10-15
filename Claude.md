@@ -13,9 +13,10 @@ Site B2B bilingue FR/EN. Stack: HTML/CSS/JS pur. Hébergement: Vercel (domaine l
 cd site && php -S localhost:8080
 ```
 
-## Charte
-- Bleu : #2B4BA0 | Or : #E8B84B
-- Typo : Playfair Display + Inter
+## Charte (style lbg.it, voir docs/prompt-style-lbg_1.md)
+- Bleu nuit : #002A3A | Jaune doré (accent) : #DDAA00 | Texte : #404040 | Gris clair : #E5E5E5
+- Typo : Gill Sans Light (Lato 300 en secours) + Titillium Web (H1 et menu). Angles droits, aucune ombre.
+- Les tokens sont dans `site/assets/css/main.css`, l'échelle typographique et les composants du nouveau design dans `site/assets/css/design-lbg.css` (chargé en dernier sur toutes les pages).
 
 ## i18n
 Tous les textes dans `site/assets/i18n/fr.json` et `en.json`.

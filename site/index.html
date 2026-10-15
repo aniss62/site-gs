@@ -25,372 +25,248 @@
 <div id="main-nav"></div>
 <script src="assets/js/nav.js"></script>
 
-<!-- HERO -->
-<section class="hero" id="hero">
+<!-- 1. HERO plein écran -->
+<section class="hero" id="hero" aria-label="Accueil">
   <div class="hero__bg">
-    <video class="hero__video" autoplay muted loop playsinline
+    <video class="hero__video" id="heroVideo" autoplay muted loop playsinline
       src="assets/video/0524.mp4"
       poster="assets/images/caroube-arbre.jpg">
     </video>
   </div>
   <div class="hero__overlay"></div>
-  <div class="hero__noise"></div>
-  <div class="hero__ribbon"></div>
   <div class="hero__content" data-reveal>
-    <div class="hero__eyebrow">
-      <div class="hero__line"></div>
-      <div class="hero__label">
-        <span class="fr-text">Maroc · Fondée en 2008</span>
-        <span class="en-text" hidden>Morocco · Founded in 2008</span>
-      </div>
-    </div>
     <h1 class="hero__title">
-      <span class="fr-text">Du cœur<br>du Maroc<br><em>vers le monde</em></span>
-      <span class="en-text" hidden>From the heart<br>of Morocco<br><em>to the world</em></span>
+      <span class="fr-text">Du cœur du Maroc<br>vers le <em>monde</em></span>
+      <span class="en-text" hidden>From the heart of Morocco<br>to the <em>world</em></span>
     </h1>
-    <p class="hero__sub">
-      <span class="fr-text">Exportateur de caroube et de légumineuses de qualité supérieure, depuis la fertile région du Saïss. Le caroube marocain conquiert les marchés industriels de plus de 15 pays à travers le monde.</span>
-      <span class="en-text" hidden>Premium exporter of carob and legumes from the fertile Saïss region. Moroccan carob reaches industrial markets in over 15 countries worldwide.</span>
-    </p>
-    <div class="hero__actions">
-      <a class="btn btn-gold" href="#produits">
-        <span class="fr-text">Découvrir le Caroube</span>
-        <span class="en-text" hidden>Explore Carob</span>
-      </a>
-      <a class="btn btn-ghost" href="#contact">
-        <span class="fr-text">Nous contacter</span>
-        <span class="en-text" hidden>Contact Us</span>
-      </a>
-    </div>
   </div>
-  <div class="hero__scroll"><div class="hero__track"></div><span><span class="fr-text">Défiler</span><span class="en-text" hidden>Scroll</span></span></div>
+  <div class="hero__round-wrap">
+    <button type="button" class="btn-round" data-act="open-menu" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="5" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="12" cy="19" r="1.6"/></svg>
+    </button>
+    <button type="button" class="btn-round" id="heroPlay" aria-label="Pause vidéo" aria-pressed="false">
+      <svg class="ic-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="7" y="5" width="3.5" height="14"/><rect x="13.5" y="5" width="3.5" height="14"/></svg>
+      <svg class="ic-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg>
+    </button>
+  </div>
 </section>
 
-<!-- STATS -->
-<div class="stats-bar" id="apropos">
-  <div class="stat"><span class="stat__num" data-counter="15" data-suffix="+">15+</span><span class="stat__lbl"><span class="fr-text">Pays servis</span><span class="en-text" hidden>Countries served</span></span></div>
-  <div class="stat"><span class="stat__num" data-counter="16" data-suffix=" ans">16 ans</span><span class="stat__lbl"><span class="fr-text">D'expertise</span><span class="en-text" hidden>Of expertise</span></span></div>
-  <div class="stat"><span class="stat__num" data-counter="2000" data-suffix="+">2000+</span><span class="stat__lbl"><span class="fr-text">Tonnes / an</span><span class="en-text" hidden>Tonnes / year</span></span></div>
-  <div class="stat"><span class="stat__num" data-counter="4" data-suffix="">4</span><span class="stat__lbl"><span class="fr-text">Gammes produits</span><span class="en-text" hidden>Product lines</span></span></div>
-</div>
-
-<!-- SCRUB ZONE -->
-<div class="scrub-zone" id="scrubZone">
-  <div class="scrub-sticky">
-    <video id="scrubVid" muted playsinline preload="auto"
-      src="assets/video/0524.mp4"
-      poster="assets/images/caroube-arbre.jpg">
-    </video>
-    <div class="scrub-overlay"></div>
-
-    <div class="scrub-panel active" id="scPanel0">
-      <div class="scrub-panel__num">
-        <span class="fr-text">01 · Terroir d'exception</span>
-        <span class="en-text" hidden>01 · Exceptional terroir</span>
-      </div>
-      <h2>
-        <span class="fr-text">Une terre<br><em>d'exception</em></span>
-        <span class="en-text" hidden>A land<br><em>of exception</em></span>
-      </h2>
-      <p>
-        <span class="fr-text">La région du Saïss abrite des caroubiers centenaires sur un terroir unique. Les gousses sont récoltées à la main selon des méthodes ancestrales, transmises de génération en génération depuis les collines de Fès.</span>
-        <span class="en-text" hidden>The Saïss region shelters century-old carob trees on a unique terroir. Pods are harvested by hand using ancestral methods, passed down from generation to generation in the hills of Fès.</span>
+<!-- 2. CHIFFRE CLÉ + PRÉSENTATION -->
+<section class="keyfig" id="apropos" aria-label="Chiffres clés">
+  <svg class="keyfig__map" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <defs>
+      <pattern id="dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="2.1" fill="#E0E0E0"/></pattern>
+    </defs>
+    <path fill="url(#dots)" d="M 68,65 C 95,48 195,42 268,72 C 341,102 358,145 335,192 C 312,239 272,268 242,262 C 212,256 172,234 142,202 C 112,170 82,138 68,105 Z"/>
+    <path fill="url(#dots)" d="M 448,50 C 492,38 545,42 572,68 C 599,94 596,132 570,150 C 544,168 502,170 470,158 C 438,146 420,118 428,92 Z"/>
+    <path fill="url(#dots)" d="M 458,148 C 502,130 555,140 585,168 C 615,196 622,240 616,290 C 610,340 594,400 562,440 C 530,480 490,498 454,492 C 418,486 388,455 375,412 C 362,369 364,312 376,264 C 388,216 398,168 428,152 Z"/>
+    <path fill="url(#dots)" d="M 582,145 C 628,120 682,115 722,132 C 762,149 778,182 766,218 C 754,254 718,278 678,282 C 638,286 592,268 570,238 C 548,208 542,172 565,152 Z"/>
+    <circle class="map-dot" cx="484" cy="175" r="7"/>
+    <circle class="map-dot" cx="508" cy="100" r="5"/>
+    <circle class="map-dot" cx="260" cy="150" r="5"/>
+    <circle class="map-dot" cx="700" cy="210" r="5"/>
+    <circle class="map-dot" cx="490" cy="390" r="5"/>
+  </svg>
+  <div class="keyfig__inner">
+    <div class="keyfig__fig" data-reveal>
+      <span class="keyfig__num" data-counter="15" data-suffix="+">15+</span>
+      <span class="keyfig__lbl">
+        <span class="fr-text">Pays<br>desservis</span>
+        <span class="en-text" hidden>Countries<br>served</span>
+      </span>
+    </div>
+    <div class="keyfig__text" data-reveal>
+      <p class="keyfig__lead">
+        <span class="fr-text">Exportateur de caroube et de légumineuses de qualité supérieure, depuis la fertile région du Saïss. Le caroube marocain conquiert les marchés industriels de plus de 15 pays à travers le monde.</span>
+        <span class="en-text" hidden>Premium exporter of carob and legumes from the fertile Saïss region. Moroccan carob reaches industrial markets in over 15 countries worldwide.</span>
       </p>
-      <div class="scrub-panel__foot">
-        <div class="scrub-panel__line"></div>
-        <span>Saïss · Fès · <span class="fr-text">Maroc</span><span class="en-text" hidden>Morocco</span></span>
-      </div>
-    </div>
-
-    <div class="scrub-panel" id="scPanel1">
-      <div class="scrub-panel__num">
-        <span class="fr-text">02 · Savoir-faire</span>
-        <span class="en-text" hidden>02 · Expertise</span>
-      </div>
-      <h2>
-        <span class="fr-text">La qualité<br><em>à chaque</em><br>geste</span>
-        <span class="en-text" hidden>Quality<br><em>at every</em><br>step</span>
-      </h2>
-      <p>
-        <span class="fr-text">Chaque gousse est triée à la main. Caroube brute, graines, pulpe : notre gamme répond aux exigences de l'industrie mondiale de l'alimentation, de la pharmacie et de la cosmétique, avec traçabilité totale.</span>
-        <span class="en-text" hidden>Every pod is sorted by hand. Raw carob, seeds, pulp: our range meets the demands of the global food, pharmaceutical and cosmetics industry, with full traceability.</span>
-      </p>
-      <div class="scrub-panel__foot">
-        <div class="scrub-panel__line"></div>
-        <span>3 <span class="fr-text">gammes · Qualité certifiée</span><span class="en-text" hidden>lines · Certified quality</span></span>
-      </div>
-    </div>
-
-    <div class="scrub-panel" id="scPanel2">
-      <div class="scrub-panel__num">
-        <span class="fr-text">03 · Export mondial</span>
-        <span class="en-text" hidden>03 · Global export</span>
-      </div>
-      <h2>
-        <span class="fr-text">15 pays.<br><em>Un seul</em><br>standard.</span>
-        <span class="en-text" hidden>15 countries.<br><em>One</em><br>standard.</span>
-      </h2>
-      <p>
-        <span class="fr-text">Maîtrisant l'ensemble de la chaîne, de la récolte à la logistique internationale, nous exportons vers 15+ pays sur 3 continents. Europe, Moyen-Orient, Amériques : le caroube du Saïss s'invite partout.</span>
-        <span class="en-text" hidden>Controlling the entire chain from harvest to international logistics, we export to 15+ countries on 3 continents. Europe, Middle East, Americas: Saïss carob is everywhere.</span>
-      </p>
-      <div class="scrub-panel__foot">
-        <div class="scrub-panel__line"></div>
-        <span>15+ <span class="fr-text">pays · 2000+ tonnes / an</span><span class="en-text" hidden>countries · 2000+ tonnes / year</span></span>
-      </div>
-    </div>
-
-    <div class="scrub-progress">
-      <div class="scrub-dot active" id="scDot0"></div>
-      <div class="scrub-dot" id="scDot1"></div>
-      <div class="scrub-dot" id="scDot2"></div>
-    </div>
-  </div>
-</div>
-
-<!-- PRODUCTS -->
-<section class="section" id="produits">
-  <div class="container">
-    <div class="text-center" data-reveal>
-      <div class="section-eyebrow"><span class="section-eyebrow-text fr-text">Notre gamme</span><span class="section-eyebrow-text en-text" hidden>Our Range</span></div>
-      <h2 class="section-title"><span class="fr-text">Nos produits</span><span class="en-text" hidden>Our Products</span></h2>
-      <p class="section-sub"><span class="fr-text">Des matières premières sélectionnées au cœur du Saïss, pour les marchés internationaux les plus exigeants.</span><span class="en-text" hidden>Selected raw materials from the heart of Saïss, for the world's most demanding international markets.</span></p>
-    </div>
-    <div class="grid-2">
-      <article class="product-card" data-reveal>
-        <div class="product-card__img">
-          <img src="assets/images/farine-caroube.jpg" alt="Caroube du Saïss" loading="lazy">
-        </div>
-        <div class="product-card__body">
-          <span class="badge badge--premium">✦ Export</span>
-          <h3><span class="fr-text">Caroube du Saïss</span><span class="en-text" hidden>Saïss Carob</span></h3>
-          <p><span class="fr-text">Gousses brutes, graines et pulpe de caroube : une gamme complète issue de caroubiers centenaires. Qualité constante, traçabilité totale, disponible en vrac ou conditionné selon vos spécifications industrielles.</span><span class="en-text" hidden>Whole pods, seeds and carob pulp: a complete range from century-old carob trees. Consistent quality, full traceability, available in bulk or packaged to your industrial specifications.</span></p>
-          <div class="product-card__footer">
-            <div class="badges">
-              <span class="badge badge--blue fr-text">Brute</span><span class="badge badge--blue en-text" hidden>Raw</span>
-              <span class="badge badge--blue fr-text">Graines</span><span class="badge badge--blue en-text" hidden>Seeds</span>
-              <span class="badge badge--blue fr-text">Pulpe</span><span class="badge badge--blue en-text" hidden>Pulp</span>
-            </div>
-            <a class="btn btn-outline" href="applications.html"><span class="fr-text">Explorer →</span><span class="en-text" hidden>Explore →</span></a>
-          </div>
-        </div>
-      </article>
-      <article class="product-card" data-reveal data-d="1">
-        <div class="product-card__img">
-          <img src="assets/images/legumineuses-mix.jpg" alt="Légumineuses du Saïss" loading="lazy">
-        </div>
-        <div class="product-card__body">
-          <span class="badge badge--green">Import / Export</span>
-          <h3><span class="fr-text">Légumineuses</span><span class="en-text" hidden>Legumes</span></h3>
-          <p><span class="fr-text">Lentilles, pois chiches, fèves, haricots : toutes variétés de légumineuses sélectionnées pour les marchés internationaux, avec traçabilité origine et contrôles qualité systématiques à chaque expédition.</span><span class="en-text" hidden>Lentils, chickpeas, fava beans, kidney beans: all legume varieties selected for international markets, with origin traceability and systematic quality controls on every shipment.</span></p>
-          <div class="product-card__footer">
-            <div class="badges">
-              <span class="badge badge--blue fr-text">Lentilles</span><span class="badge badge--blue en-text" hidden>Lentils</span>
-              <span class="badge badge--blue fr-text">Pois chiches</span><span class="badge badge--blue en-text" hidden>Chickpeas</span>
-              <span class="badge badge--blue fr-text">Fèves</span><span class="badge badge--blue en-text" hidden>Fava beans</span>
-            </div>
-            <a class="btn btn-outline" href="products/legumineuses.html"><span class="fr-text">Explorer →</span><span class="en-text" hidden>Explore →</span></a>
-          </div>
-        </div>
-      </article>
+      <ul class="keyfig__facts">
+        <li><strong>2000+</strong> <span class="fr-text">tonnes / an</span><span class="en-text" hidden>tonnes / year</span></li>
+        <li><strong>16</strong> <span class="fr-text">ans d'expertise</span><span class="en-text" hidden>years of expertise</span></li>
+        <li><strong>3</strong> <span class="fr-text">continents</span><span class="en-text" hidden>continents</span></li>
+      </ul>
+      <a class="btn btn-gold" href="about.html"><span class="fr-text">En savoir plus</span><span class="en-text" hidden>Learn more</span></a>
     </div>
   </div>
 </section>
 
-<!-- SAVOIR-FAIRE -->
-<section class="section section--alt" id="savoir-faire">
-  <div class="container">
-    <div class="text-center" data-reveal>
-      <div class="section-eyebrow"><span class="section-eyebrow-text fr-text">Engagement</span><span class="section-eyebrow-text en-text" hidden>Commitment</span></div>
-      <h2 class="section-title"><span class="fr-text">Notre savoir-faire</span><span class="en-text" hidden>Our Expertise</span></h2>
-      <p class="section-intro"><span class="fr-text">Depuis 2008, les femmes et les hommes des Greniers du Saïss construisent, récolte après récolte, une réputation d'exigence et de fiabilité. Pour nos clients, une commande passée chez nous est une promesse tenue.</span><span class="en-text" hidden>Since 2008, the men and women of Les Greniers du Saïss have built, harvest after harvest, a reputation for rigour and reliability. For our clients, an order placed with us is a promise kept.</span></p>
-    </div>
-    <div class="grid-4">
-      <div class="feature-card" data-reveal>
-        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <h4><span class="fr-text">Qualité certifiée</span><span class="en-text" hidden>Certified Quality</span></h4>
-        <p><span class="fr-text">Chaque lot expédié est le résultat d'une sélection rigoureuse. Humidité, granulométrie, teneur en sucres, charge microbiologique : nos contrôles sont exhaustifs. Certifications disponibles sur demande.</span><span class="en-text" hidden>Every batch shipped is the result of rigorous selection. Humidity, granulometry, sugar content, microbiological load: our controls are exhaustive. Certifications available on request.</span></p>
-      </div>
-      <div class="feature-card" data-reveal data-d="1">
-        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
-        <h4><span class="fr-text">Traçabilité totale</span><span class="en-text" hidden>Full Traceability</span></h4>
-        <p><span class="fr-text">De la parcelle au conteneur, chaque lot porte l'empreinte de son voyage : région de récolte, agriculteurs partenaires, dates de transformation, transport routier et maritime. Cette transparence est notre fierté et votre garantie.</span><span class="en-text" hidden>From the plot to the container, every batch carries the imprint of its journey: harvest region, partner farmers, processing dates, road and sea transport. This transparency is our pride and your guarantee.</span></p>
-      </div>
-      <div class="feature-card" data-reveal data-d="2">
-        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <h4><span class="fr-text">Agriculture durable</span><span class="en-text" hidden>Sustainable Agriculture</span></h4>
-        <p><span class="fr-text">Nous travaillons en partenariat direct avec plus de 120 familles d'agriculteurs du Saïss, en pratiquant l'achat direct au juste prix. Nous soutenons aussi la replantation de caroubiers, une espèce qui séquestre le carbone.</span><span class="en-text" hidden>We work in direct partnership with over 120 farming families in Saïss, practising direct purchasing at fair prices. We also support carob tree replanting, a species that sequesters carbon.</span></p>
-      </div>
-      <div class="feature-card" data-reveal data-d="3">
-        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-        <h4><span class="fr-text">Expertise internationale</span><span class="en-text" hidden>International Expertise</span></h4>
-        <p><span class="fr-text">15 pays, 3 continents, des partenaires fidèles depuis plus de 10 ans. Notre équipe maîtrise les Incoterms, les certificats EUR.1 et Form A, ainsi que les formalités douanières propres à chaque marché.</span><span class="en-text" hidden>15 countries, 3 continents, loyal partners for over 10 years. Our team masters Incoterms, EUR.1 and Form A certificates, as well as the customs formalities specific to each market.</span></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WORLD MAP -->
-<section class="map-section" id="carte">
-  <div class="map-header" data-reveal>
-    <span class="map-eyebrow fr-text">Présence mondiale</span>
-    <span class="map-eyebrow en-text" hidden>Global Presence</span>
-    <h2 class="map-title">
-      <span class="fr-text">Du Saïss<br><em>aux quatre continents</em></span>
-      <span class="en-text" hidden>From Saïss<br><em>to four continents</em></span>
+<!-- 3. BANDEAU ENGAGEMENT -->
+<section class="pledge" id="savoir-faire" aria-labelledby="pledge-title">
+  <div class="pledge__bg" style="background-image:url('assets/images/terroir-saiss.jpg');" role="img" aria-label="La plaine du Saïss"></div>
+  <div class="pledge__veil"></div>
+  <div class="pledge__inner" data-reveal>
+    <h2 id="pledge-title" class="pledge__title">
+      <span class="fr-text">Récolter. Trier. Exporter.</span>
+      <span class="en-text" hidden>Harvest. Sort. Export.</span>
     </h2>
-    <p class="map-sub">
-      <span class="fr-text">Depuis Fès, nos caroubiers atteignent les tables, les laboratoires et les ateliers du monde entier.</span>
-      <span class="en-text" hidden>From Fès, our carob trees reach tables, laboratories and workshops around the world.</span>
-    </p>
-  </div>
-  <div class="map-wrap" data-reveal>
-    <svg class="map-svg" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
-      <path class="continent" d="M 68,65 C 95,48 195,42 268,72 C 341,102 358,145 335,192 C 312,239 272,268 242,262 C 212,256 172,234 142,202 C 112,170 82,138 68,105 Z"/>
-      <path class="continent" d="M 448,50 C 492,38 545,42 572,68 C 599,94 596,132 570,150 C 544,168 502,170 470,158 C 438,146 420,118 428,92 Z"/>
-      <path class="continent" d="M 458,148 C 502,130 555,140 585,168 C 615,196 622,240 616,290 C 610,340 594,400 562,440 C 530,480 490,498 454,492 C 418,486 388,455 375,412 C 362,369 364,312 376,264 C 388,216 398,168 428,152 Z"/>
-      <path class="continent continent--morocco" d="M 458,148 C 476,140 500,142 512,156 C 524,170 522,190 510,202 C 498,214 476,216 461,207 C 446,198 440,178 450,164 Z"/>
-      <path class="continent" d="M 582,145 C 628,120 682,115 722,132 C 762,149 778,182 766,218 C 754,254 718,278 678,282 C 638,286 592,268 570,238 C 548,208 542,172 565,152 Z"/>
-      <path class="trade-route" d="M 484,175 C 487,148 492,122 508,100"/>
-      <path class="trade-route" d="M 484,175 C 430,140 360,138 260,150"/>
-      <path class="trade-route" d="M 484,175 C 560,148 640,158 700,210"/>
-      <path class="trade-route" d="M 484,175 C 480,245 482,318 490,390"/>
-      <circle class="origin-pulse" cx="484" cy="175" r="16"/>
-      <circle class="origin-dot" cx="484" cy="175" r="6"/>
-      <text class="origin-label" x="493" y="168">Fès, Maroc</text>
-      <circle class="dest-dot" cx="508" cy="100" r="4"/>
-      <text class="dest-label" x="515" y="97">Europe</text>
-      <circle class="dest-dot" cx="260" cy="150" r="4"/>
-      <text class="dest-label" x="218" y="147">Amériques</text>
-      <circle class="dest-dot" cx="700" cy="210" r="4"/>
-      <text class="dest-label" x="707" y="207">Moyen-Orient</text>
-      <circle class="dest-dot" cx="490" cy="390" r="4"/>
-      <text class="dest-label" x="497" y="387">Afrique</text>
-    </svg>
-  </div>
-  <div class="map-stats" data-reveal>
-    <div class="map-stat"><span class="map-stat__num">15+</span><span class="map-stat__lbl fr-text">Pays clients</span><span class="map-stat__lbl en-text" hidden>Client Countries</span></div>
-    <div class="map-stat"><span class="map-stat__num">3</span><span class="map-stat__lbl fr-text">Continents</span><span class="map-stat__lbl en-text" hidden>Continents</span></div>
-    <div class="map-stat"><span class="map-stat__num">2000+</span><span class="map-stat__lbl fr-text">Tonnes / an</span><span class="map-stat__lbl en-text" hidden>Tonnes / year</span></div>
-    <div class="map-stat"><span class="map-stat__num">16</span><span class="map-stat__lbl fr-text">Ans d'expérience</span><span class="map-stat__lbl en-text" hidden>Years of experience</span></div>
+    <div class="pledge__lines">
+      <p><strong><span class="fr-text">Qualité certifiée.</span><span class="en-text" hidden>Certified quality.</span></strong>
+        <span class="fr-text">Chaque lot expédié est le résultat d'une sélection rigoureuse. Certifications disponibles sur demande.</span>
+        <span class="en-text" hidden>Every batch shipped is the result of rigorous selection. Certifications available on request.</span></p>
+      <p><strong><span class="fr-text">Traçabilité totale.</span><span class="en-text" hidden>Full traceability.</span></strong>
+        <span class="fr-text">De la parcelle au conteneur, chaque lot porte l'empreinte de son voyage.</span>
+        <span class="en-text" hidden>From the plot to the container, every batch carries the imprint of its journey.</span></p>
+      <p><strong><span class="fr-text">Agriculture durable.</span><span class="en-text" hidden>Sustainable agriculture.</span></strong>
+        <span class="fr-text">Partenariat direct avec plus de 120 familles d'agriculteurs du Saïss, achat direct au juste prix.</span>
+        <span class="en-text" hidden>Direct partnership with over 120 farming families in Saïss, direct purchasing at fair prices.</span></p>
+      <p><strong><span class="fr-text">Expertise internationale.</span><span class="en-text" hidden>International expertise.</span></strong>
+        <span class="fr-text">15 pays, 3 continents, des partenaires fidèles depuis plus de 10 ans.</span>
+        <span class="en-text" hidden>15 countries, 3 continents, loyal partners for over 10 years.</span></p>
+    </div>
+    <a class="btn btn-primary" href="qualite.html"><span class="fr-text">Notre promesse</span><span class="en-text" hidden>Our promise</span></a>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact-section" id="contact">
-  <div class="contact-inner" style="text-align:center">
-    <div class="contact-header" data-reveal>
-      <h2>
-        <span class="fr-text">Parlons de votre<br><em>prochain approvisionnement</em></span>
-        <span class="en-text" hidden>Let's talk about your<br><em>next sourcing</em></span>
-      </h2>
-      <p>
-        <span class="fr-text">Notre équipe répond sous 24 h. Devis, échantillons, conditions d'export : nous sommes à votre disposition.</span>
-        <span class="en-text" hidden>Our team responds within 24 hours. Quotes, samples, export terms: we are at your disposal.</span>
-      </p>
-      <div style="margin-top:2.5rem;display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap">
-        <a class="btn btn-gold" href="contact.html">
-          <span class="fr-text">Nous contacter →</span>
-          <span class="en-text" hidden>Contact Us →</span>
-        </a>
-        <a class="btn btn-ghost" href="mailto:Office@lesgreniersdusaiss.ma">
-          Office@lesgreniersdusaiss.ma
-        </a>
+<!-- 4. NOS PRODUITS (fond bleu nuit) -->
+<section class="products-band" id="produits" aria-labelledby="products-title">
+  <div class="products-band__inner">
+    <h2 id="products-title" class="products-band__title" data-reveal>
+      <span class="fr-text">Nos produits</span><span class="en-text" hidden>Our products</span>
+    </h2>
+    <div class="products-band__grid" data-reveal>
+      <div class="pcol">
+        <span class="pcol__tag"><span class="fr-text">Caroube</span><span class="en-text" hidden>Carob</span></span>
+        <ul>
+          <li><a href="products/caroube-brute.html"><span class="fr-text">Caroube brute</span><span class="en-text" hidden>Raw carob</span></a></li>
+          <li><a href="products/graines-caroube.html"><span class="fr-text">Graines de caroube</span><span class="en-text" hidden>Carob seeds</span></a></li>
+          <li><a href="products/pulpe-caroube.html"><span class="fr-text">Pulpe de caroube</span><span class="en-text" hidden>Carob pulp</span></a></li>
+        </ul>
+      </div>
+      <div class="pcol">
+        <span class="pcol__tag"><span class="fr-text">Légumineuses</span><span class="en-text" hidden>Legumes</span></span>
+        <ul>
+          <li><a href="products/legumineuses.html"><span class="fr-text">Lentilles</span><span class="en-text" hidden>Lentils</span></a></li>
+          <li><a href="products/legumineuses.html"><span class="fr-text">Pois chiches</span><span class="en-text" hidden>Chickpeas</span></a></li>
+          <li><a href="products/legumineuses.html"><span class="fr-text">Fèves et féverole</span><span class="en-text" hidden>Fava and field beans</span></a></li>
+          <li><a href="products/legumineuses.html"><span class="fr-text">Haricots</span><span class="en-text" hidden>Beans</span></a></li>
+          <li><a href="products/legumineuses.html"><span class="fr-text">Pois secs, petit pois</span><span class="en-text" hidden>Dry peas, green peas</span></a></li>
+        </ul>
+      </div>
+      <div class="pcol">
+        <span class="pcol__tag"><span class="fr-text">Céréales</span><span class="en-text" hidden>Cereals</span></span>
+        <ul>
+          <li><a href="products/cereales.html"><span class="fr-text">Toute la gamme</span><span class="en-text" hidden>Full range</span></a></li>
+        </ul>
+      </div>
+      <div class="pcol">
+        <span class="pcol__tag"><span class="fr-text">Épices</span><span class="en-text" hidden>Spices</span></span>
+        <ul>
+          <li><a href="products/epices.html"><span class="fr-text">Coriandre</span><span class="en-text" hidden>Coriander</span></a></li>
+          <li><a href="products/epices.html"><span class="fr-text">Poivre noir</span><span class="en-text" hidden>Black pepper</span></a></li>
+        </ul>
+      </div>
+      <div class="pcol">
+        <span class="pcol__tag"><span class="fr-text">Élevage</span><span class="en-text" hidden>Livestock</span></span>
+        <ul>
+          <li><a href="products/aliments-betail.html"><span class="fr-text">Aliments de bétail et dérivés</span><span class="en-text" hidden>Animal feed and derivatives</span></a></li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- 5. NOS MARCHÉS (onglets + cartes photo) -->
+<section class="markets" id="marches" aria-labelledby="markets-title">
+  <div class="markets__inner">
+    <h2 id="markets-title" class="markets__title" data-reveal>
+      <span class="fr-text">Nos marchés</span><span class="en-text" hidden>Our markets</span>
+    </h2>
+    <div class="tabs" role="tablist" aria-label="Marchés" data-reveal>
+      <button class="tabs__tab" role="tab" id="tab-food" aria-controls="panel-food" aria-selected="true"><span class="fr-text">Alimentation</span><span class="en-text" hidden>Food</span></button>
+      <button class="tabs__tab" role="tab" id="tab-health" aria-controls="panel-health" aria-selected="false" tabindex="-1"><span class="fr-text">Santé et beauté</span><span class="en-text" hidden>Health and beauty</span></button>
+      <button class="tabs__tab" role="tab" id="tab-feed" aria-controls="panel-feed" aria-selected="false" tabindex="-1"><span class="fr-text">Élevage</span><span class="en-text" hidden>Livestock</span></button>
+    </div>
+
+    <div class="tabpanel" role="tabpanel" id="panel-food" aria-labelledby="tab-food">
+      <a class="mcard" href="applications.html" style="background-image:url('assets/images/farine-caroube.jpg')"><span class="mcard__veil"></span><span class="mcard__title"><span class="fr-text">Agroalimentaire</span><span class="en-text" hidden>Food industry</span></span></a>
+      <a class="mcard" href="applications.html" style="background-image:url('assets/images/caroube-derives.jpg')"><span class="mcard__veil"></span><span class="mcard__title"><span class="fr-text">Nutrition sportive</span><span class="en-text" hidden>Sports nutrition</span></span></a>
+      <a class="mcard mcard--cta" href="applications.html"><span class="mcard__title"><span class="fr-text">Toutes les applications</span><span class="en-text" hidden>All applications</span></span></a>
+    </div>
+    <div class="tabpanel" role="tabpanel" id="panel-health" aria-labelledby="tab-health" hidden>
+      <a class="mcard" href="applications.html" style="background-image:url('assets/images/graines-caroube.jpg')"><span class="mcard__veil"></span><span class="mcard__title"><span class="fr-text">Pharmaceutique</span><span class="en-text" hidden>Pharmaceutical</span></span></a>
+      <a class="mcard" href="applications.html" style="background-image:url('assets/images/news-cosmetique.jpg')"><span class="mcard__veil"></span><span class="mcard__title"><span class="fr-text">Cosmétique</span><span class="en-text" hidden>Cosmetics</span></span></a>
+      <a class="mcard mcard--cta" href="applications.html"><span class="mcard__title"><span class="fr-text">Toutes les applications</span><span class="en-text" hidden>All applications</span></span></a>
+    </div>
+    <div class="tabpanel" role="tabpanel" id="panel-feed" aria-labelledby="tab-feed" hidden>
+      <a class="mcard" href="applications.html" style="background-image:url('assets/images/aliments-betail.jpg')"><span class="mcard__veil"></span><span class="mcard__title"><span class="fr-text">Alimentation animale</span><span class="en-text" hidden>Animal feed</span></span></a>
+      <a class="mcard" href="applications.html" style="background-image:url('assets/images/caroubegousses.jpg')"><span class="mcard__veil"></span><span class="mcard__title">Petfood</span></a>
+      <a class="mcard mcard--cta" href="applications.html"><span class="mcard__title"><span class="fr-text">Toutes les applications</span><span class="en-text" hidden>All applications</span></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER (bandeau "Contactez-nous" + footer injectés par footer.js) -->
 <div id="main-footer"></div>
 <script src="assets/js/footer.js"></script>
 
 <script>
-/* REVEAL */
-const ro = new IntersectionObserver(es => {
-  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); ro.unobserve(e.target); }});
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('[data-reveal]').forEach(el => ro.observe(el));
-setTimeout(() => {
-  document.querySelectorAll('[data-reveal]').forEach(el => {
-    if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('is-visible');
-  });
-}, 150);
-
-/* COUNTERS */
-function anim(el, t, s, d) {
-  d = d || 1400;
-  var t0 = performance.now();
-  (function tick(n) {
-    var p = Math.min((n - t0) / d, 1);
-    el.textContent = Math.round((1 - Math.pow(1-p, 3)) * t) + s;
-    if (p < 1) requestAnimationFrame(tick);
-  })(t0);
-}
-var co = new IntersectionObserver(function(es) {
-  es.forEach(function(e) {
-    if (e.isIntersecting) {
-      anim(e.target, +e.target.dataset.counter, e.target.dataset.suffix || '');
-      co.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.6 });
-document.querySelectorAll('[data-counter]').forEach(function(el) { co.observe(el); });
-
-/* SCRUB ZONE — scroll pilote video.currentTime */
-(function() {
-  var zone   = document.getElementById('scrubZone');
-  var vid    = document.getElementById('scrubVid');
-  var panels = [0,1,2].map(function(i){ return document.getElementById('scPanel'+i); });
-  var dots   = [0,1,2].map(function(i){ return document.getElementById('scDot'+i); });
-  var curIdx = 0;
-
-  function setPanel(idx) {
-    if (idx === curIdx) return;
-    curIdx = idx;
-    panels.forEach(function(p,i){ p.classList.toggle('active', i === idx); });
-    dots.forEach(function(d,i){   d.classList.toggle('active', i === idx); });
+/* Apparition en fondu au scroll */
+(function () {
+  var items = document.querySelectorAll('[data-reveal]');
+  if (window.matchMedia('(prefers-reduced-motion:reduce)').matches || !('IntersectionObserver' in window)) {
+    items.forEach(function (el) { el.classList.add('is-visible'); });
+    return;
   }
+  var ro = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-visible'); ro.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  items.forEach(function (el) { ro.observe(el); });
+  setTimeout(function () {
+    items.forEach(function (el) { if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('is-visible'); });
+  }, 150);
+})();
 
-  window.addEventListener('scroll', function() {
-    if (!zone || !vid.duration) return;
-    var rect     = zone.getBoundingClientRect();
-    var scrolled = -rect.top;
-    var total    = zone.offsetHeight - window.innerHeight;
-    if (scrolled < 0 || scrolled > total) return;
-    var progress      = scrolled / total;
-    vid.currentTime   = progress * vid.duration;
-    setPanel(progress < 0.33 ? 0 : progress < 0.66 ? 1 : 2);
-  }, { passive: true });
+/* Compteur animé */
+(function () {
+  var els = document.querySelectorAll('[data-counter]');
+  function run(el) {
+    var target = +el.dataset.counter, suffix = el.dataset.suffix || '', t0 = performance.now(), d = 1600;
+    (function tick(now) {
+      var p = Math.min((now - t0) / d, 1);
+      el.textContent = Math.round((1 - Math.pow(1 - p, 3)) * target) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    })(t0);
+  }
+  if (!('IntersectionObserver' in window)) return;
+  var co = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { run(e.target); co.unobserve(e.target); } });
+  }, { threshold: 0.5 });
+  els.forEach(function (el) { co.observe(el); });
+})();
 
-  vid.addEventListener('loadedmetadata', function() {
-    vid.play().then(function(){ vid.pause(); }).catch(function(){});
+/* Bouton lecture / pause de la vidéo du hero */
+(function () {
+  var btn = document.getElementById('heroPlay'), vid = document.getElementById('heroVideo');
+  if (!btn || !vid) return;
+  btn.addEventListener('click', function () {
+    var paused = btn.getAttribute('aria-pressed') === 'true';
+    if (paused) { vid.play(); } else { vid.pause(); }
+    btn.setAttribute('aria-pressed', String(!paused));
+    btn.setAttribute('aria-label', paused ? 'Pause vidéo' : 'Lecture vidéo');
   });
 })();
 
-/* NEWS EXPAND */
-function toggleNews(btn) {
-  var card = btn.closest('.news-card');
-  var expanded = card.classList.toggle('expanded');
-  var frSpan = btn.querySelector('.fr-text');
-  var enSpan = btn.querySelector('.en-text');
-  if (frSpan) frSpan.textContent = expanded ? 'Réduire ↑' : 'Lire la suite →';
-  if (enSpan) enSpan.textContent = expanded ? 'Collapse ↑' : 'Read more →';
-}
-
-/* CONTACT FORM */
-function handleContact(e) {
-  e.preventDefault();
-  document.getElementById('contactForm').hidden = true;
-  document.getElementById('contactSuccess').hidden = false;
-  /* re-apply lang visibility to success message */
-  document.querySelectorAll('.fr-text').forEach(function(el) { el.hidden = ((window.sitelang || 'fr') !== 'fr'); });
-  document.querySelectorAll('.en-text').forEach(function(el) { el.hidden = ((window.sitelang || 'fr') !== 'en'); });
-}
-
-
-if (window.matchMedia('(prefers-reduced-motion:reduce)').matches)
-  document.querySelectorAll('[data-reveal]').forEach(function(el){ el.classList.add('is-visible'); });
+/* Onglets "Nos marchés" */
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.markets .tabs__tab'));
+  function select(tab) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { select(t); });
+    t.addEventListener('keydown', function (e) {
+      var n = e.key === 'ArrowRight' ? i + 1 : e.key === 'ArrowLeft' ? i - 1 : null;
+      if (n === null) return;
+      var next = tabs[(n + tabs.length) % tabs.length];
+      select(next); next.focus();
+    });
+  });
+})();
 </script>
 </body>
 </html>

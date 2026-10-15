@@ -1,10 +1,9 @@
 /* ============================================================
-   footer.js — Footer partagé injecté dans #main-footer
-   IIFE: aucune variable globale
+   footer.js : bandeau "Contactez-nous" + footer partagés
+   injectés dans #main-footer. IIFE: aucune variable globale.
 
    Note sécurité : le contenu injecté est 100% statique
    (chaînes hardcodées, aucune saisie utilisateur).
-   DOMPurify non requis — même pattern que nav.js.
    ============================================================ */
 
 (function () {
@@ -15,81 +14,72 @@
   var metaContent = (meta && meta.getAttribute('content')) ? meta.getAttribute('content') : '';
   var root = metaContent ? metaContent + '/' : '';
 
-  /* ── 2. Construire le HTML du footer ───────────────────────── */
-  var footerHTML = '<footer class="footer">'
-    + '<div class="footer__top">'
+  function t(fr, en) {
+    return '<span class="fr-text">' + fr + '</span><span class="en-text" hidden>' + en + '</span>';
+  }
 
-    /* ── Colonne marque ── */
-    +   '<div class="footer__brand">'
-    +     '<a href="' + root + 'index.html">'
-    +       '<img class="footer__logo-img" src="' + root + 'assets/images/logo/logo.png" alt="Les Greniers du Sa&iuml;ss">'
-    +     '</a>'
-    +     '<p>'
-    +       '<span class="fr-text">Exportateur de caroube et de l&eacute;gumineuses depuis le Sa&iuml;ss, Maroc. Fond&eacute;e en 2008. Pr&eacute;sente dans 15+ pays sur 3 continents.</span>'
-    +       '<span class="en-text" hidden>Exporter of carob and legumes from Sa&iuml;ss, Morocco. Founded in 2008. Present in 15+ countries on 3 continents.</span>'
-    +     '</p>'
-    +     '<div class="footer__social">'
-    +       '<a class="footer__social-link" href="#" aria-label="LinkedIn">'
-    +         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
-    +           '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>'
-    +           '<rect x="2" y="9" width="4" height="12"/>'
-    +           '<circle cx="4" cy="4" r="2"/>'
-    +         '</svg>'
-    +       '</a>'
+  /* Pas de bandeau contact sur la page contact elle-même */
+  var onContactPage = /contact\.html$/.test(window.location.pathname);
+
+  /* ── 2. Bandeau "Contactez-nous" ───────────────────────────── */
+  var bandHTML = onContactPage ? '' :
+      '<section class="getintouch" aria-labelledby="gitTitle">'
+    +   '<div class="getintouch__inner">'
+    +     '<div class="getintouch__text">'
+    +       '<h2 id="gitTitle">' + t('Contactez-nous', 'Get in touch') + '</h2>'
+    +       '<p>' + t(
+              'Devis, échantillons, conditions d&rsquo;export : notre &eacute;quipe vous r&eacute;pond sous 24 h.',
+              'Quotes, samples, export terms: our team replies within 24 hours.') + '</p>'
+    +       '<a class="btn btn-primary" href="' + root + 'contact.html">' + t('Nous contacter', 'Contact us') + '</a>'
     +     '</div>'
     +   '</div>'
+    + '</section>';
 
-    /* ── Colonne navigation ── */
-    +   '<div class="footer__col">'
-    +     '<h5><span class="fr-text">Navigation</span><span class="en-text" hidden>Navigation</span></h5>'
-    +     '<a href="' + root + 'index.html"><span class="fr-text">Accueil</span><span class="en-text" hidden>Home</span></a>'
-    +     '<a href="' + root + 'products/caroube-brute.html"><span class="fr-text">Caroube</span><span class="en-text" hidden>Carob</span></a>'
-    +     '<a href="' + root + 'products/legumineuses.html"><span class="fr-text">L&eacute;gumineuses</span><span class="en-text" hidden>Legumes</span></a>'
-    +     '<a href="' + root + 'about.html"><span class="fr-text">&Agrave; propos</span><span class="en-text" hidden>About</span></a>'
-    +     '<a href="' + root + 'news.html"><span class="fr-text">Actualit&eacute;s</span><span class="en-text" hidden>News</span></a>'
+  /* ── 3. Footer en trois colonnes ───────────────────────────── */
+  var footerHTML =
+      '<footer class="ft">'
+    +   '<div class="ft__inner">'
+
+    +     '<div class="ft__col ft__col--lead">'
+    +       '<h3>' + t('Suivez nos actualit&eacute;s du march&eacute; de la caroube et des l&eacute;gumineuses.', 'Follow our carob and legumes market news.') + '</h3>'
+    +       '<a class="btn btn-outline" href="' + root + 'news.html">' + t('Voir les actualit&eacute;s', 'See the news') + '</a>'
+    +     '</div>'
+
+    +     '<nav class="ft__col ft__links" aria-label="Footer">'
+    +       '<a href="' + root + 'about.html">' + t('&Agrave; propos', 'About') + '</a>'
+    +       '<a href="' + root + 'qualite.html">' + t('Qualit&eacute;', 'Quality') + '</a>'
+    +       '<a href="' + root + 'durabilite.html">' + t('Durabilit&eacute;', 'Sustainability') + '</a>'
+    +       '<a href="' + root + 'news.html">' + t('Actualit&eacute;s', 'News') + '</a>'
+    +       '<a href="' + root + 'contact.html">Contact</a>'
+    +       '<a href="' + root + 'mentions-legales.html">' + t('Mentions l&eacute;gales', 'Legal notice') + '</a>'
+    +       '<a href="' + root + 'confidentialite.html">' + t('Politique de confidentialit&eacute;', 'Privacy policy') + '</a>'
+    +       '<a href="' + root + 'conditions.html">' + t('Conditions d&rsquo;utilisation', 'Terms of use') + '</a>'
+    +     '</nav>'
+
+    +     '<div class="ft__col ft__contact">'
+    +       '<p class="ft__addr"><strong>Les Greniers du Sa&iuml;ss</strong><br>Lot 60, Q.I. Ouafae, Bensouda<br>F&egrave;s, ' + t('Maroc', 'Morocco') + '</p>'
+    +       '<a class="ft__line" href="tel:+212535729082">'
+    +         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>'
+    +         '+212 5 35 72 90 82</a>'
+    +       '<a class="ft__line" href="mailto:Office@lesgreniersdusaiss.ma">'
+    +         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 3L3 10.5l7 3 3 7L21 3zM10 13.5L21 3"/></svg>'
+    +         'Office@lesgreniersdusaiss.ma</a>'
+    +     '</div>'
+
     +   '</div>'
-
-    /* ── Colonne contact ── */
-    +   '<div class="footer__col">'
-    +     '<h5>Contact</h5>'
-    +     '<a href="mailto:Office@lesgreniersdusaiss.ma">Office@lesgreniersdusaiss.ma</a>'
-    +     '<a href="tel:+212535729082">+212 5 35 72 90 82</a>'
-    +     '<span>Lot 60, Q.I. Ouafae, Bensouda &middot; F&egrave;s</span>'
-    +   '</div>'
-
-    + '</div>'
-
-    /* ── Barre basse ── */
-    + '<div class="footer__bottom">'
-    +   '<div class="footer__copy">&copy; 2026 Les Greniers du Sa&iuml;ss &middot; F&egrave;s, Maroc &middot; <span class="fr-text">Fond&eacute;e en 2008</span><span class="en-text" hidden>Founded in 2008</span></div>'
-    +   '<div class="footer__legal">'
-    +     '<a href="' + root + 'mentions-legales.html"><span class="fr-text">Mentions l&eacute;gales</span><span class="en-text" hidden>Legal notice</span></a>'
-    +     '<a href="' + root + 'confidentialite.html"><span class="fr-text">Confidentialit&eacute;</span><span class="en-text" hidden>Privacy</span></a>'
-    +     '<a href="' + root + 'conditions.html"><span class="fr-text">Conditions d&rsquo;utilisation</span><span class="en-text" hidden>Terms of use</span></a>'
-    +   '</div>'
-    + '</div>'
-
+    +   '<p class="ft__copy">&copy; 2026 Les Greniers du Sa&iuml;ss</p>'
     + '</footer>';
 
-  /* ── 3. Injecter dans #main-footer ─────────────────────────── */
+  /* ── 4. Injecter dans #main-footer ─────────────────────────── */
   var container = document.getElementById('main-footer');
   if (!container) { return; }
-  container.innerHTML = footerHTML; // safe: 100% static hardcoded strings, no user input
+  container.innerHTML = bandHTML + footerHTML; // safe: 100% static hardcoded strings, no user input
 
-  /* ── 4. Langue initiale ────────────────────────────────────── */
+  /* ── 5. Langue initiale (limitée au bloc injecté) ──────────── */
   var lang = localStorage.getItem('sitelang') || localStorage.getItem('gs_lang') || 'fr';
-
-  /* ── 5. Appliquer la langue aux seuls éléments du footer ───── */
-  /* nav.js gère le document entier ; ici on restreint au footer injecté */
   var isFr = (lang === 'fr');
   var frEls = container.querySelectorAll('.fr-text');
   var enEls = container.querySelectorAll('.en-text');
-
-  for (var i = 0; i < frEls.length; i++) {
-    frEls[i].hidden = !isFr;
-  }
-  for (var j = 0; j < enEls.length; j++) {
-    enEls[j].hidden = isFr;
-  }
-
+  for (var i = 0; i < frEls.length; i++) frEls[i].hidden = !isFr;
+  for (var j = 0; j < enEls.length; j++) enEls[j].hidden = isFr;
 })();
