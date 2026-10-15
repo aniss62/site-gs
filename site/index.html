@@ -41,6 +41,66 @@
       <span class="en-text" hidden>From the heart of Morocco<br>to the <em>world</em></span>
     </h1>
   </div>
+  <!-- Trois panneaux qui apparaissent l'un après l'autre pendant que la vidéo avance -->
+  <div class="hero-panels">
+    <div class="hero-panel" id="hpPanel0" aria-hidden="true">
+      <div class="hero-panel__num">
+        <span class="fr-text">01 · Terroir d'exception</span>
+        <span class="en-text" hidden>01 · Exceptional terroir</span>
+      </div>
+      <h2>
+        <span class="fr-text">Une terre<br><em>d'exception</em></span>
+        <span class="en-text" hidden>A land<br><em>of exception</em></span>
+      </h2>
+      <p>
+        <span class="fr-text">La région du Saïss abrite des caroubiers centenaires sur un terroir unique. Les gousses sont récoltées à la main selon des méthodes ancestrales, transmises de génération en génération depuis les collines de Fès.</span>
+        <span class="en-text" hidden>The Saïss region shelters century-old carob trees on a unique terroir. Pods are harvested by hand using ancestral methods, passed down from generation to generation in the hills of Fès.</span>
+      </p>
+      <div class="hero-panel__foot">
+        <div class="hero-panel__line"></div>
+        <span>Saïss · Fès · <span class="fr-text">Maroc</span><span class="en-text" hidden>Morocco</span></span>
+      </div>
+    </div>
+    <div class="hero-panel" id="hpPanel1" aria-hidden="true">
+      <div class="hero-panel__num">
+        <span class="fr-text">02 · Savoir-faire</span>
+        <span class="en-text" hidden>02 · Expertise</span>
+      </div>
+      <h2>
+        <span class="fr-text">La qualité<br><em>à chaque</em><br>geste</span>
+        <span class="en-text" hidden>Quality<br><em>at every</em><br>step</span>
+      </h2>
+      <p>
+        <span class="fr-text">Chaque gousse est triée à la main. Caroube brute, graines, pulpe : notre gamme répond aux exigences de l'industrie mondiale de l'alimentation, de la pharmacie et de la cosmétique, avec traçabilité totale.</span>
+        <span class="en-text" hidden>Every pod is sorted by hand. Raw carob, seeds, pulp: our range meets the demands of the global food, pharmaceutical and cosmetics industry, with full traceability.</span>
+      </p>
+      <div class="hero-panel__foot">
+        <div class="hero-panel__line"></div>
+        <span>3 <span class="fr-text">gammes · Qualité certifiée</span><span class="en-text" hidden>lines · Certified quality</span></span>
+      </div>
+    </div>
+    <div class="hero-panel" id="hpPanel2" aria-hidden="true">
+      <div class="hero-panel__num">
+        <span class="fr-text">03 · Export mondial</span>
+        <span class="en-text" hidden>03 · Global export</span>
+      </div>
+      <h2>
+        <span class="fr-text">15 pays.<br><em>Un seul</em><br>standard.</span>
+        <span class="en-text" hidden>15 countries.<br><em>One</em><br>standard.</span>
+      </h2>
+      <p>
+        <span class="fr-text">Maîtrisant l'ensemble de la chaîne, de la récolte à la logistique internationale, nous exportons vers 15+ pays sur 4 continents. Europe, Moyen-Orient, Amériques : le caroube du Saïss s'invite partout.</span>
+        <span class="en-text" hidden>Controlling the entire chain from harvest to international logistics, we export to 15+ countries on 4 continents. Europe, Middle East, Americas: Saïss carob is everywhere.</span>
+      </p>
+      <div class="hero-panel__foot">
+        <div class="hero-panel__line"></div>
+        <span>15+ <span class="fr-text">pays · 2000+ tonnes / an</span><span class="en-text" hidden>countries · 2000+ tonnes / year</span></span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-dots" aria-hidden="true">
+    <span class="hero-dot is-active"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span>
+  </div>
   <div class="hero__round-wrap">
     <button type="button" class="btn-round" data-act="open-menu" aria-label="Menu">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="5" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="12" cy="19" r="1.6"/></svg>
@@ -259,6 +319,22 @@
     var p = progress();
     wrap.style.setProperty('--p', p.toFixed(3));
     target = p * dur;
+    setPanel(p < 0.2 ? -1 : p < 0.47 ? 0 : p < 0.74 ? 1 : 2);
+  }
+
+  /* Panneaux : -1 = titre seul, 0 à 2 = les trois panneaux */
+  var panels = [0, 1, 2].map(function (i) { return document.getElementById('hpPanel' + i); });
+  var dots = wrap.querySelectorAll('.hero-dot');
+  var shown = -2;
+  function setPanel(idx) {
+    if (idx === shown) return;
+    shown = idx;
+    panels.forEach(function (el, i) {
+      var on = i === idx;
+      el.classList.toggle('is-active', on);
+      el.setAttribute('aria-hidden', String(!on));
+    });
+    dots.forEach(function (d, i) { d.classList.toggle('is-active', i === idx + 1); });
   }
 
   function tick() {

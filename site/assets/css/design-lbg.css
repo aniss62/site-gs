@@ -556,11 +556,55 @@ body.menu-open { overflow: hidden; }
    La zone fait 3 écrans de haut ; le hero reste collé en haut pendant que
    la vidéo avance avec le défilement (--p = progression de 0 à 1, posée par le script).
    ============================================================ */
-.hero-scroll { position: relative; height: 300vh; --p: 0; }
+.hero-scroll { position: relative; height: 400vh; --p: 0; }
 .hero-scroll .hero { position: sticky; top: 0; height: 100vh; min-height: 0; }
-.hero-scroll .hero__content { opacity: clamp(0, calc(1 - (var(--p) - 0.45) * 4), 1); }
+.hero-scroll .hero__content { opacity: clamp(0, calc(1 - (var(--p) - 0.1) * 10), 1); }
 .hero-scroll .hero__round-wrap { opacity: clamp(0, calc(1 - var(--p) * 12), 1); }
 /* Sans animation (préférence système) : hero fixe, image d'attente */
 .hero-scroll.is-static { height: auto; }
 .hero-scroll.is-static .hero { position: relative; height: auto; min-height: 100vh; }
-@media (max-width: 768px) { .hero-scroll { height: 240vh; } }
+@media (max-width: 768px) { .hero-scroll { height: 340vh; } }
+
+/* Panneaux « Terroir d'exception », « Savoir-faire », « Export mondial » par-dessus la vidéo */
+.hero-panels { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.hero-panel {
+  position: absolute; left: max(var(--section-px), calc((100vw - var(--max-width)) / 2 + var(--section-px)));
+  bottom: 12vh; max-width: 560px; text-align: left;
+  opacity: 0; transform: translateY(24px);
+  transition: opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1);
+}
+.hero-panel.is-active { opacity: 1; transform: none; pointer-events: auto; }
+.hero-panel__num { display: flex; align-items: center; gap: .8rem; margin-bottom: 1rem; font-size: 1rem; font-weight: 300; letter-spacing: var(--letter-title); text-transform: uppercase; color: var(--color-accent); }
+.hero-panel__num::after { content: ''; width: 40px; height: 1px; background: var(--color-accent); }
+.hero-panel h2 { margin: 0 0 1.25rem; font-family: var(--font-heading); font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.15; letter-spacing: var(--letter-title); color: var(--color-white); }
+.hero-panel h2 em { font-style: normal; color: var(--color-accent); }
+.hero-panel p { max-width: 460px; margin: 0 0 1.5rem; font-size: 1.125rem; font-weight: 300; line-height: 1.75; color: var(--color-white); }
+.hero-panel__foot { display: flex; align-items: center; gap: .8rem; font-size: 1rem; font-weight: 300; letter-spacing: var(--letter-title); text-transform: uppercase; color: rgba(255,255,255,.85); }
+.hero-panel__line { width: 30px; height: 1px; background: rgba(255,255,255,.6); flex: none; }
+
+.hero-dots { position: absolute; right: 2.5rem; top: 50%; transform: translateY(-50%); z-index: 2; display: flex; flex-direction: column; gap: .8rem; }
+.hero-dot { width: 6px; height: 6px; background: rgba(255,255,255,.4); transition: background .4s, transform .4s; }
+.hero-dot.is-active { background: var(--color-accent); transform: scale(1.5); }
+
+/* Sans animation : le hero n'est plus collé, les trois panneaux sont lisibles à la suite */
+.hero-scroll.is-static .hero { flex-direction: column; justify-content: center; gap: 2rem; padding: 7rem var(--section-px) 4rem; }
+.hero-scroll.is-static .hero-panels { position: static; display: grid; gap: 2.5rem; pointer-events: auto; }
+.hero-scroll.is-static .hero-panel { position: static; opacity: 1; transform: none; }
+.hero-scroll.is-static .hero-dots, .hero-scroll.is-static .hero__round-wrap { display: none; }
+
+@media (max-width: 768px) {
+  .hero-panel { left: 20px; right: 20px; bottom: 11vh; max-width: none; }
+  .hero-panel p { font-size: 1rem; line-height: 1.6; }
+  .hero-dots { right: 1rem; }
+}
+
+/* Voile sombre à gauche pour la lisibilité des panneaux (apparaît dès que le titre s'efface) */
+.hero-panels::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(0,42,58,.85) 0%, rgba(0,42,58,.6) 42%, rgba(0,42,58,0) 80%);
+  opacity: clamp(0, calc((var(--p) - 0.12) * 10), 1);
+}
+.hero-scroll.is-static .hero-panels::before { display: none; }
+@media (max-width: 768px) {
+  .hero-panels::before { background: linear-gradient(to top, rgba(0,42,58,.88) 0%, rgba(0,42,58,.6) 55%, rgba(0,42,58,0) 100%); }
+}
