@@ -1,10 +1,9 @@
 # Les Greniers du Saïss — Site vitrine
 
-Site B2B bilingue FR/EN. Stack: HTML/CSS/JS pur. Hébergement: Vercel (domaine lesgreniersdusaiss.ma), déploiement automatique à chaque push sur `main`. Vercel n'exécute pas PHP : le formulaire de contact passe par `api/contact.js`.
+Site B2B bilingue FR/EN. Stack: HTML/CSS/JS pur. Hébergement: Vercel (domaine lesgreniersdusaiss.ma), déploiement automatique à chaque push sur `main`. Vercel n'exécute pas PHP : le formulaire de contact n'a pas de serveur, il ouvre un e-mail `mailto:` pré-rempli vers Office@lesgreniersdusaiss.ma (`site/assets/js/contact.js`). Les fichiers `site/*.php` et `site/vendor/` sont obsolètes (accès bloqué par `vercel.json`).
 
 ## Structure
 - `site/` → fichiers statiques publiés par Vercel (`outputDirectory`)
-- `api/` → fonction serveur Vercel du formulaire de contact. Variables d'environnement Vercel : SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SMTP_FROM, SMTP_TO
 - `blueprints/` → instructions workflow
 - `equipment/` → scripts utilitaires
 - `.env` → credentials SMTP (ne jamais commiter)

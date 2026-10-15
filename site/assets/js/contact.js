@@ -19,27 +19,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const data = Object.fromEntries(new FormData(form).entries());
 
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
-
-      const json = await res.json();
-
-      if (json.success) {
-        alertSuccess.classList.add('show');
-        form.reset();
-        alertSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      } else {
-        alertError.classList.add('show');
-      }
-    } catch {
-      alertError.classList.add('show');
-    } finally {
+    // Champ piège anti-spam : un robot le remplit, on ne fait rien
+    if (data.website) {
       setLoading(false);
+      return;
     }
+
+    // Aucun serveur ni service tiers : on prépare l'e-mail dans la messagerie du visiteur.
+    const lines = [
+      `Nom : ${data.name}`,
+      data.company ? `Société : ${data.company}` : null,
+      data.country ? `Pays : ${data.country}` : null,
+      `E-mail : ${data.email}`,
+      data.phone ? `Téléphone : ${data.phone}` : null,
+      data.product ? `Produit : ${data.product}` : null,
+      '',
+      'Message :',
+      data.message
+    ].filter(l => l !== null);
+
+    const subject = `Demande de contact : ${data.name}${data.company ? ` (${data.company})` : ''}`;
+    const href = 'mailto:Office@lesgreniersdusaiss.ma'
+      + `?subject=${encodeURIComponent(subject)}`
+      + `&body=${encodeURIComponent(lines.join('\n'))}`;
+
+    window.location.href = href;
+    alertSuccess.classList.add('show');
+    alertSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    setLoading(false);
   });
 
   function validateForm() {
