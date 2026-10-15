@@ -1,0 +1,95 @@
+/* ============================================================
+   design-lbg.css : échelle typographique du nouveau design
+   Chargé EN DERNIER sur toutes les pages, il remplace les tailles
+   et graisses écrites en dur dans style.css / components.css / layout.css.
+   Référence : docs/prompt-style-lbg_1.md, section 3.
+   ============================================================ */
+
+/* ── Texte courant : 18px, graisse 300, interligne 1,75 ───── */
+.hero__sub, .page-hero__content p, .story-hero__text p,
+.section-sub, .section-intro, .map-sub, .contact-header p,
+.story-panel p, .scrub-panel p,
+.product-card__body p, .feature-card p, .app-card p,
+.legumes-header-text p, .legume-card__body p,
+.news-card p, .news-full, .news-modal__content p,
+.contact-info-text, .contact-hours span, .contact-hours strong,
+.contact-success p, .value-pill__text p, .certif-card p,
+.specs-table, .alert, .form-note {
+  font-size: 1.125rem;
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+/* ── Titres de bandeau photo : 90px (54px mobile), graisse 300 ─ */
+.hero__title, .story-panel h2, .scrub-panel h2 {
+  font-family: var(--font-display);
+  font-size: clamp(3.375rem, 6.25vw, 5.625rem);
+  font-weight: 300;
+  line-height: 1.25;
+  letter-spacing: var(--letter-title);
+}
+.hero__title em, .section-title em { font-style: normal; font-weight: 300; }
+
+/* ── Titres de section : 32 à 36px, graisse 300 ───────────── */
+.section-title, .map-title, .contact-header h2 {
+  font-size: clamp(1.625rem, 3vw, 2.25rem);
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: var(--letter-title);
+}
+
+/* ── Titres de cartes : 31,5px (grandes) / 24px (petites) ─── */
+.product-card__body h3, .app-card h3, .legumes-header-text h3 {
+  font-size: clamp(1.5rem, 2.2vw, 1.97rem);
+  font-weight: 300;
+  line-height: 1.25;
+  letter-spacing: var(--letter-title);
+}
+.feature-card h4, .news-card h3, .news-card h4, .legume-card__body h4,
+.contact-info-card h4, .contact-success h4, .certif-card h4,
+.value-pill__text h5, .news-modal__content h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+/* ── Chiffres : graisse 300 (taille revue avec la refonte de l'accueil) ─ */
+.stat__num, .stat-item__number, .map-stat__num { font-weight: 300; }
+
+/* ── Petits libellés : 16px, majuscules, graisse 300 ──────── */
+.hero__label, .hero__tag, .section-eyebrow-text, .map-eyebrow, .story-step,
+.stat__lbl, .stat-item__label, .map-stat__lbl, .badge, .app-card__sector,
+.news-card__cat, .news-card__date, .news-card__source, .scrub-panel__num,
+.scrub-panel__foot, .story-foot-txt, .app-card__stat, .breadcrumb,
+.form-group label, .news-modal__date, .banner {
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: var(--letter-title);
+}
+
+/* ── Boutons et liens d'action : 18px / 16px, graisse 400 ─── */
+.btn, .form-control, .form-group input, .form-group textarea, .form-group select {
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+.news-card__link, .app-card__cta, .news-card__footer a,
+.news-card__footer .news-card__link { font-size: 1rem; font-weight: 400; }
+
+/* ── Menu (Titillium Web), interim avant le menu plein écran ─ */
+.nav__link, .nav__link--btn, .lang-switcher, .nav__lang {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.mega__heading { font-family: var(--font-display); font-size: 1rem; font-weight: 600; }
+.mega__col a   { font-family: var(--font-display); font-size: 1.125rem; font-weight: 400; }
+.mega__sub     { font-size: 1rem; }
+
+/* ── Footer : liens 18px, adresse et mentions 16px ────────── */
+.footer__col a { font-size: 1.125rem; font-weight: 400; line-height: 1.75; }
+.footer__brand p, .footer__col span, .footer__col h4, .footer__col h5,
+.footer__copy, .footer__legal a, .footer__bottom, .footer__social a,
+.footer__social-link { font-size: 1rem; font-weight: 300; }
+.footer__col h4, .footer__col h5 { font-weight: 400; letter-spacing: var(--letter-title); }
