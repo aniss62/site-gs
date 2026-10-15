@@ -381,8 +381,6 @@ body.menu-open { overflow: hidden; }
 
 /* 2. Chiffre clé + présentation */
 .keyfig { position: relative; background: var(--color-white); padding: var(--section-py) 0; overflow: hidden; }
-.keyfig__map { position: absolute; left: 50%; top: 50%; width: min(1100px, 100%); transform: translate(-50%, -50%); z-index: 0; pointer-events: none; }
-.map-dot { fill: var(--color-accent); }
 .keyfig__inner {
   position: relative; z-index: 1;
   max-width: var(--max-width); margin: 0 auto; padding: 0 var(--section-px);
@@ -391,8 +389,6 @@ body.menu-open { overflow: hidden; }
 .keyfig__num { display: block; font-size: clamp(8rem, 12.5vw, 11.25rem); font-weight: 300; line-height: 1; color: var(--color-black); }
 .keyfig__lbl { display: block; margin-top: .5rem; font-size: clamp(1.5rem, 2.5vw, 2.25rem); font-weight: 300; line-height: 1.25; text-transform: uppercase; }
 .keyfig__lead { max-width: none; margin-bottom: 1.5rem; font-size: clamp(1.6875rem, 2.5vw, 2.25rem); font-weight: 300; line-height: 1.5; letter-spacing: var(--letter-title); color: var(--color-text); }
-.keyfig__facts { list-style: none; display: flex; flex-wrap: wrap; gap: .5rem 2rem; margin: 0 0 2rem; padding: 0; font-size: 1.125rem; }
-.keyfig__facts strong { font-weight: 400; color: var(--color-navy); }
 
 /* 3. Bandeau engagement */
 .pledge { position: relative; min-height: 100vh; display: flex; align-items: center; color: var(--color-white); overflow: hidden; }
@@ -510,3 +506,28 @@ body.menu-open { overflow: hidden; }
 .story-hero__icon { background: rgba(255,255,255,.14); color: var(--color-white); }
 .story-hero { padding-left: 0; padding-right: 0; }
 .story-hero__content { padding: 0 var(--section-px); }
+
+/* ============================================================
+   PRÉSENCE MONDIALE : globe en points animé (assets/js/globe.js)
+   ============================================================ */
+.globe-section { background: var(--color-navy); color: var(--color-white); padding: var(--section-py) 0; overflow: hidden; }
+.globe-section__inner {
+  max-width: var(--max-width); margin: 0 auto; padding: 0 var(--section-px);
+  display: grid; grid-template-columns: .9fr 1.1fr; gap: 3rem 4rem; align-items: center;
+}
+.globe-section__eyebrow { display: block; margin-bottom: 1rem; font-size: 1rem; font-weight: 300; letter-spacing: var(--letter-title); text-transform: uppercase; color: var(--color-accent); }
+.globe-section__title { margin-bottom: 1.5rem; font-size: clamp(2.25rem, 4.2vw, 3.375rem); font-weight: 300; line-height: 1.25; letter-spacing: var(--letter-title); color: var(--color-white); }
+.globe-section__title em { color: var(--color-accent); font-style: normal; }
+.globe-section__sub { max-width: 34ch; margin-bottom: 2.5rem; font-size: 1.5rem; font-weight: 300; line-height: 1.5; color: rgba(255,255,255,.88); }
+.globe-stats { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.75rem 2rem; max-width: 460px; }
+.globe-stats li { padding-top: 1rem; border-top: 1px dotted rgba(255,255,255,.55); }
+.globe-stats__num { display: block; font-size: clamp(2.5rem, 4vw, 3.375rem); font-weight: 300; line-height: 1.1; color: var(--color-white); }
+.globe-stats__lbl { display: block; margin-top: .25rem; font-size: 1rem; font-weight: 300; letter-spacing: var(--letter-title); text-transform: uppercase; color: rgba(255,255,255,.8); }
+.globe-wrap { width: 100%; max-width: 720px; margin: 0 auto; justify-self: center; }
+.globe-wrap canvas { display: block; width: 100%; height: auto; cursor: grab; touch-action: pan-y; }
+.globe-wrap canvas:active { cursor: grabbing; }
+
+@media (max-width: 900px) {
+  .globe-section__inner { grid-template-columns: 1fr; }
+  .globe-wrap { order: -1; max-width: 520px; }
+}

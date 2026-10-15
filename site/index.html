@@ -53,20 +53,6 @@
 
 <!-- 2. CHIFFRE CLÉ + PRÉSENTATION -->
 <section class="keyfig" id="apropos" aria-label="Chiffres clés">
-  <svg class="keyfig__map" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-    <defs>
-      <pattern id="dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="2.1" fill="#E0E0E0"/></pattern>
-    </defs>
-    <path fill="url(#dots)" d="M 68,65 C 95,48 195,42 268,72 C 341,102 358,145 335,192 C 312,239 272,268 242,262 C 212,256 172,234 142,202 C 112,170 82,138 68,105 Z"/>
-    <path fill="url(#dots)" d="M 448,50 C 492,38 545,42 572,68 C 599,94 596,132 570,150 C 544,168 502,170 470,158 C 438,146 420,118 428,92 Z"/>
-    <path fill="url(#dots)" d="M 458,148 C 502,130 555,140 585,168 C 615,196 622,240 616,290 C 610,340 594,400 562,440 C 530,480 490,498 454,492 C 418,486 388,455 375,412 C 362,369 364,312 376,264 C 388,216 398,168 428,152 Z"/>
-    <path fill="url(#dots)" d="M 582,145 C 628,120 682,115 722,132 C 762,149 778,182 766,218 C 754,254 718,278 678,282 C 638,286 592,268 570,238 C 548,208 542,172 565,152 Z"/>
-    <circle class="map-dot" cx="484" cy="175" r="7"/>
-    <circle class="map-dot" cx="508" cy="100" r="5"/>
-    <circle class="map-dot" cx="260" cy="150" r="5"/>
-    <circle class="map-dot" cx="700" cy="210" r="5"/>
-    <circle class="map-dot" cx="490" cy="390" r="5"/>
-  </svg>
   <div class="keyfig__inner">
     <div class="keyfig__fig" data-reveal>
       <span class="keyfig__num" data-counter="15" data-suffix="+">15+</span>
@@ -80,11 +66,6 @@
         <span class="fr-text">Exportateur de caroube et de légumineuses de qualité supérieure, depuis la fertile région du Saïss. Le caroube marocain conquiert les marchés industriels de plus de 15 pays à travers le monde.</span>
         <span class="en-text" hidden>Premium exporter of carob and legumes from the fertile Saïss region. Moroccan carob reaches industrial markets in over 15 countries worldwide.</span>
       </p>
-      <ul class="keyfig__facts">
-        <li><strong>2000+</strong> <span class="fr-text">tonnes / an</span><span class="en-text" hidden>tonnes / year</span></li>
-        <li><strong>16</strong> <span class="fr-text">ans d'expertise</span><span class="en-text" hidden>years of expertise</span></li>
-        <li><strong>3</strong> <span class="fr-text">continents</span><span class="en-text" hidden>continents</span></li>
-      </ul>
       <a class="btn btn-gold" href="about.html"><span class="fr-text">En savoir plus</span><span class="en-text" hidden>Learn more</span></a>
     </div>
   </div>
@@ -195,9 +176,36 @@
   </div>
 </section>
 
+<!-- 6. PRÉSENCE MONDIALE : globe animé depuis Fès -->
+<section class="globe-section" id="carte" aria-labelledby="globe-title">
+  <div class="globe-section__inner">
+    <div class="globe-section__text" data-reveal>
+      <span class="globe-section__eyebrow"><span class="fr-text">Présence mondiale</span><span class="en-text" hidden>Global Presence</span></span>
+      <h2 id="globe-title" class="globe-section__title">
+        <span class="fr-text">Du Saïss<br><em>aux quatre continents</em></span>
+        <span class="en-text" hidden>From Saïss<br><em>to four continents</em></span>
+      </h2>
+      <p class="globe-section__sub">
+        <span class="fr-text">Depuis Fès, nos caroubiers atteignent les tables, les laboratoires et les ateliers du monde entier.</span>
+        <span class="en-text" hidden>From Fès, our carob trees reach tables, laboratories and workshops around the world.</span>
+      </p>
+      <ul class="globe-stats">
+        <li><span class="globe-stats__num" data-counter="15" data-suffix="+">15+</span><span class="globe-stats__lbl"><span class="fr-text">Pays clients</span><span class="en-text" hidden>Client countries</span></span></li>
+        <li><span class="globe-stats__num" data-counter="3" data-suffix="">3</span><span class="globe-stats__lbl"><span class="fr-text">Continents</span><span class="en-text" hidden>Continents</span></span></li>
+        <li><span class="globe-stats__num" data-counter="2000" data-suffix="+">2000+</span><span class="globe-stats__lbl"><span class="fr-text">Tonnes / an</span><span class="en-text" hidden>Tonnes / year</span></span></li>
+        <li><span class="globe-stats__num" data-counter="16" data-suffix="">16</span><span class="globe-stats__lbl"><span class="fr-text">Ans d'expérience</span><span class="en-text" hidden>Years of experience</span></span></li>
+      </ul>
+    </div>
+    <div class="globe-wrap" data-reveal>
+      <canvas id="globe" role="img" aria-label="Globe : présence de Les Greniers du Saïss depuis Fès vers l'Europe, les Amériques, le Moyen-Orient et l'Afrique"></canvas>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER (bandeau "Contactez-nous" + footer injectés par footer.js) -->
 <div id="main-footer"></div>
 <script src="assets/js/footer.js"></script>
+<script src="assets/js/globe.js" defer></script>
 
 <script>
 /* Apparition en fondu au scroll */
