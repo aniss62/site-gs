@@ -550,3 +550,17 @@ body.menu-open { overflow: hidden; }
 }
 .form-control:focus, .form-group .form-control:focus { border-color: var(--color-navy) !important; }
 .form-control.error, .form-group .form-control.error { border-color: #d9534f !important; }
+
+/* ============================================================
+   HERO ACCUEIL : vidéo pilotée par le scroll
+   La zone fait 3 écrans de haut ; le hero reste collé en haut pendant que
+   la vidéo avance avec le défilement (--p = progression de 0 à 1, posée par le script).
+   ============================================================ */
+.hero-scroll { position: relative; height: 300vh; --p: 0; }
+.hero-scroll .hero { position: sticky; top: 0; height: 100vh; min-height: 0; }
+.hero-scroll .hero__content { opacity: clamp(0, calc(1 - (var(--p) - 0.45) * 4), 1); }
+.hero-scroll .hero__round-wrap { opacity: clamp(0, calc(1 - var(--p) * 12), 1); }
+/* Sans animation (préférence système) : hero fixe, image d'attente */
+.hero-scroll.is-static { height: auto; }
+.hero-scroll.is-static .hero { position: relative; height: auto; min-height: 100vh; }
+@media (max-width: 768px) { .hero-scroll { height: 240vh; } }
