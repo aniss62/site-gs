@@ -507,7 +507,7 @@ body.menu-open { overflow: hidden; }
 .globe-section__title em { color: var(--color-accent-dark); font-style: normal; }
 .globe-section__lead { max-width: none; margin-bottom: 1.25rem; font-size: clamp(1.375rem, 2vw, 1.75rem); font-weight: 300; line-height: 1.5; letter-spacing: var(--letter-title); color: var(--color-text); }
 .globe-section__sub { max-width: none; margin-bottom: 2.25rem; font-size: clamp(1.375rem, 2vw, 1.75rem); font-weight: 300; line-height: 1.5; letter-spacing: var(--letter-title); color: var(--color-text); }
-.globe-section__foot { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: flex-start; gap: 3rem; margin-top: 1rem; }
+.globe-section__foot { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; gap: 3rem; margin-top: 1rem; }
 .globe-stats { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(120px, 1fr)); gap: 1.75rem 2.5rem; width: 100%; }
 .globe-stats li { padding-top: 1rem; border-top: 1px dotted rgba(0,0,0,.4); }
 .globe-stats__num { display: block; font-size: clamp(2.5rem, 4vw, 3.375rem); font-weight: 300; line-height: 1.1; color: var(--color-black); }
