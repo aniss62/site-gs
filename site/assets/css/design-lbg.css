@@ -651,3 +651,8 @@ body.menu-open { overflow: hidden; }
   .page-hero--light .page-hero__bg { background-size: auto 62%; background-position: center bottom 10px; }
   .page-hero--light .page-hero__content { padding-top: 40px; }
 }
+
+/* Variante mobile du fond d'en-tête de la fiche Caroube brute */
+@media (max-width: 768px) {
+  .page-hero--brute .page-hero__bg { background-image: url('../images/caroube-brute-hero-m.jpg') !important; }
+}
