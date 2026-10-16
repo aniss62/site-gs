@@ -663,3 +663,28 @@ body.menu-open { overflow: hidden; }
   .product-detail__image--fit { position: relative; top: auto; align-self: stretch; }
   .product-detail__image--fit img { position: absolute; inset: 0; width: 100%; height: 100% !important; aspect-ratio: auto !important; object-fit: cover; object-position: center; }
 }
+
+/* ============================================================
+   MISE EN PAGE RESSERRÉE (fiche Épices) : moins de blanc entre les blocs
+   ============================================================ */
+.prod-intro--compact { padding: 3.5rem 0 1.5rem; }
+.prod-intro--compact .prod-intro__lead { font-size: clamp(1.75rem, 2.8vw, 2.5rem); }
+.product-detail--compact { padding: 1.5rem 0 3.5rem; }
+.product-detail--compact .product-detail__inner { grid-template-columns: 1.4fr 1fr; gap: 3rem; align-items: start; }
+.product-detail__side { display: flex; flex-direction: column; gap: 1.5rem; align-items: flex-start; }
+.product-detail__side .accordion { width: 100%; margin-bottom: 0; }
+.variety-pair { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-top: 1rem; }
+.variety-card { border: 1px solid var(--color-border); text-align: center; background: var(--color-white); overflow: hidden; }
+.variety-card img { width: 100%; height: 260px; object-fit: cover; display: block; }
+.variety-card__name { margin: .9rem 0 .1rem; font-size: 1.5rem; font-weight: 400; color: var(--color-navy); }
+.variety-card__origin { margin: 0 0 1rem; max-width: none; font-size: 1rem; color: var(--color-text-muted); }
+.section--compact { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+@media (max-width: 900px) {
+  .product-detail--compact .product-detail__inner { grid-template-columns: 1fr; gap: 2rem; }
+  .variety-card img { height: 200px; }
+}
+@media (max-width: 480px) {
+  .variety-pair { grid-template-columns: 1fr; }
+}
+.section--compact .tabpanel-text { padding: 1.75rem 0 0; }
+.section--compact .divider { margin-bottom: 1rem; }
