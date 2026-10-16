@@ -635,3 +635,8 @@ body.menu-open { overflow: hidden; }
   .page-hero--clean .page-hero__bg { background-image: url('../images/pulpe-caroube-hero-m.jpg') !important; background-color: var(--color-navy); background-repeat: no-repeat; background-size: auto 66%; background-position: center bottom 10px; }
   .page-hero--clean .page-hero__content { padding-top: 110px; }
 }
+
+/* Variante mobile du fond d'en-tête de la fiche Caroube brute */
+@media (max-width: 768px) {
+  .page-hero--brute .page-hero__bg { background-image: url('../images/caroube-brute-hero-m.jpg') !important; }
+}
