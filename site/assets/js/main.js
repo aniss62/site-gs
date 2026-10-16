@@ -82,6 +82,14 @@ function initCounters() {
   counters.forEach(el => observer.observe(el));
 }
 
+/* ── Décode les entités HTML des flux RSS (&nbsp; &amp; &#39;…) en texte brut ──
+   DOMParser n'exécute aucun script ; on ne récupère que le texte. */
+function decodeEntities(str) {
+  if (!str || str.indexOf('&') === -1) return str || '';
+  const doc = new DOMParser().parseFromString(str, 'text/html');
+  return (doc.documentElement.textContent || '').replace(/\u00a0/g, ' ').replace(/\s{2,}/g, ' ').trim();
+}
+
 /* ── News loader ────────────────────────────────────────────── */
 let _newsArticlesCache = null;
 
@@ -204,13 +212,13 @@ function initNewsModal() {
 function openNewsModal(article) {
   const modal = document.getElementById('news-modal');
   const img = document.getElementById('nm-img');
-  document.getElementById('nm-source').textContent = article.source || '';
-  document.getElementById('nm-title').textContent = article.title || '';
+  document.getElementById('nm-source').textContent = decodeEntities(article.source);
+  document.getElementById('nm-title').textContent = decodeEntities(article.title);
   document.getElementById('nm-date').textContent = article.published || '';
-  document.getElementById('nm-summary').textContent = article.content || article.summary || '';
+  document.getElementById('nm-summary').textContent = decodeEntities(article.content || article.summary);
   if (article.imgSrc) {
     img.src = article.imgSrc;
-    img.alt = article.title || '';
+    img.alt = decodeEntities(article.title);
     img.style.display = '';
   } else {
     img.style.display = 'none';
@@ -233,7 +241,7 @@ function renderNewsCards(container, articles) {
       imgWrap.className = 'news-card__img';
       const img = document.createElement('img');
       img.src = base ? base + '/' + article.image : article.image;
-      img.alt = article.title || '';
+      img.alt = decodeEntities(article.title);
       img.loading = 'lazy';
       imgWrap.appendChild(img);
       card.appendChild(imgWrap);
@@ -244,13 +252,13 @@ function renderNewsCards(container, articles) {
 
     const source = document.createElement('div');
     source.className = 'news-card__source';
-    source.textContent = article.source || '';
+    source.textContent = decodeEntities(article.source);
 
     const title = document.createElement('h4');
-    title.textContent = article.title || '';
+    title.textContent = decodeEntities(article.title);
 
     const summary = document.createElement('p');
-    summary.textContent = article.summary || '';
+    summary.textContent = decodeEntities(article.summary);
 
     const footer = document.createElement('div');
     footer.className = 'news-card__footer';

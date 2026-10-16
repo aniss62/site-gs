@@ -337,8 +337,8 @@ body.menu-open { overflow: hidden; }
 
 @media (max-width: 768px) {
   .two-col { grid-template-columns: 1fr; gap: 1.5rem; }
-  .tabs { overflow-x: auto; }
-  .tabs__tab { flex: none; }
+  .tabs { flex-wrap: wrap; }
+  .tabs__tab { flex: 1 1 auto; padding: .9rem 1rem; font-size: 1rem; }
   .accordion summary { font-size: 1.5rem; }
 }
 
@@ -608,3 +608,16 @@ body.menu-open { overflow: hidden; }
 @media (max-width: 768px) {
   .hero-panels::before { background: linear-gradient(to top, rgba(0,42,58,.88) 0%, rgba(0,42,58,.6) 55%, rgba(0,42,58,0) 100%); }
 }
+
+/* ============================================================
+   ROBUSTESSE : un contenu long ne doit jamais élargir sa colonne (débordement mobile)
+   ============================================================ */
+.grid-2 > *, .grid-3 > *, .grid-4 > *, .two-col > * { min-width: 0; }
+/* Carte certification : badge à gauche, titre puis texte empilés à droite */
+.certif-card {
+  display: grid; grid-template-columns: 56px minmax(0, 1fr);
+  column-gap: 1.25rem; row-gap: .25rem; align-items: start; min-width: 0;
+}
+.certif-card__badge { grid-row: 1 / span 2; }
+.certif-card h4 { grid-column: 2; grid-row: 1; margin: 0; align-self: end; }
+.certif-card p { grid-column: 2; grid-row: 2; overflow-wrap: break-word; }
