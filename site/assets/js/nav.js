@@ -172,7 +172,7 @@
   /* Le script s'exécute avant le contenu de la page : on attend le DOM complet
      pour savoir s'il y a un hero, et on réapplique la langue au contenu chargé. */
   function afterDomReady() {
-    var hasHero = !!document.querySelector('.hero, .page-hero, .story-hero');
+    var hasHero = !!document.querySelector('.hero, .page-hero:not(.page-hero--light), .story-hero');
     document.body.classList.add('has-hd');
     if (!hasHero) {
       gnav.classList.add('hd--solid');

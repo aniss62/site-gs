@@ -636,7 +636,18 @@ body.menu-open { overflow: hidden; }
   .page-hero--clean .page-hero__content { padding-top: 110px; }
 }
 
-/* Variante mobile du fond d'en-tête de la fiche Caroube brute */
+/* ============================================================
+   HÉROS CLAIR : photo sur fond blanc (la photo garde son fond d'origine), titre bleu nuit
+   ============================================================ */
+.page-hero--light { background: var(--color-white); }
+.page-hero--light .page-hero__overlay { display: none; }
+.page-hero--light .page-hero__bg {
+  background-color: var(--color-white); background-repeat: no-repeat;
+  background-size: auto 94%; background-position: right 6% center; opacity: 1;
+}
+.page-hero--light h1, .page-hero--light .page-hero__title { color: var(--color-navy); }
 @media (max-width: 768px) {
-  .page-hero--brute .page-hero__bg { background-image: url('../images/caroube-brute-hero-m.jpg') !important; }
+  .page-hero--light { align-items: flex-start; }
+  .page-hero--light .page-hero__bg { background-size: auto 62%; background-position: center bottom 10px; }
+  .page-hero--light .page-hero__content { padding-top: 40px; }
 }
