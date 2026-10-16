@@ -621,3 +621,8 @@ body.menu-open { overflow: hidden; }
 .certif-card__badge { grid-row: 1 / span 2; }
 .certif-card h4 { grid-column: 2; grid-row: 1; margin: 0; align-self: end; }
 .certif-card p { grid-column: 2; grid-row: 2; overflow-wrap: break-word; }
+
+/* Fiches produit : l'image suit le défilement quand la colonne de droite est plus longue (desktop) */
+@media (min-width: 901px) {
+  .product-detail__image { position: sticky; top: 124px; align-self: start; }
+}
