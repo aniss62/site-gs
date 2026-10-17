@@ -699,3 +699,44 @@ body.menu-open { overflow: hidden; }
   .page-intro { padding: 1.5rem 0 0; }
   .page-intro + .section, .page-intro + section { padding-top: .25rem; }
 }
+
+/* ============================================================
+   ASSISTANT FAQ (chatbot.js) : angles droits, sans ombre
+   ============================================================ */
+.gsbot { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 300; font-family: var(--font-body, inherit); }
+.gsbot [hidden] { display: none !important; }
+.gsbot__fab {
+  width: 56px; height: 56px; display: flex; align-items: center; justify-content: center;
+  background: var(--color-accent); color: var(--color-navy); border: 0; border-radius: 0; cursor: pointer;
+}
+.gsbot__fab:hover, .gsbot__fab.is-open { background: var(--color-accent-dark); }
+.gsbot__fab:focus-visible, .gsbot__chip:focus-visible, .gsbot__close:focus-visible,
+.gsbot__form input:focus-visible, .gsbot__form button:focus-visible { outline: 3px solid var(--color-navy); outline-offset: 2px; }
+.gsbot__panel {
+  position: absolute; right: 0; bottom: 68px; width: min(390px, calc(100vw - 2.5rem));
+  height: min(560px, calc(100vh - 7rem)); display: flex; flex-direction: column;
+  background: var(--color-white); border: 1px solid var(--color-navy);
+}
+.gsbot__head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .9rem 1rem; background: var(--color-navy); color: var(--color-white); }
+.gsbot__head strong { font-weight: 400; font-size: 1rem; letter-spacing: .02em; }
+.gsbot__close { background: none; border: 0; color: var(--color-white); font-size: 1.75rem; line-height: 1; cursor: pointer; padding: 0 .25rem; }
+.gsbot__log { flex: 1; overflow-y: auto; padding: 1rem; display: flex; flex-direction: column; gap: .75rem; background: var(--color-light-grey); }
+.gsbot__msg { max-width: 92%; padding: .7rem .9rem; font-size: .95rem; line-height: 1.55; }
+.gsbot__msg p { margin: 0; }
+.gsbot__msg--bot { align-self: flex-start; background: var(--color-white); color: var(--color-text); }
+.gsbot__msg--bot a { color: var(--color-navy); text-decoration: underline; }
+.gsbot__msg--user { align-self: flex-end; background: var(--color-navy); color: var(--color-white); }
+.gsbot__link { display: inline-block; margin-top: .5rem; font-weight: 400; }
+.gsbot__chips { display: flex; gap: .4rem; overflow-x: auto; padding: .6rem .75rem; border-top: 1px solid var(--color-light-grey); max-height: 9.5rem; flex-wrap: wrap; overflow-y: auto; }
+.gsbot__chip { background: var(--color-white); color: var(--color-navy); border: 1px solid var(--color-navy); border-radius: 0; padding: .3rem .6rem; font-size: .8rem; cursor: pointer; text-align: left; }
+.gsbot__chip:hover { background: var(--color-navy); color: var(--color-white); }
+.gsbot__form { display: flex; border-top: 1px solid var(--color-navy); }
+.gsbot__form input { flex: 1; min-width: 0; border: 0; border-radius: 0; padding: .85rem 1rem; font-size: 1rem; font-family: inherit; }
+.gsbot__form button { background: var(--color-accent); color: var(--color-navy); border: 0; border-radius: 0; padding: 0 1.1rem; font-family: inherit; font-size: .9rem; cursor: pointer; }
+.gsbot__form button:hover { background: var(--color-accent-dark); }
+@media (max-width: 768px) {
+  .gsbot { right: .75rem; bottom: 4.75rem; }
+  .gsbot__panel { height: min(520px, calc(100vh - 11rem)); }
+}
+@media (prefers-reduced-motion: no-preference) { .gsbot__panel { animation: gsbotIn .18s ease-out; } }
+@keyframes gsbotIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }

@@ -82,4 +82,10 @@
   var enEls = container.querySelectorAll('.en-text');
   for (var i = 0; i < frEls.length; i++) frEls[i].hidden = !isFr;
   for (var j = 0; j < enEls.length; j++) enEls[j].hidden = isFr;
+
+  /* ── 6. Assistant FAQ (chatbot) : chargé sur toutes les pages ── */
+  var bot = document.createElement('script');
+  bot.src = root + 'assets/js/chatbot.js';
+  bot.defer = true;
+  document.body.appendChild(bot);
 })();
