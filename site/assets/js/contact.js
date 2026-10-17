@@ -26,13 +26,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Aucun serveur ni service tiers : on prépare l'e-mail dans la messagerie du visiteur.
+    // Nom lisible du produit choisi (et non son identifiant technique)
+    const productSelect = form.querySelector('#product');
+    const productLabel = productSelect && productSelect.selectedIndex > 0
+      ? productSelect.options[productSelect.selectedIndex].text.trim()
+      : data.product;
+
     const lines = [
       `Nom : ${data.name}`,
       data.company ? `Société : ${data.company}` : null,
       data.country ? `Pays : ${data.country}` : null,
       `E-mail : ${data.email}`,
       data.phone ? `Téléphone : ${data.phone}` : null,
-      data.product ? `Produit : ${data.product}` : null,
+      data.product ? `Produit : ${productLabel}` : null,
       '',
       'Message :',
       data.message
