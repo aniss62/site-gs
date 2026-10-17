@@ -44,7 +44,7 @@
     { fr: 'Caroube brute', en: 'Raw carob', href: 'products/caroube-brute.html', kw: 'caroube kharoub gousses carob pods' },
     { fr: 'Graines de caroube', en: 'Carob seeds', href: 'products/graines-caroube.html', kw: 'graines seeds caroube carob' },
     { fr: 'Pulpe de caroube', en: 'Carob pulp', href: 'products/pulpe-caroube.html', kw: 'pulpe pulp kibbles poudre farine' },
-    { fr: 'Légumineuses', en: 'Legumes', href: 'products/legumineuses.html', kw: 'lentilles pois chiches fèves haricots féverole lentils chickpeas beans' },
+    { fr: 'Légumineuses', en: 'Legumes', href: 'products/legumineuses.html', kw: 'lentilles pois chiches fèves féverole pois secs petit pois lentils chickpeas fava beans peas' },
     { fr: 'Céréales', en: 'Cereals', href: 'products/cereales.html', kw: 'blé céréales négoce wheat cereals' },
     { fr: 'Épices', en: 'Spices', href: 'products/epices.html', kw: 'coriandre poivre noir epices spices coriander pepper' },
     { fr: 'Aliments de bétail et dérivés', en: 'Animal feed and derivatives', href: 'products/aliments-betail.html', kw: 'bétail feed élevage animal' },
