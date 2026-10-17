@@ -754,7 +754,7 @@ body.menu-open { overflow: hidden; }
 :root { --r: 20px; --r-sm: 10px; }
 .btn, .btn-gold, .btn-primary, .btn-outline, .btn-outline-primary, .btn-actions .btn,
 .getintouch .btn, button[type="submit"], .hero-panel .btn,
-.app-card, .feature-card, .certif-card, .value-pill, .mcard, .variety-card, .news-card, .product-card,
+.app-card, .feature-card, .certif-card, .mcard, .variety-card, .news-card, .product-card,
 .product-detail__image, .img-text-section__image, .img-text-section__img, .applications-intro__image,
 .accordion, .form-control, .alert, .search__box, .news-modal__content, .news-modal,
 .tabs__tab, .specs-table, .gsbot__panel, .gsbot__fab, .gsbot__chip, .gsbot__msg,
@@ -789,3 +789,18 @@ html { scroll-padding-bottom: 72px; }
 }
 
 .ft .btn, .ft .btn:visited { color: var(--color-navy); }
+
+/* ============================================================
+   ICÔNES : pictogrammes SVG au trait (plus d'emoji), cohérents partout
+   ============================================================ */
+.certif-card__badge, .app-card__icon, .feature-card__icon, .value-pill__icon {
+  display: inline-flex; align-items: center; justify-content: center; flex: none;
+  width: 56px; height: 56px; font-size: 0; line-height: 0;
+  background: linear-gradient(135deg, #002A3A, #0A4A63); color: #fff;
+}
+.value-pill__icon { background: rgba(255,255,255,.14); width: 48px; height: 48px; }
+.certif-card__badge svg, .app-card__icon svg, .feature-card__icon svg, .value-pill__icon svg { width: 26px; height: 26px; stroke-width: 1.75; }
+.ico-plain { display: flex; justify-content: center; color: var(--color-navy); }
+.value-pill { align-items: center; border-radius: 0 !important; }
+.value-pill__label { font-size: 1rem; line-height: 1.5; }
+.ico-plain svg { stroke-width: 1.5; }
