@@ -120,15 +120,24 @@
     s1.hidden = !isFr; s2.hidden = isFr;
     parent.appendChild(s1); parent.appendChild(s2);
   }
-  function icon() {
+  /* Icône de Caro : une gousse de caroube (trait, couleur héritée) */
+  function icon(size) {
     var NS = 'http://www.w3.org/2000/svg';
     var s = document.createElementNS(NS, 'svg');
-    s.setAttribute('width', '26'); s.setAttribute('height', '26'); s.setAttribute('viewBox', '0 0 24 24');
-    s.setAttribute('fill', 'none'); s.setAttribute('stroke', 'currentColor'); s.setAttribute('stroke-width', '1.8');
+    s.setAttribute('width', size); s.setAttribute('height', size); s.setAttribute('viewBox', '0 0 32 32');
+    s.setAttribute('fill', 'none'); s.setAttribute('stroke', 'currentColor');
+    s.setAttribute('stroke-width', '2'); s.setAttribute('stroke-linecap', 'round'); s.setAttribute('stroke-linejoin', 'round');
     s.setAttribute('aria-hidden', 'true');
-    var p = document.createElementNS(NS, 'path');
-    p.setAttribute('d', 'M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z');
-    s.appendChild(p);
+    function path(d, extra) {
+      var p = document.createElementNS(NS, 'path'); p.setAttribute('d', d);
+      if (extra) p.setAttribute('fill', 'currentColor');
+      s.appendChild(p);
+    }
+    path('M4 28C3 14 13 5 28.5 4C30 4.2 30.2 5.2 29.5 6C25 9 22.5 13 21 18C19.5 23.5 16 27.5 10 28.8C7.5 29.3 5.2 29.2 4 28z'); // gousse
+    var seeds = document.createElementNS(NS, 'path');                                                             // graines
+    seeds.setAttribute('d', 'M9.5 22.5h.01M13 18.3h.01M17 14.5h.01M21.5 11h.01');
+    seeds.setAttribute('stroke-width', '3');
+    s.appendChild(seeds);
     return s;
   }
 
@@ -138,15 +147,16 @@
   var fab = el('button', 'gsbot__fab'); fab.type = 'button';
   fab.setAttribute('aria-expanded', 'false'); fab.setAttribute('aria-controls', 'gsbot-panel');
   fab.setAttribute('aria-label', 'Caro, assistant / Caro, chat assistant');
-  fab.appendChild(icon());
+  fab.appendChild(icon(30));
 
   var panel = el('section', 'gsbot__panel'); panel.id = 'gsbot-panel'; panel.hidden = true;
   panel.setAttribute('role', 'dialog'); panel.setAttribute('aria-label', 'Caro, assistant Les Greniers du Saïss');
 
   var head = el('header', 'gsbot__head');
+  var avatar = el('span', 'gsbot__avatar'); avatar.appendChild(icon(22));
   var title = el('strong'); bilingual(title, 'Caro · assistant Les Greniers du Saïss', 'Caro · Les Greniers du Saïss assistant');
   var close = el('button', 'gsbot__close', '×'); close.type = 'button'; close.setAttribute('aria-label', 'Fermer / Close');
-  head.appendChild(title); head.appendChild(close);
+  head.appendChild(avatar); head.appendChild(title); head.appendChild(close);
 
   var log = el('div', 'gsbot__log'); log.setAttribute('role', 'log'); log.setAttribute('aria-live', 'polite');
   var chips = el('div', 'gsbot__chips');
