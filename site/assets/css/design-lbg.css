@@ -471,7 +471,7 @@ body.menu-open { overflow: hidden; }
    ============================================================ */
 .page-intro { padding: 4rem 0 1rem; }
 .page-intro__lead {
-  max-width: 900px;
+  max-width: none; text-wrap: pretty;
   font-size: clamp(1.625rem, 2.5vw, 1.97rem);
   font-weight: 300; line-height: 1.5; letter-spacing: var(--letter-title);
   color: var(--color-navy);
@@ -693,6 +693,8 @@ body.menu-open { overflow: hidden; }
 .page-intro { padding: 2rem 0 0; }
 .page-intro + .section, .page-intro + section { padding-top: 1rem; }
 .page-intro + .section .section-title { margin-top: 0; }
+.page-intro + .story-hero { padding-top: 4rem; }
+.page-intro:has(+ .story-hero) { padding-bottom: 2rem; }
 @media (max-width: 768px) {
   .page-intro { padding: 1.5rem 0 0; }
   .page-intro + .section, .page-intro + section { padding-top: .25rem; }
