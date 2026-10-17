@@ -751,7 +751,7 @@ body.menu-open { overflow: hidden; }
    ANGLES LÉGÈREMENT ARRONDIS : boutons, cadres, cartes, photos, champs
    (--r partout ; les éléments ronds, pastilles et la barre de menu restent inchangés)
    ============================================================ */
-:root { --r: 15px; --r-sm: 8px; }
+:root { --r: 20px; --r-sm: 10px; }
 .btn, .btn-gold, .btn-primary, .btn-outline, .btn-outline-primary, .btn-actions .btn,
 .getintouch .btn, button[type="submit"], .hero-panel .btn,
 .app-card, .feature-card, .certif-card, .value-pill, .mcard, .variety-card, .news-card, .product-card,
