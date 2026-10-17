@@ -84,8 +84,8 @@
 
   var FALLBACK = ["Je n'ai pas de réponse précise à cette question. Choisissez l'une des questions ci-dessus ou contactez notre équipe : " + EMAIL + " · " + PHONE + ".",
                   "I don't have a precise answer to that question. Pick one of the questions above or contact our team: " + EMAIL + " · " + PHONE + "."];
-  var GREETING = ["Bonjour, je réponds aux questions fréquentes sur Les Greniers du Saïss, ses produits et l'import/export. Choisissez une question ou écrivez la vôtre.",
-                  "Hello, I answer frequently asked questions about Les Greniers du Saïss, its products and import/export. Pick a question or type your own."];
+  var GREETING = ["Bonjour, je m'appelle Saïssa. Je réponds aux questions fréquentes sur Les Greniers du Saïss, ses produits et l'import/export. Choisissez une question ou écrivez la vôtre.",
+                  "Hello, my name is Saïssa. I answer frequently asked questions about Les Greniers du Saïss, its products and import/export. Pick a question or type your own."];
 
   /* ── Utilitaires ──────────────────────────────────────────── */
   function norm(s) {
@@ -137,14 +137,14 @@
 
   var fab = el('button', 'gsbot__fab'); fab.type = 'button';
   fab.setAttribute('aria-expanded', 'false'); fab.setAttribute('aria-controls', 'gsbot-panel');
-  fab.setAttribute('aria-label', 'Assistant / Chat assistant');
+  fab.setAttribute('aria-label', 'Saïssa, assistant / Saïssa, chat assistant');
   fab.appendChild(icon());
 
   var panel = el('section', 'gsbot__panel'); panel.id = 'gsbot-panel'; panel.hidden = true;
-  panel.setAttribute('role', 'dialog'); panel.setAttribute('aria-label', 'Assistant Les Greniers du Saïss');
+  panel.setAttribute('role', 'dialog'); panel.setAttribute('aria-label', 'Saïssa, assistant Les Greniers du Saïss');
 
   var head = el('header', 'gsbot__head');
-  var title = el('strong'); bilingual(title, 'Assistant Les Greniers du Saïss', 'Les Greniers du Saïss assistant');
+  var title = el('strong'); bilingual(title, 'Saïssa · assistant Les Greniers du Saïss', 'Saïssa · Les Greniers du Saïss assistant');
   var close = el('button', 'gsbot__close', '×'); close.type = 'button'; close.setAttribute('aria-label', 'Fermer / Close');
   head.appendChild(title); head.appendChild(close);
 
@@ -227,5 +227,17 @@
   close.addEventListener('click', function () { open(false); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !panel.hidden) open(false); });
 
-  document.body.appendChild(wrap);
+  /* Page d'accueil : l'assistant est intégré en bas de page (#gsbot-inline) ;
+     ailleurs, il reste un bouton flottant. */
+  var mount = document.getElementById('gsbot-inline');
+  if (mount) {
+    wrap.className = 'gsbot gsbot--inline';
+    fab.hidden = true; close.hidden = true;
+    panel.hidden = false;
+    botMsg(GREETING[0], GREETING[1]);
+    setPlaceholder();
+    mount.appendChild(wrap);
+  } else {
+    document.body.appendChild(wrap);
+  }
 })();
