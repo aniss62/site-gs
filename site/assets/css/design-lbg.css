@@ -113,7 +113,9 @@
 }
 .hd__logo { display: flex; align-items: center; }
 .hd__logo-img {
-  height: 72px; width: auto;
+  height: 80px; width: auto;
+  /* plaque blanche : le texte « Les Greniers » (blanc sur bleu) reste lisible sur le hero sombre */
+  background: #fff; padding: 4px 6px; box-sizing: content-box; border-radius: var(--r-sm) !important;
 }
 .hd--scrolled, .hd--solid { background: var(--color-white); color: var(--color-muted); }
 body.menu-open .hd { background: transparent; color: var(--color-white); }
@@ -197,7 +199,7 @@ body.menu-open { overflow: hidden; }
 
 @media (max-width: 768px) {
   .hd { height: 60px; padding: 0 20px; }
-  .hd__logo-img { height: 42px; }
+  .hd__logo-img { height: 44px; padding: 3px 4px; }
   .hd__icons { display: none; }
   body.hd-offset { padding-top: 60px; }
   body { padding-bottom: 56px; }
