@@ -1,10 +1,10 @@
 /* ============================================================
-   nav.js — Méga-menu partagé desktop + mobile
+   nav.js : en-tête partagé, menu plein écran en cascade, recherche
    IIFE: aucune variable globale sauf window.sitelang
 
-   Note sécurité : container.innerHTML est utilisé intentionnellement.
-   Le contenu est 100% statique (chaînes hardcodées, pas de saisie
-   utilisateur), donc aucun risque XSS. DOMPurify non requis.
+   Note sécurité : innerHTML est utilisé uniquement avec des chaînes
+   statiques définies dans ce fichier (aucune saisie utilisateur).
+   Les résultats de recherche sont construits avec textContent.
    ============================================================ */
 
 (function () {
@@ -15,255 +15,303 @@
   var metaContent = (meta && meta.getAttribute('content')) ? meta.getAttribute('content') : '';
   var root = metaContent ? metaContent + '/' : '';
 
-  /* ── 2. Construire le HTML de la nav ───────────────────────── */
-  var navHTML = '<nav class="nav" id="gnav">'
-    + '<a class="nav__logo" href="' + root + 'index.html">'
-    +   '<img class="nav__logo-img" src="' + root + 'assets/images/logo/logo.png" alt="Les Greniers du Saïss">'
-    + '</a>'
-    + '<div class="nav__links" id="gnavLinks">'
-    +   '<a class="nav__link" href="' + root + 'index.html">'
-    +     '<span class="fr-text">Accueil</span><span class="en-text" hidden>Home</span>'
-    +   '</a>'
-    +   '<div class="nav__item nav__item--mega">'
-    +     '<button class="nav__link nav__link--btn" aria-expanded="false" aria-haspopup="true">'
-    +       '<span class="fr-text">Nos Produits</span><span class="en-text" hidden>Our Products</span>'
-    +       '<span class="nav__chevron">&#9662;</span>'
-    +     '</button>'
-    +     '<div class="nav__mega" hidden>'
-    +       '<div class="mega__col">'
-    +         '<p class="mega__heading">'
-    +           '<span class="fr-text">&#127807; Caroube</span><span class="en-text" hidden>&#127807; Carob</span>'
-    +         '</p>'
-    +         '<a href="' + root + 'products/caroube-brute.html">'
-    +           '<span class="fr-text">Caroube brute</span><span class="en-text" hidden>Raw carob</span>'
-    +         '</a>'
-    +         '<a href="' + root + 'products/graines-caroube.html">'
-    +           '<span class="fr-text">Graines de caroube</span><span class="en-text" hidden>Carob seeds</span>'
-    +         '</a>'
-    +         '<a href="' + root + 'products/pulpe-caroube.html">'
-    +           '<span class="fr-text">Pulpe de caroube</span><span class="en-text" hidden>Carob pulp</span>'
-    +         '</a>'
-    +       '</div>'
-    +       '<div class="mega__col mega__col--right">'
-    +         '<p class="mega__heading">'
-    +           '<span class="fr-text">&#127806; L&eacute;gumineuses</span><span class="en-text" hidden>&#127806; Legumes</span>'
-    +         '</p>'
-    +         '<a href="' + root + 'products/legumineuses.html">'
-    +           '<span class="fr-text">Voir toute la gamme &#8594;</span><span class="en-text" hidden>See full range &#8594;</span>'
-    +         '</a>'
-    +         '<p class="mega__sub">'
-    +           '<span class="fr-text">Lentilles &middot; Pois chiches &middot; F&egrave;ves &middot; F&eacute;verole &middot; Haricots &middot; Pois secs &middot; Petit pois</span>'
-    +           '<span class="en-text" hidden>Lentils &middot; Chickpeas &middot; Fava beans &middot; Field beans &middot; Beans &middot; Dry peas &middot; Green peas</span>'
-    +         '</p>'
-    +         '<p class="mega__heading" style="margin-top:.85rem">'
-    +           '<span class="fr-text">&#127805; Autres fili&egrave;res</span><span class="en-text" hidden>&#127805; Other Lines</span>'
-    +         '</p>'
-    +         '<a href="' + root + 'products/aliments-betail.html">'
-    +           '<span class="fr-text">Aliments de b&eacute;tail et d&eacute;riv&eacute;s</span><span class="en-text" hidden>Animal Feed and Derivatives</span>'
-    +         '</a>'
-    +         '<a href="' + root + 'products/cereales.html">'
-    +           '<span class="fr-text">C&eacute;r&eacute;ales</span><span class="en-text" hidden>Cereals</span>'
-    +         '</a>'
-    +         '<a href="' + root + 'products/epices.html">'
-    +           '<span class="fr-text">&Eacute;pices</span><span class="en-text" hidden>Spices</span>'
-    +         '</a>'
-    +       '</div>'
-    +     '</div>'
-    +   '</div>'
-    +   '<a class="nav__link" href="' + root + 'about.html">'
-    +     '<span class="fr-text">&Agrave; propos</span><span class="en-text" hidden>About</span>'
-    +   '</a>'
-    +   '<div class="nav__item nav__item--mega">'
-    +     '<button class="nav__link nav__link--btn" aria-expanded="false" aria-haspopup="true">'
-    +       '<span class="fr-text">Notre d&eacute;marche</span><span class="en-text" hidden>Our Approach</span>'
-    +       '<span class="nav__chevron">&#9662;</span>'
-    +     '</button>'
-    +     '<div class="nav__mega nav__mega--single" hidden>'
-    +       '<div class="mega__col">'
-    +         '<a href="' + root + 'applications.html">'
-    +           '<span class="fr-text">Applications</span><span class="en-text" hidden>Applications</span>'
-    +         '</a>'
-    +         '<a href="' + root + 'qualite.html">'
-    +           '<span class="fr-text">Qualit&eacute;</span><span class="en-text" hidden>Quality</span>'
-    +         '</a>'
-    +         '<a href="' + root + 'durabilite.html">'
-    +           '<span class="fr-text">Durabilit&eacute;</span><span class="en-text" hidden>Sustainability</span>'
-    +         '</a>'
-    +       '</div>'
-    +     '</div>'
-    +   '</div>'
-    +   '<a class="nav__link" href="' + root + 'news.html">'
-    +     '<span class="fr-text">Actualit&eacute;s</span><span class="en-text" hidden>News</span>'
-    +   '</a>'
-    +   '<a class="nav__link" href="' + root + 'contact.html">Contact</a>'
-    +   '<button class="nav__lang" id="gnavLangBtn">EN</button>'
-    + '</div>'
-    + '<button class="nav__hamburger" id="gnavHamburger" aria-label="Menu" aria-expanded="false">'
-    +   '<span></span><span></span><span></span>'
-    + '</button>'
-    + '</nav>';
+  /* ── 2. Structure du menu (niveaux 1 à 3) ──────────────────── */
+  var MENU = [
+    { fr: 'Nos produits', en: 'Our products', children: [
+      { fr: 'Caroube', en: 'Carob', children: [
+        { fr: 'Caroube brute', en: 'Raw carob', href: 'products/caroube-brute.html' },
+        { fr: 'Graines de caroube', en: 'Carob seeds', href: 'products/graines-caroube.html' },
+        { fr: 'Pulpe de caroube', en: 'Carob pulp', href: 'products/pulpe-caroube.html' }
+      ] },
+      { fr: 'Légumineuses', en: 'Legumes', href: 'products/legumineuses.html' },
+      { fr: 'Céréales', en: 'Cereals', href: 'products/cereales.html' },
+      { fr: 'Épices', en: 'Spices', href: 'products/epices.html' },
+      { fr: 'Aliments de bétail et dérivés', en: 'Animal feed and derivatives', href: 'products/aliments-betail.html' }
+    ] },
+    { fr: 'À propos', en: 'About', href: 'about.html' },
+    { fr: 'Notre démarche', en: 'Our approach', children: [
+      { fr: 'Applications', en: 'Applications', href: 'applications.html' },
+      { fr: 'Qualité', en: 'Quality', href: 'qualite.html' },
+      { fr: 'Durabilité', en: 'Sustainability', href: 'durabilite.html' }
+    ] },
+    { fr: 'Actualités', en: 'News', href: 'news.html' },
+    { fr: 'Contact', en: 'Contact', href: 'contact.html' }
+  ];
 
-  /* ── 3. Injecter dans #main-nav ────────────────────────────── */
-  /* Sécurité : innerHTML est safe ici — contenu 100% statique, aucune entrée utilisateur */
-  var container = document.getElementById('main-nav');
-  if (container) {
-    container.innerHTML = navHTML; /* safe: static hardcoded strings only */
+  /* Pages interrogeables par la recherche */
+  var PAGES = [
+    { fr: 'Accueil', en: 'Home', href: 'index.html', kw: 'accueil home' },
+    { fr: 'Caroube brute', en: 'Raw carob', href: 'products/caroube-brute.html', kw: 'caroube kharoub gousses carob pods' },
+    { fr: 'Graines de caroube', en: 'Carob seeds', href: 'products/graines-caroube.html', kw: 'graines seeds caroube carob' },
+    { fr: 'Pulpe de caroube', en: 'Carob pulp', href: 'products/pulpe-caroube.html', kw: 'pulpe pulp kibbles poudre farine' },
+    { fr: 'Légumineuses', en: 'Legumes', href: 'products/legumineuses.html', kw: 'lentilles pois chiches fèves haricots féverole pois secs petit pois lentils chickpeas fava beans beans peas' },
+    { fr: 'Céréales', en: 'Cereals', href: 'products/cereales.html', kw: 'blé céréales négoce wheat cereals' },
+    { fr: 'Épices', en: 'Spices', href: 'products/epices.html', kw: 'coriandre poivre noir epices spices coriander pepper' },
+    { fr: 'Aliments de bétail et dérivés', en: 'Animal feed and derivatives', href: 'products/aliments-betail.html', kw: 'bétail feed élevage animal' },
+    { fr: 'À propos', en: 'About', href: 'about.html', kw: 'histoire entreprise fondée 2008 about history company' },
+    { fr: 'Applications', en: 'Applications', href: 'applications.html', kw: 'application industrie alimentaire cosmétique pharmacie' },
+    { fr: 'Qualité', en: 'Quality', href: 'qualite.html', kw: 'qualité traçabilité certification quality' },
+    { fr: 'Durabilité', en: 'Sustainability', href: 'durabilite.html', kw: 'durabilité agriculture rse sustainability' },
+    { fr: 'Actualités', en: 'News', href: 'news.html', kw: 'actualités news presse' },
+    { fr: 'Contact', en: 'Contact', href: 'contact.html', kw: 'contact devis quote adresse téléphone' },
+    { fr: 'Mentions légales', en: 'Legal notice', href: 'mentions-legales.html', kw: 'légal legal mentions' },
+    { fr: 'Politique de confidentialité', en: 'Privacy policy', href: 'confidentialite.html', kw: 'confidentialité privacy données rgpd' },
+    { fr: 'Conditions d’utilisation', en: 'Terms of use', href: 'conditions.html', kw: 'conditions terms utilisation' }
+  ];
+
+  var ICON = {
+    globe: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.6 2.7 3.9 5.9 3.9 9.5s-1.3 6.8-3.9 9.5c-2.6-2.7-3.9-5.9-3.9-9.5S9.4 5.2 12 2.5z"/></svg>',
+    search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>',
+    burger: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18"/><path d="M7 12h14"/><path d="M11 18h10"/></svg>',
+    close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>'
+  };
+
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
 
-  /* ── 4. Langue initiale ────────────────────────────────────── */
+  function label(item) {
+    return '<span class="fr-text">' + esc(item.fr) + '</span><span class="en-text" hidden>' + esc(item.en) + '</span>';
+  }
+
+  /* ── 3. Menu en listes imbriquées (colonnes en desktop, accordéon en mobile) ── */
+  function menuList(items, level) {
+    var html = '<ul class="menu__list menu__list--l' + level + '">';
+    for (var i = 0; i < items.length; i++) {
+      var it = items[i];
+      if (it.children) {
+        html += '<li class="menu__li menu__li--parent">'
+          + '<button type="button" class="menu__item" aria-expanded="false">' + label(it)
+          + '<svg class="menu__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>'
+          + menuList(it.children, level + 1) + '</li>';
+      } else {
+        html += '<li class="menu__li"><a class="menu__item" href="' + root + it.href + '">' + label(it) + '</a></li>';
+      }
+    }
+    return html + '</ul>';
+  }
+
+  /* ── 4. HTML de l'en-tête, du menu, de la recherche et de la barre mobile ── */
+  var navHTML =
+      '<header class="hd" id="gnav">'
+    +   '<a class="hd__logo" href="' + root + 'index.html" aria-label="Les Greniers du Saïss">'
+    +     '<img class="hd__logo-img" src="' + root + 'assets/images/logo/logo.png" alt="Les Greniers du Saïss">'
+    +   '</a>'
+    +   '<div class="hd__icons">'
+    +     '<button type="button" class="hd__icon" data-act="lang" aria-label="Langue / Language">' + ICON.globe + '<span class="hd__lang" id="gnavLangBtn">EN</span></button>'
+    +     '<button type="button" class="hd__icon" data-act="search" aria-label="Rechercher / Search">' + ICON.search + '</button>'
+    +     '<button type="button" class="hd__icon hd__burger" data-act="menu" aria-label="Menu" aria-expanded="false" aria-controls="gmenu">'
+    +       '<span class="hd__burger-open">' + ICON.burger + '</span><span class="hd__burger-close">' + ICON.close + '</span>'
+    +     '</button>'
+    +   '</div>'
+    + '</header>'
+
+    + '<div class="menu" id="gmenu" hidden>'
+    +   '<nav class="menu__cols" aria-label="Menu principal">' + menuList(MENU, 1) + '</nav>'
+    + '</div>'
+
+    + '<div class="search" id="gsearch" hidden role="dialog" aria-modal="true" aria-label="Recherche">'
+    +   '<div class="search__box">'
+    +     '<input class="search__input" id="gsearchInput" type="search" autocomplete="off" placeholder="Rechercher…" aria-label="Rechercher">'
+    +     '<ul class="search__results" id="gsearchResults"></ul>'
+    +   '</div>'
+    + '</div>'
+
+    + '<div class="mbar" id="gmbar">'
+    +   '<button type="button" class="mbar__btn" data-act="lang" aria-label="Langue / Language">' + ICON.globe + '</button>'
+    +   '<button type="button" class="mbar__btn" data-act="search" aria-label="Rechercher / Search">' + ICON.search + '</button>'
+    +   '<button type="button" class="mbar__btn mbar__burger" data-act="menu" aria-label="Menu" aria-expanded="false" aria-controls="gmenu">'
+    +     '<span class="hd__burger-open">' + ICON.burger + '</span><span class="hd__burger-close">' + ICON.close + '</span>'
+    +   '</button>'
+    + '</div>';
+
+  /* ── 5. Injecter dans #main-nav ────────────────────────────── */
+  var container = document.getElementById('main-nav');
+  if (container) {
+    container.innerHTML = navHTML; /* safe: static strings only */
+  }
+
+  var gnav = document.getElementById('gnav');
+  var menu = document.getElementById('gmenu');
+  var search = document.getElementById('gsearch');
+  var searchInput = document.getElementById('gsearchInput');
+  var searchResults = document.getElementById('gsearchResults');
+  if (!gnav || !menu) return;
+
+  /* ── 6. Langue ─────────────────────────────────────────────── */
   var lang = localStorage.getItem('sitelang') || localStorage.getItem('gs_lang') || 'fr';
   window.sitelang = lang;
 
-  /* ── 5. applyLang : bascule .fr-text / .en-text ───────────── */
   function applyLang() {
+    var isFr = (lang === 'fr');
     var frEls = document.querySelectorAll('.fr-text');
     var enEls = document.querySelectorAll('.en-text');
-    var isFr = (lang === 'fr');
-
-    for (var i = 0; i < frEls.length; i++) {
-      frEls[i].hidden = !isFr;
-    }
-    for (var j = 0; j < enEls.length; j++) {
-      enEls[j].hidden = isFr;
-    }
+    for (var i = 0; i < frEls.length; i++) frEls[i].hidden = !isFr;
+    for (var j = 0; j < enEls.length; j++) enEls[j].hidden = isFr;
 
     var btn = document.getElementById('gnavLangBtn');
-    if (btn) {
-      btn.textContent = isFr ? 'EN' : 'FR';
-    }
+    if (btn) btn.textContent = isFr ? 'EN' : 'FR';
+    if (searchInput) searchInput.placeholder = isFr ? 'Rechercher…' : 'Search…';
 
     window.sitelang = lang;
     document.documentElement.lang = lang;
   }
-
-  /* Appliquer immédiatement */
   applyLang();
 
-  /* ── 6. Obtenir les éléments DOM après injection ───────────── */
-  var gnav        = document.getElementById('gnav');
-  var gnavLinks   = document.getElementById('gnavLinks');
-  var megaItems   = gnav ? gnav.querySelectorAll('.nav__item--mega') : [];
-  var langBtn     = document.getElementById('gnavLangBtn');
-  var hamburger   = document.getElementById('gnavHamburger');
-
-  /* ── 7. Bouton langue ──────────────────────────────────────── */
-  if (langBtn) {
-    langBtn.addEventListener('click', function () {
-      lang = (lang === 'fr') ? 'en' : 'fr';
-      localStorage.setItem('sitelang', lang);
-      localStorage.setItem('gs_lang', lang);
-      applyLang();
-    });
+  function toggleLang() {
+    lang = (lang === 'fr') ? 'en' : 'fr';
+    localStorage.setItem('sitelang', lang);
+    localStorage.setItem('gs_lang', lang);
+    applyLang();
+    /* Met aussi à jour les textes pilotés par data-i18n */
+    if (typeof I18N !== 'undefined' && I18N && I18N.setLang) I18N.setLang(lang);
+    if (!search.hidden) renderResults(searchInput.value);
   }
 
-  /* ── 8. Méga-menus desktop : mouseenter / mouseleave ───────── */
-  var hoverQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
-
-  function closeMega(item) {
-    var panel = item.querySelector('.nav__mega');
-    var btn   = item.querySelector('.nav__link--btn');
-    if (panel) panel.hidden = true;
-    if (btn) btn.setAttribute('aria-expanded', 'false');
-    item.classList.remove('is-open');
-  }
-
-  for (var m = 0; m < megaItems.length; m++) {
-    (function (item) {
-      var panel = item.querySelector('.nav__mega');
-      var btn   = item.querySelector('.nav__link--btn');
-      if (!panel || !btn) return;
-
-      item.addEventListener('mouseenter', function () {
-        if (!hoverQuery.matches) return;
-        panel.hidden = false;
-        btn.setAttribute('aria-expanded', 'true');
-        item.classList.add('is-open');
-      });
-
-      item.addEventListener('mouseleave', function () {
-        if (!hoverQuery.matches) return;
-        closeMega(item);
-      });
-
-      /* ── 9. Méga-menu mobile : clic sur le bouton ────────────── */
-      btn.addEventListener('click', function (e) {
-        e.stopPropagation();
-        var isOpen = !panel.hidden;
-        /* Fermer les autres méga-menus ouverts */
-        for (var n = 0; n < megaItems.length; n++) {
-          if (megaItems[n] !== item) closeMega(megaItems[n]);
-        }
-        panel.hidden = isOpen;
-        btn.setAttribute('aria-expanded', String(!isOpen));
-        item.classList.toggle('is-open', !isOpen);
-      });
-    })(megaItems[m]);
-  }
-
-  /* ── 10. Hamburger ─────────────────────────────────────────── */
-  if (hamburger && gnavLinks) {
-    hamburger.addEventListener('click', function (e) {
-      e.stopPropagation();
-      var isOpen = gnavLinks.classList.toggle('nav__links--open');
-      hamburger.setAttribute('aria-expanded', String(isOpen));
-      hamburger.classList.toggle('is-open', isOpen);
-    });
-  }
-
-  /* ── 11. Fermer sur Escape ─────────────────────────────────── */
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
-      for (var e1 = 0; e1 < megaItems.length; e1++) closeMega(megaItems[e1]);
-      if (gnavLinks) gnavLinks.classList.remove('nav__links--open');
-      if (hamburger) {
-        hamburger.setAttribute('aria-expanded', 'false');
-        hamburger.classList.remove('is-open');
-      }
+  /* ── 7. En-tête : transparent sur le hero, blanc au scroll ─── */
+  /* Le script s'exécute avant le contenu de la page : on attend le DOM complet
+     pour savoir s'il y a un hero, et on réapplique la langue au contenu chargé. */
+  function afterDomReady() {
+    var hasHero = !!document.querySelector('.hero, .page-hero:not(.page-hero--light), .story-hero');
+    document.body.classList.add('has-hd');
+    if (!hasHero) {
+      gnav.classList.add('hd--solid');
+      document.body.classList.add('hd-offset');
     }
+    applyLang();
+    onScroll();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', afterDomReady);
+  else afterDomReady();
+
+  function onScroll() {
+    gnav.classList.toggle('hd--scrolled', window.scrollY > 20);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ── 8. Menu plein écran ───────────────────────────────────── */
+  var burgers = document.querySelectorAll('[data-act="menu"]');
+
+  function setBurgerState(open) {
+    for (var i = 0; i < burgers.length; i++) burgers[i].setAttribute('aria-expanded', String(open));
+  }
+
+  function closeBranches(except) {
+    var parents = menu.querySelectorAll('.menu__li--parent.is-open');
+    for (var i = 0; i < parents.length; i++) {
+      if (except && (parents[i] === except || parents[i].contains(except))) continue;
+      parents[i].classList.remove('is-open');
+      parents[i].querySelector('.menu__item').setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  function openMenu() {
+    closeSearch();
+    menu.hidden = false;
+    document.body.classList.add('menu-open');
+    setBurgerState(true);
+  }
+
+  function closeMenu() {
+    menu.hidden = true;
+    if (search.hidden) document.body.classList.remove('menu-open');
+    setBurgerState(false);
+    closeBranches(null);
+  }
+
+  function toggleMenu() { if (menu.hidden) openMenu(); else closeMenu(); }
+
+  menu.addEventListener('click', function (e) {
+    var btn = e.target.closest('button.menu__item');
+    if (btn) {
+      var li = btn.parentNode;
+      var willOpen = !li.classList.contains('is-open');
+      closeBranches(li);
+      li.classList.toggle('is-open', willOpen);
+      btn.setAttribute('aria-expanded', String(willOpen));
+      return;
+    }
+    if (e.target.closest('a')) { closeMenu(); return; }
+    /* Clic sur le fond du menu (hors liens) : fermer */
+    if (e.target === menu || e.target.classList.contains('menu__cols')) closeMenu();
   });
 
-  /* ── 12. Fermer sur clic extérieur ─────────────────────────── */
+  /* ── 9. Recherche ──────────────────────────────────────────── */
+  function renderResults(q) {
+    while (searchResults.firstChild) searchResults.removeChild(searchResults.firstChild);
+    q = (q || '').trim().toLowerCase();
+    if (!q) return;
+    var shown = 0;
+    for (var i = 0; i < PAGES.length && shown < 8; i++) {
+      var p = PAGES[i];
+      var hay = (p.fr + ' ' + p.en + ' ' + p.kw).toLowerCase();
+      if (hay.indexOf(q) === -1) continue;
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.href = root + p.href;
+      a.textContent = (lang === 'fr') ? p.fr : p.en;
+      li.appendChild(a);
+      searchResults.appendChild(li);
+      shown++;
+    }
+    if (!shown) {
+      var none = document.createElement('li');
+      none.className = 'search__none';
+      none.textContent = (lang === 'fr') ? 'Aucun résultat' : 'No results';
+      searchResults.appendChild(none);
+    }
+  }
+
+  function openSearch() {
+    closeMenu();
+    search.hidden = false;
+    document.body.classList.add('menu-open');
+    searchInput.value = '';
+    renderResults('');
+    setTimeout(function () { searchInput.focus(); }, 30);
+  }
+
+  function closeSearch() {
+    if (search.hidden) return;
+    search.hidden = true;
+    if (menu.hidden) document.body.classList.remove('menu-open');
+  }
+
+  searchInput.addEventListener('input', function () { renderResults(searchInput.value); });
+  searchInput.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+      var first = searchResults.querySelector('a');
+      if (first) window.location.href = first.href;
+    }
+  });
+  search.addEventListener('click', function (e) {
+    if (e.target === search) closeSearch();
+  });
+
+  /* ── 10. Boutons d'en-tête, barre mobile et bouton du hero ─── */
   document.addEventListener('click', function (e) {
-    if (!gnav || gnav.contains(e.target)) return;
-
-    /* Fermer les méga-menus */
-    for (var c1 = 0; c1 < megaItems.length; c1++) closeMega(megaItems[c1]);
-
-    /* Fermer le menu mobile */
-    if (gnavLinks && gnavLinks.classList.contains('nav__links--open')) {
-      gnavLinks.classList.remove('nav__links--open');
-      if (hamburger) {
-        hamburger.setAttribute('aria-expanded', 'false');
-        hamburger.classList.remove('is-open');
-      }
-    }
+    var b = e.target.closest('[data-act]');
+    if (!b) return;
+    var act = b.getAttribute('data-act');
+    if (act === 'lang') toggleLang();
+    else if (act === 'search') { if (search.hidden) openSearch(); else closeSearch(); }
+    else if (act === 'menu') toggleMenu();
+    else if (act === 'open-menu') openMenu();
   });
 
-  /* ── 13. Marquer le lien actif ─────────────────────────────── */
-  function markActiveLink() {
-    var pathname = window.location.pathname;
-    var filename = pathname.split('/').pop() || '';
+  /* ── 11. Échap ferme menu et recherche ─────────────────────── */
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { closeMenu(); closeSearch(); }
+  });
 
-    var links = document.querySelectorAll('#gnav .nav__link, #gnav .mega__col a');
+  /* ── 12. Page courante ─────────────────────────────────────── */
+  (function markActiveLink() {
+    var filename = window.location.pathname.split('/').pop() || 'index.html';
+    var links = menu.querySelectorAll('a.menu__item');
     for (var k = 0; k < links.length; k++) {
-      var href = links[k].getAttribute('href') || '';
-      var hrefFile = href.split('/').pop() || '';
-
-      var isActive = false;
-
-      if (hrefFile === 'index.html') {
-        /* Page d'accueil active si "/" ou "/index.html" ou filename vide */
-        isActive = (pathname === '/' || pathname.endsWith('/index.html') || filename === '' || filename === 'index.html');
-      } else if (hrefFile && hrefFile === filename) {
-        isActive = true;
-      }
-
-      if (isActive) {
-        links[k].classList.add('nav__link--active');
-      }
+      var hrefFile = (links[k].getAttribute('href') || '').split('/').pop();
+      if (hrefFile === filename) links[k].setAttribute('aria-current', 'page');
     }
-  }
-
-  markActiveLink();
-
+  })();
 })();

@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/layout.css">
   <link rel="stylesheet" href="../assets/css/components.css">
+<link rel="stylesheet" href="../assets/css/design-lbg.css">
 </head>
 <body>
 <div id="main-nav"></div>
@@ -18,7 +19,7 @@
 
 <!-- Page Hero -->
 <header class="page-hero">
-  <div class="page-hero__bg" style="background-image:url('../assets/images/epices-coriandre-poivre.jpg');" role="img" aria-label="Épices, coriandre et poivre noir"></div>
+  <div class="page-hero__bg" style="background-image:url('../assets/images/epices-hero.jpg');" role="img" aria-label="Épices, coriandre et poivre noir"></div>
   <div class="page-hero__overlay"></div>
   <div class="page-hero__content">
     <nav class="breadcrumb">
@@ -34,66 +35,63 @@
   </div>
 </header>
 
-<!-- Product Detail -->
-<section class="product-detail">
-  <div class="product-detail__inner container">
-    <!-- Left: image -->
-    <div class="product-detail__image" data-reveal>
-      <img src="../assets/images/epices-coriandre-poivre.jpg" alt="Coriandre et poivre noir, Les Greniers du Saïss" loading="lazy">
-    </div>
-    <!-- Right: description + varieties -->
-    <div data-reveal>
-      <h2 class="section-title" data-i18n="products.epices.hero_title">Épices</h2>
-      <div class="divider"></div>
-      <p style="color:var(--color-text-muted);margin-bottom:2rem" data-i18n="products.epices.desc">Les Greniers du Saïss élargit sa gamme aux épices, avec une sélection rigoureuse de coriandre et de poivre noir. La coriandre est cultivée localement au Maroc, tandis que le poivre noir est importé des grandes régions productrices internationales. Nos épices répondent aux exigences de qualité et de traçabilité des industriels de l'agroalimentaire et des négociants.</p>
+<!-- Introduction : chapô à gauche, texte à droite -->
+<section class="prod-intro prod-intro--compact">
+  <div class="container two-col">
+    <p class="prod-intro__lead" data-i18n="products.epices.hero_sub">Coriandre et poivre noir sélectionnés, entre production locale et approvisionnement international</p>
+    <p class="prod-intro__text" data-i18n="products.epices.desc">Les Greniers du Saïss élargit sa gamme aux épices, avec une sélection rigoureuse de coriandre et de poivre noir. La coriandre est cultivée localement au Maroc, tandis que le poivre noir est importé des grandes régions productrices internationales. Nos épices répondent aux exigences de qualité et de traçabilité des industriels de l'agroalimentaire et des négociants.</p>
+  </div>
+</section>
 
-      <div style="margin-bottom:2rem">
-        <h4 data-i18n="products.epices.varieties_title">Nos variétés disponibles</h4>
-        <div class="grid-3" style="margin-top:1rem;gap:.75rem">
-          <div class="app-card" style="padding:0;text-align:center;overflow:hidden" data-reveal>
-            <img src="../assets/images/coriandre.jpg" alt="Coriandre" style="width:100%;height:110px;object-fit:cover" loading="lazy">
-            <p style="margin:.75rem 0 .15rem;font-weight:600" data-i18n="products.epices.var_coriander">Coriandre</p>
-            <p style="margin:0 0 .75rem;font-size:.72rem;color:var(--color-text-muted)" data-i18n="products.epices.origin_coriander">Local · Maroc</p>
-          </div>
-          <div class="app-card" style="padding:0;text-align:center;overflow:hidden" data-reveal>
-            <img src="../assets/images/poivre-noir.jpg" alt="Poivre noir" style="width:100%;height:110px;object-fit:cover" loading="lazy">
-            <p style="margin:.75rem 0 .15rem;font-weight:600" data-i18n="products.epices.var_pepper">Poivre noir</p>
-            <p style="margin:0 0 .75rem;font-size:.72rem;color:var(--color-text-muted)" data-i18n="products.epices.origin_pepper">Import · Inde, Vietnam</p>
-          </div>
+<!-- Variétés + conditionnements (mise en page resserrée) -->
+<section class="product-detail product-detail--compact">
+  <div class="product-detail__inner container">
+    <div data-reveal>
+      <h4 data-i18n="products.epices.varieties_title">Nos variétés disponibles</h4>
+      <div class="variety-pair">
+        <div class="variety-card">
+          <img src="../assets/images/coriandre.jpg" alt="Coriandre" loading="lazy">
+          <p class="variety-card__name" data-i18n="products.epices.var_coriander">Coriandre</p>
+          <p class="variety-card__origin" data-i18n="products.epices.origin_coriander">Local · Maroc</p>
+        </div>
+        <div class="variety-card">
+          <img src="../assets/images/poivre-noir.jpg" alt="Poivre noir" loading="lazy">
+          <p class="variety-card__name" data-i18n="products.epices.var_pepper">Poivre noir</p>
+          <p class="variety-card__origin" data-i18n="products.epices.origin_pepper">Import · Inde, Vietnam</p>
         </div>
       </div>
-
-      <div style="margin-top:2rem">
-        <h4 data-i18n="products.packaging_title">Conditionnements</h4>
-        <p style="font-size:.9rem;color:var(--color-text-muted)" data-i18n="products.epices.spec_packaging">Sacs de 25 kg ou 50 kg, big bags de 500 kg, conditionnement adapté aux normes d'exportation alimentaire.</p>
-      </div>
-
-      <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap">
-        <a href="../index.html#products" class="btn btn-outline-primary" data-i18n="products.back">Retour aux produits</a>
-      </div>
+    </div>
+    <div class="product-detail__side" data-reveal>
+      <details class="accordion">
+        <summary data-i18n="products.packaging_title">Conditionnements</summary>
+        <div class="accordion__body"><p data-i18n="products.epices.spec_packaging">Sacs de 25 kg ou 50 kg, big bags de 500 kg, conditionnement adapté aux normes d'exportation alimentaire.</p></div>
+      </details>
+      <a href="../index.html#products" class="btn btn-outline-primary" data-i18n="products.back">Retour aux produits</a>
     </div>
   </div>
 </section>
 
 <!-- Applications -->
-<section class="section section--bg">
+<section class="section section--bg section--compact">
   <div class="container">
     <h2 class="section-title text-center" data-i18n="products.apps_title">Applications</h2>
     <div class="divider divider--center"></div>
-    <div class="grid-3" style="margin-top:2rem">
-      <div class="app-card" data-reveal>
-        <span style="font-size:2rem">🍽️</span>
-        <h3 data-i18n="applications.food_title">Alimentaire</h3>
+    <div data-tabs style="margin-top:2rem">
+      <div class="tabs" role="tablist" aria-label="Applications">
+        <button class="tabs__tab" role="tab" id="atab0" aria-controls="apanel0" aria-selected="true" data-i18n="applications.food_title">Alimentaire</button>
+        <button class="tabs__tab" role="tab" id="atab1" aria-controls="apanel1" aria-selected="false" tabindex="-1" data-i18n="applications.export_title">Import / Export</button>
+        <button class="tabs__tab" role="tab" id="atab2" aria-controls="apanel2" aria-selected="false" tabindex="-1" data-i18n="applications.agri_title">Agriculture</button>
+      </div>
+      <div class="tabpanel-text two-col" role="tabpanel" id="apanel0" aria-labelledby="atab0">
+        <h3 class="two-col__lead" data-i18n="applications.food_title">Alimentaire</h3>
         <p data-i18n="applications.food_epices_desc">Assaisonnement, transformation agroalimentaire, charcuterie et conserves.</p>
       </div>
-      <div class="app-card" data-reveal>
-        <span style="font-size:2rem">🌍</span>
-        <h3 data-i18n="applications.export_title">Import / Export</h3>
+      <div class="tabpanel-text two-col" role="tabpanel" id="apanel1" aria-labelledby="atab1" hidden>
+        <h3 class="two-col__lead" data-i18n="applications.export_title">Import / Export</h3>
         <p data-i18n="applications.export_desc">Livraison internationale, documentation complète, conditionnement aux normes de l'import et de l'export.</p>
       </div>
-      <div class="app-card" data-reveal>
-        <span style="font-size:2rem">🌱</span>
-        <h3 data-i18n="applications.agri_title">Agriculture</h3>
+      <div class="tabpanel-text two-col" role="tabpanel" id="apanel2" aria-labelledby="atab2" hidden>
+        <h3 class="two-col__lead" data-i18n="applications.agri_title">Agriculture</h3>
         <p data-i18n="applications.agri_epices_desc">Semences de coriandre sélectionnées pour la culture et la rotation des cultures.</p>
       </div>
     </div>
@@ -101,7 +99,7 @@
 </section>
 
 <!-- Related products -->
-<section class="section">
+<section class="section section--compact">
   <div class="container">
     <h2 class="section-title" style="margin-bottom:1.5rem" data-i18n="products.related_title">Autres produits</h2>
     <div style="display:flex;gap:1rem;flex-wrap:wrap">

@@ -114,6 +114,7 @@
   "products": {
     "hero_sub": "Matières premières agricoles d'exception du Maroc",
     "specs_title": "Spécifications techniques",
+    "origin_title": "Origine",
     "packaging_title": "Conditionnements disponibles",
     "apps_title": "Applications",
     "cta_quote": "Demander un devis pour ce produit",
@@ -171,6 +172,7 @@
       "var_beans": "Haricots",
       "origin_beans": "Local · Maghreb",
       "var_peas": "Pois secs",
+      "origin_peas": "Local",
       "var_feverole": "Féverole",
       "origin_feverole": "Local · Europe",
       "var_petit_pois": "Petit pois",

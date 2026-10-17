@@ -411,7 +411,7 @@ a{color:inherit;text-decoration:none}
   font-size: .68rem;
   text-transform: uppercase;
   letter-spacing: .18em;
-  color: #E8B84B;
+  color: var(--color-accent);
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
@@ -427,7 +427,7 @@ a{color:inherit;text-decoration:none}
 }
 
 .scrub-panel h2 {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-heading);
   font-size: clamp(2.2rem, 4.5vw, 3.8rem);
   font-weight: 400;
   line-height: 1.1;
@@ -444,7 +444,7 @@ a{color:inherit;text-decoration:none}
   font-size: clamp(.88rem, 1.2vw, 1rem);
   color: #c8c4b8;
   line-height: 1.75;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-weight: 300;
   max-width: 440px;
   margin: 0 0 1.5rem;
@@ -486,7 +486,7 @@ a{color:inherit;text-decoration:none}
 }
 
 .scrub-dot.active {
-  background: #E8B84B;
+  background: var(--color-accent);
   transform: scale(1.5);
 }
 

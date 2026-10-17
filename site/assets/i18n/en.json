@@ -114,6 +114,7 @@
   "products": {
     "hero_sub": "Exceptional agricultural raw materials from Morocco",
     "specs_title": "Technical Specifications",
+    "origin_title": "Origin",
     "packaging_title": "Available Packaging",
     "apps_title": "Applications",
     "cta_quote": "Request a Quote for This Product",
@@ -171,6 +172,7 @@
       "var_beans": "Kidney Beans",
       "origin_beans": "Local · Maghreb",
       "var_peas": "Dried Peas",
+      "origin_peas": "Local",
       "var_feverole": "Field Beans",
       "origin_feverole": "Local · Europe",
       "var_petit_pois": "Green Peas",
