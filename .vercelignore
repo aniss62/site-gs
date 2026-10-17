@@ -1,0 +1,5 @@
+# Fichiers PHP obsolètes : non publiés sur Vercel (le cron des actualités tourne sur GitHub Actions)
+site/*.php
+site/vendor
+site/composer.json
+site/composer.lock
