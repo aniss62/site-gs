@@ -751,7 +751,7 @@ body.menu-open { overflow: hidden; }
    ANGLES LÉGÈREMENT ARRONDIS : boutons, cadres, cartes, photos, champs
    (--r partout ; les éléments ronds, pastilles et la barre de menu restent inchangés)
    ============================================================ */
-:root { --r: 10px; --r-sm: 6px; }
+:root { --r: 15px; --r-sm: 8px; }
 .btn, .btn-gold, .btn-primary, .btn-outline, .btn-outline-primary, .btn-actions .btn,
 .getintouch .btn, button[type="submit"], .hero-panel .btn,
 .app-card, .feature-card, .certif-card, .value-pill, .mcard, .variety-card, .news-card, .product-card,
@@ -769,3 +769,5 @@ body.menu-open { overflow: hidden; }
 .gsbot__panel .gsbot__head { border-radius: 0; }
 /* onglets : seuls les coins du haut sont arrondis */
 .tabs__tab { border-radius: var(--r) var(--r) 0 0 !important; }
+/* carte de la page Contact */
+div:has(> iframe[src*="openstreetmap"]), iframe[src*="openstreetmap"] { border-radius: var(--r) !important; overflow: hidden; }

@@ -15,7 +15,7 @@ cd site && php -S localhost:8080
 
 ## Charte (style lbg.it, voir docs/prompt-style-lbg_1.md)
 - Bleu nuit : #002A3A | Jaune doré (accent) : #DDAA00 | Texte : #404040 | Gris clair : #E5E5E5
-- Typo : Gill Sans Light (Lato 300 en secours) + Titillium Web (H1 et menu). Angles légèrement arrondis (variable --r = 10 px dans design-lbg.css), aucune ombre.
+- Typo : Gill Sans Light (Lato 300 en secours) + Titillium Web (H1 et menu). Angles légèrement arrondis (variable --r = 15 px dans design-lbg.css), aucune ombre.
 - Les tokens sont dans `site/assets/css/main.css`, l'échelle typographique et les composants du nouveau design dans `site/assets/css/design-lbg.css` (chargé en dernier sur toutes les pages).
 
 ## i18n
