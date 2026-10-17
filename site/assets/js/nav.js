@@ -56,7 +56,13 @@
     { fr: 'Contact', en: 'Contact', href: 'contact.html', kw: 'contact devis quote adresse téléphone' },
     { fr: 'Mentions légales', en: 'Legal notice', href: 'mentions-legales.html', kw: 'légal legal mentions' },
     { fr: 'Politique de confidentialité', en: 'Privacy policy', href: 'confidentialite.html', kw: 'confidentialité privacy données rgpd' },
-    { fr: 'Conditions d’utilisation', en: 'Terms of use', href: 'conditions.html', kw: 'conditions terms utilisation' }
+    { fr: 'Conditions d’utilisation', en: 'Terms of use', href: 'conditions.html', kw: 'conditions terms utilisation' },
+    /* Rubriques (sections) à l'intérieur des pages */
+    { fr: 'Recherche & Développement', en: 'Research & Development', href: 'about.html#rd-heading', kw: 'recherche developpement r&d innovation universités universites research development' },
+    { fr: 'Nos propres terrains', en: 'Our own farmland', href: 'about.html#terrains-heading', kw: 'terrains exploitation agricole farmland farm' },
+    { fr: 'Un terroir d’exception', en: 'An exceptional terroir', href: 'about.html#saiss-heading', kw: 'saïss saiss terroir région region plaine' },
+    { fr: 'Nos certifications', en: 'Our certifications', href: 'qualite.html#certif-heading', kw: 'certifications iso 22000 halal bio' },
+    { fr: 'Traçabilité', en: 'Traceability', href: 'qualite.html#trace-heading', kw: 'traçabilité tracabilite lot récolte livraison batch' }
   ];
 
   var ICON = {
@@ -238,24 +244,90 @@
   });
 
   /* ── 9. Recherche ──────────────────────────────────────────── */
+  /* minuscules et sans accents : « recherche », « Recherche », « développement » ou « developpement » trouvent la même chose */
+  function fold(t) { return String(t).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); }
+
+  /* Index plein texte (assets/data/search-index.json, généré par equipment/build_search_index.py) */
+  var indexData = null, indexLoading = false;
+  function loadIndex(done) {
+    if (indexData) { done(); return; }
+    if (indexLoading) return;
+    indexLoading = true;
+    fetch(root + 'assets/data/search-index.json').then(function (r) { return r.json(); }).then(function (d) {
+      indexData = d.map(function (e) { e._h = fold(e.hf + ' ' + e.he); e._t = fold(e.tf + ' ' + e.te); return e; });
+      done();
+    }).catch(function () { indexData = []; done(); });
+  }
+
+  function addResult(href, title, where, text, tokens) {
+    var li = document.createElement('li');
+    var a = document.createElement('a');
+    a.href = root + href;
+    var t = document.createElement('span');
+    t.className = 'search__title'; t.textContent = title;
+    a.appendChild(t);
+    if (where) {
+      var w = document.createElement('span');
+      w.className = 'search__where'; w.textContent = where;
+      a.appendChild(w);
+    }
+    if (text) {
+      var sn = document.createElement('span');
+      sn.className = 'search__snippet';
+      var f = fold(text), at = -1, len = 0;
+      for (var k = 0; k < tokens.length; k++) { var j = f.indexOf(tokens[k]); if (j > -1 && (at === -1 || j < at)) { at = j; len = tokens[k].length; } }
+      if (at === -1) { sn.textContent = text.slice(0, 150) + (text.length > 150 ? '…' : ''); }
+      else {
+        var from = Math.max(0, at - 60), to = Math.min(text.length, at + len + 90);
+        if (from > 0) sn.appendChild(document.createTextNode('…'));
+        sn.appendChild(document.createTextNode(text.slice(from, at)));
+        var m = document.createElement('mark'); m.textContent = text.slice(at, at + len); sn.appendChild(m);
+        sn.appendChild(document.createTextNode(text.slice(at + len, to)));
+        if (to < text.length) sn.appendChild(document.createTextNode('…'));
+      }
+      a.appendChild(sn);
+    }
+    li.appendChild(a);
+    searchResults.appendChild(li);
+  }
+
   function renderResults(q) {
     while (searchResults.firstChild) searchResults.removeChild(searchResults.firstChild);
-    q = (q || '').trim().toLowerCase();
-    if (!q) return;
-    var shown = 0;
-    for (var i = 0; i < PAGES.length && shown < 8; i++) {
+    var tokens = fold((q || '').trim()).split(/\s+/).filter(function (x) { return x.length > 0; });
+    if (!tokens.length) return;
+    var seen = {}, shown = 0;
+    /* 1. pages (titres et mots-clés) */
+    for (var i = 0; i < PAGES.length && shown < 4; i++) {
       var p = PAGES[i];
-      var hay = (p.fr + ' ' + p.en + ' ' + p.kw).toLowerCase();
-      if (hay.indexOf(q) === -1) continue;
-      var li = document.createElement('li');
-      var a = document.createElement('a');
-      a.href = root + p.href;
-      a.textContent = (lang === 'fr') ? p.fr : p.en;
-      li.appendChild(a);
-      searchResults.appendChild(li);
+      var hay = fold(p.fr + ' ' + p.en + ' ' + p.kw);
+      if (!tokens.every(function (t) { return hay.indexOf(t) > -1; })) continue;
+      seen[p.href] = true;
+      addResult(p.href, (lang === 'fr') ? p.fr : p.en, '', '', tokens);
       shown++;
     }
-    if (!shown) {
+    /* 2. tout le contenu du site */
+    if (!indexData) { loadIndex(function () { renderResults(searchInput.value); }); }
+    else {
+      var hits = [];
+      indexData.forEach(function (e) {
+        var all = e._h + ' ' + e._t;
+        for (var k = 0; k < tokens.length; k++) if (all.indexOf(tokens[k]) === -1) return;
+        var score = 0;
+        tokens.forEach(function (t) { if (e._h.indexOf(t) > -1) score += 5; if (e._t.indexOf(t) > -1) score += 1; });
+        hits.push({ e: e, s: score });
+      });
+      hits.sort(function (x, y) { return y.s - x.s; });
+      for (var h = 0; h < hits.length && shown < 10; h++) {
+        var e = hits[h].e, href = e.p + (e.a ? '#' + e.a : '');
+        if (seen[href] || (!e.a && seen[e.p])) continue;
+        seen[href] = true;
+        var fr = (lang === 'fr');
+        addResult(href, fr ? e.hf : e.he, (fr ? e.pf : e.pe) === (fr ? e.hf : e.he) ? '' : (fr ? e.pf : e.pe), fr ? e.tf : e.te, tokens);
+        shown++;
+      }
+    }
+    if (!searchResults.firstChild) {
+      if (!indexData) return;
       var none = document.createElement('li');
       none.className = 'search__none';
       none.textContent = (lang === 'fr') ? 'Aucun résultat' : 'No results';
@@ -269,6 +341,7 @@
     document.body.classList.add('menu-open');
     searchInput.value = '';
     renderResults('');
+    loadIndex(function () {});
     setTimeout(function () { searchInput.focus(); }, 30);
   }
 

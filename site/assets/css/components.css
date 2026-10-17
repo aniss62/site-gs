@@ -349,7 +349,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .08em;
-  color: var(--color-gold-dark);
+  color: var(--color-accent-text);
   margin-bottom: .5rem;
 }
 
@@ -622,7 +622,7 @@
   margin-bottom: .4rem;
 }
 
-.form-group label .required { color: #d9534f; margin-left: 2px; }
+.form-group label .required { color: #B3261E; margin-left: 2px; }
 
 .form-control,
 .form-group .form-control,

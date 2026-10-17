@@ -14,8 +14,10 @@
 <link rel="stylesheet" href="../assets/css/design-lbg.css">
 </head>
 <body>
+<a class="skip-link" href="#main"><span class="fr-text">Aller au contenu</span><span class="en-text" hidden>Skip to content</span></a>
 <div id="main-nav"></div>
 <script src="../assets/js/nav.js"></script>
+<main id="main" tabindex="-1">
 
 <!-- Page Hero -->
 <header class="page-hero">
@@ -54,18 +56,18 @@
     <div data-reveal>
 
       <div style="margin-bottom:2rem">
-        <h4 data-i18n="products.cereals.varieties_title">Nos variétés disponibles</h4>
+        <h4 role="heading" aria-level="2" data-i18n="products.cereals.varieties_title">Nos variétés disponibles</h4>
         <div class="grid-3" style="margin-top:1rem;gap:.75rem">
           <div class="app-card" data-reveal>
-            <span style="font-size:2rem">🌾</span>
+            <span class="ico-plain"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22V10"/><path d="M12 10c-2.5 0-4-1.8-4-4 2.5 0 4 1.8 4 4Zm0 0c2.5 0 4-1.8 4-4-2.5 0-4 1.8-4 4Zm0 6c-2.5 0-4-1.8-4-4 2.5 0 4 1.8 4 4Zm0 0c2.5 0 4-1.8 4-4-2.5 0-4 1.8-4 4Z"/><path d="M12 6c0-1.5.5-2.8 1.5-4"/></svg></span>
             <p style="margin:.75rem 0;font-weight:600" data-i18n="products.cereals.var_wheat">Blé</p>
           </div>
           <div class="app-card" data-reveal>
-            <span style="font-size:2rem">🌾</span>
+            <span class="ico-plain"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22V10"/><path d="M12 10c-2.5 0-4-1.8-4-4 2.5 0 4 1.8 4 4Zm0 0c2.5 0 4-1.8 4-4-2.5 0-4 1.8-4 4Zm0 6c-2.5 0-4-1.8-4-4 2.5 0 4 1.8 4 4Zm0 0c2.5 0 4-1.8 4-4-2.5 0-4 1.8-4 4Z"/><path d="M12 6c0-1.5.5-2.8 1.5-4"/></svg></span>
             <p style="margin:.75rem 0;font-weight:600" data-i18n="products.cereals.var_barley">Orge</p>
           </div>
           <div class="app-card" data-reveal>
-            <span style="font-size:2rem">🌽</span>
+            <span class="ico-plain"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="10" rx="4" ry="7"/><path d="M12 3v14M8.5 7h7M8 11h8M9 14.5h6"/><path d="M12 17c-3 0-5 1.2-6 4M12 17c3 0 5 1.2 6 4"/></svg></span>
             <p style="margin:.75rem 0;font-weight:600" data-i18n="products.cereals.var_corn">Maïs</p>
           </div>
         </div>
@@ -127,6 +129,7 @@
   </div>
 </section>
 
+</main>
 <div id="main-footer"></div>
 <script src="../assets/js/footer.js"></script>
 <script src="../assets/js/i18n.js"></script>
