@@ -277,7 +277,7 @@ body.menu-open { overflow: hidden; }
 .ft__addr { font-size: 1rem; line-height: 1.75; margin-bottom: 1.25rem; }
 .ft__line { display: flex; align-items: center; gap: .6rem; font-size: 1rem; font-weight: 400; text-transform: uppercase; letter-spacing: .02em; line-height: 2; }
 .ft__line svg { width: 20px; height: 20px; flex: none; }
-.ft__copy { max-width: var(--max-width); margin: 4rem auto 0; padding: 0 var(--section-px); font-size: .875rem; color: rgba(255,255,255,.85); }
+.ft__copy { max-width: var(--max-width); margin: 4rem auto 0; padding: 0 var(--section-px); font-size: .875rem; color: #fff; }
 
 @media (max-width: 768px) {
   .getintouch { min-height: 0; }
@@ -502,9 +502,9 @@ body.menu-open { overflow: hidden; }
   max-width: var(--max-width); margin: 0 auto; padding: 0 var(--section-px);
   display: grid; grid-template-columns: .9fr 1.1fr; gap: 3rem 4rem; align-items: center;
 }
-.globe-section__eyebrow { display: block; margin-bottom: 1rem; font-size: 1rem; font-weight: 300; letter-spacing: var(--letter-title); text-transform: uppercase; color: var(--color-accent-dark); }
+.globe-section__eyebrow { display: block; margin-bottom: 1rem; font-size: 1rem; font-weight: 300; letter-spacing: var(--letter-title); text-transform: uppercase; color: var(--color-accent-text); }
 .globe-section__title { margin-bottom: 1.5rem; font-size: clamp(2.25rem, 4.2vw, 3.375rem); font-weight: 300; line-height: 1.25; letter-spacing: var(--letter-title); color: var(--color-navy); }
-.globe-section__title em { color: var(--color-accent-dark); font-style: normal; }
+.globe-section__title em { color: var(--color-accent-text); font-style: normal; }
 .globe-section__lead { max-width: none; margin-bottom: 1.25rem; font-size: clamp(1.375rem, 2vw, 1.75rem); font-weight: 300; line-height: 1.5; letter-spacing: var(--letter-title); color: var(--color-text); }
 .globe-section__sub { max-width: none; margin-bottom: 2.25rem; font-size: clamp(1.375rem, 2vw, 1.75rem); font-weight: 300; line-height: 1.5; letter-spacing: var(--letter-title); color: var(--color-text); }
 .globe-section__foot { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; gap: 3rem; margin-top: 1rem; }
@@ -771,3 +771,21 @@ body.menu-open { overflow: hidden; }
 .tabs__tab { border-radius: var(--r) var(--r) 0 0 !important; }
 /* carte de la page Contact */
 div:has(> iframe[src*="openstreetmap"]), iframe[src*="openstreetmap"] { border-radius: var(--r) !important; overflow: hidden; }
+
+/* ============================================================
+   ACCESSIBILITÉ (audit UI/UX) : contrastes, cibles tactiles, lien d'évitement
+   ============================================================ */
+.markets__title { color: var(--color-accent-text); }
+.skip-link { position: fixed; left: 1rem; top: -4rem; z-index: 1000; padding: .75rem 1.25rem; background: var(--color-navy); color: #fff; font-size: 1rem; transition: top .15s; }
+.skip-link:focus { top: 1rem; outline: 3px solid var(--color-accent); outline-offset: 2px; }
+main:focus { outline: none; }
+html { scroll-padding-bottom: 72px; }
+.news-card__footer .news-card__link { min-height: 44px; padding: 0 .25rem; }
+.lang-switcher button { min-width: 44px; min-height: 44px; }
+.hd__logo { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; }
+.product-detail .app-card p:last-child, .app-card p[style*=".72rem"] { font-size: .875rem !important; }
+@media (max-width: 768px) {
+  .ft a { display: inline-flex; align-items: center; min-height: 44px; }
+}
+
+.ft .btn, .ft .btn:visited { color: var(--color-navy); }

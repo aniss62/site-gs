@@ -14,8 +14,10 @@
 <link rel="stylesheet" href="assets/css/design-lbg.css">
 </head>
 <body>
+<a class="skip-link" href="#main"><span class="fr-text">Aller au contenu</span><span class="en-text" hidden>Skip to content</span></a>
 <div id="main-nav"></div>
 <script src="assets/js/nav.js"></script>
+<main id="main" tabindex="-1">
 
 <!-- ── Page Hero ─────────────────────────────────────────────── -->
 <section class="page-hero" aria-label="En-tête qualité">
@@ -53,7 +55,7 @@
       <div style="display:flex;align-items:flex-start;gap:1.25rem;">
         <div style="width:40px;height:40px;border-radius:50%;background:var(--color-primary);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;" aria-hidden="true">1</div>
         <div>
-          <h4 data-i18n="quality.step1_title">Sélection à la source</h4>
+          <h4 role="heading" aria-level="3" data-i18n="quality.step1_title">Sélection à la source</h4>
           <p data-i18n="quality.step1_desc">Sélection rigoureuse des matières premières. Seuls les lots répondant à nos critères sont acceptés.</p>
         </div>
       </div>
@@ -62,7 +64,7 @@
       <div style="display:flex;align-items:flex-start;gap:1.25rem;">
         <div style="width:40px;height:40px;border-radius:50%;background:var(--color-primary);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;" aria-hidden="true">2</div>
         <div>
-          <h4 data-i18n="quality.step2_title">Tri et nettoyage</h4>
+          <h4 role="heading" aria-level="3" data-i18n="quality.step2_title">Tri et nettoyage</h4>
           <p data-i18n="quality.step2_desc">Tri optique et mécanique pour éliminer les impuretés. Nettoyage et séchage contrôlé.</p>
         </div>
       </div>
@@ -71,7 +73,7 @@
       <div style="display:flex;align-items:flex-start;gap:1.25rem;">
         <div style="width:40px;height:40px;border-radius:50%;background:var(--color-primary);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;" aria-hidden="true">3</div>
         <div>
-          <h4 data-i18n="quality.step3_title">Analyse laboratoire</h4>
+          <h4 role="heading" aria-level="3" data-i18n="quality.step3_title">Analyse laboratoire</h4>
           <p data-i18n="quality.step3_desc">Analyse physico-chimique et microbiologique systématique. Résultats transmis avec chaque lot.</p>
         </div>
       </div>
@@ -80,7 +82,7 @@
       <div style="display:flex;align-items:flex-start;gap:1.25rem;">
         <div style="width:40px;height:40px;border-radius:50%;background:var(--color-primary);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;" aria-hidden="true">4</div>
         <div>
-          <h4 data-i18n="quality.step4_title">Conditionnement</h4>
+          <h4 role="heading" aria-level="3" data-i18n="quality.step4_title">Conditionnement</h4>
           <p data-i18n="quality.step4_desc">Conditionnement adapté aux spécifications client. Traçabilité complète par lot.</p>
         </div>
       </div>
@@ -89,7 +91,7 @@
       <div style="display:flex;align-items:flex-start;gap:1.25rem;">
         <div style="width:40px;height:40px;border-radius:50%;background:var(--color-primary);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;" aria-hidden="true">5</div>
         <div>
-          <h4 data-i18n="quality.step5_title">Documentation</h4>
+          <h4 role="heading" aria-level="3" data-i18n="quality.step5_title">Documentation</h4>
           <p data-i18n="quality.step5_desc">Certificats d'origine, fiches techniques, analyses disponibles pour chaque commande.</p>
         </div>
       </div>
@@ -111,21 +113,21 @@
       <!-- ISO 22000 -->
       <div class="certif-card">
         <div class="certif-card__badge" aria-hidden="true">🏆</div>
-        <h4>ISO 22000</h4>
+        <h4 role="heading" aria-level="3">ISO 22000</h4>
         <p data-i18n="quality.certif_note">Nous travaillons à l'obtention de certifications internationales. Contactez-nous pour connaître notre statut actuel.</p>
       </div>
 
       <!-- Halal -->
       <div class="certif-card">
         <div class="certif-card__badge" aria-hidden="true">✅</div>
-        <h4>Halal</h4>
+        <h4 role="heading" aria-level="3">Halal</h4>
         <p data-i18n="quality.certif_note">Nous travaillons à l'obtention de certifications internationales. Contactez-nous pour connaître notre statut actuel.</p>
       </div>
 
       <!-- Agriculture biologique -->
       <div class="certif-card">
         <div class="certif-card__badge" aria-hidden="true">🌿</div>
-        <h4>Agriculture biologique</h4>
+        <h4 role="heading" aria-level="3">Agriculture biologique</h4>
         <p data-i18n="quality.certif_note">Nous travaillons à l'obtention de certifications internationales. Contactez-nous pour connaître notre statut actuel.</p>
       </div>
 
@@ -165,6 +167,7 @@
   </div>
 </section>
 
+</main>
 <div id="main-footer"></div>
 <script src="assets/js/footer.js"></script>
 <script src="assets/js/i18n.js"></script>

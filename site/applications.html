@@ -14,8 +14,10 @@
 <link rel="stylesheet" href="assets/css/design-lbg.css">
 </head>
 <body>
+<a class="skip-link" href="#main"><span class="fr-text">Aller au contenu</span><span class="en-text" hidden>Skip to content</span></a>
 <div id="main-nav"></div>
 <script src="assets/js/nav.js"></script>
+<main id="main" tabindex="-1">
 
 <!-- ── Page Hero ─────────────────────────────────────────────── -->
 <section class="page-hero" aria-labelledby="applications-hero-heading">
@@ -79,7 +81,7 @@
         <div class="app-card__icon feature-card__icon" aria-hidden="true" style="font-size:2rem;line-height:1">
           🍫
         </div>
-        <h4 data-i18n="applications.food_title">Agroalimentaire</h4>
+        <h4 role="heading" aria-level="3" data-i18n="applications.food_title">Agroalimentaire</h4>
         <p data-i18n="applications.food_desc">Substitut naturel du cacao dans les chocolats, pâtisseries et confiseries. Épaississant et stabilisant (E410). Enrichissement en fibres des produits céréaliers.</p>
       </article>
 
@@ -87,7 +89,7 @@
         <div class="app-card__icon feature-card__icon" aria-hidden="true" style="font-size:2rem;line-height:1">
           🔬
         </div>
-        <h4 data-i18n="applications.pharma_title">Pharmaceutique</h4>
+        <h4 role="heading" aria-level="3" data-i18n="applications.pharma_title">Pharmaceutique</h4>
         <p data-i18n="applications.pharma_desc">Liant et excipient dans la fabrication de comprimés. Traitement naturel des troubles digestifs. Propriétés adstringentes utilisées en phytothérapie.</p>
       </article>
 
@@ -95,7 +97,7 @@
         <div class="app-card__icon feature-card__icon" aria-hidden="true" style="font-size:2rem;line-height:1">
           ✨
         </div>
-        <h4 data-i18n="applications.cosmet_title">Cosmétique</h4>
+        <h4 role="heading" aria-level="3" data-i18n="applications.cosmet_title">Cosmétique</h4>
         <p data-i18n="applications.cosmet_desc">Actif naturel dans les soins de la peau. Émulsifiant dans les crèmes et lotions. Propriétés antioxydantes dans les formulations anti-âge.</p>
       </article>
 
@@ -103,7 +105,7 @@
         <div class="app-card__icon feature-card__icon" aria-hidden="true" style="font-size:2rem;line-height:1">
           🐄
         </div>
-        <h4 data-i18n="applications.feed_title">Alimentation animale</h4>
+        <h4 role="heading" aria-level="3" data-i18n="applications.feed_title">Alimentation animale</h4>
         <p data-i18n="applications.feed_desc">Source d'énergie naturelle pour bétail, volaille et animaux de compagnie. Riche en sucres naturels et fibres. Alternative naturelle aux additifs synthétiques.</p>
       </article>
 
@@ -111,7 +113,7 @@
         <div class="app-card__icon feature-card__icon" aria-hidden="true" style="font-size:2rem;line-height:1">
           💪
         </div>
-        <h4 data-i18n="applications.sports_title">Nutrition sportive</h4>
+        <h4 role="heading" aria-level="3" data-i18n="applications.sports_title">Nutrition sportive</h4>
         <p data-i18n="applications.sports_desc">Substitut du cacao sans caféine dans les barres et boissons sportives. Apport en fibres et minéraux. Adapté aux régimes végétaliens et sans gluten.</p>
       </article>
 
@@ -119,7 +121,7 @@
         <div class="app-card__icon feature-card__icon" aria-hidden="true" style="font-size:2rem;line-height:1">
           🐾
         </div>
-        <h4 data-i18n="applications.petfood_title">Petfood</h4>
+        <h4 role="heading" aria-level="3" data-i18n="applications.petfood_title">Petfood</h4>
         <p data-i18n="applications.petfood_desc">Ingrédient naturel dans les aliments pour animaux de compagnie. Propriétés bénéfiques sur la digestion animale.</p>
       </article>
 
@@ -138,6 +140,7 @@
   </div>
 </section>
 
+</main>
 <div id="main-footer"></div>
 <script src="assets/js/footer.js"></script>
 <script src="assets/js/i18n.js"></script>

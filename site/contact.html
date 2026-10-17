@@ -14,8 +14,10 @@
 <link rel="stylesheet" href="assets/css/design-lbg.css">
 </head>
 <body>
+<a class="skip-link" href="#main"><span class="fr-text">Aller au contenu</span><span class="en-text" hidden>Skip to content</span></a>
 <div id="main-nav"></div>
 <script src="assets/js/nav.js"></script>
+<main id="main" tabindex="-1">
 
 <!-- ── Page Hero ─────────────────────────────────────────────── -->
 <header class="page-hero" aria-labelledby="contact-hero-title">
@@ -135,21 +137,21 @@
           <div class="certif-card">
             <div class="certif-card__badge" aria-hidden="true">📍</div>
             <div>
-              <h4 data-i18n="contact.info_address">Adresse</h4>
+              <h4 role="heading" aria-level="3" data-i18n="contact.info_address">Adresse</h4>
               <p style="font-size:.9rem;color:var(--color-text-muted);margin:0">LOT 60, Quartier Industriel Ouafae, Bensouda<br>30006 Fès – Maroc</p>
             </div>
           </div>
           <div class="certif-card">
             <div class="certif-card__badge" aria-hidden="true">✉️</div>
             <div>
-              <h4 data-i18n="contact.info_email">Email</h4>
+              <h4 role="heading" aria-level="3" data-i18n="contact.info_email">Email</h4>
               <p style="margin:0"><a href="mailto:Office@lesgreniersdusaiss.ma" style="color:var(--color-primary);font-size:.9rem">Office@lesgreniersdusaiss.ma</a></p>
             </div>
           </div>
           <div class="certif-card">
             <div class="certif-card__badge" aria-hidden="true">📞</div>
             <div>
-              <h4 data-i18n="contact.info_phone">Téléphone</h4>
+              <h4 role="heading" aria-level="3" data-i18n="contact.info_phone">Téléphone</h4>
               <p style="margin:0"><a href="tel:+212535729082" style="color:var(--color-primary);font-size:.9rem">+212 5 35 72 90 82</a></p>
             </div>
           </div>
@@ -178,6 +180,7 @@
   </div>
 </section>
 
+</main>
 <div id="main-footer"></div>
 <script src="assets/js/footer.js"></script>
 <script src="assets/js/i18n.js"></script>

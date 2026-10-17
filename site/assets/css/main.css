@@ -14,6 +14,7 @@
   --color-white:        #FFFFFF;
   --color-accent:       #DDAA00;
   --color-accent-dark:  #B88D00;
+  --color-accent-text:  #7A5C00;  /* or foncé pour du TEXTE sur fond clair (contraste ≥ 4,5:1) */
   --color-navy:         #002A3A;
   --color-navy-tab:     #00264B;
   --color-navy-overlay: rgba(0, 42, 58, 0.75);
@@ -35,7 +36,7 @@
   --color-ink:   var(--color-navy);
 
   --color-bg:         var(--color-light-grey);
-  --color-text-muted: #6b6b6b;
+  --color-text-muted: #595959;
   --color-border:     #CCCCCC;
   --color-overlay:    rgba(0, 42, 58, 0.62);
 
@@ -129,7 +130,7 @@ p { max-width: 68ch; }
   letter-spacing: var(--letter-title);
   font-size: .875rem;
   font-weight: 400;
-  color: var(--color-gold-dark);
+  color: var(--color-accent-text);
   margin-bottom: .6rem;
 }
 
@@ -240,7 +241,7 @@ p { max-width: 68ch; }
   font-weight: 400;
   letter-spacing: .04em;
 }
-.badge--gold { background: var(--color-gold-light); color: var(--color-gold-dark); }
+.badge--gold { background: var(--color-gold-light); color: var(--color-accent-text); }
 .badge--blue { background: rgba(0,42,58,.10); color: var(--color-primary); }
 .badge--green { background: #e6f4ea; color: #2d7a3a; }
 

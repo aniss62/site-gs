@@ -14,8 +14,10 @@
 <link rel="stylesheet" href="../assets/css/design-lbg.css">
 </head>
 <body>
+<a class="skip-link" href="#main"><span class="fr-text">Aller au contenu</span><span class="en-text" hidden>Skip to content</span></a>
 <div id="main-nav"></div>
 <script src="../assets/js/nav.js"></script>
+<main id="main" tabindex="-1">
 
 <!-- Page Hero -->
 <header class="page-hero">
@@ -47,7 +49,7 @@
 <section class="product-detail product-detail--compact">
   <div class="product-detail__inner container">
     <div data-reveal>
-      <h4 data-i18n="products.epices.varieties_title">Nos variétés disponibles</h4>
+      <h4 role="heading" aria-level="2" data-i18n="products.epices.varieties_title">Nos variétés disponibles</h4>
       <div class="variety-pair">
         <div class="variety-card">
           <img src="../assets/images/coriandre.jpg" alt="Coriandre" loading="lazy">
@@ -109,6 +111,7 @@
   </div>
 </section>
 
+</main>
 <div id="main-footer"></div>
 <script src="../assets/js/footer.js"></script>
 <script src="../assets/js/i18n.js"></script>
