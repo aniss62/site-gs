@@ -749,3 +749,7 @@ body.menu-open { overflow: hidden; }
 .gsbot--inline { position: static; }
 .gsbot--inline .gsbot__panel { position: static; width: 100%; height: 540px; animation: none; }
 @media (max-width: 900px) { .botband__inner { grid-template-columns: 1fr; gap: 2rem; } .gsbot--inline .gsbot__panel { height: 560px; } }
+
+/* Chiffres : le « 1 » de Gill Sans Light n'a pas de empattement ni de drapeau (confondu avec un trait) → Titillium Web */
+.hero-panel h2 .num, .globe-stats__num { font-family: 'Titillium Web', var(--font-heading); }
+.hero-panel h2 .num { font-weight: 300; }
