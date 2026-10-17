@@ -741,14 +741,6 @@ body.menu-open { overflow: hidden; }
 @media (prefers-reduced-motion: no-preference) { .gsbot__panel { animation: gsbotIn .18s ease-out; } }
 @keyframes gsbotIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 
-/* Assistant intégré en bas de la page d'accueil */
-.botband { background: var(--color-white); padding: var(--section-py) 0; }
-.botband__inner { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--section-px); display: grid; grid-template-columns: .9fr 1.1fr; gap: 3rem 4rem; align-items: start; }
-.botband__title { font-size: clamp(2rem, 3.4vw, 3.375rem); line-height: 1.25; color: var(--color-navy); margin: 0 0 1.25rem; }
-.botband__sub { font-size: clamp(1.125rem, 1.5vw, 1.3rem); line-height: 1.65; color: var(--color-text); margin: 0; }
-.gsbot--inline { position: static; }
-.gsbot--inline .gsbot__panel { position: static; width: 100%; height: 540px; animation: none; }
-@media (max-width: 900px) { .botband__inner { grid-template-columns: 1fr; gap: 2rem; } .gsbot--inline .gsbot__panel { height: 560px; } }
 
 /* Chiffres : le « 1 » de Gill Sans Light n'a pas de empattement ni de drapeau (confondu avec un trait) → Titillium Web */
 .hero-panel h2 .num, .globe-stats__num { font-family: 'Titillium Web', var(--font-heading); }
