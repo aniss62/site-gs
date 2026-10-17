@@ -224,7 +224,7 @@ body.menu-open { overflow: hidden; }
    Exceptions : éléments explicitement ronds (boutons ronds du hero, pastilles).
    ============================================================ */
 *, *::before, *::after { box-shadow: none !important; text-shadow: none !important; }
-*:not(.btn-round):not([style*="border-radius:50%"]):not([style*="border-radius: 50%"]):not(.dest-dot):not(.origin-dot):not(.origin-pulse) { border-radius: 0 !important; }
+:where(*:not(.btn-round):not([style*="border-radius:50%"]):not([style*="border-radius: 50%"]):not(.dest-dot):not(.origin-dot):not(.origin-pulse)) { border-radius: 0 !important; }
 
 /* ============================================================
    HÉROS DES PAGES INTÉRIEURES : ≈70vh, image pleine largeur,
@@ -292,7 +292,7 @@ body.menu-open { overflow: hidden; }
 .form-control, .form-group input, .form-group select, .form-group textarea {
   background: transparent;
   border: 1px solid #CCCCCC;
-  border-radius: 0;
+  border-radius: var(--r);
 }
 .form-control, .form-group input, .form-group select { min-height: 60px; padding: 0 1rem; }
 .form-group textarea { padding: 1rem; }
@@ -546,7 +546,7 @@ body.menu-open { overflow: hidden; }
 .form-group textarea.form-control, .form-group select.form-control {
   border: 1px solid #CCCCCC !important;
   background: transparent !important;
-  border-radius: 0 !important;
+  border-radius: var(--r) !important;
 }
 .form-control:focus, .form-group .form-control:focus { border-color: var(--color-navy) !important; }
 .form-control.error, .form-group .form-control.error { border-color: #d9534f !important; }
@@ -707,7 +707,7 @@ body.menu-open { overflow: hidden; }
 .gsbot [hidden] { display: none !important; }
 .gsbot__fab {
   width: 56px; height: 56px; display: flex; align-items: center; justify-content: center;
-  background: var(--color-accent); color: var(--color-navy); border: 0; border-radius: 0; cursor: pointer;
+  background: var(--color-accent); color: var(--color-navy); border: 0; border-radius: var(--r); cursor: pointer;
 }
 .gsbot__fab:hover, .gsbot__fab.is-open { background: var(--color-accent-dark); }
 .gsbot__fab:focus-visible, .gsbot__chip:focus-visible, .gsbot__close:focus-visible,
@@ -729,11 +729,11 @@ body.menu-open { overflow: hidden; }
 .gsbot__msg--user { align-self: flex-end; background: var(--color-navy); color: var(--color-white); }
 .gsbot__link { display: inline-block; margin-top: .5rem; font-weight: 400; }
 .gsbot__chips { display: flex; gap: .4rem; overflow-x: auto; padding: .6rem .75rem; border-top: 1px solid var(--color-light-grey); max-height: 9.5rem; flex-wrap: wrap; overflow-y: auto; }
-.gsbot__chip { background: var(--color-white); color: var(--color-navy); border: 1px solid var(--color-navy); border-radius: 0; padding: .3rem .6rem; font-size: .8rem; cursor: pointer; text-align: left; }
+.gsbot__chip { background: var(--color-white); color: var(--color-navy); border: 1px solid var(--color-navy); border-radius: var(--r); padding: .3rem .6rem; font-size: .8rem; cursor: pointer; text-align: left; }
 .gsbot__chip:hover { background: var(--color-navy); color: var(--color-white); }
 .gsbot__form { display: flex; border-top: 1px solid var(--color-navy); }
-.gsbot__form input { flex: 1; min-width: 0; border: 0; border-radius: 0; padding: .85rem 1rem; font-size: 1rem; font-family: inherit; }
-.gsbot__form button { background: var(--color-accent); color: var(--color-navy); border: 0; border-radius: 0; padding: 0 1.1rem; font-family: inherit; font-size: .9rem; cursor: pointer; }
+.gsbot__form input { flex: 1; min-width: 0; border: 0; border-radius: var(--r); padding: .85rem 1rem; font-size: 1rem; font-family: inherit; }
+.gsbot__form button { background: var(--color-accent); color: var(--color-navy); border: 0; border-radius: var(--r); padding: 0 1.1rem; font-family: inherit; font-size: .9rem; cursor: pointer; }
 .gsbot__form button:hover { background: var(--color-accent-dark); }
 @media (max-width: 768px) {
   .gsbot { right: .75rem; bottom: 4.75rem; }
@@ -746,3 +746,26 @@ body.menu-open { overflow: hidden; }
 /* Chiffres : le « 1 » de Gill Sans Light n'a pas de empattement ni de drapeau (confondu avec un trait) → Titillium Web */
 .hero-panel h2 .num, .globe-stats__num { font-family: 'Titillium Web', var(--font-heading); }
 .hero-panel h2 .num { font-weight: 300; }
+
+/* ============================================================
+   ANGLES LÉGÈREMENT ARRONDIS : boutons, cadres, cartes, photos, champs
+   (--r partout ; les éléments ronds, pastilles et la barre de menu restent inchangés)
+   ============================================================ */
+:root { --r: 6px; --r-sm: 4px; }
+.btn, .btn-gold, .btn-primary, .btn-outline, .btn-outline-primary, .btn-actions .btn,
+.getintouch .btn, button[type="submit"], .hero-panel .btn,
+.app-card, .feature-card, .certif-card, .value-pill, .mcard, .variety-card, .news-card, .product-card,
+.product-detail__image, .img-text-section__image, .img-text-section__img, .applications-intro__image,
+.accordion, .form-control, .alert, .search__box, .news-modal__content, .news-modal,
+.tabs__tab, .specs-table, .gsbot__panel, .gsbot__fab, .gsbot__chip, .gsbot__msg,
+.gsbot__form input, .gsbot__form button, .gsbot__avatar { border-radius: var(--r) !important; }
+.pcol__tag, .badge, .certif-card__badge, .feature-card__icon, .app-card__icon, .value-pill__icon,
+.story-hero__icon, .footer__contact-item { border-radius: var(--r-sm) !important; }
+/* cadres qui contiennent des photos : les coins coupent l'image */
+.app-card, .mcard, .variety-card, .news-card, .product-card, .product-detail__image,
+.img-text-section__image, .img-text-section__img, .applications-intro__image,
+.accordion, .gsbot__panel { overflow: hidden; }
+.gsbot__form { border-radius: 0 0 var(--r) var(--r); }
+.gsbot__panel .gsbot__head { border-radius: 0; }
+/* onglets : seuls les coins du haut sont arrondis */
+.tabs__tab { border-radius: var(--r) var(--r) 0 0 !important; }
