@@ -483,13 +483,13 @@ body.menu-open { overflow: hidden; }
    ============================================================ */
 .story-hero { background: var(--color-navy); display: flex; align-items: center; padding: var(--section-py) var(--section-px); }
 .story-hero__bg { opacity: 1; }
-.story-hero__overlay { background: rgba(0, 42, 58, .72); }
+.story-hero__overlay { background: rgba(0, 28, 40, .86); }
 .story-hero__content { width: 100%; text-align: left; }
 .story-hero .section-label { color: var(--color-accent); }
 .story-hero .section-title { color: var(--color-white); font-size: clamp(2.25rem, 4.5vw, 3.375rem); line-height: 1.25; }
 .story-hero .divider { display: none; }
 .story-hero__text { max-width: none; margin-inline: 0; }
-.story-hero__text p { color: var(--color-white); }
+.story-hero__text p { color: var(--color-white); font-size: clamp(1.125rem, 1.5vw, 1.3rem); font-weight: 400; line-height: 1.65; }
 .story-hero__icon { background: rgba(255,255,255,.14); color: var(--color-white); }
 .story-hero { padding-left: 0; padding-right: 0; }
 .story-hero__content { padding: 0 var(--section-px); }
