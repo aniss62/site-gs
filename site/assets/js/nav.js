@@ -56,7 +56,13 @@
     { fr: 'Contact', en: 'Contact', href: 'contact.html', kw: 'contact devis quote adresse téléphone' },
     { fr: 'Mentions légales', en: 'Legal notice', href: 'mentions-legales.html', kw: 'légal legal mentions' },
     { fr: 'Politique de confidentialité', en: 'Privacy policy', href: 'confidentialite.html', kw: 'confidentialité privacy données rgpd' },
-    { fr: 'Conditions d’utilisation', en: 'Terms of use', href: 'conditions.html', kw: 'conditions terms utilisation' }
+    { fr: 'Conditions d’utilisation', en: 'Terms of use', href: 'conditions.html', kw: 'conditions terms utilisation' },
+    /* Rubriques (sections) à l'intérieur des pages */
+    { fr: 'Recherche & Développement', en: 'Research & Development', href: 'about.html#rd-heading', kw: 'recherche developpement r&d innovation universités universites research development' },
+    { fr: 'Nos propres terrains', en: 'Our own farmland', href: 'about.html#terrains-heading', kw: 'terrains exploitation agricole farmland farm' },
+    { fr: 'Un terroir d’exception', en: 'An exceptional terroir', href: 'about.html#saiss-heading', kw: 'saïss saiss terroir région region plaine' },
+    { fr: 'Nos certifications', en: 'Our certifications', href: 'qualite.html#certif-heading', kw: 'certifications iso 22000 halal bio' },
+    { fr: 'Traçabilité', en: 'Traceability', href: 'qualite.html#trace-heading', kw: 'traçabilité tracabilite lot récolte livraison batch' }
   ];
 
   var ICON = {
@@ -238,14 +244,17 @@
   });
 
   /* ── 9. Recherche ──────────────────────────────────────────── */
+  /* minuscules et sans accents : « recherche », « Recherche », « développement » ou « developpement » trouvent la même chose */
+  function fold(t) { return String(t).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); }
+
   function renderResults(q) {
     while (searchResults.firstChild) searchResults.removeChild(searchResults.firstChild);
-    q = (q || '').trim().toLowerCase();
+    q = fold((q || '').trim());
     if (!q) return;
     var shown = 0;
     for (var i = 0; i < PAGES.length && shown < 8; i++) {
       var p = PAGES[i];
-      var hay = (p.fr + ' ' + p.en + ' ' + p.kw).toLowerCase();
+      var hay = fold(p.fr + ' ' + p.en + ' ' + p.kw);
       if (hay.indexOf(q) === -1) continue;
       var li = document.createElement('li');
       var a = document.createElement('a');

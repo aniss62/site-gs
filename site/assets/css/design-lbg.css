@@ -804,3 +804,6 @@ html { scroll-padding-bottom: 72px; }
 .value-pill { align-items: center; border-radius: 0 !important; }
 .value-pill__label { font-size: 1rem; line-height: 1.5; }
 .ico-plain svg { stroke-width: 1.5; }
+
+/* Liens vers une rubrique (#ancre) : le titre ne passe pas sous l'en-tête fixe */
+[id] { scroll-margin-top: 120px; }
