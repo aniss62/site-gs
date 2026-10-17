@@ -28,7 +28,7 @@
       k: 'produit produits gamme catalogue proposez vendez offre products range catalogue offer sell',
       a: ["Notre gamme : caroube brute, graines de caroube, pulpe de caroube, légumineuses (lentilles, pois chiches, fèves, féverole, haricots, pois secs, petit pois), céréales (blé, orge, maïs), épices (coriandre, poivre noir) ainsi que des aliments de bétail et dérivés (tourteaux, mélasse, compléments, minéraux).",
           "Our range: raw carob, carob seeds, carob pulp, legumes (lentils, chickpeas, fava beans, field beans, beans, dried peas, green peas), cereals (wheat, barley, corn), spices (coriander, black pepper) and animal feed and derivatives (oilcakes, molasses, supplements, minerals)."],
-      l: ['index.html#products', 'Voir les produits', 'See the products'] },
+      l: ['index.html#produits', 'Voir les produits', 'See the products'] },
     { id: 'carob',
       q: ['Que savez-vous sur la caroube ?', 'What can you tell me about carob?'],
       k: 'caroube kharoub gousse graines pulpe e410 carob locust seeds pulp pods',
