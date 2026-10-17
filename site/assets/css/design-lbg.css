@@ -813,3 +813,6 @@ html { scroll-padding-bottom: 72px; }
 .search__snippet { display: block; font-size: .95rem; line-height: 1.5; color: rgba(255,255,255,.8); margin-top: .35rem; }
 .search__snippet mark { background: transparent; color: var(--color-accent); font-weight: 400; text-decoration: underline; }
 .search__results { max-height: calc(100vh - 14rem); overflow-y: auto; }
+
+/* le menu et la recherche en plein écran passent devant l assistant */
+body.menu-open .gsbot { display: none; }
