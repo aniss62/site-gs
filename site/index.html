@@ -4,11 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="base-url" content="">
-<title>Les Greniers du Saïss | Export Caroube & Légumineuses du Maroc</title>
+<title>Les Greniers du Saïss | Export de caroube et légumineuses</title>
 <meta name="description" content="Exportateur marocain de caroube (brute, graines, pulpe) et de légumineuses depuis la région du Saïss. Marchés Europe, Moyen-Orient, Amériques.">
-<meta property="og:title" content="Les Greniers du Saïss">
-<meta property="og:description" content="Premium carob products and legumes from Morocco's Saïss region.">
-<meta property="og:image" content="assets/images/logo/logo.png">
+<link rel="canonical" href="https://www.lesgreniersdusaiss.ma/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Les Greniers du Saïss">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:title" content="Les Greniers du Saïss | Export de caroube et légumineuses">
+<meta property="og:description" content="Exportateur marocain de caroube (brute, graines, pulpe) et de légumineuses depuis la région du Saïss. Marchés Europe, Moyen-Orient, Amériques.">
+<meta property="og:url" content="https://www.lesgreniersdusaiss.ma/">
+<meta property="og:image" content="https://www.lesgreniersdusaiss.ma/assets/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Les Greniers du Saïss | Export de caroube et légumineuses">
+<meta name="twitter:description" content="Exportateur marocain de caroube (brute, graines, pulpe) et de légumineuses depuis la région du Saïss. Marchés Europe, Moyen-Orient, Amériques.">
+<meta name="twitter:image" content="https://www.lesgreniersdusaiss.ma/assets/images/og-image.jpg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Les Greniers du Saïss", "url": "https://www.lesgreniersdusaiss.ma/", "logo": "https://www.lesgreniersdusaiss.ma/assets/images/logo/logo.png", "image": "https://www.lesgreniersdusaiss.ma/assets/images/og-image.jpg", "foundingDate": "2008", "description": "Exportateur marocain de caroube (brute, graines, pulpe) et de légumineuses depuis la région du Saïss. Marchés Europe, Moyen-Orient, Amériques.", "email": "Office@lesgreniersdusaiss.ma", "telephone": "+212535729082", "address": {"@type": "PostalAddress", "streetAddress": "LOT 60, Quartier Industriel Ouafae, Bensouda", "postalCode": "30006", "addressLocality": "Fès", "addressCountry": "MA"}, "parentOrganization": {"@type": "Organization", "name": "Groupe Saïss Céréales"}}</script>
 <link rel="icon" href="assets/images/logo/logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -31,8 +44,8 @@
 <div class="hero-scroll" id="heroScroll">
 <section class="hero" id="hero" aria-label="Accueil">
   <div class="hero__bg">
-    <video class="hero__video" id="heroVideo" muted playsinline preload="auto"
-      src="assets/video/0524-scrub.mp4"
+    <video class="hero__video" id="heroVideo" muted playsinline preload="none"
+      data-src="assets/video/0524-scrub.mp4" data-src-m="assets/video/0524-scrub-m.mp4"
       poster="assets/images/caroube-arbre.jpg">
     </video>
   </div>
@@ -290,6 +303,18 @@
   if (window.matchMedia('(prefers-reduced-motion:reduce)').matches) { wrap.classList.add('is-static'); return; }
 
   var dur = 0, current = 0, target = 0, running = false, raf = 0;
+
+  /* La vidéo ne se charge qu'après l'affichage de la page (et en version légère sur mobile).
+     Économiseur de données activé : on garde l'image fixe. */
+  var conn = navigator.connection || {};
+  if (conn.saveData) { wrap.classList.add('is-static'); return; }
+  function loadVideo() {
+    var small = window.matchMedia('(max-width: 768px)').matches;
+    vid.src = small ? vid.getAttribute('data-src-m') : vid.getAttribute('data-src');
+    vid.load();
+  }
+  if (document.readyState === 'complete') setTimeout(loadVideo, 0);
+  else window.addEventListener('load', function () { setTimeout(loadVideo, 0); });
 
   function progress() {
     var total = wrap.offsetHeight - window.innerHeight;
