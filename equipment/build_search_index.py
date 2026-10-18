@@ -37,7 +37,7 @@ def lookup(d, key):
 
 
 def clean(t):
-    t = re.sub(r'<[^>]+>', ' ', t)
+    t = re.sub(r'</?[a-zA-Z][^>]*>', ' ', t)   # seulement les vraies balises (pas « < 4 mm »)
     return re.sub(r'\s+', ' ', html.unescape(t)).strip()
 
 
@@ -82,7 +82,7 @@ class Page(HTMLParser):
             fl['lang'] = 'fr'
         if 'en-text' in cls:
             fl['lang'] = 'en'
-        if 'skip-link' in cls or a.get('aria-hidden') == 'true':
+        if 'skip-link' in cls:
             fl['hidden_attr'] = True
         if tag in ('section', 'article', 'header') and a.get('id'):
             self.section_id = a['id']
@@ -119,8 +119,10 @@ class Page(HTMLParser):
                     break
 
     def emit(self, fr, en, heading):
-        if heading and not self.cur['fr'] and not self.cur['tfr']:
-            self.cur['fr'], self.cur['en'] = fr, en
+        if heading and not self.cur['tfr'] and not self.cur['ten']:
+            # titre composé de plusieurs fragments (ex. « 15 » + « pays. Un seul standard. »)
+            self.cur['fr'] = (self.cur['fr'] + ' ' + fr).strip()
+            self.cur['en'] = (self.cur['en'] + ' ' + en).strip()
         else:
             self.add(fr, en)
 
@@ -147,6 +149,18 @@ class Page(HTMLParser):
 
 def page_title(path, parser):
     return parser.title_fr
+
+
+MOIS_FR = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
+MOIS_EN = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+
+def dates(iso):
+    m = re.match(r'(\d{4})-(\d{2})-(\d{2})', iso or '')
+    if not m:
+        return '', ''
+    y, mo, d = int(m.group(1)), int(m.group(2)), int(m.group(3))
+    return '%d %s %d' % (d, MOIS_FR[mo - 1], y), '%s %d, %d' % (MOIS_EN[mo - 1], d, y)
 
 
 def main():
@@ -180,10 +194,11 @@ def main():
             news = json.load(f)
         arts = news if isinstance(news, list) else news.get('articles', [])
         for n in arts:
-            txt = clean(' '.join(filter(None, [n.get('summary'), n.get('content'), n.get('source')])))
+            base = clean(' '.join(filter(None, [n.get('source'), n.get('summary'), n.get('content')])))
+            fr_d, en_d = dates(n.get('published'))
             entries.append({'p': 'news.html', 'a': '', 'pf': 'Actualités', 'pe': 'News',
                             'hf': clean(n.get('title', '')), 'he': clean(n.get('title', '')),
-                            'tf': txt[:600], 'te': txt[:600]})
+                            'tf': (fr_d + ' ' + base)[:640].strip(), 'te': (en_d + ' ' + base)[:640].strip()})
     except FileNotFoundError:
         pass
     out = os.path.join(ROOT, 'assets/data/search-index.json')

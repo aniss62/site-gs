@@ -308,14 +308,24 @@
     /* 2. tout le contenu du site */
     if (!indexData) { loadIndex(function () { renderResults(searchInput.value); }); }
     else {
-      var hits = [];
-      indexData.forEach(function (e) {
-        var all = e._h + ' ' + e._t;
-        for (var k = 0; k < tokens.length; k++) if (all.indexOf(tokens[k]) === -1) return;
-        var score = 0;
-        tokens.forEach(function (t) { if (e._h.indexOf(t) > -1) score += 5; if (e._t.indexOf(t) > -1) score += 1; });
-        hits.push({ e: e, s: score });
-      });
+      function search(tk) {
+        var res = [];
+        indexData.forEach(function (e) {
+          var all = e._h + ' ' + e._t;
+          for (var k = 0; k < tk.length; k++) if (all.indexOf(tk[k]) === -1) return;
+          var score = 0;
+          tk.forEach(function (t) { if (e._h.indexOf(t) > -1) score += 5; if (e._t.indexOf(t) > -1) score += 1; });
+          res.push({ e: e, s: score });
+        });
+        return res;
+      }
+      var hits = search(tokens);
+      /* Rien de trouvé : on cherche la racine des mots (« exportation » trouve « exporter », « lentille » trouve « lentilles »…) */
+      if (!hits.length) {
+        var stems = tokens.map(function (t) { return t.length > 6 ? t.slice(0, t.length - 3) : t.length > 4 ? t.slice(0, t.length - 1) : t; });
+        hits = search(stems);
+        if (hits.length) tokens = stems;
+      }
       hits.sort(function (x, y) { return y.s - x.s; });
       for (var h = 0; h < hits.length && shown < 10; h++) {
         var e = hits[h].e, href = e.p + (e.a ? '#' + e.a : '');
