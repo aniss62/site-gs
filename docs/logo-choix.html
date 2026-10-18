@@ -1,0 +1,33 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><title>Choix du contour du logo</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+body{margin:0;font-family:Lato,Arial,sans-serif;background:#f2f2f2;color:#002A3A}
+h1{font-weight:400;font-size:1.4rem;margin:1.2rem 1.5rem .3rem}p.s{margin:0 1.5rem 1rem;color:#555}
+.bar{margin:0 1.5rem 1rem;display:flex;gap:.5rem;flex-wrap:wrap}
+.bar button{padding:.6rem 1rem;border:1px solid #002A3A;background:#fff;border-radius:10px;cursor:pointer;font-size:.95rem}
+.bar button.on{background:#002A3A;color:#fff}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:0 1.5rem 2rem}
+.card{border-radius:14px;overflow:hidden;background:#fff}
+.hero{position:relative;height:260px;background:url(../site/assets/images/caroube-arbre.jpg) center/cover}
+.hero::after{content:"";position:absolute;inset:0;background:rgba(0,42,58,.45)}
+.hero.light{background:#fff}.hero.light::after{display:none}
+.hd{position:absolute;z-index:2;inset:0 0 auto 0;height:100px;display:flex;align-items:center;padding:0 24px;justify-content:space-between}
+.hd img{height:88px}
+.hd i{color:#fff;font-style:normal;font-size:1.6rem;letter-spacing:.2em}.light .hd i{color:#444}
+.t{position:absolute;z-index:2;left:0;right:0;bottom:40px;text-align:center;color:#fff;font-size:2rem;font-weight:300}.light .t{color:#002A3A}
+.o1 img{filter:drop-shadow(1px 0 0 #fff) drop-shadow(-1px 0 0 #fff) drop-shadow(0 1px 0 #fff) drop-shadow(0 -1px 0 #fff)}
+.o2 img{filter:drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff)}
+.light img{filter:none!important}
+.cap{padding:.8rem 1rem;font-size:1rem}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+</style>
+<h1>Logo 88 px : choisissez le contour</h1>
+<p class="s">Aperçu sur le hero sombre de l'accueil (photo + filtre bleu nuit). Le bouton « En-tête blanc » montre l'état après défilement.</p>
+<div class="bar"><button class="on" data-m="dark">Sur le hero (sombre)</button><button data-m="light">En-tête blanc (après défilement)</button></div>
+<div class="grid">
+ <div class="card"><div class="hero v"><div class="hd"><img src="../site/assets/images/logo/logo.png" alt=""><i>◐ ⌕ ≡</i></div><div class="t">Du cœur du Maroc</div></div><div class="cap"><b>A</b> · Sans contour (actuel)</div></div>
+ <div class="card"><div class="hero v o1"><div class="hd"><img src="../site/assets/images/logo/logo.png" alt=""><i>◐ ⌕ ≡</i></div><div class="t">Du cœur du Maroc</div></div><div class="cap"><b>B</b> · Contour blanc 1 px (recommandé)</div></div>
+ <div class="card"><div class="hero v o2"><div class="hd"><img src="../site/assets/images/logo/logo.png" alt=""><i>◐ ⌕ ≡</i></div><div class="t">Du cœur du Maroc</div></div><div class="cap"><b>C</b> · Contour blanc 2 px</div></div>
+</div>
+<script>document.querySelectorAll('.bar button').forEach(function(b){b.onclick=function(){document.querySelectorAll('.bar button').forEach(function(x){x.classList.toggle('on',x===b)});document.querySelectorAll('.hero.v').forEach(function(h){h.classList.toggle('light',b.dataset.m==='light')})}})</script>
+</html>
