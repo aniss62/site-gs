@@ -816,3 +816,10 @@ html { scroll-padding-bottom: 72px; }
 
 /* le menu et la recherche en plein écran passent devant l assistant */
 body.menu-open .gsbot { display: none; }
+
+/* Page À propos : espacement vertical resserré (sections et paragraphes) */
+.page-about { --section-py: 4rem; }
+.page-about .story-hero__item { margin-bottom: 1rem; }
+.page-about .story-hero__text { margin-top: 1.25rem; }
+.page-about .img-text-section__body p { margin-bottom: .75rem; }
+@media (max-width: 768px) { .page-about { --section-py: 2.5rem; } }
