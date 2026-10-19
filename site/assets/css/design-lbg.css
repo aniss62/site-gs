@@ -846,3 +846,15 @@ body.menu-open .gsbot { display: none; }
 
 /* Page À propos : chapô centré */
 .page-about .page-intro__lead { text-align: center; margin-inline: auto; }
+
+/* Page À propos : menu d'ancres et axes qualité condensés (angles arrondis comme les autres éléments interactifs) */
+.page-about #histoire, .page-about #valeurs, .page-about #qualite,
+.page-about #terroir, .page-about #rd, .page-about #exploitation { scroll-margin-top: 80px; }
+.anchor-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; padding: 1rem var(--section-px) 1.75rem; max-width: var(--max-width); margin: 0 auto; }
+
+.anchor-nav a { display: inline-block; padding: .5rem 1.2rem; border: 1px solid rgba(0, 28, 40, .25); border-radius: var(--r) !important; font-size: .95rem; color: var(--color-navy); background: var(--color-white); text-decoration: none; transition: background .2s, color .2s, border-color .2s; }
+.anchor-nav a:hover, .anchor-nav a:focus-visible { background: var(--color-navy); color: var(--color-white); border-color: var(--color-navy); }
+.policy-tabs { margin-top: 2rem; }
+.policy-tabs .tabpanel-text { padding: 1.5rem 0 0; max-width: 60ch; }
+.policy-more { margin: 1.5rem 0 0; }
+.policy-more .btn { border-radius: var(--r) !important; }
