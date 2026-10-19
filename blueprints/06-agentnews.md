@@ -45,6 +45,12 @@ Routine programmée "agentnews" (cloud, hebdomadaire, ex. lundi 8h UTC)
 
 Aucun fichier du dépôt n'est modifié par les étapes 3-5 : seule une validation positive (étape 2) touche `news.json`.
 
+## Publication automatique (routine horaire)
+
+Depuis le 2026-10-19, la publication sur réponse n'est plus faite par la routine hebdomadaire (qui ne se réveille que le lundi 8h UTC : une réponse arrivée le lundi à 10h attendait une semaine, puis dépassait le délai de 4 jours) mais par une routine séparée, **`agentnews — publication sur reponse OUI`**, qui tourne **toutes les heures** (minute 17). Elle cherche les fils `Agentnews proposition` des 10 derniers jours (recherche par mots-clés, corbeille incluse), vérifie qu'une réponse positive d'un validateur autorisé est arrivée dans les 4 jours, que le titre FR n'est pas déjà dans `news.json` (anti-doublon), puis ajoute les deux entrées pinned, commit, pousse sur `main` et répond dans le fil. La publication suit donc un « OUI » d'au plus une heure.
+
+La routine hebdomadaire ne fait plus que la veille et l'envoi de la proposition (étapes 3 à 5) ; elle ne modifie aucun fichier. Le format des blocs de l'email (`Titre (FR) :`, `Résumé court (FR) :`, `Texte complet (FR) :`, etc.) est relu tel quel par la routine de publication : ne pas le changer sans adapter celle-ci. Toute note de bas de mail doit figurer après la ligne « Répondez OUI ».
+
 ## Thèmes de recherche
 
 | Catégorie | Mots-clés |
