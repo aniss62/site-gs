@@ -349,5 +349,82 @@
     "contact_title": "Contact",
     "rights": "All rights reserved.",
     "made_in": "Made in Morocco"
+  },
+  "markets_pages": {
+    "common": {
+      "hero_tag": "Markets",
+      "benefits_title": "Key points",
+      "other_title": "Other markets",
+      "cta_title": "A project in this sector?",
+      "cta_sub": "Tell us about your needs: our team will reply with a technical data sheet and a tailored quote.",
+      "cta_btn": "Contact our team",
+      "all": "All applications"
+    },
+    "food": {
+      "title": "Food industry",
+      "sub": "A natural ingredient for the food industry",
+      "p1": "Carob powder replaces some or all of the cocoa in chocolate, pastries, biscuits and confectionery. Naturally sweet and caffeine-free, it helps reduce added sugar.",
+      "p2": "Locust bean gum (E410), extracted from the seeds, is a well-established thickener and stabiliser: ice cream, sauces, dairy products and bakery rely on it for texture and stability.",
+      "p3": "We export from the Saïss region with technical data sheets, full traceability and packaging suited to industrial buyers.",
+      "b1": "Cocoa substitute",
+      "b2": "E410 thickener",
+      "b3": "High in fibre",
+      "alt": "Farine et gousses de caroube"
+    },
+    "sports": {
+      "title": "Sports nutrition",
+      "sub": "Natural energy for performance",
+      "p1": "Carob flour fits into energy bars, drinks and sports preparations as a cocoa alternative, free of caffeine and theobromine.",
+      "p2": "A source of fibre and minerals, it suits vegan and gluten-free formulas, increasingly sought after by sports nutrition brands.",
+      "p3": "We support formulators with batch-to-batch consistent products and specifications adapted to their processes.",
+      "b1": "Caffeine-free",
+      "b2": "Vegan and gluten-free",
+      "b3": "Fibre and minerals",
+      "alt": "Gousses, farine et dérivés de caroube"
+    },
+    "pharma": {
+      "title": "Pharmaceutical",
+      "sub": "Plant-based excipients",
+      "p1": "Carob seeds yield a galactomannan gum used as a binder and texturing agent in tablets and oral dosage forms.",
+      "p2": "The pulp, rich in fibre and tannins, is traditionally used in herbal medicine for its astringent properties and its effect on digestive comfort.",
+      "p3": "Our lots come with the documentation buyers in this sector need. Country-specific regulatory requirements should be confirmed with our team.",
+      "b1": "Binder and excipient",
+      "b2": "Plant origin",
+      "b3": "Documentation supplied",
+      "alt": "Graines de caroube"
+    },
+    "cosmetic": {
+      "title": "Cosmetics",
+      "sub": "A natural active for skincare",
+      "p1": "Carob extracts are used in skin and hair care for their polyphenols, which have antioxidant properties.",
+      "p2": "Locust bean gum acts as a texturing and stabilising agent in creams, lotions and gels, with a plant origin valued by natural cosmetics brands.",
+      "p3": "We supply traceable raw materials suited to the specifications of formulators and laboratories.",
+      "b1": "Natural antioxidant",
+      "b2": "Plant-based texturiser",
+      "b3": "Traceable material",
+      "alt": "Caroube pour la cosmétique"
+    },
+    "feed": {
+      "title": "Animal feed",
+      "sub": "Natural energy for livestock",
+      "p1": "Rich in natural sugars and fibre, carob pulp is a valued energy source in rations for cattle, sheep, goats and poultry.",
+      "p2": "Combined with our oilcakes, molasses and supplements, it offers a plant-based alternative to certain synthetic additives.",
+      "p3": "Delivery in bags, big bags or bulk, with documentation suited to import and export.",
+      "b1": "Natural sugars and fibre",
+      "b2": "Cattle, sheep, goats, poultry",
+      "b3": "Bulk or big bags",
+      "alt": "Alimentation animale, élevage au Maroc"
+    },
+    "petfood": {
+      "title": "Petfood",
+      "sub": "A natural ingredient for pets",
+      "p1": "Carob is used in kibble, treats and supplements for dogs and cats, providing fibre and a naturally mild sweetness.",
+      "p2": "Its soluble fibres support the animal's digestive comfort, and its gum improves the texture of wet recipes.",
+      "p3": "We supply petfood manufacturers with selected, graded products packed to their requirements.",
+      "b1": "Soluble fibres",
+      "b2": "Natural flavour",
+      "b3": "Recipe texture",
+      "alt": "Gousses de caroube pour petfood"
+    }
   }
 }

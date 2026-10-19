@@ -349,5 +349,82 @@
     "contact_title": "Contact",
     "rights": "Tous droits réservés.",
     "made_in": "Fabriqué au Maroc"
+  },
+  "markets_pages": {
+    "common": {
+      "hero_tag": "Marchés",
+      "benefits_title": "Points clés",
+      "other_title": "Autres marchés",
+      "cta_title": "Un projet dans ce secteur ?",
+      "cta_sub": "Parlez-nous de vos besoins : notre équipe vous répond avec une fiche technique et un devis personnalisé.",
+      "cta_btn": "Contacter notre équipe",
+      "all": "Toutes les applications"
+    },
+    "food": {
+      "title": "Agroalimentaire",
+      "sub": "Le cacao naturel de la filière alimentaire",
+      "p1": "La poudre de caroube remplace tout ou partie du cacao dans les chocolats, pâtisseries, biscuits et confiseries. Naturellement sucrée et sans caféine, elle permet de réduire le sucre ajouté.",
+      "p2": "La gomme de caroube (E410), extraite des graines, est un épaississant et stabilisant reconnu : crèmes glacées, sauces, produits laitiers et boulangerie lui doivent texture et tenue.",
+      "p3": "Nous exportons depuis la région du Saïss, avec des fiches techniques, une traçabilité complète et des conditionnements adaptés aux industriels.",
+      "b1": "Substitut du cacao",
+      "b2": "Épaississant E410",
+      "b3": "Riche en fibres",
+      "alt": "Farine et gousses de caroube"
+    },
+    "sports": {
+      "title": "Nutrition sportive",
+      "sub": "Une énergie naturelle pour l'effort",
+      "p1": "La farine de caroube s'intègre dans les barres énergétiques, boissons et préparations pour sportifs comme alternative au cacao, sans caféine ni théobromine.",
+      "p2": "Source de fibres et de minéraux, elle convient aux formules végétaliennes et sans gluten, de plus en plus recherchées par les marques de nutrition sportive.",
+      "p3": "Nous accompagnons les formulateurs avec des produits constants d'un lot à l'autre et des spécifications adaptées à leurs process.",
+      "b1": "Sans caféine",
+      "b2": "Végétalien et sans gluten",
+      "b3": "Fibres et minéraux",
+      "alt": "Gousses, farine et dérivés de caroube"
+    },
+    "pharma": {
+      "title": "Pharmaceutique",
+      "sub": "Des excipients d'origine végétale",
+      "p1": "Les graines de caroube fournissent une gomme galactomannane utilisée comme liant et agent de texture dans la fabrication de comprimés et de formes orales.",
+      "p2": "La pulpe, riche en fibres et en tanins, est traditionnellement employée en phytothérapie pour ses propriétés adstringentes et son action sur le confort digestif.",
+      "p3": "Nos lots sont accompagnés de la documentation nécessaire aux acheteurs du secteur. Les exigences réglementaires propres à chaque pays restent à valider avec notre équipe.",
+      "b1": "Liant et excipient",
+      "b2": "Origine végétale",
+      "b3": "Documentation fournie",
+      "alt": "Graines de caroube"
+    },
+    "cosmetic": {
+      "title": "Cosmétique",
+      "sub": "Un actif naturel pour les soins",
+      "p1": "Les extraits de caroube sont utilisés dans les soins de la peau et des cheveux pour leurs polyphénols aux propriétés antioxydantes.",
+      "p2": "La gomme de caroube sert d'agent texturant et stabilisant dans les crèmes, lotions et gels, avec une origine végétale appréciée des marques de cosmétique naturelle.",
+      "p3": "Nous fournissons des matières premières traçables, adaptées aux cahiers des charges des formulateurs et des laboratoires.",
+      "b1": "Antioxydant naturel",
+      "b2": "Texturant végétal",
+      "b3": "Matière traçable",
+      "alt": "Caroube pour la cosmétique"
+    },
+    "feed": {
+      "title": "Alimentation animale",
+      "sub": "Une énergie naturelle pour l'élevage",
+      "p1": "Riche en sucres naturels et en fibres, la pulpe de caroube est une source d'énergie appréciée dans les rations des bovins, ovins, caprins et de la volaille.",
+      "p2": "Associée à nos tourteaux, mélasses et compléments, elle offre une alternative d'origine végétale à certains additifs de synthèse.",
+      "p3": "Livraison en sacs, big bags ou vrac, avec une documentation adaptée à l'import et à l'export.",
+      "b1": "Sucres naturels et fibres",
+      "b2": "Bovins, ovins, caprins, volaille",
+      "b3": "Vrac ou big bags",
+      "alt": "Alimentation animale, élevage au Maroc"
+    },
+    "petfood": {
+      "title": "Petfood",
+      "sub": "Un ingrédient naturel pour animaux de compagnie",
+      "p1": "La caroube entre dans la composition de croquettes, friandises et compléments pour chiens et chats, où elle apporte des fibres et une saveur naturellement douce.",
+      "p2": "Ses fibres solubles contribuent au confort digestif de l'animal, et sa gomme améliore la texture des recettes humides.",
+      "p3": "Nous livrons des fabricants de petfood avec des produits sélectionnés, calibrés et conditionnés selon leurs besoins.",
+      "b1": "Fibres solubles",
+      "b2": "Saveur naturelle",
+      "b3": "Texture des recettes",
+      "alt": "Gousses de caroube pour petfood"
+    }
   }
 }
