@@ -823,3 +823,26 @@ body.menu-open .gsbot { display: none; }
 .page-about .story-hero__text { margin-top: 1.25rem; }
 .page-about .img-text-section__body p { margin-bottom: .75rem; }
 @media (max-width: 768px) { .page-about { --section-py: 2.5rem; } }
+
+/* Page À propos : feuilles de caroubier très discrètes, dispersées au milieu de la page */
+.page-about #main { position: relative; }
+.page-about #main > * { position: relative; z-index: 1; }
+.page-about #main::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .11;
+  background-repeat: no-repeat;
+  background-image:
+    url("../images/feuille-caroubier.svg"),
+    url("../images/feuille-caroubier-2.svg"),
+    url("../images/feuille-caroubier-3.svg"),
+    url("../images/feuille-caroubier.svg"),
+    url("../images/feuille-caroubier-2.svg"),
+    url("../images/feuille-caroubier-3.svg");
+  background-size: 170px auto, 150px auto, 130px auto, 140px auto, 170px auto, 150px auto;
+  background-position: 12% 77%, 47% 37%, 34% 55%, 88% 64%, 86% 90%, 8% 90%;
+}
+@media (max-width: 768px) {
+  .page-about #main::before { background-size: 100px auto, 90px auto, 80px auto, 90px auto, 100px auto, 90px auto; opacity: .09; }
+}
+
+/* Page À propos : chapô centré */
+.page-about .page-intro__lead { text-align: center; margin-inline: auto; }
