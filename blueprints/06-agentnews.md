@@ -62,7 +62,10 @@ Texte complet (FR) :
 Le texte corrigé, sur plusieurs paragraphes si besoin.
 ```
 
+Variante plus simple : copier-coller **toute la section « Proposition de la semaine »** du mail (titres, résumés courts et textes complets FR et EN), la modifier directement, et la placer sous le « OUI ». Les lignes `Source :`, `Lien :`, `Date de publication :`, `Répondez OUI…` et toute note de bas de mail sont reconnues comme des terminateurs de bloc et ne passent jamais dans le texte publié. Un bloc collé identique à l'original n'est pas compté comme une correction.
+
 Règles appliquées par la routine horaire :
+- Un titre (`Titre (FR) :` / `Titre (EN) :`) tient sur une seule ligne : seule la première ligne est reprise.
 - Seuls les 6 blocs `Titre (FR) :`, `Titre (EN) :`, `Résumé court (FR) :`, `Texte complet (FR) :`, `Résumé court (EN) :`, `Texte complet (EN) :` sont lus ; l'étiquette est tolérante à la casse, aux accents et à l'espace avant les deux-points.
 - Un bloc va de son étiquette à l'étiquette suivante (ou à la fin du texte nouveau, avant la citation du mail d'origine). Il remplace le champ correspondant ; les champs non recopiés restent ceux du mail d'origine.
 - Le texte corrigé est repris mot pour mot, sans reformulation. La source et la date ne sont pas modifiables.
