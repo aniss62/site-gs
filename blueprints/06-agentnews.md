@@ -51,6 +51,24 @@ Depuis le 2026-10-19, la publication sur réponse n'est plus faite par la routin
 
 La routine hebdomadaire ne fait plus que la veille et l'envoi de la proposition (étapes 3 à 5) ; elle ne modifie aucun fichier. Le format des blocs de l'email (`Titre (FR) :`, `Résumé court (FR) :`, `Texte complet (FR) :`, etc.) est relu tel quel par la routine de publication : ne pas le changer sans adapter celle-ci. Toute note de bas de mail doit figurer après la ligne « Répondez OUI ».
 
+### Corrections de texte dans la réponse
+
+Depuis le 2026-10-20, la réponse de validation peut corriger le texte à publier. Le mot de validation (oui, yes, publie, go, ok) est écrit en premier, puis, optionnellement, un ou plusieurs blocs étiquetés exactement comme dans le mail de proposition :
+
+```
+OUI
+
+Texte complet (FR) :
+Le texte corrigé, sur plusieurs paragraphes si besoin.
+```
+
+Règles appliquées par la routine horaire :
+- Seuls les 6 blocs `Titre (FR) :`, `Titre (EN) :`, `Résumé court (FR) :`, `Texte complet (FR) :`, `Résumé court (EN) :`, `Texte complet (EN) :` sont lus ; l'étiquette est tolérante à la casse, aux accents et à l'espace avant les deux-points.
+- Un bloc va de son étiquette à l'étiquette suivante (ou à la fin du texte nouveau, avant la citation du mail d'origine). Il remplace le champ correspondant ; les champs non recopiés restent ceux du mail d'origine.
+- Le texte corrigé est repris mot pour mot, sans reformulation. La source et la date ne sont pas modifiables.
+- Le caractère positif de la réponse est jugé uniquement sur le texte situé avant la première étiquette : un « oui » ou « ok » dans un texte corrigé ne valide rien.
+- Si plusieurs réponses positives existent dans le fil, la plus ancienne fait foi. La réponse de confirmation de la routine liste les champs corrigés.
+
 ## Thèmes de recherche
 
 | Catégorie | Mots-clés |
@@ -76,6 +94,8 @@ Le corps contient deux sections distinctes :
 - un **texte complet** (≈300-500 mots, plusieurs paragraphes, factuel, basé sur les faits trouvés en recherche) — deviendra le champ `content` de `news.json`, affiché uniquement dans la fenêtre modale quand le visiteur clique sur « Lire la suite », et devant se suffire à lui-même pour quelqu'un qui n'a pas accès à l'article original (terminer par une mention de la source).
 
 Puis, en clair : *« Répondez OUI à cet email pour publier cette actualité sur le site, ou ignorez ce message pour passer cette semaine. »*
+
+Puis, juste après (toujours en dessous de la ligne « Répondez OUI », jamais avant) : *« Pour modifier le texte avant publication, répondez OUI puis recopiez uniquement le ou les blocs à corriger avec leur étiquette (Titre (FR) :, Titre (EN) :, Résumé court (FR) :, Texte complet (FR) :, Résumé court (EN) :, Texte complet (EN) :). Les blocs non recopiés restent tels quels. »*
 
 ## Règle de validation et de dédoublonnage
 
