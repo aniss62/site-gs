@@ -72,6 +72,14 @@ Règles appliquées par la routine horaire :
 - Le caractère positif de la réponse est jugé uniquement sur le texte situé avant la première étiquette : un « oui » ou « ok » dans un texte corrigé ne valide rien.
 - Si plusieurs réponses positives existent dans le fil, la plus ancienne fait foi. La réponse de confirmation de la routine liste les champs corrigés.
 
+## Fraîcheur des sources
+
+Depuis le 2026-10-26, la règle s'applique au résumé hebdomadaire comme à la proposition (incident : un article FreshPlaza de juillet 2024 avait été présenté comme actualité de la semaine) :
+- Toute source citée doit avoir une date de publication **vérifiée dans le corps de l'article** (« Publication date », date de l'article). La date affichée dans l'en-tête ou le bandeau d'une page (souvent celle du jour) et l'absence de date dans un résultat de recherche ne prouvent rien.
+- Une source de plus de 30 jours est écartée du résumé. Si elle reste utile comme contexte, elle est signalée explicitement « plus ancien » avec sa date, et jamais présentée comme « cette semaine » ou « cette année ».
+- Dans la liste des sources en bas du résumé, chaque source porte sa date de publication.
+- L'article de la proposition a moins de 30 jours, sans exception.
+
 ## Thèmes de recherche
 
 | Catégorie | Mots-clés |
