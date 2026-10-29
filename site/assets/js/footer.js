@@ -57,7 +57,7 @@
     +     '</nav>'
 
     +     '<div class="ft__col ft__contact">'
-    +       '<p class="ft__addr"><strong>Les Greniers du Sa&iuml;ss</strong><br>Lot 60, Q.I. Ouafae, Bensouda<br>F&egrave;s, ' + t('Maroc', 'Morocco') + '</p>'
+    +       '<p class="ft__addr"><strong>Les Greniers du Sa&iuml;ss</strong><br>Lot N&ordm; 61, Quartier Industriel, Bensouda<br>F&egrave;s, ' + t('Maroc', 'Morocco') + '</p>'
     +       '<a class="ft__line" href="tel:+212535729082">'
     +         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>'
     +         '+212 5 35 72 90 82</a>'

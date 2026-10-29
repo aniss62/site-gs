@@ -102,7 +102,7 @@
       <h4 data-i18n="footer.contact_title">Contact</h4>
       <div class="footer__contact-item">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <span>LOT 60, Quartier Industriel Ouafae, Bensouda - 30006 Fès, Maroc</span>
+        <span>Lot Nº 61, Quartier Industriel, Bensouda 30000 Fès, Maroc - B.P 5153, Fès 30030</span>
       </div>
       <div class="footer__contact-item">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>

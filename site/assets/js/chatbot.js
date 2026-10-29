@@ -77,8 +77,8 @@
     { id: 'quote',
       q: ['Comment demander un devis ou vous contacter ?', 'How can I request a quote or contact you?'],
       k: 'devis contact contacter commande commander prix tarif adresse telephone email mail joindre quote contact order price phone address reach',
-      a: ["Écrivez-nous à " + EMAIL + " ou appelez le " + PHONE + ". Vous pouvez aussi utiliser le formulaire de contact du site : nous répondons dans les 24-48 h. Adresse : LOT 60, Quartier Industriel Ouafae, Bensouda, 30006 Fès, Maroc.",
-          "Write to us at " + EMAIL + " or call " + PHONE + ". You can also use the contact form on the website: we reply within 24-48 hours. Address: LOT 60, Quartier Industriel Ouafae, Bensouda, 30006 Fès, Morocco."],
+      a: ["Écrivez-nous à " + EMAIL + " ou appelez le " + PHONE + ". Vous pouvez aussi utiliser le formulaire de contact du site : nous répondons dans les 24-48 h. Adresse : Lot Nº 61, Quartier Industriel, Bensouda 30000 Fès, Maroc, B.P 5153, Fès 30030.",
+          "Write to us at " + EMAIL + " or call " + PHONE + ". You can also use the contact form on the website: we reply within 24-48 hours. Address: Lot No. 61, Quartier Industriel, Bensouda 30000 Fès, Morocco, P.O. Box 5153, Fès 30030."],
       l: ['contact.html', 'Page Contact', 'Contact page'] }
   ];
 
