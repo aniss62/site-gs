@@ -195,12 +195,13 @@
     },
     "cereals": {
       "hero_title": "Cereals",
-      "hero_sub": "Import-export trading of wheat, barley and corn",
-      "desc": "Les Greniers du Saïss operates as an import-export trader of cereals such as wheat, barley and corn: we buy, store and resell on domestic and international markets, according to strict quality and traceability criteria. We support millers, animal feed manufacturers and traders, on both import and export, with volumes suited to each market.",
+      "hero_sub": "Import-export trading of wheat, barley, corn and millet",
+      "desc": "Les Greniers du Saïss operates as an import-export trader of cereals such as wheat, barley, corn and millet: we buy, store and resell on domestic and international markets, according to strict quality and traceability criteria. We support millers, animal feed manufacturers and traders, on both import and export, with volumes suited to each market.",
       "varieties_title": "Our Available Varieties",
       "var_wheat": "Wheat",
       "var_barley": "Barley",
       "var_corn": "Corn",
+      "var_millet": "Millet",
       "spec_packaging": "25 kg or 50 kg bags, 1,000 kg big bags, also available in bulk for industrial volumes."
     },
     "epices": {

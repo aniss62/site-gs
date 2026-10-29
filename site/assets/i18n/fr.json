@@ -195,12 +195,13 @@
     },
     "cereals": {
       "hero_title": "Céréales",
-      "hero_sub": "Négoce import-export de blé, orge et maïs",
-      "desc": "Les Greniers du Saïss opère en négoce import-export de céréales telles que le blé, l'orge et le maïs : nous achetons, stockons et revendons sur les marchés national et international, selon des critères stricts de qualité et de traçabilité. Nous accompagnons meuniers, industriels de l'alimentation animale et négociants, à l'import comme à l'export, avec des volumes adaptés à chaque marché.",
+      "hero_sub": "Négoce import-export de blé, orge, maïs et millet",
+      "desc": "Les Greniers du Saïss opère en négoce import-export de céréales telles que le blé, l'orge, le maïs et le millet : nous achetons, stockons et revendons sur les marchés national et international, selon des critères stricts de qualité et de traçabilité. Nous accompagnons meuniers, industriels de l'alimentation animale et négociants, à l'import comme à l'export, avec des volumes adaptés à chaque marché.",
       "varieties_title": "Nos variétés disponibles",
       "var_wheat": "Blé",
       "var_barley": "Orge",
       "var_corn": "Maïs",
+      "var_millet": "Millet",
       "spec_packaging": "Sacs de 25 kg, 50 kg ou big bags de 1 000 kg, également disponible en vrac pour les volumes industriels."
     },
     "epices": {
