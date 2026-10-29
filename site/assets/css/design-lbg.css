@@ -768,7 +768,7 @@ body.menu-open { overflow: hidden; }
 /* onglets : seuls les coins du haut sont arrondis */
 .tabs__tab { border-radius: var(--r) var(--r) 0 0 !important; }
 /* carte de la page Contact */
-div:has(> iframe[src*="openstreetmap"]), iframe[src*="openstreetmap"] { border-radius: var(--r) !important; overflow: hidden; }
+div:has(> iframe[src*="google.com/maps"]), iframe[src*="google.com/maps"] { border-radius: var(--r) !important; overflow: hidden; }
 
 /* ============================================================
    ACCESSIBILITÉ (audit UI/UX) : contrastes, cibles tactiles, lien d'évitement
