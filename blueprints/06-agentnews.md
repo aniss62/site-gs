@@ -117,6 +117,14 @@ Depuis le 2026-10-26, règle appliquée à toute source citée dans le mail (inc
 
 Les « futures lignes de produits » sont traitées à égalité avec les produits déjà présents sur le site : elles n'ont pas encore de page dédiée, mais l'activité de l'entreprise les couvre déjà.
 
+## Salons majeurs (depuis le 2026-11-23)
+
+Constat : Fi Europe 2026 (Francfort, du 17 au 19 novembre 2026, dates à reconfirmer à la source) n'a jamais été proposé alors que ce salon réunit les ingrédients (dont la gomme de caroube E410) et l'alimentation animale. Le thème « salons professionnels » n'avait pas de liste de salons ni de règle.
+
+- **Salons à surveiller chaque semaine** : Fi Europe (prochaine édition à Paris, du 30 novembre au 2 décembre 2027, à reconfirmer), Africa Food Show Morocco, SIAM (Meknès, avril 2027), SIAL, Anuga, Gulfood et Gulfood Manufacturing, ainsi que tout salon d'ingrédients ou d'alimentation animale d'envergure internationale. Liste à compléter avec les salons que le propriétaire du site indique.
+- **Règle** : un grand salon terminé depuis moins de 30 jours, ou qui débute dans les 30 prochains jours, est un candidat prioritaire (au même niveau que la caroube, après elle en cas de conflit). Chercher le salon lui-même (nom + année + « exhibitors », « highlights », « locust bean gum », « animal feed »), jamais en y accolant « Morocco » (ce mot réduit les résultats à des pages d'exposants marocains).
+- **Dates** : les dates d'un salon se vérifient sur le site officiel ou dans deux sources concordantes, comme toute autre source.
+
 ## Priorité caroube (depuis le 2026-11-23)
 
 Constat (journal de la routine du 2026-11-23) : l'actualité caroube est rare, les requêtes génériques ramènent surtout des pages intemporelles (rapports de marché, fiches produit, articles anciens), et la routine ne peut pas ouvrir la plupart des sites de presse depuis son environnement cloud, donc elle ne peut pas confirmer les dates. Résultat : aucun article caroube n'était proposé depuis septembre.
@@ -126,6 +134,8 @@ Constat (journal de la routine du 2026-11-23) : l'actualité caroube est rare, l
   - `caroube` / `caroubier` avec `site:` sur lematin.ma, le360.ma, hespress.com, agrimaroc.ma, moroccoworldnews.com ;
   - `carob` / `locust bean gum` / `carob flour` avec `site:` sur freshplaza.com, foodingredientsfirst.com, nutraingredients.com, confectionerynews.com ;
   - noms d'acteurs de la filière (par exemple Nexira / Keragum, signalés dans la recherche du 2026-11-23) et `Morocco carob exports`.
+- **Couverture mondiale** (la caroube est le produit phare : en voir le maximum) : chercher aussi hors du Maroc, dans les pays producteurs, transformateurs et consommateurs, et dans leurs langues, avec les mêmes requêtes sans mois ni année : espagnol (`algarroba`, `garrofa`, `harina de algarroba`), portugais (`alfarroba`), italien (`carruba`, `farina di carruba`), grec (`χαρούπι`), turc (`keçiboynuzu`), arabe (`خروب`), anglais (`carob`, `locust bean gum`, `carob syrup`, `carob kibbles`, `carob powder`). Pays à couvrir : Espagne, Portugal, Italie, Grèce, Chypre, Turquie, Algérie, Tunisie, Maroc, États-Unis, Australie, Israël. Sujets : production et récoltes, prix, exportations, gomme E410 et épaississants (marché, prix, pénuries), substituts du cacao (la tension sur le cacao relance la caroube), santé et études scientifiques, produits nouveaux (chocolat sans cacao, farines, sirops), réglementation (UE, Maroc), acquisitions et investissements, salons.
+- **Autres actualités caroube** : parmi tout ce qui est trouvé, UNE actualité est proposée (la plus pertinente pour l'activité, ou la plus récente à pertinence égale) ; toutes les autres actualités caroube de moins de 60 jours sont listées dans la rubrique « Autres actualités caroube repérées (non proposées) » du mail (voir « Format de l'email »). Une actualité déjà publiée sur le site ou déjà proposée n'est pas répétée.
 - **Dates quand l'article est illisible** : si l'ouverture de la page échoue (domaine bloqué), la date doit apparaître dans l'extrait du résultat de recherche ou dans l'URL (ex. `/2026/11/`). Sans date visible, la source n'est pas retenue : une deuxième source datée concordante peut la confirmer.
 - **Réseau** : la routine ne peut ouvrir que les domaines autorisés dans les paramètres réseau de son environnement claude.ai. Pour vérifier les dates à la source, ajouter à cette liste au moins : lematin.ma, le360.ma, hespress.com, agrimaroc.ma, moroccoworldnews.com, freshplaza.com, foodingredientsfirst.com, nutraingredients.com, confectionerynews.com. Tant que ce n'est pas fait, la limite ci-dessus s'applique.
 
@@ -147,6 +157,8 @@ Puis, juste après (toujours en dessous de la ligne « Répondez OUI », jamais 
 3. *« La publication est automatique dans l'heure qui suit un OUI (dans les 4 jours). »*
 
 Enfin, après ces consignes, la liste **« Sources, à titre de vérification »** : pour chaque source ayant servi à rédiger la proposition, nom du média, lien et date de publication vérifiée. Ce sont des liens de référence, pas des actions à faire. Cette liste doit rester sous la ligne « Répondez OUI » pour ne jamais être lue comme un bloc de texte à publier.
+
+Puis, depuis le 2026-11-23, la liste **« Autres actualités caroube repérées (non proposées) »** : toutes les actualités caroube de moins de 60 jours trouvées cette semaine dans le monde et non retenues pour la proposition, une ligne chacune (titre, média, date de publication vérifiée, lien, une phrase de contexte). Elle sert d'information et reste, comme la liste des sources, sous la ligne « Répondez OUI » : elle n'est jamais publiée et n'a aucune étiquette de bloc. S'il n'y en a pas, écrire « Aucune autre actualité caroube confirmée cette semaine ».
 
 ## Règle de validation et de dédoublonnage
 
