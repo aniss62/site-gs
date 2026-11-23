@@ -105,17 +105,29 @@ Depuis le 2026-10-26, règle appliquée à toute source citée dans le mail (inc
 - Toute source citée doit avoir une date de publication **vérifiée dans le corps de l'article** (« Publication date », date de l'article). La date affichée dans l'en-tête ou le bandeau d'une page (souvent celle du jour) et l'absence de date dans un résultat de recherche ne prouvent rien.
 - Une source de plus de 30 jours est écartée. Si elle est citée malgré tout pour le contexte, elle est signalée explicitement « plus ancien » avec sa date, et jamais présentée comme « cette semaine » ou « cette année ».
 - Dans la liste des sources de vérification, chaque source porte sa date de publication.
-- L'article de la proposition a moins de 30 jours, sans exception.
+- L'article de la proposition a moins de 30 jours, sans exception, hormis l'unique dérogation caroube (voir « Priorité caroube » : 60 jours, date vérifiée et affichée).
 
 ## Thèmes de recherche
 
 | Catégorie | Mots-clés |
 |---|---|
 | Produits existants | caroube / carob, gomme de caroube (E410, locust bean gum), pulpe de caroube (carob pulp), légumineuses (lentilles, pois chiches, fèves, haricots, pois secs) |
-| Futures lignes de produits | aliment de bétail / animal feed (tourteaux, mélasse, compléments énergétiques bovins/ovins/caprins/volaille), céréales / cereals (blé, orge, maïs — import-export, cours mondiaux, récoltes Maroc) |
+| Futures lignes de produits | aliment de bétail / animal feed (tourteaux, pulpe de betterave, luzerne, son de blé, paille, bovins/ovins/caprins/volaille), céréales / cereals (blé, orge, maïs — import-export, cours mondiaux, récoltes Maroc) |
 | Marché / secteur | export agroalimentaire Maroc, filière caroubier marocaine, réglementation export agricole Maroc/UE, salons professionnels (SIAL, Anuga, Gulfood), tendances substituts du cacao et ingrédients sans gluten |
 
 Les « futures lignes de produits » sont traitées à égalité avec les produits déjà présents sur le site : elles n'ont pas encore de page dédiée, mais l'activité de l'entreprise les couvre déjà.
+
+## Priorité caroube (depuis le 2026-11-23)
+
+Constat (journal de la routine du 2026-11-23) : l'actualité caroube est rare, les requêtes génériques ramènent surtout des pages intemporelles (rapports de marché, fiches produit, articles anciens), et la routine ne peut pas ouvrir la plupart des sites de presse depuis son environnement cloud, donc elle ne peut pas confirmer les dates. Résultat : aucun article caroube n'était proposé depuis septembre.
+
+- **Priorité** : si un article sur la caroube (caroube, caroubier, farine ou pulpe de caroube, gomme E410 / locust bean gum, substitut du cacao à base de caroube) publié il y a **moins de 60 jours**, non déjà publié ni proposé, est confirmé, il est proposé **avant** les autres thèmes. C'est la seule dérogation à la règle des 30 jours : sa date de publication vérifiée est écrite dans le texte et dans la liste des sources (« publié le JJ/MM/AAAA »), jamais « cette semaine ». Au-delà de 60 jours, ou si la date n'est pas vérifiée, l'article est écarté comme les autres.
+- **Recherches caroube ciblées, à lancer chaque semaine avant les autres thèmes** (FR et EN, sans mois ni année dans la requête, qui orientent vers des pages datées ; mode `extended` autorisé pour celles-ci) :
+  - `caroube` / `caroubier` avec `site:` sur lematin.ma, le360.ma, hespress.com, agrimaroc.ma, moroccoworldnews.com ;
+  - `carob` / `locust bean gum` / `carob flour` avec `site:` sur freshplaza.com, foodingredientsfirst.com, nutraingredients.com, confectionerynews.com ;
+  - noms d'acteurs de la filière (par exemple Nexira / Keragum, signalés dans la recherche du 2026-11-23) et `Morocco carob exports`.
+- **Dates quand l'article est illisible** : si l'ouverture de la page échoue (domaine bloqué), la date doit apparaître dans l'extrait du résultat de recherche ou dans l'URL (ex. `/2026/11/`). Sans date visible, la source n'est pas retenue : une deuxième source datée concordante peut la confirmer.
+- **Réseau** : la routine ne peut ouvrir que les domaines autorisés dans les paramètres réseau de son environnement claude.ai. Pour vérifier les dates à la source, ajouter à cette liste au moins : lematin.ma, le360.ma, hespress.com, agrimaroc.ma, moroccoworldnews.com, freshplaza.com, foodingredientsfirst.com, nutraingredients.com, confectionerynews.com. Tant que ce n'est pas fait, la limite ci-dessus s'applique.
 
 ## Format de l'email
 
